@@ -20,6 +20,7 @@ public class Rol {
     }
 
     public Rol() {
+        System.out.println("uwu");
     }
 
     //getters
