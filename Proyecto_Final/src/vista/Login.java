@@ -6,7 +6,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -46,11 +45,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     public JLabel getjLabel1() {
-        return jLabel1;
+        return lbl_fondo;
     }
 
     public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
+        this.lbl_fondo = jLabel1;
     }
 
     public JLabel getjLabel2() {
@@ -89,6 +88,7 @@ public class Login extends javax.swing.JFrame {
         LblFondo = new javax.swing.JLabel();
         txt_Password = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO AL SISTEMA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 280, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 280, 40));
         getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 180, 30));
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -119,10 +119,10 @@ public class Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 100, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 30));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.png"))); // NOI18N
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 120, 110));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 180, 130));
 
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +131,12 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 180, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-vector-texturas-background.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 420));
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setText("holaaa");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 150, -1));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-vector-texturas-background.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,10 +149,6 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbIngresarActionPerformed
 
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -189,6 +189,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbIngresar;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JPasswordField txt_Password;
     // End of variables declaration//GEN-END:variables
 }
