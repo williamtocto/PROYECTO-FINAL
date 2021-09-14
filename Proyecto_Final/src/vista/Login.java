@@ -132,8 +132,8 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 180, 30));
 
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel1.setText("holaaa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 150, -1));
+        jLabel1.setText("¿qué taaaaal?");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 150, 20));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-vector-texturas-background.jpg"))); // NOI18N
         getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 460));

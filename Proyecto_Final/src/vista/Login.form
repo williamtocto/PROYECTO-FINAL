@@ -136,11 +136,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="holaaa"/>
+        <Property name="text" type="java.lang.String" value="&#xbf;qu&#xe9; taaaaal?"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="350" width="150" height="-1"/>
+          <AbsoluteConstraints x="150" y="350" width="150" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
