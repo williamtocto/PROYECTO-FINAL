@@ -20,7 +20,7 @@ public class Rol {
     }
 
     public Rol() {
-        System.out.println("uwu");
+        System.out.println("Olaaa de mar");
     }
 
     //getters
