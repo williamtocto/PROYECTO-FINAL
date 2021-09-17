@@ -60,11 +60,11 @@ public class Login extends javax.swing.JFrame {
         this.jLabel2 = jLabel2;
     }
 
-    public JButton getJbIngresar() {
+    public JButton getbtnIngresar() {
         return jbIngresar;
     }
 
-    public void setJbIngresar(JButton jbIngresar) {
+    public void setbtnIngresar(JButton jbIngresar) {
         this.jbIngresar = jbIngresar;
     }
 
@@ -95,7 +95,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO AL SISTEMA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 280, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 240, 40));
         getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 180, 30));
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -118,10 +118,10 @@ public class Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 30));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.png"))); // NOI18N
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 180, 130));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 140, 130));
 
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 180, 30));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-vector-texturas-background.jpg"))); // NOI18N
-        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 460));
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblContraseña;
     private javax.swing.JLabel LblFondo;
