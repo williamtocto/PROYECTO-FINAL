@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteTransacciones" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6339b21-db91-4f26-96ae-17c7b63ba0d5">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="69"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#99FFFF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="fecha_inicio" class="java.sql.Timestamp">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_fin" class="java.sql.Timestamp">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cedula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT s.codigo_socio,nombre_socio,apellido_socio,tipo_transaccion,numero_de_cuenta,fecha_trans,monto,saldo 
+                    FROM socio s, transaccion t where (fecha_trans) 
+                     between $P{fecha_inicio} and $P{fecha_fin} and s.codigo_socio=t.codigo_socio 
+                     and cedula_socio= $P{cedula} order by fecha_trans;]]>
+	</queryString>
+	<field name="codigo_socio" class="java.lang.Integer"/>
+	<field name="nombre_socio" class="java.lang.String"/>
+	<field name="apellido_socio" class="java.lang.String"/>
+	<field name="tipo_transaccion" class="java.lang.String"/>
+	<field name="numero_de_cuenta" class="java.lang.Integer"/>
+	<field name="fecha_trans" class="java.sql.Timestamp"/>
+	<field name="monto" class="java.lang.Double"/>
+	<field name="saldo" class="java.lang.Double"/>
+	<variable name="numero_de_cuenta_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{numero_de_cuenta}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" mode="Opaque" x="0" y="0" width="491" height="44" forecolor="#000000" backcolor="#99CCFF" uuid="082a645f-1202-4168-accb-c6f12db349c3"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="20" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[REPORTE TRANSACCIONES DEL SOCIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="52" width="86" height="20" uuid="afbc6b59-b41b-4129-892f-bbc1016ce555"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_socio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="17" y="52" width="66" height="20" backcolor="#99CCFF" uuid="01018d66-edc9-45b8-a12a-c472fd7a74f4"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="184" y="52" width="79" height="20" backcolor="#99CCFF" uuid="cc360af2-a7c7-4f5b-9e16-d9db7df6b0e5"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="263" y="52" width="100" height="20" uuid="dfa459ed-3299-40d8-982f-dcd10dd762fd"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido_socio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="52" width="45" height="20" backcolor="#99CCFF" uuid="4e963d34-5c3f-43e4-9698-8c4cd0578265"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="52" width="49" height="20" uuid="044b3706-5061-44a8-ab31-d9a3e0b2822b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_de_cuenta}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement positionType="Float" x="442" y="0" width="54" height="44" uuid="8cf351ba-9667-4a32-8117-88eeae3f6f68"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\dinero.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="399" y="0" width="76" height="44" uuid="91afbbd8-4ce1-486c-8ec1-19825775bbfb"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\usuario.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="518" y="6" width="67" height="33" uuid="f25dee27-7987-4d8f-9a10-5b0c1cc2de23"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\cooperativa(2).png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="486" y="11" width="69" height="33" uuid="9573726a-e983-47c4-b56e-6b9471bfe560"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\cooperativa.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="29" y="2" width="489" height="20" backcolor="#99CCFF" uuid="b83bf57b-2985-46ff-878f-114ce8e25068"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="333" y="2" width="65" height="20" uuid="d323d576-9753-4d9f-a7bf-d3db93909d13"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="2" width="53" height="20" uuid="b6db926f-3959-4813-9b79-d6a56c65251d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[SALDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="63" height="20" uuid="02e6381b-f7b2-46a7-bbbe-5a3b9a3da82d"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="2" width="66" height="20" uuid="cee0e254-b022-4ee5-b949-900f27a27777"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TIPO TRANS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="59" y="2" width="432" height="15" uuid="bdafe692-5ce4-428a-9a74-d71a40985d1a"/>
+			</frame>
+			<textField>
+				<reportElement x="59" y="2" width="96" height="20" uuid="0423d91d-92e1-4ef1-a03a-13ef10007df6"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo_transaccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="2" width="79" height="20" uuid="7cbc3b0c-99c4-4847-a37e-6e5f1dc0f481"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_trans}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="2" width="69" height="20" uuid="0ecd9857-5f61-436e-b66c-5e531f6b91ea"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="0" width="49" height="20" uuid="03e060ff-06d9-4b27-bf20-f7942f8b8eaa"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="13" width="555" height="24" forecolor="#333333" backcolor="#99CCFF" uuid="acfdf831-6899-4fe4-900f-9d250d709efd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="505" y="0" width="40" height="20" forecolor="#000000" uuid="6f2441fa-171a-4385-8640-ba0c61149daa"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="425" y="0" width="80" height="20" forecolor="#000000" uuid="cc198ed7-d946-41e3-9e7b-841c9cfc2cf2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#000000" uuid="5534003e-7b80-4a82-9a51-3f2cab7cc48a"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

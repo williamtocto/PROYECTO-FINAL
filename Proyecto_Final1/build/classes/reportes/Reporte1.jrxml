@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Socios" language="groovy" pageWidth="540" pageHeight="720" columnWidth="540" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="04d0641c-60c7-45b2-a36a-f6fe96f6e4a8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Text Body"/>
+	<parameter name="cedula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select codigo_socio,cedula_socio,nombre_socio,apellido_socio,direccion_socio,correo_socio,numero_de_cuenta,
+fecha_ingreso_socio from socio  where numero_de_cuenta <> 1001 AND estado_socio='true' order by fecha_ingreso_socio ;]]>
+	</queryString>
+	<field name="codigo_socio" class="java.lang.Integer"/>
+	<field name="cedula_socio" class="java.lang.String"/>
+	<field name="nombre_socio" class="java.lang.String"/>
+	<field name="apellido_socio" class="java.lang.String"/>
+	<field name="direccion_socio" class="java.lang.String"/>
+	<field name="correo_socio" class="java.lang.String"/>
+	<field name="numero_de_cuenta" class="java.lang.Integer"/>
+	<field name="fecha_ingreso_socio" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="15" width="341" height="31" backcolor="#FF9999" uuid="f641856d-ce38-42fd-a007-666dea48ee51"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE SOCIOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="450" y="15" width="71" height="47" uuid="3acab83d-437f-4dfa-9d7c-95d4a1219c32"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\logo reportes.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="253" y="0" width="79" height="47" uuid="feb9ea7a-f9ef-4b99-a3c0-8b392c466d2b"/>
+				<imageExpression><![CDATA["C:\\Users\\PCX\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Imagenes_reportes\\personas.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="2" width="540" height="20" backcolor="#FF9999" uuid="821209d7-a673-4626-8bec-73d5cd4307ae"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="186" y="2" width="62" height="18" forecolor="#FFFFFF" uuid="7156e26c-9c50-4690-b843-2e5320a4914f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="2" width="32" height="20" forecolor="#FFFFFF" uuid="839334d2-5c7a-418a-868c-5eb5e137a7c7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="2" width="56" height="18" forecolor="#FFFFFF" uuid="af8d9097-9642-4304-b04a-f06d32a0a830"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="2" width="69" height="20" forecolor="#FFFFFF" uuid="57b02db5-5a95-4ccf-bc2c-a47bd147b067"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="2" width="75" height="20" forecolor="#FFFFFF" uuid="3512fd0e-64da-4725-82b2-9ef8380c66e9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="2" width="63" height="20" forecolor="#FFFFFF" uuid="4f186310-6962-43a5-8b63-e66e0c644490"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="2" width="102" height="20" forecolor="#FFFFFF" uuid="e491672f-892a-49a8-924f-09fefd2e45ba"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA INGRESO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="186" y="2" width="50" height="17" uuid="6a085041-75cc-4636-a0e1-c00fd403d1f2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="3" width="21" height="17" uuid="9b36192d-1488-4737-b59e-af76c93a6622"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="2" width="56" height="17" uuid="3719a159-2115-4bcc-8f40-7df7dcbe8e1f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="2" width="69" height="16" uuid="52996f8d-d6b9-4ba8-a84d-68a44d8d2e7e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="35" height="20" uuid="4bda9435-afb1-4a4e-9baf-57d79c625e1b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_de_cuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="2" width="102" height="16" uuid="44d87eb9-e1f0-405d-813d-ae391013cc94"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_ingreso_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="3" width="75" height="17" uuid="8f055681-a046-4b2c-8665-2138e3c5db52"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion_socio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="419" y="3" width="100" height="20" uuid="781dbd81-b2c7-41c2-ba91-d0a23d47db77"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="186" y="3" width="80" height="20" backcolor="#FF9999" uuid="52194b82-0b28-479e-93a7-3ec63568cdbf"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="266" y="3" width="56" height="20" backcolor="#FF9999" uuid="88fd341e-322d-4dab-984e-1651f6fb951a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="17" splitType="Stretch"/>
+	</summary>
+</jasperReport>

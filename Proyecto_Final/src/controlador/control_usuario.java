@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Modelo_Usuario;
 import modelo.Usuario;
-import vista.Ventana_Principal1;
+import vista.Ventana_Principal;
 
 public class control_usuario {
 
@@ -32,7 +32,7 @@ public class control_usuario {
         Modelo_Usuario m=new Modelo_Usuario();
         m.Usuario(usuario, clave);
         if (usu.getCodig_rol()!=0 ) {
-            Ventana_Principal1 ven=new Ventana_Principal1(usu.getCodig_rol());
+            Ventana_Principal ven=new Ventana_Principal(usu.getCodig_rol());
         } 
         
             

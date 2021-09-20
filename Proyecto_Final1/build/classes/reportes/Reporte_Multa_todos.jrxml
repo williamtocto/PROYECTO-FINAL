@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAsistencia" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5aac1ea-4d03-4863-9c25-c3b3754c89ec">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="dataset1" uuid="be54d7f4-998e-49f9-aedb-5738cef8f4c3"/>
+	<parameter name="fecha_inicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cedula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  cedula_socio,nombre_socio,apellido_socio,fecha_reunion,m.estado_multa, m.codigo_multa from socio s,reunion r,asistencia a, multa m where  s.codigo_socio=a.codigo_socio_asis and m.codigo_asistencia=a.codigo_asistencia and m.estado_multa= $P{estado} and r.codigo_reunion=a.codigo_reunion and (fecha_reunion) between $P{fecha_inicio} and $P{fecha_fin} order by fecha_reunion;]]>
+	</queryString>
+	<field name="cedula_socio" class="java.lang.String"/>
+	<field name="nombre_socio" class="java.lang.String"/>
+	<field name="apellido_socio" class="java.lang.String"/>
+	<field name="fecha_reunion" class="java.sql.Date"/>
+	<field name="estado_multa" class="java.lang.String"/>
+	<field name="codigo_multa" class="java.lang.Integer"/>
+	<title>
+		<band height="73" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="69" backcolor="#006699" uuid="110d137a-5743-4f6e-8b7d-720b5741a9a4"/>
+				<staticText>
+					<reportElement x="186" y="11" width="483" height="43" forecolor="#FFFFFF" uuid="f4481127-83ad-4563-93ad-55023643b3ca"/>
+					<textElement textAlignment="Center">
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[REPORTE DE MULTAS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="31" y="11" width="89" height="20" forecolor="#006699" uuid="6ea2daab-f21e-412b-b3bf-31ab4c374c52"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CEDULA:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="11" width="118" height="20" forecolor="#006699" uuid="de463058-a7a9-46d2-84b5-cada15124486"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NOMBRE:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="11" width="118" height="20" forecolor="#006699" uuid="bd42b54b-de7e-49ed-8201-8f044967a944"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["APELLIDO:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="11" width="118" height="20" forecolor="#006699" uuid="26a17893-88cc-4bc3-a47a-c7338e301536"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FECHA:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="627" y="11" width="118" height="20" forecolor="#006699" uuid="a829b4da-7929-4454-82b1-b4541c510bf3"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ESTADO:"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="31" y="41" width="703" height="1" uuid="90b56cd0-b17a-4e32-a054-cf797bec156a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="31" y="0" width="100" height="20" uuid="f0da522a-d567-43c1-98ff-2ce6915889af"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="2" width="100" height="20" uuid="319b4d24-c6c4-4d06-9943-bec4c6e64e0f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="0" width="118" height="20" uuid="3d7b670b-b361-4d10-bc87-ee5e24f31b70"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido_socio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="0" width="44" height="20" uuid="18cb066b-35c1-4d74-b073-ba4475e8ebf3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_reunion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="627" y="0" width="118" height="20" uuid="d190472c-3d79-4fe1-9018-39a76f0ec3c2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado_multa}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="31" y="0" width="748" height="20" uuid="b76b3461-95f9-4866-b5e8-0a03072eb4af"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="31" y="22" width="740" height="3" backcolor="#006699" uuid="2f4d6d78-6647-4ad2-83d4-0ff9eec26956"/>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="133" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="684" y="20" width="100" height="20" uuid="c1789a03-9f3b-49b4-b7c8-cc2fd0f6451a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="20" width="100" height="20" uuid="3bcadde4-7fd2-4ae9-b827-61ec3c6909e2"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+</jasperReport>
