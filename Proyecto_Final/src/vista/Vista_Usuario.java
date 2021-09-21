@@ -58,7 +58,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 180, 50));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 180, 50));
 
         txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
         txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
