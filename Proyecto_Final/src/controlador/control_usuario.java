@@ -25,32 +25,35 @@ public class control_usuario {
     }
 
     public void validarUsuario() throws SQLException {
-        
-        String usuario=vista.getTxtUsuari().getText();
-        String clave=vista.getTxt_Password().getText();   
+
+        String usuario = vista.getTxtUsuari().getText();
+        String clave = vista.getTxt_Password().getText();
         Usuario usu = new Usuario();
-        Modelo_Usuario m=new Modelo_Usuario();
+        Modelo_Usuario m = new Modelo_Usuario();
         m.Usuario(usuario, clave);
-        if (usu.getCodig_rol()!=0 ) {
-            Vista_Principal ven=new Vista_Principal(usu.getCodig_rol());
-        } 
-        
-            
+        if (usu.getCodig_rol() != 0) {
+            Vista_Principal ven = new Vista_Principal(usu.getCodig_rol());
+        }
     }
-    
+
     public void iniciaControl() {
-       vista.getbtnIngresar().addActionListener(l-> {
-           try {
-               validarUsuario();
-           } catch (SQLException ex) {
-               Logger.getLogger(control_usuario.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       });    
+        vista.getbtnIngresar().addActionListener(l -> {
+            try {
+                validarUsuario();
+            } catch (SQLException ex) {
+                Logger.getLogger(control_usuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
-    
-    
-    
-    
-    
-    
+
+    public void grabarUsuario() {
+
+        int codigo_socio = Integer.parseInt(vista.getTxtUsuari().getText());
+        
+        
+       // int codigo_socio = Integer.parseInt(vista.getTxtUsuari().getText());
+       // int codigo_socio = Integer.parseInt(vista.getTxtUsuari().getText());
+
+    }
+
 }

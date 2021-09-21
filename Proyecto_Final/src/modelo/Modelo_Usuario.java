@@ -58,17 +58,14 @@ public class Modelo_Usuario extends Usuario {
         }
     }
     
-    public List<Usuario> BuscarUsuario(String aguja) {
-        
+    public List<Usuario> BuscarUsuario(String aguja) {    
         try {
             String sql="select * from usuario where ";
             sql+="codigo_socio::text like '%"+aguja+"%' OR ";
             sql+="codigo_usuario::text like '%"+aguja+"%' OR";
             sql+="codigo_rol::text like '%"+aguja+"%' OR";
-            sql+="upper(usuario) like upper('%"+aguja+"%')";
-            
-            ResultSet rs=con.consulta(sql);
-            
+            sql+="upper(usuario) like upper('%"+aguja+"%')";            
+            ResultSet rs=con.consulta(sql);   
             List<Usuario> lista=new ArrayList<Usuario>();
             while(rs.next()){
                 Usuario us=new Usuario();
@@ -82,10 +79,10 @@ public class Modelo_Usuario extends Usuario {
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        }
-                
-        
+        } 
     }
+    
+    
     
     
 

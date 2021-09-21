@@ -20,14 +20,6 @@ public class Login extends javax.swing.JFrame {
         this.LblContraseña = LblContraseña;
     }
 
-    public JLabel getLblFondo() {
-        return LblFondo;
-    }
-
-    public void setLblFondo(JLabel LblFondo) {
-        this.LblFondo = LblFondo;
-    }
-
     public JLabel getLblUsuario() {
         return LblUsuario;
     }
@@ -44,15 +36,7 @@ public class Login extends javax.swing.JFrame {
         this.TxtUsuari = TxtUsuari;
     }
 
-    public JLabel getjLabel1() {
-        return lbl_fondo;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.lbl_fondo = jLabel1;
-    }
-
-    public JLabel getjLabel2() {
+        public JLabel getjLabel2() {
         return jLabel2;
     }
 
@@ -85,9 +69,7 @@ public class Login extends javax.swing.JFrame {
         LblUsuario = new javax.swing.JLabel();
         LblContraseña = new javax.swing.JLabel();
         jbIngresar = new javax.swing.JButton();
-        LblFondo = new javax.swing.JLabel();
         txt_Password = new javax.swing.JPasswordField();
-        lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,18 +102,12 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 30));
 
-        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.png"))); // NOI18N
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 140, 130));
-
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PasswordActionPerformed(evt);
             }
         });
         getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 180, 30));
-
-        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-vector-texturas-background.jpg"))); // NOI18N
-        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,12 +154,10 @@ public class Login extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblContraseña;
-    private javax.swing.JLabel LblFondo;
     private javax.swing.JLabel LblUsuario;
     private javax.swing.JTextField TxtUsuari;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbIngresar;
-    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JPasswordField txt_Password;
     // End of variables declaration//GEN-END:variables
 }
