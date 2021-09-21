@@ -11,7 +11,9 @@ public class Transaccion {
     private String fecha_trans;
     private double monto;
     private double saldo;
-
+    
+    
+    //METODO CONSTRUCTOR
     public Transaccion(int cod_transaccion, String tipo_transaccion, int codigo_socio, String fecha_trans, double monto, double saldo) {
         this.cod_transaccion = cod_transaccion;
         this.tipo_transaccion = tipo_transaccion;
@@ -21,6 +23,12 @@ public class Transaccion {
         this.saldo = saldo;
     }
 
+    //METODO CONSTRUCTOR VACIO
+    public Transaccion() {
+    }
+    
+    //METODOS GETTERS Y SETTERS
+    
     public int getCod_transaccion() {
         return cod_transaccion;
     }
