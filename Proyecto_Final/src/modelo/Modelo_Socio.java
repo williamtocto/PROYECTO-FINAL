@@ -11,26 +11,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author TUF Gaming
  */
 public class Modelo_Socio extends Socio {
-        public Modelo_Socio(int codigo_socio, String cedula_socio, String nombre_socio, String apellido_socio, String correo_socio, String fecha_nac_socio, String telefono_socio, String direccion_socio, String fecha_ingreso, int numero_cuenta) {
+
+    public Modelo_Socio(int codigo_socio, String cedula_socio, String nombre_socio, String apellido_socio, String correo_socio, String fecha_nac_socio, String telefono_socio, String direccion_socio, String fecha_ingreso, int numero_cuenta) {
         super(codigo_socio, cedula_socio, nombre_socio, apellido_socio, correo_socio, fecha_nac_socio, telefono_socio, direccion_socio, fecha_ingreso, numero_cuenta);
     }
-    public Modelo_Socio(){
+
+    public Modelo_Socio() {
     }
-    
-    ConexionPG con= new ConexionPG();      
+
+    ConexionPG con = new ConexionPG();
 
     public List<Socio> socios() {
 
         try {
             String sql = "SELECT FROM* socio";
             ResultSet rs = con.consulta(sql);
-            List<Socio> lp = new ArrayList<Socio>();
-        
+            List<Socio> ls = new ArrayList<Socio>();
+
             while (rs.next()) {
                 Socio socio = new Socio();
                 socio.setCodigo_socio(rs.getInt("codigo_socio"));
@@ -43,15 +47,27 @@ public class Modelo_Socio extends Socio {
                 socio.setDireccion_socio(rs.getString("direccion_socio"));
                 socio.setFecha_ingreso(rs.getString("fecha_ingreso_socio"));
                 socio.setNumero_cuenta(rs.getInt("numero_de_cuenta"));
-                
-                lp.add(socio);
+
+                ls.add(socio);
             }
             rs.close();
-            return lp;
+            return ls;
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
 
+    }
+
+    public void CrearSocio() {
+        String sql = new String();
+//        String sentencia;
+        Socio objtSocio = new Socio();
+        sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
+        sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
+                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" + objtSocio.getDireccion_socio()
+                + "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
+       con.accion(sql);
+           
     }
 }
