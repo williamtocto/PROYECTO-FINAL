@@ -6,9 +6,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class Login extends javax.swing.JFrame {
+public class Vista_Login extends javax.swing.JFrame {
 
-    public Login() {
+    public Vista_Login() {
         initComponents();
     }
 
@@ -77,18 +77,18 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO AL SISTEMA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 240, 40));
-        getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 180, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 240, 40));
+        getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 180, 30));
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         LblUsuario.setText("USUARIO:");
-        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         LblContraseña.setText("CONTRASEÑA:");
-        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         jbIngresar.setBackground(new java.awt.Color(255, 255, 255));
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -100,14 +100,14 @@ public class Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 100, 30));
 
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 180, 30));
+        getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 180, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,20 +134,21 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Vista_Login().setVisible(true);
             }
         });
     }

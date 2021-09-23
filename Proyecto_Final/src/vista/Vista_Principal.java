@@ -5,8 +5,10 @@
  */
 package vista;
 
+import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     }
 
     public Vista_Principal(int codig_rol) {
-
+        initComponents();
     }
 
     /**
@@ -34,13 +36,34 @@ public class Vista_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
+        jLabel1 = new javax.swing.JLabel();
+        desk_Principal = new javax.swing.JDesktopPane();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        menu_MantenimientoUser = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jToolBar1.setRollover(true);
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout desk_PrincipalLayout = new javax.swing.GroupLayout(desk_Principal);
+        desk_Principal.setLayout(desk_PrincipalLayout);
+        desk_PrincipalLayout.setHorizontalGroup(
+            desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        desk_PrincipalLayout.setVerticalGroup(
+            desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 512, Short.MAX_VALUE)
+        );
+
+        jButton1.setText("jButton1");
 
         jMenu1.setText("Socio");
         jMenuBar1.add(jMenu1);
@@ -48,11 +71,17 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu2.setText("TRANSACCION");
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("RE");
-        jMenuBar1.add(jMenu4);
+        jMenu3.setText("Usuario");
 
-        jMenu5.setText("jMenu5");
-        jMenuBar1.add(jMenu5);
+        menu_MantenimientoUser.setText("Matenimiento Usuarios");
+        menu_MantenimientoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_MantenimientoUserActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menu_MantenimientoUser);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -60,56 +89,43 @@ public class Vista_Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1084, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(desk_Principal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desk_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public JMenu getjMenu1() {
-        return jMenu1;
+    private void menu_MantenimientoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_MantenimientoUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_MantenimientoUserActionPerformed
+
+    public JDesktopPane getDesk_Principal() {
+        return desk_Principal;
     }
 
-    public void setjMenu1(JMenu jMenu1) {
-        this.jMenu1 = jMenu1;
+    public void setDesk_Principal(JDesktopPane desk_Principal) {
+        this.desk_Principal = desk_Principal;
     }
 
-    public JMenu getjMenu2() {
-        return jMenu2;
+    public JMenuItem getMenu_MantenimientoUser() {
+        return menu_MantenimientoUser;
     }
 
-    public void setjMenu2(JMenu jMenu2) {
-        this.jMenu2 = jMenu2;
+    public void setMenu_MantenimientoUser(JMenuItem menu_MantenimientoUser) {
+        this.menu_MantenimientoUser = menu_MantenimientoUser;
     }
 
-    public JMenu getjMenu4() {
-        return jMenu4;
-    }
-
-    public void setjMenu4(JMenu jMenu4) {
-        this.jMenu4 = jMenu4;
-    }
-
-    public JMenu getjMenu5() {
-        return jMenu5;
-    }
-
-    public void setjMenu5(JMenu jMenu5) {
-        this.jMenu5 = jMenu5;
-    }
-
-    public JMenuBar getjMenuBar1() {
-        return jMenuBar1;
-    }
-
-    public void setjMenuBar1(JMenuBar jMenuBar1) {
-        this.jMenuBar1 = jMenuBar1;
-    }
     /**
      * @param args the command line arguments
      */
@@ -144,13 +160,17 @@ public class Vista_Principal extends javax.swing.JFrame {
             }
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane desk_Principal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem menu_MantenimientoUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,12 +9,12 @@ package vista;
  *
  * @author PCX
  */
-public class Acta extends javax.swing.JInternalFrame {
+public class Vista_Acta extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Acta
      */
-    public Acta() {
+    public Vista_Acta() {
         initComponents();
     }
 

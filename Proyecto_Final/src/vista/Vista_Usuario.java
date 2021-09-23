@@ -31,7 +31,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_titulo = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
-        btm_modificar = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
         combo_box = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_usuario = new javax.swing.JTable();
@@ -95,16 +95,16 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 130, 50));
 
-        btm_modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btm_modificar.setForeground(new java.awt.Color(0, 153, 153));
-        btm_modificar.setText("MODIFICAR");
-        btm_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        btm_modificar.addActionListener(new java.awt.event.ActionListener() {
+        btn_modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_modificar.setForeground(new java.awt.Color(0, 153, 153));
+        btn_modificar.setText("MODIFICAR");
+        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btm_modificarActionPerformed(evt);
+                btn_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btm_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 130, 50));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 130, 50));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 240, -1));
@@ -160,9 +160,9 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btm_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btm_modificarActionPerformed
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btm_modificarActionPerformed
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
@@ -180,12 +180,12 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         this.LblContraseña = LblContraseña;
     }
 
-    public JButton getBtm_modificar() {
-        return btm_modificar;
+    public JButton getBtn_modificar() {
+        return btn_modificar;
     }
 
-    public void setBtm_modificar(JButton btm_modificar) {
-        this.btm_modificar = btm_modificar;
+    public void setBtn_modificar(JButton btm_modificar) {
+        this.btn_modificar = btm_modificar;
     }
 
     public JButton getBtn_agregar() {
@@ -289,10 +289,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LblCodigo_rol;
     private javax.swing.JLabel LblContraseña;
     private javax.swing.JLabel LblNombre_usuario;
-    private javax.swing.JButton btm_modificar;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_modificar;
     private javax.swing.JComboBox<String> combo_box;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cedula;
