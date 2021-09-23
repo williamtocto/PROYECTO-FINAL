@@ -42,7 +42,7 @@ public class Control_Login {
             try {
                 validarUsuario();
             } catch (SQLException ex) {
-                Logger.getLogger(Control_usuario.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Control_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         
