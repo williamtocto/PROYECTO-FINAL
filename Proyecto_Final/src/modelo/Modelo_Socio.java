@@ -20,7 +20,6 @@ public class Modelo_Socio extends Socio {
         super(codigo_socio, cedula_socio, nombre_socio, apellido_socio, correo_socio, fecha_nac_socio, telefono_socio, direccion_socio, fecha_ingreso, numero_cuenta);
     }
     public Modelo_Socio(){
-        System.out.println("hola");
     }
     
     ConexionPG con= new ConexionPG();      
@@ -31,7 +30,7 @@ public class Modelo_Socio extends Socio {
             String sql = "SELECT FROM* socio";
             ResultSet rs = con.consulta(sql);
             List<Socio> lp = new ArrayList<Socio>();
-            //Deben ir los nombres de las columnas en la base de datos
+        
             while (rs.next()) {
                 Socio socio = new Socio();
                 socio.setCodigo_socio(rs.getInt("codigo_socio"));
