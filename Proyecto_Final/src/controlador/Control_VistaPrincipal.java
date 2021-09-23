@@ -27,8 +27,8 @@ public class Control_VistaPrincipal {
         Modelo_Usuario mu=new Modelo_Usuario();
         Vista_Usuario vu=new Vista_Usuario();
         vista.getDesk_Principal().add(vu);   
-        Control_usuario c=new Control_usuario(mu, vu);
-        c.iniciaControl();   
+       // Control_usuario c=new Control_usuario(mu, vu);
+       // c.iniciaControl();   
     }
     
   
