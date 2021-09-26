@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,13 +25,25 @@ public class Modelo_transaccion extends Transaccion {
 
     ConexionPG con = new ConexionPG();
 
-    public List<Transaccion> Transaccion() {
-        String sql = "SELECT FROM* transaccion";
-        ResultSet rs = con.consulta(sql);
-        List<Transaccion> lt = new ArrayList<Transaccion>();
+    public ConexionPG getCon() {
+        return con;
+    }
+
+    public void setCon(ConexionPG con) {
+        this.con = con;
+    }
+
+    Transaccion tran = new Transaccion();
+    Socio sc = new Socio();
+    //String sql = "SELECT FROM* transaccion";
+
+    public ArrayList<Transaccion> listaTransaccion(String aguja) {
         try {
+            String sql = "select * from socio WHERE ";
+            sql += " UPPER(idpersona) like UPPER('%" + aguja + "%') ";
+            ResultSet rs = con.consulta(sql);
+            ArrayList<Transaccion> lt = new ArrayList<Transaccion>();
             while (rs.next()) {
-                Transaccion tran=new Transaccion();
                 tran.setCod_transaccion(rs.getInt("codigo_transaccion"));
                 tran.setCodigo_socio(rs.getInt("codigo_socio"));
                 tran.setMonto(rs.getDouble("monto"));
@@ -43,15 +57,33 @@ public class Modelo_transaccion extends Transaccion {
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_transaccion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        } 
+        }
     }
-    
-    /*TxtApellido.setText(resul.getString("apellido_socio"));
-                    TxtCodigo_socio.setText(resul.getString("codigo_socio"));
-                    TxtTepublic void Mostrar() {
+
+    public boolean guardar() throws SQLException {
+        String sql1 = "INSERT INTO transaccion(codigo_socio,monto,tipo_transaccion,saldo,fecha_trans)"
+                + "VALUES (?,?,?,?,?);";
+        PreparedStatement ps = null;
+        ps = con.getCon().prepareStatement(sql1);
+        ps.setInt(1, getCodigo_socio());
+        ps.setDouble(2, getMonto());
+        ps.setDouble(3, getSaldo());
+        ps.setString(4, getTipo_transaccion());
+        ps.setString(5, getFecha_trans());
+        Boolean ejecutar = false;
+
+        if (ps.executeUpdate() == 1) {
+            ejecutar = true;
+        }
+        return ejecutar;
+    }
+
+    public void busquedaSocio() throws SQLException {
+        /*sc.setApellido_socio(rs.getString("apellido_socio"));
+        sc.setCodigo_socio(rs.getShort("codigo_socio"));
         int fila = 0;
         boolean bandera = false;
-        if ("".equals(TxtCedula_soc.getText()) || "".equals(TxtCedula_soc.getText())) {
+        if ("".equals(sc.setCedula_socio(sql).getText()) || "".equals(sc.setCedula_socio(sql).getText())) {
             JOptionPane.showMessageDialog(rootPane, "Debe primero ingresar una cedula", "", JOptionPane.ERROR_MESSAGE);
             bandera = true;
         } else {
@@ -106,5 +138,6 @@ public class Modelo_transaccion extends Transaccion {
             }
         }
       }*/
+    }
 
 }

@@ -286,6 +286,8 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         Grupo_tipo = new javax.swing.ButtonGroup();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         TxtCedula_soc = new javax.swing.JTextField();
         LblCedula_so = new javax.swing.JLabel();
@@ -316,6 +318,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTabla_tran = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -612,7 +618,9 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTabla_tran;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JRadioButton rbDeposito;
     private javax.swing.JRadioButton rbRetiro;
     // End of variables declaration//GEN-END:variables
