@@ -1,5 +1,8 @@
 package controlador;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_transaccion;
@@ -56,8 +59,8 @@ public class Control_transaccion {
     }
 
     public void guardarTransaccion() {
-        
-        int codigo_socio= Integer.parseInt(vistat.getTxtCodigo_socio().getText());
+
+        int codigo_socio = Integer.parseInt(vistat.getTxtCodigo_socio().getText());
         String t_transaccion = null;
         double sald = 0;//MUCHO OJO AQUI
         double drcantidad = Double.valueOf(vistat.getTxtDeposito().getText());
@@ -75,13 +78,47 @@ public class Control_transaccion {
         if (vistat.getRbDeposito().isSelected()) {
             sald = valor_cuenta + drcantidad;
             JOptionPane.showMessageDialog(vistat, "EL DEPOSITO SE REALIZO EXITOSAMENTE", "APROBADO", 1);
-            t_transaccion="Deposito";
+            t_transaccion = "Deposito";
         }
-        
+
         transac.setCodigo_socio(codigo_socio);
         transac.setMonto(drcantidad);
         transac.setSaldo(sald);//MUCHO OJO AQUI
         transac.setTipo_transaccion(t_transaccion);
-        transac.setFecha_trans(ruta);
+        //transac.setFecha_trans(ruta);
+
+    }
+    
+    java.util.Date fecha(String fecha) throws ParseException {
+        try {
+            DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date date = sourceFormat.parse(fecha);
+            return date;
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Error de formato en la fecha", "Error Parseo", 0);
+        }
+        return null;
+    }
+
+    public void Datos() {
+        fila = vistat.getjTabla_tran().getSelectedRow();
+        String codigo_socio = vistat.getTxtCodigo_socio().getText();
+        String monto = vistat.getTxtDeposito().getText();
+        String saldo = vistat.getTxtValor_cuenta().getText();
+
+    }
+
+    public void mostrarDatos() {
+        String t_transaccion = null;
+        if (vistat.getRbRetiro().isSelected()) {
+            t_transaccion = "Retiro";
+        } else if(vistat.getRbDeposito().isSelected()){
+            t_transaccion = "Deposito";
+        }
+        fila = vistat.getjTabla_tran().getSelectedRow();
+        vistat.getTxtCodigo_socio().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 0)));
+        vistat.getTxtDeposito().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 1)));
+        vistat.getTxtValor_cuenta().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 2)));
+        t_transaccion= String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 3));
     }
 }
