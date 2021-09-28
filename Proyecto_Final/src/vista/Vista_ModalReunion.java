@@ -17,9 +17,6 @@ import javax.swing.JTable;
  */
 public class Vista_ModalReunion extends javax.swing.JInternalFrame {
 
-    
-    
-    
     public JButton getBtnBuscar() {
         return BtnBuscar;
     }
