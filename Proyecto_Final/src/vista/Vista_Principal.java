@@ -36,6 +36,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu4 = new javax.swing.JMenu();
         jToolBar1 = new javax.swing.JToolBar();
         jLabel1 = new javax.swing.JLabel();
         desk_Principal = new javax.swing.JDesktopPane();
@@ -45,6 +46,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         menu_MantenimientoUser = new javax.swing.JMenuItem();
+        menu_rol = new javax.swing.JMenu();
+        menuRol = new javax.swing.JMenuItem();
+
+        jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +61,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_Principal.setLayout(desk_PrincipalLayout);
         desk_PrincipalLayout.setHorizontalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,6 +87,18 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu3.add(menu_MantenimientoUser);
 
         jMenuBar1.add(jMenu3);
+
+        menu_rol.setText("Rol");
+
+        menuRol.setText("Roles");
+        menuRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRolActionPerformed(evt);
+            }
+        });
+        menu_rol.add(menuRol);
+
+        jMenuBar1.add(menu_rol);
 
         setJMenuBar(jMenuBar1);
 
@@ -110,6 +127,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menu_MantenimientoUserActionPerformed
 
+    private void menuRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuRolActionPerformed
+
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;
     }
@@ -125,6 +146,24 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setMenu_MantenimientoUser(JMenuItem menu_MantenimientoUser) {
         this.menu_MantenimientoUser = menu_MantenimientoUser;
     }
+
+    public JMenu getMenu_rol() {
+        return menu_rol;
+    }
+
+    public void setMenu_rol(JMenu menu_rol) {
+        this.menu_rol = menu_rol;
+    }
+
+    public JMenuItem getMenuRol() {
+        return menuRol;
+    }
+
+    public void setMenuRol(JMenuItem menuRol) {
+        this.menuRol = menuRol;
+    }
+    
+    
 
     /**
      * @param args the command line arguments
@@ -169,8 +208,11 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
+    private javax.swing.JMenu menu_rol;
     // End of variables declaration//GEN-END:variables
 }
