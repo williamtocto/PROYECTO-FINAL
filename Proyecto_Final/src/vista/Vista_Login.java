@@ -80,18 +80,18 @@ public class Vista_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bienvenido");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 240, 40));
-        getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 200, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 110, 40));
+        getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 200, 30));
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         LblUsuario.setText("Usuario:");
-        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, -1, -1));
+        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         LblContraseña.setText("Contraseña:");
-        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         jbIngresar.setBackground(new java.awt.Color(255, 255, 255));
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -103,23 +103,23 @@ public class Vista_Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 100, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 30));
 
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 200, 30));
+        getContentPane().add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 200, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/hexa.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 590, 370));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 310, 390));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/financial-profit (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 200, 100));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, 100));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 730));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

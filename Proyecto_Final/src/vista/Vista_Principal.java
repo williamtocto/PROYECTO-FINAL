@@ -65,7 +65,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
+            .addGap(0, 551, Short.MAX_VALUE)
         );
 
         jButton1.setText("jButton1");
@@ -73,7 +73,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu1.setText("Socio");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("TRANSACCION");
+        jMenu2.setText("Transaccion");
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Usuario");
@@ -115,9 +115,10 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desk_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desk_Principal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();

@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/modelo/Modelo_Rol.java</file>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_Rol.java</file>
             <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/Proyecto/Main.java</file>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/vista/Vista_Principal.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_user.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/modelo/Modelo_Usuario.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_Socio.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_VistaPrincipal.java</file>
             <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/vista/Vista_Usuario.java</file>
         </group>
     </open-files>

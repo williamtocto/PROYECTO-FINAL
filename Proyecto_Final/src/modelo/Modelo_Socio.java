@@ -94,7 +94,7 @@ public class Modelo_Socio extends Socio {
 
     public int codigoSocio(String cedula) {
         int codigo = 0;
-        String sql = "SELECT codigo_socio from socio where cedula='" + cedula + "';";
+        String sql = "SELECT codigo_socio from socio where cedula_socio='" + cedula + "';";
         ResultSet rs = con.consulta(sql);
         try {
             while (rs.next()) {

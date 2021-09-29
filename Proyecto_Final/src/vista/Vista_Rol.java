@@ -47,10 +47,10 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_titulo.setText("Agregar Roles");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         lbl_codigo_rol.setText("Codigo:");
-        getContentPane().add(lbl_codigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
+        getContentPane().add(lbl_codigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         tabla_roles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,21 +65,21 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tabla_roles);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 380, 175));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 380, 120));
 
         txt_cod_rol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cod_rolActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_cod_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 230, -1));
+        getContentPane().add(txt_cod_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 230, -1));
 
         txt_nombreRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nombreRolActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_nombreRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 230, -1));
+        getContentPane().add(txt_nombreRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 230, -1));
 
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,23 +87,23 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
                 btn_eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 77, -1));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 77, -1));
 
         btn_modificar.setText("Modificar");
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         btn_registrar.setText("Registrar");
-        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
         jLabel2.setText("Buscar");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 230, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 230, -1));
 
         jLabel1.setText("Nombre Rol:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 510));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

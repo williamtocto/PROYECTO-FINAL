@@ -19,8 +19,6 @@ public class Main {
         Control_VistaPrincipal cp=new Control_VistaPrincipal(vp);
         cp.incioControl();
         
-        
-        
     }
     
 }

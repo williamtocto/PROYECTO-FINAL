@@ -69,7 +69,6 @@ public class Control_user {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
             }
 
             @Override
@@ -78,8 +77,7 @@ public class Control_user {
             }
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
+            public void mouseExited(MouseEvent e) {            
             }
 
         };
@@ -123,7 +121,7 @@ public class Control_user {
         String idRol = String.valueOf(vu.getTabla_usuario().getValueAt(fila, 0));
         if (modelo.EliminarUsuario()) {
             JOptionPane.showInputDialog(null, "Usuario Eliminado con Éxito", "", 1);
-            //  cargarLista();
+             cargarLista("");
         } else {
             JOptionPane.showMessageDialog(null, "No se a podido eliminar");
         }
@@ -143,11 +141,15 @@ public class Control_user {
     }
 
     public void CargarDatos() {
-        codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());
+       // codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());
         cod_socio = codigoSocio();
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
         clave = vu.getTxt_contrasenia().getText();
+        
+        System.out.println(cod_socio+" cod socio");
+        System.out.println(cod_rol+" cod rol");
+        System.out.println(usuario+" usuario");
 
     }
 
@@ -160,7 +162,8 @@ public class Control_user {
     public int codigoRol() {
 
         List<Rol> lis = new ArrayList<>();
-        lis = r.listaRol((String) vu.getCombo_box().getSelectedItem());
+        String rol=(String) vu.getCombo_box().getSelectedItem();
+        lis = r.listaRol(rol);
         for (Rol li : lis) {
             if (li.getTipo_rol().equals((String) vu.getCombo_box().getSelectedItem())) {
                 cod_rol = li.getCodigo_rol();

@@ -64,9 +64,14 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
 
         btn_agregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_agregar.setForeground(new java.awt.Color(0, 153, 153));
-        btn_agregar.setText("AGREGAR USUARIO");
+        btn_agregar.setText("Agregar Usuario");
         btn_agregar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 130, 50));
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 120, 30));
 
         txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
         txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -82,25 +87,25 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
 
         lbl_titulo.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_titulo.setText("AGREGAR USUARIO");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -10, -1, 50));
+        lbl_titulo.setText("USUARIO");
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, -10, -1, 50));
 
         btn_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(0, 153, 153));
-        btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.setText("Eliminar");
         btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 130, 50));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 100, 30));
 
         btn_modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(0, 153, 153));
-        btn_modificar.setText("MODIFICAR");
+        btn_modificar.setText("Modificar");
         btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 130, 50));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 100, 30));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 240, -1));
@@ -119,7 +124,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tabla_usuario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 720, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 480, 110));
 
         lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_contrasenia_nueva.setForeground(new java.awt.Color(0, 0, 204));
@@ -160,10 +165,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 txt_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 150, -1));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 150, -1));
 
         jLabel1.setText("Buscar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 46, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +180,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private void txt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_buscarActionPerformed
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
