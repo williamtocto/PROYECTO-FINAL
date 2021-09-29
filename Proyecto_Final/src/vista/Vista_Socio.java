@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author TUF Gaming
+ * @author Paola
  */
 public class Vista_Socio extends javax.swing.JFrame {
 
@@ -27,52 +27,151 @@ public class Vista_Socio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        LblNombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TxtCodigo = new javax.swing.JTextField();
+        TxtCedula = new javax.swing.JTextField();
+        TxtNombre = new javax.swing.JTextField();
+        TxtApellido = new javax.swing.JTextField();
+        TxtEmail = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        TxtDireccion = new javax.swing.JTextField();
+        TxtTelefono = new javax.swing.JTextField();
+        jdateFechaIng = new com.toedter.calendar.JDateChooser();
+        jdateFechaNac1 = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButtonRegistrar = new javax.swing.JButton();
+        ButtonModifica = new javax.swing.JButton();
+        ButtonBusca = new javax.swing.JButton();
+        ButtonLimpia = new javax.swing.JButton();
+        ButtonActivos = new javax.swing.JButton();
+        ButtonInactiva = new javax.swing.JButton();
+        ButtonReporte = new javax.swing.JButton();
+        LblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("REGISTRO Y DATOS DEL SOCIO");
+        LblNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LblNombre.setText("Datos Socio.");
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 160, 50));
 
-        jLabel2.setText("Cédula: ");
+        jLabel1.setText("Código:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(779, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel2)
-                .addContainerGap(575, Short.MAX_VALUE))
-        );
+        jLabel2.setText("Cédula:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel3.setText("Nombre:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, 10));
+
+        jLabel4.setText("Apellido:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, -1, 10));
+
+        jLabel5.setText("E-mail:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
+
+        TxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCodigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 190, 20));
+        getContentPane().add(TxtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 190, 20));
+        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 190, 20));
+        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 190, 20));
+        getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 190, 20));
+
+        jLabel6.setText("No. Cuenta");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 120, 30));
+
+        jLabel7.setText("Dirección:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 110, 30));
+
+        jLabel8.setText("Fecha Nac:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 120, 40));
+
+        jLabel9.setText("Teléfono:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, 40));
+
+        jLabel10.setText("Fecha de Ingreso:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 160, 40));
+        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 250, 20));
+        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 250, -1));
+        getContentPane().add(jdateFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 250, -1));
+        getContentPane().add(jdateFechaNac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 250, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Cédula", "Nombres", "Apellidos", "Fecha Nac", "Dirección", "Teléfono", "E-mail"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 820, 280));
+
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 80, 30));
+
+        ButtonModifica.setText("Modificar");
+        ButtonModifica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonModifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 70, 30));
+
+        ButtonBusca.setText("Buscar");
+        ButtonBusca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 70, 30));
+
+        ButtonLimpia.setText("Limpiar");
+        ButtonLimpia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 70, 30));
+
+        ButtonActivos.setText("Socios Activos");
+        ButtonActivos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 90, 30));
+
+        ButtonInactiva.setText("Inacrivar Socio");
+        ButtonInactiva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonInactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 90, 30));
+
+        ButtonReporte.setText("Generar Reporte ");
+        ButtonReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 100, 30));
+
+        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo internas.jpg"))); // NOI18N
+        LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCodigoActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,8 +209,35 @@ public class Vista_Socio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonActivos;
+    private javax.swing.JButton ButtonBusca;
+    private javax.swing.JButton ButtonInactiva;
+    private javax.swing.JButton ButtonLimpia;
+    private javax.swing.JButton ButtonModifica;
+    private javax.swing.JButton ButtonReporte;
+    private javax.swing.JLabel LblFondo;
+    private javax.swing.JLabel LblNombre;
+    private javax.swing.JTextField TxtApellido;
+    private javax.swing.JTextField TxtCedula;
+    private javax.swing.JTextField TxtCodigo;
+    private javax.swing.JTextField TxtDireccion;
+    private javax.swing.JTextField TxtEmail;
+    private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private com.toedter.calendar.JDateChooser jdateFechaIng;
+    private com.toedter.calendar.JDateChooser jdateFechaNac1;
     // End of variables declaration//GEN-END:variables
 }
