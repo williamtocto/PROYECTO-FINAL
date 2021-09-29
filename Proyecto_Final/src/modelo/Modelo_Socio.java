@@ -74,23 +74,22 @@ public class Modelo_Socio extends Socio {
     public boolean editar(String id) {
         String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"
                 + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
-                + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='" + 
-                getCorreo_socio()+ "',fecha_ingreso_socio='" + getFecha_ingreso()+ 
-                "'WHERE codigo_socio=" + getCodigo_socio() + ";";
+                + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='"
+                + getCorreo_socio() + "',fecha_ingreso_socio='" + getFecha_ingreso()
+                + "'WHERE codigo_socio=" + getCodigo_socio() + ";";
         return con.accion(sql);
     }
-    
-    public void inactivar_socio (){
-         String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + getCodigo_socio()+ ";";
-                   con.accion(sql);
+
+    public void inactivar_socio() {
+        String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + getCodigo_socio() + ";";
+        con.accion(sql);
     }
-    
-    public boolean mostrar_socio_activo(){
+
+    public boolean mostrar_socio_activo() {
         String sql;
-         sql= "SELECT *FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
+        sql = "SELECT *FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
         con.consulta(sql);
         return con.accion(sql);
     }
-    
-    
+
 }
