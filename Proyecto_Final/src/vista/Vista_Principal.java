@@ -42,7 +42,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_Principal = new javax.swing.JDesktopPane();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menu_socio = new javax.swing.JMenu();
+        submenu_socio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         menu_MantenimientoUser = new javax.swing.JMenuItem();
@@ -70,8 +71,17 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
 
-        jMenu1.setText("Socio");
-        jMenuBar1.add(jMenu1);
+        menu_socio.setText("Socio");
+
+        submenu_socio.setText("Registro y datos del socio");
+        submenu_socio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submenu_socioActionPerformed(evt);
+            }
+        });
+        menu_socio.add(submenu_socio);
+
+        jMenuBar1.add(menu_socio);
 
         jMenu2.setText("TRANSACCION");
         jMenuBar1.add(jMenu2);
@@ -125,11 +135,33 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     private void menu_MantenimientoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_MantenimientoUserActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_menu_MantenimientoUserActionPerformed
+
+    public JMenu getMenu_socio() {
+        return menu_socio;
+    }
+
+    public void setMenu_socio(JMenu menu_socio) {
+        this.menu_socio = menu_socio;
+    }
+
+    public JMenuItem getSubmenu_socio() {
+        return submenu_socio;
+    }
+
+    public void setSubmenu_socio(JMenuItem submenu_socio) {
+        this.submenu_socio = submenu_socio;
+    }
+    
 
     private void menuRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuRolActionPerformed
+
+    private void submenu_socioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenu_socioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submenu_socioActionPerformed
 
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;
@@ -205,7 +237,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -214,5 +245,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
     private javax.swing.JMenu menu_rol;
+    private javax.swing.JMenu menu_socio;
+    private javax.swing.JMenuItem submenu_socio;
     // End of variables declaration//GEN-END:variables
 }

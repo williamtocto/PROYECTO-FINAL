@@ -1,9 +1,11 @@
 package controlador;
 
 import modelo.Modelo_Rol;
+import modelo.Modelo_Socio;
 import modelo.Modelo_Usuario;
 import vista.Vista_Principal;
 import vista.Vista_Rol;
+import vista.Vista_Socio;
 import vista.Vista_Usuario;
 
 public class Control_VistaPrincipal {
@@ -21,6 +23,7 @@ public class Control_VistaPrincipal {
         // LOS DIFERENTES BOTONES DE LA VENTANA PRINCIPAL 
         vista.getMenu_MantenimientoUser().addActionListener(l -> Usuario());
         vista.getMenuRol().addActionListener(l -> IniciarVentanaRol());
+        vista.getSubmenu_socio().addActionListener(l-> IniciarVentanaSocio());
 
     }
 
@@ -41,5 +44,12 @@ public class Control_VistaPrincipal {
         Control_Rol cr = new Control_Rol(mr, vr);
         cr.iniciaControl();
     }
-
+    
+    public void IniciarVentanaSocio(){
+        Modelo_Socio modelo_socio= new Modelo_Socio();
+        Vista_Socio vista_socio= new Vista_Socio();
+        vista.getDesk_Principal().add(vista_socio);
+        Control_Socio cs= new Control_Socio(modelo_socio,vista_socio);
+        cs.IniciarContro();
+    }
 }
