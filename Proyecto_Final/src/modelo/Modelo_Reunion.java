@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Mateo
  */
-public class Modelo_Reunion extends Reunion{
+public class Modelo_Reunion extends Reunion {
 
     public Modelo_Reunion(int codigo_reunion, String fecha_reunion, String duracion_reunion, String topico_reunion) {
         super(codigo_reunion, fecha_reunion, duracion_reunion, topico_reunion);
@@ -21,7 +21,7 @@ public class Modelo_Reunion extends Reunion{
 
     public Modelo_Reunion() {
     }
-    
+
     ConexionPG con = new ConexionPG();
 
     public ConexionPG getCon() {
@@ -31,12 +31,39 @@ public class Modelo_Reunion extends Reunion{
     public void setCon(ConexionPG con) {
         this.con = con;
     }
-    
-    Reunion reu =new Reunion();
+
+    Reunion reu = new Reunion();
     Component rootPane = null;
-    
-    
-    public void Guardar() throws ParseException {
+
+    public boolean AgregarReunion() {
+        String sql = "INSERT INTO reunion (fecha_reunion,duracion_reunion,topico_reunion)"
+                + "VALUES('" + getFecha_reunion() + "','" + getDuracion_reunion() + "','" + getTopico_reunion() + "')";
+        return con.accion(sql);
+    }
+
+    public boolean modificarReunion() {
+        String sql = "UPDATE reunion SET fecha_reunion='" + getFecha_reunion() + "',duracion_reunion='" + getDuracion_reunion() + "',topico_reunion='" + getTopico_reunion() + "'WHERE codigo_reunion='" + getCodigo_reunion() + "'";
+        return con.accion(sql);
+    }
+
+    public boolean consultaFecha() {
+        int fila = 0;
+        String sql = " SELECT fecha_reunion from reunion where fecha_reunion= '" + getFecha_reunion() + " ';";
+        ResultSet rs = con.consulta(sql);
+        try {
+            while (rs.next()) {
+                fila++;
+            }
+            if (fila > 0) {
+                JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "TEOLAM", 0);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
+        }
+        return con.accion(sql);//MUCHO OJO
+    }
+
+    /*public void Guardar() throws ParseException {
         String formato = null;
         // Tranformar la fecha a String
 
@@ -110,26 +137,12 @@ public class Modelo_Reunion extends Reunion{
         }
     }
     
-    public int ValidarFechaIngreso() throws ParseException {
-        Date fechaDispositivo = new Date();
-        int f = 0;
-        Date fecha = null;
-        String fechaIngreso = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaActual = sdf.format(fechaDispositivo);
-        // Tranformar la fecha a String
-        if (getFecha_reunion() != null) {
-            fechaIngreso = sdf.format(getFecha_reunion());
-            // PARSE PARA COMPARAR LAS FECHAS
-            fechaDispositivo = sdf.parse(fechaActual);
-            fecha = sdf.parse(fechaIngreso);
-            f = fechaDispositivo.compareTo(fecha);
-        }
-        return f;
-
-    }
     
-    public void Modificar() {
+    
+    
+   
+    
+    /*public void Modificar() {
         Date fecha = null;
         String format = null;
         int fila = 0;
@@ -156,8 +169,7 @@ public class Modelo_Reunion extends Reunion{
         } else {
             JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
         }
-    }
-
+    }*/
     public void Eliminar() {
         String format = null;
         int fila = 0;
@@ -168,7 +180,7 @@ public class Modelo_Reunion extends Reunion{
         }
 
         int resp;
-        
+
         resp = JOptionPane.showConfirmDialog(rootPane, "¿DESEA ELIMNAR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
             if (fila <= 0) {
@@ -186,8 +198,7 @@ public class Modelo_Reunion extends Reunion{
             JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
         }
     }
-    
-    
+
     public double cantidad_cuenta(int cod_so) {
         String sql = "SELECT saldo,fecha_trans FROM transaccion WHERE codigo_socio= " + cod_so + " ORDER BY fecha_trans DESC LIMIT 1;";
         ResultSet rs = con.consulta(sql);
@@ -201,4 +212,5 @@ public class Modelo_Reunion extends Reunion{
         }
         return cantidad;
     }
+
 }
