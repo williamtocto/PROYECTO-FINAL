@@ -140,14 +140,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         this.jLabel1 = jLabel1;
     }
 
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
+   
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
@@ -177,7 +170,6 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         LblFecha = new javax.swing.JLabel();
         LblDuracion = new javax.swing.JLabel();
         LblTopico = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTdatos = new javax.swing.JTable();
         BtnGuardar = new javax.swing.JButton();
@@ -189,22 +181,26 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         JdFecha = new com.toedter.calendar.JDateChooser();
         TxtDuracion = new javax.swing.JTextField();
         TxtTopic = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("REUNION");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Reuniones.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 11, -1, -1));
 
-        LblCodigo_reun.setText("Código de la Reunion:");
+        LblCodigo_reun.setText("Código");
+        getContentPane().add(LblCodigo_reun, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         LblFecha.setText("Fecha de la Reunion:");
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         LblDuracion.setText("Duración estimada:");
+        getContentPane().add(LblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
         LblTopico.setText("Tòpico de la Reunion:");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("ACCIONES");
+        getContentPane().add(LblTopico, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
         JTdatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,103 +215,47 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(JTdatos);
 
-        BtnGuardar.setText("GUARDAR");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 630, 230));
 
-        BtnModificar.setText("MODIFICAR");
+        BtnGuardar.setText("Guardar");
+        BtnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        getContentPane().add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 70, 30));
 
-        BtnEliminar.setText("ELIMINAR");
+        BtnModificar.setText("Modificar");
+        BtnModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 80, 30));
 
-        BtnConsultar.setText("CONSULTAR");
+        BtnEliminar.setText("Eliminar");
+        BtnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 70, 30));
 
-        BtnLimpiar.setText("LIMPIAR");
+        BtnConsultar.setText("Consultar");
+        BtnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 90, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(411, 411, 411)
-                .addComponent(jLabel1)
-                .addGap(111, 412, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(LblCodigo_reun)
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TxtCodReu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(TxtDuracion)
-                            .addComponent(TxtTopic)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblFecha)
-                            .addComponent(LblDuracion)
-                            .addComponent(LblTopico)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtnConsultar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnGuardar)
-                                .addGap(28, 28, 28)
-                                .addComponent(BtnModificar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(BtnLimpiar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblCodigo_reun)
-                    .addComponent(TxtCodReu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblFecha)
-                            .addComponent(JdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblDuracion)
-                            .addComponent(TxtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblTopico)
-                            .addComponent(TxtTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnGuardar)
-                            .addComponent(BtnModificar))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnEliminar)
-                            .addComponent(BtnConsultar))
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnLimpiar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
+        BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 70, 30));
+        getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 150, -1));
+        getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 107, -1));
+        getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 107, -1));
+        getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 107, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1100, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,7 +308,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtDuracion;
     private javax.swing.JTextField TxtTopic;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

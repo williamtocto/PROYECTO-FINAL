@@ -158,7 +158,7 @@ public class Vista_Socio extends javax.swing.JFrame {
         ButtonReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 100, 30));
 
-        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo internas.jpg"))); // NOI18N
+        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 750));
 
