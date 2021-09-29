@@ -67,7 +67,30 @@ public class Modelo_Socio extends Socio {
         sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
                 + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" + objtSocio.getDireccion_socio()
                 + "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
-       con.accion(sql);
-           
+        con.accion(sql);
+
     }
+
+    public boolean editar(String id) {
+        String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"
+                + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
+                + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='" + 
+                getCorreo_socio()+ "',fecha_ingreso_socio='" + getFecha_ingreso()+ 
+                "'WHERE codigo_socio=" + getCodigo_socio() + ";";
+        return con.accion(sql);
+    }
+    
+    public void inactivar_socio (){
+         String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + getCodigo_socio()+ ";";
+                   con.accion(sql);
+    }
+    
+    public boolean mostrar_socio_activo(){
+        String sql;
+         sql= "SELECT *FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
+        con.consulta(sql);
+        return con.accion(sql);
+    }
+    
+    
 }
