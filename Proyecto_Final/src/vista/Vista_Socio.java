@@ -219,6 +219,7 @@ public class Vista_Socio extends javax.swing.JFrame {
         btnInactivar = new javax.swing.JButton();
         ButtonReporte = new javax.swing.JButton();
         TxtNumCuenta = new javax.swing.JTextField();
+        btnNuevaCuenta = new javax.swing.JButton();
         LblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -320,7 +321,10 @@ public class Vista_Socio extends javax.swing.JFrame {
         ButtonReporte.setText("Generar Reporte ");
         ButtonReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, 30));
-        getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 130, 20));
+        getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 160, 20));
+
+        btnNuevaCuenta.setText("+");
+        getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, -1, 20));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -388,6 +392,7 @@ public class Vista_Socio extends javax.swing.JFrame {
     private javax.swing.JButton btnInactivar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevaCuenta;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSocioActivo;
     private javax.swing.JLabel jLabel1;
