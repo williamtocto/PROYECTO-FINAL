@@ -215,7 +215,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(JTdatos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 630, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 630, 230));
 
         BtnGuardar.setText("Guardar");
         BtnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
