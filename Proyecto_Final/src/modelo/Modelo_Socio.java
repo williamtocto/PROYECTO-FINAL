@@ -71,7 +71,7 @@ public class Modelo_Socio extends Socio {
 
     }
 
-    public boolean editar(String id) {
+    public boolean editar_socio(String id) {
         String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"
                 + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
                 + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='"
