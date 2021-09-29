@@ -29,7 +29,6 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         txt_cedula = new javax.swing.JTextField();
         txt_usuario = new javax.swing.JTextField();
         lbl_titulo = new javax.swing.JLabel();
-        btn_buscar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         combo_box = new javax.swing.JComboBox<>();
@@ -42,7 +41,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula = new javax.swing.JLabel();
         lbl_cedula1 = new javax.swing.JLabel();
         lbl_cedula2 = new javax.swing.JLabel();
+        txt_buscar = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblCodigo_rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -64,7 +66,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         btn_agregar.setForeground(new java.awt.Color(0, 153, 153));
         btn_agregar.setText("AGREGAR USUARIO");
         btn_agregar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 180, 50));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 130, 50));
 
         txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
         txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -83,17 +85,11 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_titulo.setText("AGREGAR USUARIO");
         getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -10, -1, 50));
 
-        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(0, 153, 153));
-        btn_buscar.setText("BUSCAR");
-        btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 250, 130, 50));
-
         btn_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(0, 153, 153));
         btn_eliminar.setText("ELIMINAR");
         btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 130, 50));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 130, 50));
 
         btn_modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(0, 153, 153));
@@ -104,7 +100,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 btn_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 130, 50));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 130, 50));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 240, -1));
@@ -134,10 +130,12 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         txt_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 240, -1));
 
+        txt_nombre.setEditable(false);
         txt_nombre.setBackground(new java.awt.Color(240, 240, 240));
         txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 240, -1));
 
+        txt_apellido.setEditable(false);
         txt_apellido.setBackground(new java.awt.Color(240, 240, 240));
         txt_apellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 240, -1));
@@ -157,12 +155,26 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula2.setText("Apellido");
         getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        txt_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_buscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 150, -1));
+
+        jLabel1.setText("Buscar");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 46, -1, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_modificarActionPerformed
+
+    private void txt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscarActionPerformed
 
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
@@ -196,13 +208,15 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         this.btn_agregar = btn_agregar;
     }
 
-    public JButton getBtn_buscar() {
-        return btn_buscar;
+    public JTextField getTxt_buscar() {
+        return txt_buscar;
     }
 
-    public void setBtn_buscar(JButton btn_buscar) {
-        this.btn_buscar = btn_buscar;
+    public void setTxt_buscar(JTextField txt_buscar) {
+        this.txt_buscar = txt_buscar;
     }
+
+ 
 
     public JButton getBtn_eliminar() {
         return btn_eliminar;
@@ -290,10 +304,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LblContraseña;
     private javax.swing.JLabel LblNombre_usuario;
     private javax.swing.JButton btn_agregar;
-    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JComboBox<String> combo_box;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cedula;
     private javax.swing.JLabel lbl_cedula1;
@@ -302,6 +316,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JTable tabla_usuario;
     private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_confirma_contrasenia;
     private javax.swing.JTextField txt_contrasenia;

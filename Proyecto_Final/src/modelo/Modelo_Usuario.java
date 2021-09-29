@@ -34,56 +34,50 @@ public class Modelo_Usuario extends Usuario {
 
     }
 
-    public void AgregarUsuario() {
+    public boolean AgregarUsuario() {
         String sql = "INSERT INTO usuario(codigo_socio,codigo_rol,usuario,contrasenia) "
                 + "VALUES (" + getUsuario() + "," + getCodig_rol() + ",'" + getUsuario() + "','" + getContrasenia() + "');";
-        if (con.accion(sql)) {
-            JOptionPane.showInputDialog(null, "Usuario Registrado con Éxito", "", 1);
-        }
+        return con.accion(sql);
 
     }
 
-    public void modificarUsuario() {
+    public boolean modificarUsuario() {
         String sql = "UPDATE usuario set usuario='" + getUsuario() + "',contrasenia='" + getContrasenia()
                 + "' where codigo_usuario=" + getCodigo_usuario() + ";";
-        if (con.accion(sql)) {
-            JOptionPane.showInputDialog(null, "Usuario Modificado con Éxito", "", 1);
-        }
+        return con.accion(sql);
     }
-    
-    public void EliminarUsuario() {
-        String sql=" DELETE FROM usuario  WHERE codigo_usuario='"+getCodigo_usuario()+"';";
-        if (con.accion(sql)) {
-            JOptionPane.showInputDialog(null, "Usuario Eliminado con Éxito", "", 1);
-        }
+
+    public boolean EliminarUsuario() {
+        String sql = " DELETE FROM usuario  WHERE codigo_usuario='" + getCodigo_usuario() + "';";
+
+        return con.accion(sql);
+
     }
-    
-    public List<Usuario> BuscarUsuario(String aguja) {    
+
+    public List<Usuario> listarUsuario(String aguja) {
         try {
-            String sql="select * from usuario where ";
-            sql+="codigo_socio::text like '%"+aguja+"%' OR ";
-            sql+="codigo_usuario::text like '%"+aguja+"%' OR";
-            sql+="codigo_rol::text like '%"+aguja+"%' OR";
-            sql+="upper(usuario) like upper('%"+aguja+"%')";            
-            ResultSet rs=con.consulta(sql);   
-            List<Usuario> lista=new ArrayList<Usuario>();
-            while(rs.next()){
-                Usuario us=new Usuario();
-                us.setCodigo_usuario(rs.getInt("usuario"));
+            String sql = "select * from usuario where ";
+            sql += "codigo_socio::text like '%" + aguja + "%' OR ";
+            sql += "codigo_usuario::text like '%" + aguja + "%' OR ";
+            sql += "codigo_rol::text like '%" + aguja + "%' OR ";
+            sql += "upper(usuario) like upper('%" + aguja + "%')";
+            ResultSet rs = con.consulta(sql);
+            List<Usuario> lista = new ArrayList<Usuario>();
+            while (rs.next()) {
+                Usuario us = new Usuario();
+                us.setCodigo_usuario(rs.getInt("codigo_usuario"));
+                 us.setCodigo_socio(rs.getInt("codigo_socio"));
                 us.setCodig_rol(rs.getInt("codigo_rol"));
                 us.setUsuario(rs.getString("usuario"));
-                us.setContrasenia("contrasenia");       
+                us.setContrasenia("contrasenia");
+                lista.add(us);
             }
             rs.close();
             return lista;
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        } 
+        }
     }
-    
-    
-    
-    
 
 }

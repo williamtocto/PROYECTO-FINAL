@@ -92,4 +92,20 @@ public class Modelo_Socio extends Socio {
         return con.accion(sql);
     }
 
+    public int codigoSocio(String cedula) {
+        int codigo = 0;
+        String sql = "SELECT codigo_socio from socio where cedula='" + cedula + "';";
+        ResultSet rs = con.consulta(sql);
+        try {
+            while (rs.next()) {
+                codigo = rs.getInt("codigo_socio");
+            }
+            return codigo;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+
+    }
+
 }
