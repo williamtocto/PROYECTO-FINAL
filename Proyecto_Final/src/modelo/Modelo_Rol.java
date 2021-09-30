@@ -72,11 +72,16 @@ public class Modelo_Rol extends Rol {
 
     public Vector<Rol> mostrarRoles() {
         Vector<Rol> roles = new Vector<Rol>();
+        Rol rol = null;
         try {
             String sql = "SELECT * FROM rol ";
             ResultSet rs = pg.consulta(sql);
+            rol = new Rol();
+            rol.setCodigo_rol(0);
+            rol.setTipo_rol("<Selecciona el Rol>");
+            roles.add(rol);
             while (rs.next()) {
-                Rol rol = new Rol();
+                rol = new Rol();
                 rol.setCodigo_rol(rs.getInt("codigo_rol"));
                 rol.setTipo_rol(rs.getString("tipo_rol"));
                 roles.add(rol);

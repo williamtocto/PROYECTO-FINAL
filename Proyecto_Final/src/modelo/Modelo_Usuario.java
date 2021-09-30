@@ -52,8 +52,8 @@ public class Modelo_Usuario extends Usuario {
     }
 
     public boolean EliminarUsuario() {
+        System.out.println(getCodigo_usuario());
         String sql = " DELETE FROM usuario  WHERE codigo_usuario='" + getCodigo_usuario() + "';";
-
         return con.accion(sql);
 
     }

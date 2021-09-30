@@ -3,6 +3,7 @@ package vista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -21,19 +22,15 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogo_usuario = new javax.swing.JDialog();
         LblCodigo_rol = new javax.swing.JLabel();
         LblNombre_usuario = new javax.swing.JLabel();
         LblContraseña = new javax.swing.JLabel();
-        btn_agregar = new javax.swing.JButton();
         txt_confirma_contrasenia = new javax.swing.JTextField();
         txt_cedula = new javax.swing.JTextField();
         txt_usuario = new javax.swing.JTextField();
         lbl_titulo = new javax.swing.JLabel();
-        btn_eliminar = new javax.swing.JButton();
-        btn_modificar = new javax.swing.JButton();
         combo_box = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_usuario = new javax.swing.JTable();
         lbl_contrasenia_nueva = new javax.swing.JLabel();
         txt_contrasenia = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
@@ -41,26 +38,165 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula = new javax.swing.JLabel();
         lbl_cedula1 = new javax.swing.JLabel();
         lbl_cedula2 = new javax.swing.JLabel();
+        btn_cancelar = new javax.swing.JButton();
+        btn_aceptar = new javax.swing.JButton();
+        btn_agregar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_usuario = new javax.swing.JTable();
         txt_buscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-
-        setClosable(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblCodigo_rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblCodigo_rol.setForeground(new java.awt.Color(0, 0, 204));
         LblCodigo_rol.setText("TIPO DE ROL:");
-        getContentPane().add(LblCodigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         LblNombre_usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblNombre_usuario.setForeground(new java.awt.Color(0, 0, 204));
-        LblNombre_usuario.setText("INGRESE EL NOMBRE DEL USUARIO:");
-        getContentPane().add(LblNombre_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, 20));
+        LblNombre_usuario.setText("NOMBRE DEL USUARIO:");
 
         LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblContraseña.setForeground(new java.awt.Color(0, 0, 204));
         LblContraseña.setText(" CONFIRME COMCONTRASEÑA:");
-        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
+        txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txt_cedula.setBackground(new java.awt.Color(240, 240, 240));
+        txt_cedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txt_usuario.setBackground(new java.awt.Color(240, 240, 240));
+        txt_usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lbl_titulo.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_titulo.setText("USUARIO");
+
+        combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_contrasenia_nueva.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_contrasenia_nueva.setText(" CONTRASEÑA:");
+
+        txt_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
+        txt_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txt_nombre.setEditable(false);
+        txt_nombre.setBackground(new java.awt.Color(240, 240, 240));
+        txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txt_apellido.setEditable(false);
+        txt_apellido.setBackground(new java.awt.Color(240, 240, 240));
+        txt_apellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula.setText("Cedula:");
+
+        lbl_cedula1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula1.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula1.setText("Nombre:");
+
+        lbl_cedula2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula2.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula2.setText("Apellido");
+
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
+
+        btn_aceptar.setText("Acpetar");
+
+        javax.swing.GroupLayout dialogo_usuarioLayout = new javax.swing.GroupLayout(dialogo_usuario.getContentPane());
+        dialogo_usuario.getContentPane().setLayout(dialogo_usuarioLayout);
+        dialogo_usuarioLayout.setHorizontalGroup(
+            dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                            .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lbl_cedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(30, 30, 30))
+                                        .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                            .addComponent(lbl_cedula2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGap(129, 129, 129)))
+                                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LblCodigo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_contrasenia_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblContraseña))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogo_usuarioLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)))
+                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nombre)
+                            .addComponent(txt_cedula)
+                            .addComponent(txt_apellido)
+                            .addComponent(combo_box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_usuario)
+                            .addComponent(txt_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_cancelar)))
+                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(lbl_titulo)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        dialogo_usuarioLayout.setVerticalGroup(
+            dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_cedula)
+                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_cedula1)
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_cedula2))
+                .addGap(18, 18, 18)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblCodigo_rol)
+                    .addComponent(combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_contrasenia_nueva)
+                    .addComponent(txt_contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblContraseña)
+                    .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelar)
+                    .addComponent(btn_aceptar))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        setClosable(true);
 
         btn_agregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_agregar.setForeground(new java.awt.Color(0, 153, 153));
@@ -71,30 +207,11 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 120, 30));
-
-        txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
-        txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_confirma_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 240, -1));
-
-        txt_cedula.setBackground(new java.awt.Color(240, 240, 240));
-        txt_cedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 240, -1));
-
-        txt_usuario.setBackground(new java.awt.Color(240, 240, 240));
-        txt_usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 240, -1));
-
-        lbl_titulo.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        lbl_titulo.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_titulo.setText("USUARIO");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, -10, -1, 50));
 
         btn_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(0, 153, 153));
         btn_eliminar.setText("Eliminar");
         btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 100, 30));
 
         btn_modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(0, 153, 153));
@@ -105,10 +222,6 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 btn_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 100, 30));
-
-        combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 240, -1));
 
         tabla_usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,51 +237,50 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tabla_usuario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 480, 110));
-
-        lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_contrasenia_nueva.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_contrasenia_nueva.setText(" CONTRASEÑA:");
-        getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
-
-        txt_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
-        txt_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 240, -1));
-
-        txt_nombre.setEditable(false);
-        txt_nombre.setBackground(new java.awt.Color(240, 240, 240));
-        txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 240, -1));
-
-        txt_apellido.setEditable(false);
-        txt_apellido.setBackground(new java.awt.Color(240, 240, 240));
-        txt_apellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 240, -1));
-
-        lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_cedula.setText("Cedula:");
-        getContentPane().add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
-
-        lbl_cedula1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula1.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_cedula1.setText("Nombre:");
-        getContentPane().add(lbl_cedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-
-        lbl_cedula2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula2.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_cedula2.setText("Apellido");
-        getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
         txt_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 150, -1));
 
         jLabel1.setText("Buscar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, 20));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,6 +296,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_agregarActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
@@ -307,15 +423,36 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         this.txt_usuario = txt_usuario;
     }
 
+    public JDialog getDialogo_usuario() {
+        return dialogo_usuario;
+    }
+
+    public void setDialogo_usuario(JDialog dialogo_usuario) {
+        this.dialogo_usuario = dialogo_usuario;
+    }
+
+    public JButton getBtn_aceptar() {
+        return btn_aceptar;
+    }
+
+    public void setBtn_aceptar(JButton btn_aceptar) {
+        this.btn_aceptar = btn_aceptar;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblCodigo_rol;
     private javax.swing.JLabel LblContraseña;
     private javax.swing.JLabel LblNombre_usuario;
+    private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_agregar;
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JComboBox<String> combo_box;
+    private javax.swing.JDialog dialogo_usuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cedula;

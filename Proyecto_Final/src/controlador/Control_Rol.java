@@ -5,16 +5,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_Rol;
+import modelo.Modelo_Socio;
+import modelo.Socio;
 import vista.Vista_Rol;
 
 public class Control_Rol {
 
     private Modelo_Rol modelo;
     private Vista_Rol vista;
+    private Modelo_Socio mr;
 
     String nombreRol;
 
@@ -28,14 +32,14 @@ public class Control_Rol {
     }
 
     public void iniciaControl() {
-        
+
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
 
             @Override
-            public void keyPressed(KeyEvent e) {     
+            public void keyPressed(KeyEvent e) {
             }
 
             @Override
@@ -43,39 +47,46 @@ public class Control_Rol {
                 cargarLista();
             }
         };
-        
-        MouseListener ml= new MouseListener() {
+
+        MouseListener ml = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
             }
 
             @Override
-            public void mousePressed(MouseEvent e) {  
+            public void mousePressed(MouseEvent e) {
                 CargarDatos();
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-               
+
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-              
+
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-               
+
             }
-        
+
         };
-  
+
         vista.getBtn_registrar().addActionListener(l -> grabarUsuario());
-        vista.getBtn_eliminar().addActionListener(l-> eliminarRol());
-        vista.getBtn_modificar().addActionListener(l-> modificarRol() );
+        vista.getBtn_eliminar().addActionListener(l -> eliminarRol());
+        vista.getBtn_modificar().addActionListener(l -> modificarRol());
         vista.getTabla_roles().addMouseListener(ml);
         vista.getTxt_buscar().addKeyListener(kl);
+    }
+
+    public void cargarNombreSocio() {
+        List<Socio> ls = new ArrayList<>();
+        
+        ls=mr.socios();
+        
     }
 
     public void grabarUsuario() {
@@ -91,12 +102,8 @@ public class Control_Rol {
 
     }
 
-    public void caragarDatos() {
-        
-        
-    }
     public void cargarLista() {
-        String aguja=vista.getTxt_buscar().getText();
+        String aguja = vista.getTxt_buscar().getText();
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) vista.getTabla_roles().getModel();
         tblModel.setNumRows(0);
@@ -118,9 +125,9 @@ public class Control_Rol {
         }
 
     }
-    
+
     public void CargarDatos() {
-        int fila=vista.getTabla_roles().getSelectedRow();
+        int fila = vista.getTabla_roles().getSelectedRow();
         vista.getTxt_cod_rol().setText(String.valueOf(vista.getTabla_roles().getValueAt(fila, 0)));
         vista.getTxt_nombreRol().setText(String.valueOf(vista.getTabla_roles().getValueAt(fila, 1)));
     }
@@ -128,7 +135,7 @@ public class Control_Rol {
     public void eliminarRol() {
         int fila = vista.getTabla_roles().getSelectedRow();
         String idRol = String.valueOf(vista.getTabla_roles().getValueAt(fila, 0));
-        if (modelo.eliminarRol(idRol)) {          
+        if (modelo.eliminarRol(idRol)) {
             JOptionPane.showMessageDialog(null, "Rol elimnado correctamente");
             cargarLista();
         } else {

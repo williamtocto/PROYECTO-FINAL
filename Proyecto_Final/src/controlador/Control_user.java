@@ -23,18 +23,19 @@ public class Control_user {
     private Modelo_Usuario modelo;
     private Vista_Usuario vu;
     private Usuario user;
-
+    int fila = -1;
+    int n = 0;
     int codigo_usuario, cod_socio, cod_rol;
     String usuario, clave;
-
-    Modelo_Usuario login = new Modelo_Usuario();
     Modelo_Rol r = new Modelo_Rol();
+    Modelo_Socio ms = new Modelo_Socio();
 
     public Control_user(Modelo_Usuario modelo, Vista_Usuario vista) {
         this.modelo = modelo;
         this.vu = vista;
         vista.setVisible(true);
         DefaultComboBoxModel combo = new DefaultComboBoxModel(r.mostrarRoles());
+        vu.getCombo_box().addItem("<Seleccionar>");
         vu.getCombo_box().setModel(combo);
         cargarLista("");
 
@@ -54,6 +55,23 @@ public class Control_user {
             @Override
             public void keyReleased(KeyEvent e) {
                 cargarLista(vu.getTxt_buscar().getText());
+            }
+        };
+
+        KeyListener nombreSocio = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                nommbresSocios();
+
             }
         };
 
@@ -77,14 +95,15 @@ public class Control_user {
             }
 
             @Override
-            public void mouseExited(MouseEvent e) {            
+            public void mouseExited(MouseEvent e) {
             }
-
         };
+        vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
+        vu.getBtn_agregar().addActionListener(l -> cargarDialogo(1));
+        vu.getBtn_modificar().addActionListener(l -> cargarDialogo(2));
         vu.getTxt_buscar().addKeyListener(kl);
-        vu.getBtn_agregar().addActionListener(l -> grabarUsuario());
+        vu.getTxt_cedula().addKeyListener(nombreSocio);
         vu.getBtn_eliminar().addActionListener(l -> eliminarUsuario());
-        vu.getBtn_modificar().addActionListener(l -> modificarUsuario());
         vu.getTabla_usuario().addMouseListener(ml);
     }
 
@@ -95,11 +114,49 @@ public class Control_user {
         modelo.setUsuario(usuario);
         modelo.setContrasenia(clave);
         if (modelo.AgregarUsuario()) {
-            JOptionPane.showInputDialog(null, "Usuario Registrado con Éxito", "", 1);
+            cargarLista("");
+            JOptionPane.showMessageDialog(null, "Usuario Registrado con Éxito", "", 1);
         } else {
-            JOptionPane.showInputDialog(null, "Error", "", 0);
+            JOptionPane.showMessageDialog(null, "Error", "", 0);
         }
 
+    }
+
+    public void DefinirMetodo(int n) {
+
+        if (n == 1) {
+            fila = vu.getTabla_usuario().getSelectedRow();
+            grabarUsuario();
+            vu.getDialogo_usuario().removeAll();
+            vu.getDialogo_usuario().dispose();
+        } else if (n == 2) {
+            fila = vu.getTabla_usuario().getSelectedRow();
+            modificarUsuario();
+            vu.getDialogo_usuario().removeAll();
+            vu.getDialogo_usuario().dispose();
+
+        }
+    }
+
+    public void cargarDialogo(int origen) {
+
+        vu.getDialogo_usuario().setSize(500, 500);
+        vu.getDialogo_usuario().setLocationRelativeTo(vu);
+        fila = vu.getTabla_usuario().getSelectedRow();
+        if (origen == 1) {
+            vu.getDialogo_usuario().setTitle("Crear Usuario");
+            n = 1;
+            vu.getDialogo_usuario().setVisible(true);
+        } else {
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
+            } else {
+                TablaDatos();
+                vu.getDialogo_usuario().setTitle("Editar Usuario");
+                n = 2;
+                vu.getDialogo_usuario().setVisible(true);
+            }
+        }
     }
 
     public void modificarUsuario() {
@@ -109,26 +166,29 @@ public class Control_user {
         modelo.setUsuario(usuario);
         modelo.setContrasenia(clave);
         if (modelo.modificarUsuario()) {
-            JOptionPane.showInputDialog(null, "Usuario Modificado con Éxito", "", 1);
+            JOptionPane.showMessageDialog(null, "Usuario Modificado con Éxito", "", 1);
+            cargarLista("");
         } else {
-            JOptionPane.showInputDialog(null, "Error", "", 0);
+            JOptionPane.showMessageDialog(null, "Error", "", 0);
         }
-
     }
 
     public void eliminarUsuario() {
-        int fila = vu.getTabla_usuario().getSelectedRow();
-        String idRol = String.valueOf(vu.getTabla_usuario().getValueAt(fila, 0));
-        if (modelo.EliminarUsuario()) {
-            JOptionPane.showInputDialog(null, "Usuario Eliminado con Éxito", "", 1);
-             cargarLista("");
+        fila = vu.getTabla_usuario().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
         } else {
-            JOptionPane.showMessageDialog(null, "No se a podido eliminar");
+            modelo.setCodigo_usuario(Integer.parseInt(String.valueOf(vu.getTabla_usuario().getValueAt(fila, 0))));
+            if (modelo.EliminarUsuario()) {
+                cargarLista("");
+                JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito", "", 0);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+            }
         }
     }
 
     public void cargarLista(String aguja) {
-        // String aguja = vu.getTxt_buscar().getText();
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) vu.getTabla_usuario().getModel();
         tblModel.setNumRows(0);
@@ -141,24 +201,23 @@ public class Control_user {
     }
 
     public void CargarDatos() {
-       // codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());
+        // codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());   
         cod_socio = codigoSocio();
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
         clave = vu.getTxt_contrasenia().getText();
+        System.out.println(cod_socio + cod_rol + " " + usuario + " " + usuario);
     }
 
     public int codigoSocio() {
         Modelo_Socio ms = new Modelo_Socio();
         return cod_socio = ms.codigoSocio(vu.getTxt_cedula().getText());
-
     }
 
     public int codigoRol() {
 
         List<Rol> lis = new ArrayList<>();
-        
-        String rol=vu.getCombo_box().getSelectedItem().toString();
+        String rol = vu.getCombo_box().getSelectedItem().toString();
         lis = r.listaRol(rol);
         for (Rol li : lis) {
             if (li.getTipo_rol().equals(rol)) {
@@ -167,6 +226,22 @@ public class Control_user {
             }
         }
         return cod_rol;
+    }
+
+    public void TablaDatos() {
+        fila = vu.getTabla_usuario().getSelectedRow();
+        String codigo = String.valueOf(vu.getTabla_usuario().getValueAt(fila, 0));
+        modelo.setCodigo_usuario(Integer.parseInt(codigo));
+        vu.getTxt_usuario().setText(String.valueOf(vu.getTabla_usuario().getValueAt(fila, 3)));
+    }
+
+    public void nommbresSocios() {
+        String[] socio = ms.nombres(vu.getTxt_cedula().getText());
+        if (socio.length != 0) {
+            vu.getTxt_nombre().setText(socio[0]);
+            vu.getTxt_apellido().setText(socio[1]);
+        }
+
     }
 
 }
