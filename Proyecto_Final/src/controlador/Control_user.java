@@ -146,11 +146,6 @@ public class Control_user {
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
         clave = vu.getTxt_contrasenia().getText();
-        
-        System.out.println(cod_socio+" cod socio");
-        System.out.println(cod_rol+" cod rol");
-        System.out.println(usuario+" usuario");
-
     }
 
     public int codigoSocio() {
@@ -162,10 +157,11 @@ public class Control_user {
     public int codigoRol() {
 
         List<Rol> lis = new ArrayList<>();
-        String rol=(String) vu.getCombo_box().getSelectedItem();
+        
+        String rol=vu.getCombo_box().getSelectedItem().toString();
         lis = r.listaRol(rol);
         for (Rol li : lis) {
-            if (li.getTipo_rol().equals((String) vu.getCombo_box().getSelectedItem())) {
+            if (li.getTipo_rol().equals(rol)) {
                 cod_rol = li.getCodigo_rol();
                 break;
             }
