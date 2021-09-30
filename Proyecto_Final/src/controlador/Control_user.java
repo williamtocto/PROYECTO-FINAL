@@ -105,6 +105,7 @@ public class Control_user {
         vu.getTxt_cedula().addKeyListener(nombreSocio);
         vu.getBtn_eliminar().addActionListener(l -> eliminarUsuario());
         vu.getTabla_usuario().addMouseListener(ml);
+        vu.getBtn_cancelar().addActionListener(l-> vu.getDialogo_usuario().dispose());
     }
 
     public void grabarUsuario() {

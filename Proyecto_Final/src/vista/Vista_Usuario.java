@@ -118,30 +118,24 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
             .addGroup(dialogo_usuarioLayout.createSequentialGroup()
                 .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                    .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbl_cedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(30, 30, 30))
+                                .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                                    .addComponent(lbl_cedula2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(129, 129, 129)))
                             .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
                                 .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                            .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbl_cedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(30, 30, 30))
-                                        .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                            .addComponent(lbl_cedula2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(129, 129, 129)))
-                                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(LblCodigo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbl_contrasenia_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(LblContraseña))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogo_usuarioLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)))
+                                    .addComponent(LblCodigo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_contrasenia_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblContraseña))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_nombre)
                             .addComponent(txt_cedula)
@@ -149,11 +143,15 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                             .addComponent(combo_box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_usuario)
                             .addComponent(txt_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_cancelar)))
+                            .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(dialogo_usuarioLayout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(lbl_titulo)))
+                        .addComponent(lbl_titulo))
+                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         dialogo_usuarioLayout.setVerticalGroup(
@@ -437,6 +435,14 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
 
     public void setBtn_aceptar(JButton btn_aceptar) {
         this.btn_aceptar = btn_aceptar;
+    }
+
+    public JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
     
     
