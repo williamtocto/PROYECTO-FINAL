@@ -46,12 +46,13 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbl_titulo.setText("Agregar Roles");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+        lbl_titulo.setText("Agregar Roles.");
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        lbl_codigo_rol.setText("Codigo:");
+        lbl_codigo_rol.setText("Código:");
         getContentPane().add(lbl_codigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
+        tabla_roles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         tabla_roles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -82,20 +83,23 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         getContentPane().add(txt_nombreRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 230, -1));
 
         btn_eliminar.setText("Eliminar");
+        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 77, -1));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, 30));
 
         btn_modificar.setText("Modificar");
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 80, 30));
 
         btn_registrar.setText("Registrar");
-        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        btn_registrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 80, 30));
 
-        jLabel2.setText("Buscar");
+        jLabel2.setText("Buscar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
         getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 230, -1));
 

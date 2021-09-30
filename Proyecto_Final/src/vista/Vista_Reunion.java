@@ -191,10 +191,10 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 11, -1, -1));
 
         LblCodigo_reun.setText("Código");
-        getContentPane().add(LblCodigo_reun, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(LblCodigo_reun, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         LblFecha.setText("Fecha de la Reunion:");
-        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         LblDuracion.setText("Duración estimada:");
         getContentPane().add(LblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
@@ -202,6 +202,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         LblTopico.setText("Tòpico de la Reunion:");
         getContentPane().add(LblTopico, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
+        JTdatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         JTdatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -210,7 +211,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "CODIGO REUNION", "FECHA", "DURACION", "TOPICO"
+                "             Código", "           Fecha", "           Duración", "          Tópico"
             }
         ));
         jScrollPane1.setViewportView(JTdatos);
@@ -242,7 +243,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 70, 30));
         getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 150, -1));
-        getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 107, -1));
+        getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, -1));
         getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 107, -1));
         getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 107, -1));
 

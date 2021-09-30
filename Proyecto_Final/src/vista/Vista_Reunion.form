@@ -43,7 +43,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="60" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -53,7 +53,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="170" width="-1" height="-1"/>
+          <AbsoluteConstraints x="60" y="170" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -91,12 +91,19 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="JTdatos">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder>
+                  <Color PropertyName="color" blue="cc" green="ff" red="cc" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="CODIGO REUNION" type="java.lang.Object"/>
-                <Column editable="true" title="FECHA" type="java.lang.Object"/>
-                <Column editable="true" title="DURACION" type="java.lang.Object"/>
-                <Column editable="true" title="TOPICO" type="java.lang.Object"/>
+                <Column editable="true" title="             C&#xf3;digo" type="java.lang.Object"/>
+                <Column editable="true" title="           Fecha" type="java.lang.Object"/>
+                <Column editable="true" title="           Duraci&#xf3;n" type="java.lang.Object"/>
+                <Column editable="true" title="          T&#xf3;pico" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
@@ -201,7 +208,7 @@
     <Component class="com.toedter.calendar.JDateChooser" name="JdFecha">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="170" width="107" height="-1"/>
+          <AbsoluteConstraints x="180" y="170" width="150" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
