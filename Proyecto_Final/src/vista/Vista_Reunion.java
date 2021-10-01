@@ -319,6 +319,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         Btn_Buscar_consult.setText("BUSCAR");
         dgReunion.getContentPane().add(Btn_Buscar_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -369,11 +370,11 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
 
         BtnEliminar.setText("Eliminar");
         BtnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 70, 30));
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 70, 30));
 
         BtnConsultar.setText("Consultar");
         BtnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 90, 30));
+        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 90, 30));
 
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
@@ -393,41 +394,6 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnModificarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Reunion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Reunion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Reunion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Reunion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_Reunion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnConsultar;

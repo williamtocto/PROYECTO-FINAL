@@ -28,10 +28,17 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="menu_transaccion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transaccion"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="submenuTransaccion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Transaccion"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
@@ -64,6 +71,18 @@
             <MenuItem class="javax.swing.JMenuItem" name="menu_privilegios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Privilegios"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menu_reunion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reunion"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="submenu_reunion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Reunion"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -125,7 +144,10 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="TEOLAMDY 2.0"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JDesktopPane" name="desk_Principal">

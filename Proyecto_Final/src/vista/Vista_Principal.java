@@ -44,12 +44,15 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_socio = new javax.swing.JMenu();
         submenu_socio = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menu_transaccion = new javax.swing.JMenu();
+        submenuTransaccion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menu_MantenimientoUser = new javax.swing.JMenuItem();
         menu_rol = new javax.swing.JMenu();
         menuRol = new javax.swing.JMenuItem();
         menu_privilegios = new javax.swing.JMenuItem();
+        menu_reunion = new javax.swing.JMenu();
+        submenu_reunion = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -57,7 +60,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("TEOLAMDY 2.0");
 
         javax.swing.GroupLayout desk_PrincipalLayout = new javax.swing.GroupLayout(desk_Principal);
         desk_Principal.setLayout(desk_PrincipalLayout);
@@ -84,8 +88,12 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_socio);
 
-        jMenu2.setText("Transaccion");
-        jMenuBar1.add(jMenu2);
+        menu_transaccion.setText("Transaccion");
+
+        submenuTransaccion.setText("Registrar Transaccion");
+        menu_transaccion.add(submenuTransaccion);
+
+        jMenuBar1.add(menu_transaccion);
 
         jMenu3.setText("Usuario");
 
@@ -113,6 +121,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_rol.add(menu_privilegios);
 
         jMenuBar1.add(menu_rol);
+
+        menu_reunion.setText("Reunion");
+
+        submenu_reunion.setText("Crear Reunion");
+        menu_reunion.add(submenu_reunion);
+
+        jMenuBar1.add(menu_reunion);
 
         setJMenuBar(jMenuBar1);
 
@@ -209,6 +224,38 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setMenu_privilegios(JMenuItem menu_privilegios) {
         this.menu_privilegios = menu_privilegios;
     }
+
+    public JMenuItem getSubmenuTransaccion() {
+        return submenuTransaccion;
+    }
+
+    public void setSubmenuTransaccion(JMenuItem submenuTransaccion) {
+        this.submenuTransaccion = submenuTransaccion;
+    }
+
+    public JMenu getMenu_reunion() {
+        return menu_reunion;
+    }
+
+    public void setMenu_reunion(JMenu menu_reunion) {
+        this.menu_reunion = menu_reunion;
+    }
+
+    public JMenu getMenu_transaccion() {
+        return menu_transaccion;
+    }
+
+    public void setMenu_transaccion(JMenu menu_transaccion) {
+        this.menu_transaccion = menu_transaccion;
+    }
+
+    public JMenuItem getSubmenu_reunion() {
+        return submenu_reunion;
+    }
+
+    public void setSubmenu_reunion(JMenuItem submenu_reunion) {
+        this.submenu_reunion = submenu_reunion;
+    }
     
     
 
@@ -252,7 +299,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
@@ -260,8 +306,12 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
     private javax.swing.JMenuItem menu_privilegios;
+    private javax.swing.JMenu menu_reunion;
     private javax.swing.JMenu menu_rol;
     private javax.swing.JMenu menu_socio;
+    private javax.swing.JMenu menu_transaccion;
+    private javax.swing.JMenuItem submenuTransaccion;
+    private javax.swing.JMenuItem submenu_reunion;
     private javax.swing.JMenuItem submenu_socio;
     // End of variables declaration//GEN-END:variables
 }

@@ -109,10 +109,12 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btn_buscarConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btn_imprimirConsulta" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_limpiarConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btn_buscarConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btn_limpiarConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                               </Group>
@@ -285,6 +287,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
+    <Property name="closable" type="boolean" value="true"/>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>

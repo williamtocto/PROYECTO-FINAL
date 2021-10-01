@@ -1,5 +1,10 @@
 package controlador;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_transaccion;
 import vista.Vista_transaccion;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Transaccion;
 
@@ -34,7 +41,58 @@ public class Control_transaccion {
     }
 
     public void inicarControl() {
+        
+        KeyListener kl = new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
+        
+        vistat.getBtnConsultar().addActionListener(l -> {
+            cargarDialogo(2);
+        });
+        
+        MouseListener ml = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        }; 
+        vistat.getBtnAceptar().addActionListener(l -> guardarTransaccion());
+        vistat.getBtnConsultar().addActionListener(l -> cargarDialogo(1));
     }
 
     public void cargarDatos(String aguja) {
@@ -124,7 +182,7 @@ public class Control_transaccion {
     
     public void cargarDialogo(int origen) {
 
-        vistat.getDgTransacciones().setSize(500, 500);
+        vistat.getDgTransacciones().setSize(900, 500);
         vistat.getDgTransacciones().setLocationRelativeTo(vistat);
         fila = vistat.getjTabla_tran().getSelectedRow();
         if (origen == 1) {

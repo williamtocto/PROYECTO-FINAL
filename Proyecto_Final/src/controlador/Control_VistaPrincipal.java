@@ -1,14 +1,18 @@
 package controlador;
 
+import modelo.Modelo_Reunion;
 import modelo.Modelo_Rol;
 import modelo.Modelo_Socio;
 import modelo.Modelo_Usuario;
 import modelo.Modelo_privilegios;
+import modelo.Modelo_transaccion;
 import vista.Vista_Principal;
 import vista.Vista_Privilegios;
+import vista.Vista_Reunion;
 import vista.Vista_Rol;
 import vista.Vista_Socio;
 import vista.Vista_Usuario;
+import vista.Vista_transaccion;
 
 public class Control_VistaPrincipal {
 
@@ -27,6 +31,8 @@ public class Control_VistaPrincipal {
         vista.getMenuRol().addActionListener(l -> IniciarVentanaRol());
         vista.getSubmenu_socio().addActionListener(l -> IniciarVentanaSocio());
         vista.getMenu_privilegios().addActionListener(l-> IniciarVentanaPrivilegios());
+        vista.getSubmenuTransaccion().addActionListener(l -> InicarVentanaTransaccion());
+        vista.getSubmenu_reunion().addActionListener(l -> IniciarVentanaReunion());
     }
 
     public void Usuario() {
@@ -53,6 +59,22 @@ public class Control_VistaPrincipal {
         vista.getDesk_Principal().add(vista_socio);
         Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
         cs.IniciarContro();
+    }
+    
+    public void InicarVentanaTransaccion(){
+        Modelo_transaccion mt = new Modelo_transaccion();
+        Vista_transaccion vt = new Vista_transaccion();
+        vista.getDesk_Principal().add(vt);
+        Control_transaccion ct = new Control_transaccion(mt,vt);
+        ct.inicarControl();
+    }
+    
+    public void IniciarVentanaReunion(){
+        Modelo_Reunion mr = new Modelo_Reunion();
+        Vista_Reunion vr = new Vista_Reunion();
+        vista.getDesk_Principal().add(vr);
+        Control_Reunion cr = new Control_Reunion(mr,vr);
+        cr.iniciaControl();
     }
 
     public void IniciarVentanaPrivilegios() {

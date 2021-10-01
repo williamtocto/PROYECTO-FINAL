@@ -1,11 +1,17 @@
 package controlador;
 
 import java.awt.Component;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Modelo_Reunion;
 import modelo.Reunion;
@@ -42,6 +48,69 @@ public class Control_Reunion {
     }
     
     public void iniciaControl(){
+        KeyListener kl = new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
+        
+        MouseListener ml = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
+       //vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
+       vista.getBtnGuardar().addActionListener(l -> {
+            try {
+                guardarReunion();
+            } catch (ParseException ex) {
+                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+       
+       vista.getBtnModificar().addActionListener(l -> modificarReunion());
+       vista.getBtnEliminar().addActionListener(l -> eliminarReunion());
+       vista.getBtnConsultar().addActionListener(l -> {
+            try {
+                cargarDialogo(1);
+            } catch (SQLException ex) {
+                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         
     }
 
