@@ -10,10 +10,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import vista.Vista_Principal;
 
-/**
- *
- * @author PCX
- */
+
 public class Modelo_Login extends Usuario{
     
         ConexionPG con=new ConexionPG();
@@ -33,7 +30,7 @@ public class Modelo_Login extends Usuario{
 
     }
     
-
-
-
+    public void ValidarUsuario() {
+   
+    }
 }

@@ -10,10 +10,6 @@ import modelo.Modelo_Usuario;
 import modelo.Usuario;
 import vista.Vista_Principal;
 
-/**
- *
- * @author PCX
- */
 public class Control_Login {
     
     private Modelo_Usuario modelo;

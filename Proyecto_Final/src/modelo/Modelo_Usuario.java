@@ -34,15 +34,11 @@ public class Modelo_Usuario extends Usuario {
 
     }
 
-    public boolean AgregarUsuario() {
-        
+    public boolean AgregarUsuario() {   
         System.out.println( getCodigo_socio()+"    "+getCodig_rol() + ",'" + getUsuario() + "','" + getContrasenia() );
-       
-        
         String sql = "INSERT INTO usuario(codigo_socio,codigo_rol,usuario,contrasenia) "
                 + "VALUES (" + getCodigo_socio() + "," + getCodig_rol() + ",'" + getUsuario() + "','" + getContrasenia() + "');";
         return con.accion(sql);
-
     }
 
     public boolean modificarUsuario() {
