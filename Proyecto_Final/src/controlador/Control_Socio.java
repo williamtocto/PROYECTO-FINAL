@@ -11,7 +11,10 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_Socio;
+import modelo.Socio;
 import vista.Vista_Socio;
 
 /**
@@ -46,7 +49,6 @@ public class Control_Socio {
         String num_cuenta = vista.getTxtNumCuenta().getText();
         String nombre = vista.getTxtNombre().getText();
         String apellido = vista.getTxtApellido().getText();
-//        String fecha_nac= vista.getJdCalendario().getDateFormatString();
         String correo = vista.getTxtEmail().getText();
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
@@ -85,7 +87,20 @@ public class Control_Socio {
 //            JOptionPane.showMessageDialog(vista,"ERROR" );
 //        }
     }
+ private void cargarDatosbusqueda(String aguja) {
+        DefaultTableModel dtm;
+        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
+        dtm.setNumRows(0);
+        List<Socio> lista = modelo.socios(aguja);
+        lista.stream().forEach(s -> {
+            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(), 
+                s.getNombre_socio(), s.getApellido_socio(),s.getCorreo_socio(),s.getDireccion_socio(),
+                s.getTelefono_socio(),s.getFecha_nac_socio(), s.getFecha_ingreso()
+            };
+            dtm.addRow(socio);
+        });
 
+    }
     private String calcularEdad(Date fecha_nac) {
         String convertirFecha = fecha_nac.toString();
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -114,5 +129,6 @@ public class Control_Socio {
 //        }
 //        return f;
 //    }
+    
 //    
 }

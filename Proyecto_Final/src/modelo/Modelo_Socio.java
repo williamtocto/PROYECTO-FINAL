@@ -58,6 +58,36 @@ public class Modelo_Socio extends Socio {
         }
 
     }
+    public List<Socio> socios(String aguja) {
+
+        try {
+            String sql = "SELECT FROM* socio";
+            ResultSet rs = con.consulta(sql);
+            List<Socio> ls = new ArrayList<Socio>();
+
+            while (rs.next()) {
+                Socio socio = new Socio();
+                socio.setCodigo_socio(rs.getInt("codigo_socio"));
+                socio.setCedula_socio(rs.getString("cedula_socio"));
+                socio.setNombre_socio(rs.getString("nombre_socio"));
+                socio.setApellido_socio(rs.getString("apellido_socio"));
+                socio.setCorreo_socio(rs.getString("correo_socio"));
+                socio.setFecha_nac_socio(rs.getString("fecha_nac_socio"));
+                socio.setTelefono_socio(rs.getString("telefono_socio"));
+                socio.setDireccion_socio(rs.getString("direccion_socio"));
+                socio.setFecha_ingreso(rs.getString("fecha_ingreso_socio"));
+                socio.setNumero_cuenta(rs.getInt("numero_de_cuenta"));
+
+                ls.add(socio);
+            }
+            rs.close();
+            return ls;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
 
     public void CrearSocio() {
         String sql = new String();
@@ -65,8 +95,8 @@ public class Modelo_Socio extends Socio {
         Socio objtSocio = new Socio();
         sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
         sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
-                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" + objtSocio.getDireccion_socio()
-                + "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
+                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" 
+                + objtSocio.getDireccion_socio()+ "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
         con.accion(sql);
 
     }

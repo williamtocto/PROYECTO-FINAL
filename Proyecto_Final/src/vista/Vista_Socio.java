@@ -112,14 +112,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         this.TxtTelefono = TxtTelefono;
     }
 
-    public JButton getBtnBuscar() {
-        return btnBuscar;
-    }
-
-    public void setBtnBuscar(JButton btnBuscar) {
-        this.btnBuscar = btnBuscar;
-    }
-
     public JButton getBtnInactivar() {
         return btnInactivar;
     }
@@ -183,6 +175,15 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setJtDatosSocio(JTable jtDatosSocio) {
         this.jtDatosSocio = jtDatosSocio;
     }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
+    }
+    
     
     
     @SuppressWarnings("unchecked")
@@ -213,16 +214,17 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         jtDatosSocio = new javax.swing.JTable();
         btnRegistrar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnSocioActivo = new javax.swing.JButton();
         btnInactivar = new javax.swing.JButton();
         ButtonReporte = new javax.swing.JButton();
         TxtNumCuenta = new javax.swing.JTextField();
         btnNuevaCuenta = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         LblFondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -300,31 +302,31 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
 
         btnModificar.setText("Modificar");
         btnModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 70, 30));
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 70, 30));
+        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 70, 30));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 70, 30));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 70, 30));
 
         btnSocioActivo.setText("Socios Activos");
         btnSocioActivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 90, 30));
+        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 90, 30));
 
         btnInactivar.setText("Inactivar Socio");
         btnInactivar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 90, 30));
+        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 90, 30));
 
         ButtonReporte.setText("Generar Reporte ");
         ButtonReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, 30));
+        getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 140, 30));
         getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 160, 20));
 
         btnNuevaCuenta.setText("+");
         getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, -1, 20));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, 190, -1));
+
+        jLabel11.setText("Buscar:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 90, -1, 20));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -358,7 +360,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtNumCuenta;
     private javax.swing.JTextField TxtTelefono;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnInactivar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
@@ -367,6 +368,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JButton btnSocioActivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -379,5 +381,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private com.toedter.calendar.JDateChooser jdFechaIng;
     private com.toedter.calendar.JDateChooser jdFechaNac;
     private javax.swing.JTable jtDatosSocio;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
