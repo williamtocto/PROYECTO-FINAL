@@ -318,70 +318,106 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTabla_tran = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
+        LblFondo = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("TRANSACCIONES");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Transacciones.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         TxtCedula_soc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCedula_socActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
 
-        LblCedula_so.setText("Cedula del Socio:");
+        LblCedula_so.setText("Cédula del Socio:");
+        getContentPane().add(LblCedula_so, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 63, -1, -1));
 
         LblCantidad_cuenta.setText("Cantidad en la cuenta:");
+        getContentPane().add(LblCantidad_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 85, -1, -1));
 
         LblNombre.setText("Nombre:");
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 183, -1, -1));
 
         LblApellido.setText("Apellido:");
+        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 214, -1, -1));
 
-        LblCodigo_socio.setText("Codigo Socio:");
+        LblCodigo_socio.setText("Código Socio:");
+        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 154, -1, -1));
 
         LblTelefono.setText("Télefono:");
+        getContentPane().add(LblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 240, -1, -1));
 
         LblDireccion.setText("Dirección:");
+        getContentPane().add(LblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 266, -1, -1));
 
         LblNume_cuenta.setText("Número de Cuenta:");
+        getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 297, -1, -1));
+        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 82, 130, -1));
+        getContentPane().add(TxtCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 151, 140, -1));
 
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 180, 140, -1));
+        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 211, 140, -1));
+        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 237, 140, -1));
 
         TxtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtDireccionActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 263, 140, -1));
+        getContentPane().add(TxtNumero_cu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 140, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("RESULTADO DE LA BUSQUEDA");
+        jLabel10.setText("Resultado de la búsqueda");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 116, -1, -1));
 
-        BtnConsultar.setText("CONSULTAR");
+        BtnConsultar.setText("Consultar");
+        BtnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        BtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 120, 30));
 
         BtnLimpar.setText("Limpar");
+        BtnLimpar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(BtnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 90, 30));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("TRAMITE A REALIZAR EN LA CUENTA");
+        jLabel11.setText("Trámite:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 332, -1, -1));
 
         LblIngrese_monto.setText("Monto:");
+        getContentPane().add(LblIngrese_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
-        LblTipo_transa.setText("Tipo de Transaccion:");
+        LblTipo_transa.setText("Tipo de Transacción:");
+        getContentPane().add(LblTipo_transa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
+        getContentPane().add(TxtDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 367, 140, -1));
 
         Grupo_tipo.add(rbRetiro);
-        rbRetiro.setText("RETIRO");
+        rbRetiro.setText("Retiro");
+        getContentPane().add(rbRetiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, -1));
 
         Grupo_tipo.add(rbDeposito);
-        rbDeposito.setText("DEPOSITO");
+        rbDeposito.setText("Depósito");
+        getContentPane().add(rbDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
 
+        jTabla_tran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         jTabla_tran.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -390,154 +426,23 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "CODIGO_TRANSACCION", "CODIGO_SOCIO", "MONTO", "SALDO", "TIPO_TRANSACCION", "FECHA"
+                " Código Transacción", "    Código Socio", "       Monto", "       Saldo", "   Tipo Transacción", "       Fecha"
             }
         ));
         jScrollPane1.setViewportView(jTabla_tran);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 635, 310));
+
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("HISTORIAL DE TRANSACCIONES");
+        jLabel14.setText("Historial de Transacciones.");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, -1, -1));
 
-        BtnAceptar.setText("REGISTRAR");
+        BtnAceptar.setText("Registrar");
+        BtnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 120, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LblCantidad_cuenta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TxtValor_cuenta))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LblCedula_so)
-                                .addGap(18, 18, 18)
-                                .addComponent(TxtCedula_soc, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnConsultar)
-                        .addGap(27, 27, 27)
-                        .addComponent(BtnLimpar)
-                        .addContainerGap(516, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LblIngrese_monto)
-                                .addGap(82, 82, 82)
-                                .addComponent(TxtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LblTipo_transa)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbRetiro)
-                                .addGap(10, 10, 10)
-                                .addComponent(rbDeposito))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(LblNume_cuenta)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(TxtNumero_cu))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(LblCodigo_socio)
-                                        .addComponent(LblNombre)
-                                        .addComponent(LblApellido)
-                                        .addComponent(LblTelefono)
-                                        .addComponent(LblDireccion))
-                                    .addGap(42, 42, 42)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TxtCodigo_socio, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                        .addComponent(TxtNombre)
-                                        .addComponent(TxtApellido)
-                                        .addComponent(TxtTelefono)
-                                        .addComponent(TxtDireccion))))
-                            .addComponent(BtnAceptar))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                                .addComponent(jLabel14)
-                                .addGap(118, 118, 118))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LblCedula_so)
-                                    .addComponent(TxtCedula_soc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LblCantidad_cuenta)
-                                    .addComponent(TxtValor_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(BtnConsultar)
-                                    .addComponent(BtnLimpar))))
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblCodigo_socio)
-                            .addComponent(TxtCodigo_socio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblNombre)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblApellido)
-                            .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblTelefono)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblDireccion)
-                            .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblNume_cuenta)
-                            .addComponent(TxtNumero_cu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblIngrese_monto)
-                            .addComponent(TxtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblTipo_transa)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbRetiro)
-                                .addComponent(rbDeposito)))
-                        .addGap(19, 19, 19)
-                        .addComponent(BtnAceptar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
-        );
+        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 970, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -553,6 +458,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNombreActionPerformed
+
+    private void BtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,6 +508,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LblCedula_so;
     private javax.swing.JLabel LblCodigo_socio;
     private javax.swing.JLabel LblDireccion;
+    private javax.swing.JLabel LblFondo;
     private javax.swing.JLabel LblIngrese_monto;
     private javax.swing.JLabel LblNombre;
     private javax.swing.JLabel LblNume_cuenta;
