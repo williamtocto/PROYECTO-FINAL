@@ -45,6 +45,12 @@ public class Modelo_Reunion extends Reunion {
         String sql = "UPDATE reunion SET fecha_reunion='" + getFecha_reunion() + "',duracion_reunion='" + getDuracion_reunion() + "',topico_reunion='" + getTopico_reunion() + "'WHERE codigo_reunion='" + getCodigo_reunion() + "'";
         return con.accion(sql);
     }
+    
+    public boolean eliminarReunion() {
+        String sql = "DELETE FROM reunion WHERE codigo_reunion='" + getCodigo_reunion() + "'";
+        return con.accion(sql);
+    }
+    
 
     public boolean consultaFecha() {
         int fila = 0;

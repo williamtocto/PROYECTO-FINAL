@@ -7,6 +7,7 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -145,6 +146,96 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         return jScrollPane1;
     }
 
+    public JButton getBtn_Buscar_consult() {
+        return Btn_Buscar_consult;
+    }
+
+    public void setBtn_Buscar_consult(JButton Btn_Buscar_consult) {
+        this.Btn_Buscar_consult = Btn_Buscar_consult;
+    }
+
+    public JDialog getDgReunion() {
+        return dgReunion;
+    }
+
+    public void setDgReunion(JDialog dgReunion) {
+        this.dgReunion = dgReunion;
+    }
+
+    public JDateChooser getjDcDesde() {
+        return jDcDesde;
+    }
+
+    public void setjDcDesde(JDateChooser jDcDesde) {
+        this.jDcDesde = jDcDesde;
+    }
+
+    public JDateChooser getjDcHasta() {
+        return jDcHasta;
+    }
+
+    public void setjDcHasta(JDateChooser jDcHasta) {
+        this.jDcHasta = jDcHasta;
+    }
+
+    public JLabel getjLabel2() {
+        return lbldesde;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.lbldesde = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return lblhasta;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.lblhasta = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTable getJtConsultar() {
+        return jtConsultar;
+    }
+
+    public void setJtConsultar(JTable jtConsultar) {
+        this.jtConsultar = jtConsultar;
+    }
+    
+    
+
     /**
      * Creates new form Vista_Reunion
      */
@@ -165,6 +256,16 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dgReunion = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtConsultar = new javax.swing.JTable();
+        lbldesde = new javax.swing.JLabel();
+        lblhasta = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jDcDesde = new com.toedter.calendar.JDateChooser();
+        jDcHasta = new com.toedter.calendar.JDateChooser();
+        Btn_Buscar_consult = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         LblCodigo_reun = new javax.swing.JLabel();
         LblFecha = new javax.swing.JLabel();
@@ -182,6 +283,41 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         TxtDuracion = new javax.swing.JTextField();
         TxtTopic = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+
+        dgReunion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("CONSULTAR REUNION.");
+        dgReunion.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 170, 40));
+
+        jtConsultar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "CODIGO REUNION", "FECHA REUNION", "DURACION", "TOPICO"
+            }
+        ));
+        jScrollPane2.setViewportView(jtConsultar);
+
+        dgReunion.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 170));
+
+        lbldesde.setText("BUSCAR  REUNION DESDE:");
+        dgReunion.getContentPane().add(lbldesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        lblhasta.setText("BUSCAR REUNION HASTA:");
+        dgReunion.getContentPane().add(lblhasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jLabel6.setText("RESULTADOS:");
+        dgReunion.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        dgReunion.getContentPane().add(jDcDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 170, 20));
+        dgReunion.getContentPane().add(jDcHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 170, -1));
+
+        Btn_Buscar_consult.setText("BUSCAR");
+        dgReunion.getContentPane().add(Btn_Buscar_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -299,6 +435,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnLimpiar;
     private javax.swing.JButton BtnModificar;
+    private javax.swing.JButton Btn_Buscar_consult;
     private javax.swing.JTable JTdatos;
     private com.toedter.calendar.JDateChooser JdFecha;
     private javax.swing.JLabel LblCodigo_reun;
@@ -308,8 +445,17 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtCodReu;
     private javax.swing.JTextField TxtDuracion;
     private javax.swing.JTextField TxtTopic;
+    private javax.swing.JDialog dgReunion;
+    private com.toedter.calendar.JDateChooser jDcDesde;
+    private com.toedter.calendar.JDateChooser jDcHasta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jtConsultar;
+    private javax.swing.JLabel lbldesde;
+    private javax.swing.JLabel lblhasta;
     // End of variables declaration//GEN-END:variables
 }
