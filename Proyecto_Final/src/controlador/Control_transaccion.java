@@ -33,7 +33,7 @@ public class Control_transaccion {
         vista.setVisible(true);
     }
 
-    public void inicarTransacciones() {
+    public void inicarControl() {
 
     }
 
@@ -120,5 +120,17 @@ public class Control_transaccion {
         vistat.getTxtDeposito().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 1)));
         vistat.getTxtValor_cuenta().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 2)));
         t_transaccion= String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 3));
+    }
+    
+    public void cargarDialogo(int origen) {
+
+        vistat.getDgTransacciones().setSize(500, 500);
+        vistat.getDgTransacciones().setLocationRelativeTo(vistat);
+        fila = vistat.getjTabla_tran().getSelectedRow();
+        if (origen == 1) {
+            vistat.getDgTransacciones().setTitle("Consultar Transaccion");
+            m = 1;
+            vistat.getDgTransacciones().setVisible(true);
+        }
     }
 }

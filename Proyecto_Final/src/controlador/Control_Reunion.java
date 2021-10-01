@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -39,13 +40,13 @@ public class Control_Reunion {
 
     public Control_Reunion() {
     }
+    
+    public void iniciaControl(){
+        
+    }
 
     public void guardarReunion() throws ParseException {
         cargarDatos();
-        modelo.setCodigo_reunion(codigo_reunion);
-        modelo.setFecha_reunion(fecha_reunion);
-        modelo.setDuracion_reunion(duracion_reunion);
-        modelo.setTopico_reunion(topico_reunion);
         int verificarFecha;
         if (vista.getJdFecha() == null || "".equals(vista.getTxtDuracion()) || "".equals(vista.getTxtTopic())) {
 
@@ -70,12 +71,30 @@ public class Control_Reunion {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     format = sdf.format(vista.getJdFecha().getDate());
                 }
-                
+
+                if (fila <= 0) {
+
+                    modelo.setCodigo_reunion(codigo_reunion);
+                    modelo.setFecha_reunion(fecha_reunion);
+                    modelo.setDuracion_reunion(duracion_reunion);
+                    modelo.setTopico_reunion(topico_reunion);
+                    int codigo_reunion = 0;
+                    codigo_reunion = Integer.parseInt(vista.getTxtCodReu().getText());
+                    if (modelo.AgregarReunion()) {
+                        JOptionPane.showInputDialog(null, "Se ha guardado correctamente", "", 1);
+                    } else {
+                        JOptionPane.showInputDialog(null, "Error", "", 0);
+                    }
+                    //Asistencia_Ventana asis = new Asistencia_Ventana(formato, codigo_reunion);
+                    //asis.setVisible(true);
+                }
             }
+
         }
+
     }
-    
-    public void modificarReunion(){
+
+    public void modificarReunion() {
         cargarDatos();
         modelo.setCodigo_reunion(codigo_reunion);
         modelo.setFecha_reunion(fecha_reunion);
@@ -88,14 +107,38 @@ public class Control_Reunion {
         }
     }
 
+    public void eliminarReunion() {
+        fila = vista.getJTdatos().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(vista, "SELECCIONE UN DATO DE LA TABLA", "ADVERTENCIA", 2);
+        } else {
+            modelo.setCodigo_reunion(Integer.parseInt(String.valueOf(vista.getJTdatos().getValueAt(fila, 0))));
+            int resp;
+            Component rootPane = null;
+            resp = JOptionPane.showConfirmDialog(rootPane, "¿DESEA ELIMNAR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                if (fila <= 0) {
+                    if (modelo.eliminarReunion()) {
+                        cargarDatos();
+                        JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 0);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
+            }
+        }
+    }
+
     public void cargarDatos() {
         codigo_reunion = Integer.parseInt(vista.getTxtCodReu().getText());
-        fecha_reunion= formatoFecha();
-        duracion_reunion= vista.getTxtDuracion().getText();
-        topico_reunion=vista.getTxtTopic().getText();
+        fecha_reunion = formatoFecha();
+        duracion_reunion = vista.getTxtDuracion().getText();
+        topico_reunion = vista.getTxtTopic().getText();
     }
-    
-    public String formatoFecha(){
+
+    public String formatoFecha() {
         if (vista.getJdFecha().getDate() != null) {
             fecha = vista.getJdFecha().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -103,28 +146,18 @@ public class Control_Reunion {
         }
         return formato;
     }
-    
-    /*private void cargarDialogo(int origen) throws SQLException {
-        vista.getDgPersona().setSize(600, 600);
-        vista.getDgPersona().setLocationRelativeTo(vista);
-        fila = vista.getTblPersonas().getSelectedRow();
-        if (origen == 1) {
-            vista.getDgPersona().setTitle("Crear Persona");
-            n = 1;
-            vista.getDgPersona().setVisible(true);
 
-        } else {
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(vista, "SELECCIONE UN DATO DE LA TABLA", "IMPORTANTE", 2);
-            } else {
-                cargarDatos();
-                vista.getDgPersona().setTitle("Editar Persona");
-                n = 2;
-                vista.getDgPersona().setVisible(true);
-            }
+    private void cargarDialogo(int origen) throws SQLException {
+        vista.getDgReunion().setSize(600, 600);
+        vista.getDgReunion().setLocationRelativeTo(vista);
+        fila = vista.getJTdatos().getSelectedRow();
+        if (origen == 1) {
+            vista.getDgReunion().setTitle("Consultar Reunion");
+            n = 1;
+            vista.getDgReunion().setVisible(true);
         }
-    }*/
-    
+    }
+
     public int ValidarFechaIngreso() throws ParseException {
         Date fechaDispositivo = new Date();
         int f = 0;
