@@ -1,6 +1,14 @@
 package controlador;
 
 import Modelo.Rol;
+import java.awt.ItemSelectable;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import modelo.Modelo_Rol;
@@ -21,6 +29,14 @@ public class Control_Privilegios {
         DefaultComboBoxModel combo = new DefaultComboBoxModel(r.mostrarRoles());
         vp.getCombo_box().addItem("<Seleccionar>");
         vp.getCombo_box().setModel(combo);
+
+    }
+
+    public void iniciarControl() {
+
+        vp.getBtn_Agregar().addActionListener(l -> agregarPrivilegios());
+        vp.getB_MODIFICAR().addActionListener(l -> modificarPrivilegio());
+        vp.getBtn_eliminar().addActionListener(l -> eliminarPrivilegio());
 
     }
 
@@ -164,6 +180,41 @@ public class Control_Privilegios {
         } else {
             JOptionPane.showMessageDialog(vp, "Error");
         }
+
+    }
+
+    private void initComboMouseListener() {
+        vp.getCombo_box().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(" ################ mouseClicked");
+                // selectedItem = comboBox.getSelectedItem();
+                //  resetFilterComponent();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                System.out.println(" ################ mouseEntered");
+                //   selectedItem = comboBox.getSelectedItem();
+                // resetFilterComponent();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
 
     }
 

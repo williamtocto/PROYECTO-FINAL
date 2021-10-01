@@ -31,7 +31,7 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         jlabel_nombre = new javax.swing.JLabel();
         btn_Agregar = new javax.swing.JButton();
         B_MODIFICAR = new javax.swing.JButton();
-        jButton_Eliminar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jlabel_opciones_menu = new javax.swing.JLabel();
         TxtCodigo = new javax.swing.JTextField();
@@ -44,6 +44,7 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         combo_box = new javax.swing.JComboBox<>();
         jlabel_nombre1 = new javax.swing.JLabel();
 
+        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlabel_nombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -70,12 +71,12 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         });
         getContentPane().add(B_MODIFICAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 120, 40));
 
-        jButton_Eliminar.setBackground(new java.awt.Color(255, 0, 0));
-        jButton_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton_Eliminar.setForeground(new java.awt.Color(0, 153, 153));
-        jButton_Eliminar.setText("ELIMINAR");
-        jButton_Eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        getContentPane().add(jButton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 80, 40));
+        btn_eliminar.setBackground(new java.awt.Color(255, 0, 0));
+        btn_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_eliminar.setForeground(new java.awt.Color(0, 153, 153));
+        btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 80, 40));
 
         jLabel2.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -205,6 +206,14 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         return rad_socio;
     }
 
+    public JButton getBtn_eliminar() {
+        return btn_eliminar;
+    }
+
+    public void setBtn_eliminar(JButton btn_eliminar) {
+        this.btn_eliminar = btn_eliminar;
+    }
+
     public void setRad_socio(JRadioButton rad_socio) {
         this.rad_socio = rad_socio;
     }
@@ -230,8 +239,8 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
     private javax.swing.JButton B_MODIFICAR;
     private javax.swing.JTextField TxtCodigo;
     private javax.swing.JButton btn_Agregar;
+    private javax.swing.JButton btn_eliminar;
     private javax.swing.JComboBox<String> combo_box;
-    private javax.swing.JButton jButton_Eliminar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlabel_nombre;
     private javax.swing.JLabel jlabel_nombre1;

@@ -93,4 +93,18 @@ public class Modelo_Rol extends Rol {
         }
     }
 
+    public int CodigoRol() {
+
+        String sql = "SELECT * FROM rol where tipo_rol =" + getTipo_rol();
+        ResultSet rs = pg.consulta(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt("codigo_rol");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showInternalMessageDialog(null, ex.getMessage(), sql, 0);
+        }
+        return 0;
+    }
+
 }

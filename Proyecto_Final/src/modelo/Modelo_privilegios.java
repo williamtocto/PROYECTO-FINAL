@@ -4,11 +4,13 @@ public class Modelo_privilegios extends Privilegios {
 
     ConexionPG con = new ConexionPG();
 
+    public Modelo_privilegios() {
+    }
+
     public Modelo_privilegios(int cod_relacion, int cod_rol, int cod_opcion, String estado_rol) {
         super(cod_relacion, cod_rol, cod_opcion, estado_rol);
     }
 
-    
     public boolean grabarPrivilegios() {
         String sql = "INSERT INTO relacion_rol_opciones (cod_rol,cod_opcion,estado_rol) "
                 + "VALUES (" + getCod_rol() + ", " + getCod_opcion() + ", '" + getEstado_rol() + "');";

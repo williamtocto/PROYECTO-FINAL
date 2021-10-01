@@ -9,6 +9,11 @@ public class Privilegios {
     private int cod_opcion;
     private String estado_rol;
 
+    public Privilegios() {
+    }
+    
+   
+
     public Privilegios(int cod_relacion, int cod_rol, int cod_opcion, String estado_rol) {
         this.cod_relacion = cod_relacion;
         this.cod_rol = cod_rol;

@@ -83,10 +83,8 @@ public class Control_Rol {
     }
 
     public void cargarNombreSocio() {
-        List<Socio> ls = new ArrayList<>();
-        
-        ls=mr.socios();
-        
+        List<Socio> ls = new ArrayList<>();       
+        ls=mr.socios();      
     }
 
     public void grabarUsuario() {

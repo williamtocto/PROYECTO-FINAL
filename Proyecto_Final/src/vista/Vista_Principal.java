@@ -49,6 +49,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_MantenimientoUser = new javax.swing.JMenuItem();
         menu_rol = new javax.swing.JMenu();
         menuRol = new javax.swing.JMenuItem();
+        menu_privilegios = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -107,6 +108,9 @@ public class Vista_Principal extends javax.swing.JFrame {
             }
         });
         menu_rol.add(menuRol);
+
+        menu_privilegios.setText("Privilegios");
+        menu_rol.add(menu_privilegios);
 
         jMenuBar1.add(menu_rol);
 
@@ -197,6 +201,14 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setMenuRol(JMenuItem menuRol) {
         this.menuRol = menuRol;
     }
+
+    public JMenuItem getMenu_privilegios() {
+        return menu_privilegios;
+    }
+
+    public void setMenu_privilegios(JMenuItem menu_privilegios) {
+        this.menu_privilegios = menu_privilegios;
+    }
     
     
 
@@ -247,6 +259,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
+    private javax.swing.JMenuItem menu_privilegios;
     private javax.swing.JMenu menu_rol;
     private javax.swing.JMenu menu_socio;
     private javax.swing.JMenuItem submenu_socio;
