@@ -95,7 +95,7 @@ public class Modelo_Rol extends Rol {
 
     public int CodigoRol() {
 
-        String sql = "SELECT * FROM rol where tipo_rol =" + getTipo_rol();
+        String sql = "SELECT * FROM rol where tipo_rol = '" + getTipo_rol()+"'";
         ResultSet rs = pg.consulta(sql);
         try {
             while (rs.next()) {

@@ -13,9 +13,7 @@ public class Control_Asistencia {
         int op = JOptionPane.showOptionDialog(null, "ESTA SEGURO DE GUARDAR ESTOS DATOS", "TEOLAM", JOptionPane.YES_NO_CANCEL_OPTION, 3, null,
                 new Object[]{"SI", "NO"}, null);
         
-        if (op==0) {
-            
-            
+        if (op==0) { 
         }
 
     }
