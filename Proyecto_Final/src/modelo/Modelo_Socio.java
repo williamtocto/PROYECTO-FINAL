@@ -27,6 +27,18 @@ public class Modelo_Socio extends Socio {
     }
 
     ConexionPG con = new ConexionPG();
+    
+       public void CrearSocio() {
+        String sql = new String();
+//        String sentencia;
+        Socio objtSocio = new Socio();
+        sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
+        sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
+                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" 
+                + objtSocio.getDireccion_socio()+ "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
+        con.accion(sql);
+
+    }
 
     public List<Socio> socios() {
 
@@ -58,10 +70,15 @@ public class Modelo_Socio extends Socio {
         }
 
     }
+    
+    //Consulta y método para realizar la búsqueda del socio
     public List<Socio> socios(String aguja) {
 
         try {
-            String sql = "SELECT FROM* socio";
+            String sql = "SELECT FROM* socio WHERE ";
+            sql += " UPPER(cedula_socio) like UPPER('%" + aguja + "%') OR";
+            sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
+            sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%')";
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
@@ -89,17 +106,7 @@ public class Modelo_Socio extends Socio {
 
     }
 
-    public void CrearSocio() {
-        String sql = new String();
-//        String sentencia;
-        Socio objtSocio = new Socio();
-        sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
-        sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
-                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" 
-                + objtSocio.getDireccion_socio()+ "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
-        con.accion(sql);
 
-    }
 
     public boolean editar_socio(String id) {
         String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"

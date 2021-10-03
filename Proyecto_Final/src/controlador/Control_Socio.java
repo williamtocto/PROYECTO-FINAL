@@ -5,7 +5,8 @@
  */
 package controlador;
 
-
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -38,6 +39,23 @@ public class Control_Socio {
     }
 
     public void IniciarContro() {
+        KeyListener buscador = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                cargarDatosbusqueda(vista.getTxtBuscar().getText());
+            }
+        };
 
         vista.getBtnRegistrar().addActionListener(l -> crearSocio());
     }
@@ -87,20 +105,97 @@ public class Control_Socio {
 //            JOptionPane.showMessageDialog(vista,"ERROR" );
 //        }
     }
- private void cargarDatosbusqueda(String aguja) {
+
+    private void cargarDatos() {
+        DefaultTableModel dtm;
+        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
+        dtm.setNumRows(0);
+        List<Socio> lista = modelo.socios();
+        lista.stream().forEach(s -> {
+            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
+                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
+                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()};
+            dtm.addRow(socio);
+        });
+
+    }
+
+    private void cargarDatosbusqueda(String aguja) {
         DefaultTableModel dtm;
         dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
         dtm.setNumRows(0);
         List<Socio> lista = modelo.socios(aguja);
         lista.stream().forEach(s -> {
-            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(), 
-                s.getNombre_socio(), s.getApellido_socio(),s.getCorreo_socio(),s.getDireccion_socio(),
-                s.getTelefono_socio(),s.getFecha_nac_socio(), s.getFecha_ingreso()
+            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
+                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
+                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()
             };
             dtm.addRow(socio);
         });
 
     }
+
+    public void mostrarDatos() {
+ 
+        int fila = vista.getJtDatosSocio().getSelectedRow();
+        vista.getTxtCodigo().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 0)));
+        vista.getTxtCedula().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1)));
+        vista.getTxtNombre().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 2)));
+        vista.getTxtApellido().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 3)));
+//        vista.getJdFechaNac().setDate(vista.getJtDatosSocio().getValueAt(fila, 4));
+        vista.getTxtDireccion().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 5)));
+        vista.getTxtTelefono().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 6)));
+        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 7)));
+    }
+    
+     private void editarSocio() {
+
+        String cod_socio = vista.getTxtCodigo().getText();
+        String ced_socio = vista.getTxtCedula().getText();
+        String num_cuenta = vista.getTxtNumCuenta().getText();
+        String nombre = vista.getTxtNombre().getText();
+        String apellido = vista.getTxtApellido().getText();
+        String correo = vista.getTxtEmail().getText();
+        String dir = vista.getTxtDireccion().getText();
+        String telf = vista.getTxtTelefono().getText();
+
+        Date fecha = null;
+        String formato = null;
+        String formato2 = null;
+        // Tranformar la fecha a String
+        if (vista.getJdFechaNac().getDate() != null) {
+            fecha = vista.getJdFechaNac().getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            formato = sdf.format(fecha);
+        } else {
+            fecha = vista.getJdFechaIng().getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            formato2 = sdf.format(fecha);
+        }
+
+        Modelo_Socio socio = new Modelo_Socio();
+
+        socio.setCodigo_socio(Integer.valueOf(cod_socio));
+        socio.setCedula_socio(ced_socio);
+        socio.setNumero_cuenta(Integer.valueOf(num_cuenta));
+        socio.setNombre_socio(nombre);
+        socio.setApellido_socio(apellido);
+        socio.setCorreo_socio(correo);
+        socio.setDireccion_socio(cod_socio);
+        socio.setTelefono_socio(telf);
+        socio.setFecha_nac_socio(formato);
+        socio.setFecha_ingreso(formato2);
+
+//        if (socio.CrearSocio()) {
+//            JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE ");
+//            
+//        } else {
+//            JOptionPane.showMessageDialog(vista,"ERROR" );
+//        }
+    }
+
+  
+
     private String calcularEdad(Date fecha_nac) {
         String convertirFecha = fecha_nac.toString();
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -129,6 +224,5 @@ public class Control_Socio {
 //        }
 //        return f;
 //    }
-    
 //    
 }
