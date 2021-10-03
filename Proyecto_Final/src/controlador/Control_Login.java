@@ -27,8 +27,10 @@ public class Control_Login {
         modelo.setUsuario(usuario);
         modelo.setContrasenia(clave);
         int codigo = modelo.ValidarUsuario();
-        if (codigo != 0) {
-            Vista_Principal ven = new Vista_Principal(codigo);
+        if (codigo != 0) {            
+        Vista_Principal vp = new Vista_Principal(codigo);
+        Control_VistaPrincipal cp = new Control_VistaPrincipal(vp);
+        cp.incioControl();
         }
     }
 
