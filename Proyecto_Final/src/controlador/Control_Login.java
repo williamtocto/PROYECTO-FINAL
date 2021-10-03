@@ -2,9 +2,13 @@ package controlador;
 
 import Vista.Vista_Login;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Modelo_Login;
+import modelo.Modelo_privilegios;
+import modelo.Privilegios;
 import vista.Vista_Principal;
 
 public class Control_Login {
@@ -12,12 +16,15 @@ public class Control_Login {
     private Modelo_Login modelo;
     private Vista_Login vista;
 
+    Modelo_privilegios ml = new Modelo_privilegios();
+
+    int codigo;
+
     public Control_Login(Modelo_Login modelo, Vista_Login vista) throws SQLException {
         this.modelo = modelo;
         this.vista = vista;
         vista.setTitle("Inicio");
         vista.setVisible(true);
-
     }
 
     public void validarUsuario() throws SQLException {
@@ -26,11 +33,10 @@ public class Control_Login {
         String clave = vista.getTxt_Password().getText();
         modelo.setUsuario(usuario);
         modelo.setContrasenia(clave);
-        int codigo = modelo.ValidarUsuario();
-        if (codigo != 0) {            
-        Vista_Principal vp = new Vista_Principal(codigo);
-        Control_VistaPrincipal cp = new Control_VistaPrincipal(vp);
-        cp.incioControl();
+        codigo = modelo.ValidarUsuario();
+        if (codigo != 0) {
+            inicioVentanaPrincipal();
+            this.vista.dispose();
         }
     }
 
@@ -42,6 +48,70 @@ public class Control_Login {
                 Logger.getLogger(Control_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+    }
+
+    public void inicioVentanaPrincipal() throws SQLException {
+
+        int id_opcion = 0;
+        boolean estado = false;
+        ml.setCod_rol(codigo);
+        List<Privilegios> lista = ml.CargarLista();
+        Vista_Principal vp = new Vista_Principal();
+        for (int i = 0; i < lista.size(); i++) {
+            id_opcion = lista.get(i).getCod_opcion();
+            estado = Boolean.valueOf(lista.get(i).getEstado_rol());
+            System.out.println(id_opcion + "   " + estado);
+
+            switch (id_opcion) {
+                case 1 -> {
+                    if (estado == true) {
+                        vp.getMenu_socio().setEnabled(true);
+                    } else {
+                        vp.getMenu_socio().setEnabled(false);
+                    }
+
+                }
+                case 2 -> {
+                    if (estado == true) {
+                        vp.getMenu_transaccion().setEnabled(true);
+                    } else {
+                        vp.getMenu_transaccion().setEnabled(false);
+                    }
+                }
+                case 3 -> {
+                    if (estado == true) {
+                        vp.getMenu_reunion().setEnabled(true);
+                    } else {
+                        vp.getMenu_reunion().setEnabled(false);
+                    }
+                }
+                case 4 -> {
+                    if (estado == true) {
+                        vp.getMenu_multas().setEnabled(true);
+                    } else {
+                        vp.getMenu_multas().setEnabled(false);
+                    }
+                }
+                case 5 -> {
+                    if (estado == true) {
+                        vp.getMenu_usuario().setEnabled(true);
+                    } else {
+                        vp.getMenu_usuario().setEnabled(false);
+                    }
+                }
+                case 6 -> {
+                    if (estado == true) {
+                        vp.getMenuPrincipal_rol().setEnabled(true);
+                    } else {
+                        vp.getMenuPrincipal_rol().setEnabled(false);
+                    }
+                }
+                default -> {
+                }
+            }
+        }
+        Control_VistaPrincipal cp = new Control_VistaPrincipal(vp);
+        cp.incioControl();
     }
 
 }

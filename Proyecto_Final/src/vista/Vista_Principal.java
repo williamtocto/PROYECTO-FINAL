@@ -41,9 +41,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         submenu_socio = new javax.swing.JMenuItem();
         menu_transaccion = new javax.swing.JMenu();
         submenuTransaccion = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menu_usuario = new javax.swing.JMenu();
         menu_MantenimientoUser = new javax.swing.JMenuItem();
-        menu_rol = new javax.swing.JMenu();
+        menuPrincipal_rol = new javax.swing.JMenu();
         menuRol = new javax.swing.JMenuItem();
         menu_privilegios = new javax.swing.JMenuItem();
         menu_reunion = new javax.swing.JMenu();
@@ -91,7 +91,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_transaccion);
 
-        jMenu3.setText("Usuario");
+        menu_usuario.setText("Usuario");
 
         menu_MantenimientoUser.setText("Matenimiento Usuarios");
         menu_MantenimientoUser.addActionListener(new java.awt.event.ActionListener() {
@@ -99,11 +99,11 @@ public class Vista_Principal extends javax.swing.JFrame {
                 menu_MantenimientoUserActionPerformed(evt);
             }
         });
-        jMenu3.add(menu_MantenimientoUser);
+        menu_usuario.add(menu_MantenimientoUser);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menu_usuario);
 
-        menu_rol.setText("Rol");
+        menuPrincipal_rol.setText("Rol");
 
         menuRol.setText("Roles");
         menuRol.addActionListener(new java.awt.event.ActionListener() {
@@ -111,12 +111,12 @@ public class Vista_Principal extends javax.swing.JFrame {
                 menuRolActionPerformed(evt);
             }
         });
-        menu_rol.add(menuRol);
+        menuPrincipal_rol.add(menuRol);
 
         menu_privilegios.setText("Privilegios");
-        menu_rol.add(menu_privilegios);
+        menuPrincipal_rol.add(menu_privilegios);
 
-        jMenuBar1.add(menu_rol);
+        jMenuBar1.add(menuPrincipal_rol);
 
         menu_reunion.setText("Reunion");
 
@@ -200,21 +200,20 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.menu_MantenimientoUser = menu_MantenimientoUser;
     }
 
-    public JMenu getMenu_rol() {
-        return menu_rol;
-    }
 
     public void setMenu_rol(JMenu menu_rol) {
-        this.menu_rol = menu_rol;
+        this.menuPrincipal_rol = menu_rol;
     }
 
-    public JMenuItem getMenuRol() {
-        return menuRol;
+    public JMenu getMenuPrincipal_rol() {
+        return menuPrincipal_rol;
     }
 
-    public void setMenuRol(JMenuItem menuRol) {
-        this.menuRol = menuRol;
+    public void setMenuPrincipal_rol(JMenu menuPrincipal_rol) {
+        this.menuPrincipal_rol = menuPrincipal_rol;
     }
+
+   
 
     public JMenuItem getMenu_privilegios() {
         return menu_privilegios;
@@ -254,6 +253,22 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     public void setSubmenu_reunion(JMenuItem submenu_reunion) {
         this.submenu_reunion = submenu_reunion;
+    }
+
+    public JMenu getMenu_multas() {
+        return menu_multas;
+    }
+
+    public void setMenu_multas(JMenu menu_multas) {
+        this.menu_multas = menu_multas;
+    }
+
+    public JMenu getMenu_usuario() {
+        return menu_usuario;
+    }
+
+    public void setMenu_usuario(JMenu menu_usuario) {
+        this.menu_usuario = menu_usuario;
     }
     
     
@@ -298,18 +313,18 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenu menuPrincipal_rol;
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
     private javax.swing.JMenu menu_multas;
     private javax.swing.JMenuItem menu_privilegios;
     private javax.swing.JMenu menu_reunion;
-    private javax.swing.JMenu menu_rol;
     private javax.swing.JMenu menu_socio;
     private javax.swing.JMenu menu_transaccion;
+    private javax.swing.JMenu menu_usuario;
     private javax.swing.JMenuItem submenuTransaccion;
     private javax.swing.JMenuItem submenu_reunion;
     private javax.swing.JMenuItem submenu_socio;

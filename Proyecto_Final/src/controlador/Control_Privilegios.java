@@ -13,6 +13,7 @@ import modelo.Modelo_Rol;
 import modelo.Modelo_privilegios;
 import modelo.Privilegios;
 import vista.Vista_Privilegios;
+import java.sql.ResultSet;
 
 public class Control_Privilegios {
 
@@ -208,7 +209,6 @@ public class Control_Privilegios {
     }
 
     public void limpiar() {
-        
 
     }
 
@@ -217,7 +217,7 @@ public class Control_Privilegios {
         List<Privilegios> lp = new ArrayList<>();
         lp = mp.CargarLista();
         if (lp.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "No se pudo elinar este rol");
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar este rol");
         } else {
             int op = JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR "
                     + "LOS PRIVILEGIOS DE ESTE ROL", "CONFIRME", JOptionPane.YES_NO_OPTION);
@@ -232,4 +232,6 @@ public class Control_Privilegios {
             }
         }
     }
+
+    
 }

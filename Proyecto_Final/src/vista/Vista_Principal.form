@@ -40,7 +40,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="menu_usuario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
@@ -55,7 +55,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu_rol">
+        <Menu class="javax.swing.JMenu" name="menuPrincipal_rol">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rol"/>
           </Properties>

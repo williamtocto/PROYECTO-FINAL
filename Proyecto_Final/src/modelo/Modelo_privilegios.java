@@ -34,16 +34,23 @@ public class Modelo_privilegios extends Privilegios {
     }
 
     public List<Privilegios> CargarLista() throws SQLException {
+        System.out.println(getCod_rol()+" CODIGO");
         String sql = "select * from relacion_rol_opciones where cod_rol= " + getCod_rol();
         ResultSet rs = con.consulta(sql);
         List<Privilegios> pr = new ArrayList<>();
         while (rs.next()) {
             Privilegios priv = new Privilegios();
-            priv.setCod_opcion(rs.getInt("cod_rol"));
-            priv.setEstado_rol(rs.getString("estado_rol"));
+            priv.setCod_opcion(rs.getInt("cod_opcion"));
+            priv.setEstado_rol(String.valueOf(rs.getBoolean("estado_rol")));
+            System.out.println(rs.getString("estado_rol")+" aaaaaaaaaaaaaaaaaaaaa");
             pr.add(priv);
         }
         return pr;
     }
 
+    
+    
+   
+
+    
 }
