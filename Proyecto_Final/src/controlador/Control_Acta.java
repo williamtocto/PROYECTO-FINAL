@@ -1,27 +1,24 @@
 package controlador;
 
-import java.awt.Image;
+import com.toedter.calendar.demo.DateChooserPanel;
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.Modelo_Acta;
 import vista.Vista_Acta;
 
 public class Control_Acta {
 
-    private Modelo_Acta modelo;
+    Modelo_Acta ma=new Modelo_Acta();
     private Vista_Acta vista;
-    String ruta;
+    int codigo;
+    String ruta, fecha,estado_acta, num_acta, archivoActa;
 
     public Control_Acta(Modelo_Acta modelo, Vista_Acta vista) {
-        this.modelo = modelo;
+        this.ma = modelo;
         this.vista = vista;
         vista.setTitle("Acta");
         vista.setVisible(true);
@@ -47,19 +44,29 @@ public class Control_Acta {
 
     public void Guardar() {
 
-        //  sql s = new sql();
-        //   int codigo = s.auto_increment("SELECT MAX(codigopdf) FROM pdf;");
         File rutaArchivo = new File(ruta);
- 
-        /* if (nombre.trim().length() != 0 && ruta_archivo.trim().length() != 0) {
-            guardar_pdf(codigo, nombre, ruta);
-            tpdf.visualizar_PdfVO(tabla);
-            ruta_archivo = "";
-            activa_boton(false, false, false);
-            txtname.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
-        }*/
+
+    }
+
+    public void cargarDatos() {
+
+        Date date = null;
+        String formato = null;
+        if (vista.getDate_chooser().getDate() != null) {
+            date = vista.getDate_chooser().getDate();
+            //formato = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss").format(fecha);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            formato = sdf.format(fecha);
+        }
+        fecha=formato;
+        //codigo=;
+        
+        
+        ma.setNum_acta(0);
+        ma.setCod_reunion(0);
+        ma.setEstado_acta(num_acta);
+    
+
     }
 
 }

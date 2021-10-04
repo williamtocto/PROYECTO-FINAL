@@ -159,6 +159,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menu_MantenimientoUserActionPerformed
 
+    public JMenuItem getMenuRol() {
+        return menuRol;
+    }
+
+    public void setMenuRol(JMenuItem menuRol) {
+        this.menuRol = menuRol;
+    }
+
     public JMenu getMenu_socio() {
         return menu_socio;
     }
