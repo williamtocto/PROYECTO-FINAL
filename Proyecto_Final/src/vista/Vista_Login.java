@@ -93,9 +93,9 @@ public class Vista_Login extends javax.swing.JFrame {
         LblContraseña.setText("Contraseña:");
         getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        jbIngresar.setBackground(new java.awt.Color(255, 255, 255));
-        jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jbIngresar.setForeground(new java.awt.Color(0, 153, 102));
+        jbIngresar.setBackground(new java.awt.Color(153, 204, 0));
+        jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbIngresar.setForeground(new java.awt.Color(255, 255, 255));
         jbIngresar.setText("Ingresar");
         jbIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         jbIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class Vista_Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 140, 30));
 
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
