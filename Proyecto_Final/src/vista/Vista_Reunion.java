@@ -293,7 +293,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         jLabel4.setText("Consultar Reunión.");
         dgReunion.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 210, 40));
 
-        jtConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        jtConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         jtConsultar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -305,6 +305,9 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
                 "       Código Reunión", "       Fecha Reunión", "         Duración", "         Tópico"
             }
         ));
+        jtConsultar.setGridColor(new java.awt.Color(255, 153, 51));
+        jtConsultar.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jtConsultar.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane2.setViewportView(jtConsultar);
 
         dgReunion.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 470, 170));
@@ -326,9 +329,10 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         dgReunion.getContentPane().add(jDcDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 170, 20));
         dgReunion.getContentPane().add(jDcHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 170, -1));
 
+        Btn_Buscar_consult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         Btn_Buscar_consult.setText("Buscar");
-        Btn_Buscar_consult.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        dgReunion.getContentPane().add(Btn_Buscar_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 70, 30));
+        Btn_Buscar_consult.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        dgReunion.getContentPane().add(Btn_Buscar_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 90, 40));
 
         LblFondo.setForeground(new java.awt.Color(255, 255, 255));
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
