@@ -85,13 +85,15 @@ public class Vista_Login extends javax.swing.JFrame {
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        LblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/usuario.png"))); // NOI18N
         LblUsuario.setText("Usuario:");
-        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        getContentPane().add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, 50));
 
         LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        LblContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/contraseña.png"))); // NOI18N
         LblContraseña.setText("Contraseña:");
-        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 40));
 
         jbIngresar.setBackground(new java.awt.Color(153, 204, 0));
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -116,7 +118,7 @@ public class Vista_Login extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 310, 390));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/financial-profit (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, 100));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, 110));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 580));

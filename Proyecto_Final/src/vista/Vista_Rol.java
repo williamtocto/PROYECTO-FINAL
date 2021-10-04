@@ -46,13 +46,15 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_titulo.setText("Agregar Roles.");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
+        lbl_codigo_rol.setForeground(new java.awt.Color(255, 255, 255));
         lbl_codigo_rol.setText("Código:");
         getContentPane().add(lbl_codigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
-        tabla_roles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        tabla_roles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_roles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -61,9 +63,12 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Codigo", "Tipo Rol"
+                "                   Codigo", "                 Tipo Rol"
             }
         ));
+        tabla_roles.setGridColor(new java.awt.Color(255, 153, 51));
+        tabla_roles.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tabla_roles.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(tabla_roles);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 380, 120));
@@ -82,31 +87,42 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txt_nombreRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 230, -1));
 
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
-        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, 30));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 110, 40));
 
+        btn_modificar.setBackground(new java.awt.Color(204, 204, 204));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/editar.png"))); // NOI18N
         btn_modificar.setText("Modificar");
-        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 80, 30));
+        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 110, 40));
 
+        btn_registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/agregar-rol.png"))); // NOI18N
         btn_registrar.setText("Registrar");
-        btn_registrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 80, 30));
+        btn_registrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 130, 40));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Buscar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
         getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 230, -1));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre Rol:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
+        LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 400));
 
         pack();
@@ -123,6 +139,10 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
      
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_registrarActionPerformed
 
     public JButton getBtn_eliminar() {
         return btn_eliminar;
