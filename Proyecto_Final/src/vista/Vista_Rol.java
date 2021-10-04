@@ -26,7 +26,6 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
         lbl_titulo = new javax.swing.JLabel();
         lbl_codigo_rol = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -184,14 +183,6 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         this.jLabel2 = jLabel2;
     }
 
-    public JPopupMenu getjPopupMenu1() {
-        return jPopupMenu1;
-    }
-
-    public void setjPopupMenu1(JPopupMenu jPopupMenu1) {
-        this.jPopupMenu1 = jPopupMenu1;
-    }
-
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
@@ -264,7 +255,6 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_codigo_rol;
     private javax.swing.JLabel lbl_titulo;

@@ -40,6 +40,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula2 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
         btn_aceptar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         btn_agregar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
@@ -49,150 +50,91 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        dialogo_usuario.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         LblCodigo_rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblCodigo_rol.setForeground(new java.awt.Color(0, 0, 204));
-        LblCodigo_rol.setText("TIPO DE ROL:");
+        LblCodigo_rol.setForeground(new java.awt.Color(255, 255, 255));
+        LblCodigo_rol.setText("Tipo de Rol:");
+        dialogo_usuario.getContentPane().add(LblCodigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 209, 136, -1));
 
         LblNombre_usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblNombre_usuario.setForeground(new java.awt.Color(0, 0, 204));
-        LblNombre_usuario.setText("NOMBRE DEL USUARIO:");
+        LblNombre_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        LblNombre_usuario.setText("Nombre del Usuario:");
+        dialogo_usuario.getContentPane().add(LblNombre_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 255, 200, 20));
 
         LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblContraseña.setForeground(new java.awt.Color(0, 0, 204));
-        LblContraseña.setText(" CONFIRME COMCONTRASEÑA:");
+        LblContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        LblContraseña.setText(" Confirme su contraseña:");
+        dialogo_usuario.getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 346, -1, -1));
 
         txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
         txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_confirma_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 339, 220, -1));
 
         txt_cedula.setBackground(new java.awt.Color(240, 240, 240));
         txt_cedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 82, 220, -1));
 
         txt_usuario.setBackground(new java.awt.Color(240, 240, 240));
         txt_usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 251, 220, -1));
 
-        lbl_titulo.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        lbl_titulo.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_titulo.setText("USUARIO");
+        lbl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_titulo.setText("Usuario");
+        dialogo_usuario.getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 260, 40));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        dialogo_usuario.getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 207, 220, -1));
 
         lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_contrasenia_nueva.setForeground(new java.awt.Color(0, 0, 204));
-        lbl_contrasenia_nueva.setText(" CONTRASEÑA:");
+        lbl_contrasenia_nueva.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_contrasenia_nueva.setText("Contraseña:");
+        dialogo_usuario.getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 302, 148, -1));
 
         txt_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
         txt_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 295, 220, -1));
 
         txt_nombre.setEditable(false);
         txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 126, 220, -1));
 
         txt_apellido.setEditable(false);
         txt_apellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dialogo_usuario.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 163, 220, -1));
 
         lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula.setText("Cedula:");
+        dialogo_usuario.getContentPane().add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 89, 110, -1));
 
         lbl_cedula1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula1.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula1.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula1.setText("Nombre:");
+        dialogo_usuario.getContentPane().add(lbl_cedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 133, 102, -1));
 
         lbl_cedula2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_cedula2.setForeground(new java.awt.Color(0, 0, 204));
+        lbl_cedula2.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula2.setText("Apellido");
+        dialogo_usuario.getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 170, 71, -1));
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
             }
         });
+        dialogo_usuario.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 120, 30));
 
         btn_aceptar.setText("Acpetar");
+        btn_aceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        dialogo_usuario.getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 103, 30));
 
-        javax.swing.GroupLayout dialogo_usuarioLayout = new javax.swing.GroupLayout(dialogo_usuario.getContentPane());
-        dialogo_usuario.getContentPane().setLayout(dialogo_usuarioLayout);
-        dialogo_usuarioLayout.setHorizontalGroup(
-            dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                    .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbl_cedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(30, 30, 30))
-                                .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                    .addComponent(lbl_cedula2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(129, 129, 129)))
-                            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LblCodigo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_contrasenia_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblContraseña))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombre)
-                            .addComponent(txt_cedula)
-                            .addComponent(txt_apellido)
-                            .addComponent(combo_box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_usuario)
-                            .addComponent(txt_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(lbl_titulo))
-                    .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        dialogo_usuarioLayout.setVerticalGroup(
-            dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogo_usuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_cedula)
-                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_cedula1)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_cedula2))
-                .addGap(18, 18, 18)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblCodigo_rol)
-                    .addComponent(combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblNombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_contrasenia_nueva)
-                    .addComponent(txt_contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblContraseña)
-                    .addComponent(txt_confirma_contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_aceptar)
-                    .addGroup(dialogo_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_cancelar)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        dialogo_usuario.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 470));
 
         setClosable(true);
         setTitle("Usuarios");
@@ -439,6 +381,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JDialog dialogo_usuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cedula;
     private javax.swing.JLabel lbl_cedula1;
