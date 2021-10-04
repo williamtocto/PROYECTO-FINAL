@@ -198,29 +198,32 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         setTitle("Usuarios");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/añadir_usuario.png"))); // NOI18N
         btn_agregar.setText("Agregar ");
-        btn_agregar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        btn_agregar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 15, 120, 30));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 120, 40));
 
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
-        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 15, 100, 30));
+        btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 100, 40));
 
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/editar.png"))); // NOI18N
         btn_modificar.setText("Modificar");
-        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 15, 100, 30));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 100, 40));
 
-        tabla_usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        tabla_usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -232,6 +235,9 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 "       Código", "       Código Socio", "      Código Rol", "      Nombre Usuario"
             }
         ));
+        tabla_usuario.setGridColor(new java.awt.Color(255, 153, 51));
+        tabla_usuario.setSelectionBackground(new java.awt.Color(255, 153, 51));
+        tabla_usuario.setSelectionForeground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(tabla_usuario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 77, 480, 253));
@@ -241,12 +247,15 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 txt_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 16, 150, 30));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, 30));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         jLabel1.setText("Buscar:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 630, 350));
 
         pack();
