@@ -10,11 +10,20 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.ConexionPG;
 import modelo.Modelo_Reunion;
 import modelo.Reunion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.Vista_Reunion;
 
 /**
@@ -243,5 +252,26 @@ public class Control_Reunion {
             f = fechaDispositivo.compareTo(fecha);
         }
         return f;
+    }
+    
+    private void imprimirPersonas() {
+        ConexionPG con = new ConexionPG();
+        try {
+            JasperReport reporte = null;
+            String path = "C:\\Users\\Mateo\\Documents\\NetBeansProjects\\mvc\\src\\vista\\reportes\\Listar_Personas.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            Map<String, Object> params= new HashMap<String,Object>();
+            /*String miaguja=vista.getTxtBuscar().getText();
+            params.put("aguja", "%"+miaguja+"%");//PARAMETROS PARA REPORTES
+            params.put("titulo", "LISTADO DE PERSONAS INSCRITAS POR REVIZAR");
+            params.put("footer", "Super Mercado Santa Cecilia, Ave Huaynacapac");*/
+            //SUPER MERCADOS S.A. Ave. Americas
+            
+            JasperPrint jp = JasperFillManager.fillReport(reporte, params, con.getCon());
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

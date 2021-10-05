@@ -13,10 +13,19 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_transaccion;
 import vista.Vista_transaccion;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.ConexionPG;
 import modelo.Transaccion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -93,6 +102,7 @@ public class Control_transaccion {
         }; 
         vistat.getBtnAceptar().addActionListener(l -> guardarTransaccion());
         vistat.getBtnConsultar().addActionListener(l -> cargarDialogo(1));
+        vistat.getBtn_imprimirConsulta().addActionListener(l ->imprimirTansaccion()) ;
     }
 
     public void cargarDatos(String aguja) {
@@ -189,6 +199,27 @@ public class Control_transaccion {
             vistat.getDgTransacciones().setTitle("Consultar Transaccion");
             m = 1;
             vistat.getDgTransacciones().setVisible(true);
+        }
+    }
+    
+    private void imprimirTansaccion() {
+        ConexionPG con = new ConexionPG();
+        try {
+            JasperReport reporte = null;
+            String path = "C:\\Users\\Mateo\\Documents\\NetBeansProjects\\PROYECTO-FINAL\\Proyecto_Final\\src\\vista\\reportes\\historial_transaccion.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            Map<String, Object> params= new HashMap<String,Object>();
+            /*String miaguja=vista.getTxtBuscar().getText();
+            params.put("aguja", "%"+miaguja+"%");//PARAMETROS PARA REPORTES
+            params.put("titulo", "LISTADO DE PERSONAS INSCRITAS POR REVIZAR");
+            params.put("footer", "Super Mercado Santa Cecilia, Ave Huaynacapac");*/
+            //SUPER MERCADOS S.A. Ave. Americas
+            
+            JasperPrint jp = JasperFillManager.fillReport(reporte, params, con.getCon());
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Control_transaccion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

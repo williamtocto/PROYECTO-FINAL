@@ -17,7 +17,7 @@ public class ConexionPG {
     //Datos de su conexion local:
     private String cadenaConexion="jdbc:postgresql://localhost:5432/proyecto_final";
     private String usuarioPG="postgres";
-    private String contrasPG="bdd123";
+    private String contrasPG="1234";
 
     public ConexionPG() {
         try {
@@ -60,7 +60,14 @@ public class ConexionPG {
             return false;
         }
     }
-
+    
+    public void desconectar() {
+        try {
+            con.close();
+        } catch (Exception ex) {
+        }
+    }
+    
     public Connection getCon() {
         return con;
     }
@@ -68,7 +75,5 @@ public class ConexionPG {
     public void setCon(Connection con) {
         this.con = con;
     }
-    
-    
     
 }
