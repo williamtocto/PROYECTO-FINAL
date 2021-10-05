@@ -10,6 +10,7 @@ public class Vista_Login extends javax.swing.JFrame {
 
     public Vista_Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public JLabel getLblContraseña() {

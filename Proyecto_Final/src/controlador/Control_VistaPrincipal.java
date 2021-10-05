@@ -1,5 +1,7 @@
 package controlador;
 
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import javax.swing.JInternalFrame;
 import modelo.Modelo_Acta;
 import modelo.Modelo_Reunion;
 import modelo.Modelo_Rol;
@@ -23,6 +25,7 @@ public class Control_VistaPrincipal {
     public Control_VistaPrincipal(Vista_Principal vista) {
         this.vista = vista;
         vista.setVisible(true);
+        vista.setExtendedState(MAXIMIZED_BOTH);
 
     }
 
@@ -35,7 +38,7 @@ public class Control_VistaPrincipal {
         vista.getMenu_privilegios().addActionListener(l -> IniciarVentanaPrivilegios());
         vista.getSubmenuTransaccion().addActionListener(l -> InicarVentanaTransaccion());
         vista.getSubmenu_reunion().addActionListener(l -> IniciarVentanaReunion());
-        vista.getMenuActas().addActionListener(l-> iniciarVentanaActa());
+        vista.getMenuActas().addActionListener(l -> iniciarVentanaActa());
     }
 
     public void Usuario() {
@@ -48,20 +51,31 @@ public class Control_VistaPrincipal {
     }
 
     public void iniciarVentanaActa() {
-        System.out.println("actaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         Modelo_Acta mr = new Modelo_Acta();
-        Vista_Acta  vr = new Vista_Acta();
-        vista.getDesk_Principal().add(vr);
-        Control_Acta ca = new Control_Acta(mr, vr);
-       ca.inciarControl();
+        Vista_Acta va = new Vista_Acta();
+        Centrar(va);
+        Control_Acta ca = new Control_Acta(mr, va);
+        ca.inciarControl();
     }
 
     public void IniciarVentanaRol() {
         Modelo_Rol mr = new Modelo_Rol();
         Vista_Rol vr = new Vista_Rol();
-        vista.getDesk_Principal().add(vr);
+        Centrar(vr);
         Control_Rol cr = new Control_Rol(mr, vr);
         cr.iniciaControl();
+    }
+
+    public void Centrar(JInternalFrame frame) {
+        int x = (vista.getDesk_Principal().getWidth() / 2 - frame.getWidth() / 2);
+        int y = (vista.getDesk_Principal().getHeight() / 2 - frame.getHeight() / 2);
+        if (frame.isShowing()) {
+            frame.setLocation(x, y);
+        } else {
+            vista.getDesk_Principal().add(frame);
+            frame.setLocation(x, y);
+        }
+
     }
 
     public void IniciarVentanaSocio() {

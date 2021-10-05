@@ -26,6 +26,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        lbl_nombreArchivo = new javax.swing.JLabel();
         lbl_actas = new javax.swing.JLabel();
         date_chooserBuscar = new com.toedter.calendar.JDateChooser();
         btn_buscar = new javax.swing.JButton();
@@ -45,7 +46,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_seleccionarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 350, 30));
+        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 350, 30));
         jDialog1.getContentPane().add(dateChooser_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 184, -1));
 
         btn_guardar.setText("Guardar");
@@ -54,8 +55,8 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 103, 35));
-        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 190, 130));
+        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 103, 35));
+        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 190, 130));
 
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -63,10 +64,11 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 127, 35));
+        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 127, 35));
 
         jLabel3.setText("Fecha");
         jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 88, -1, -1));
+        jDialog1.getContentPane().add(lbl_nombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 300, 30));
 
         setClosable(true);
 
@@ -139,9 +141,9 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                         .addGap(336, 336, 336)
                         .addComponent(lbl_actas, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,9 +159,9 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                         .addComponent(btn_aprobar)
                         .addComponent(btn_nuevo)
                         .addComponent(btn_buscar)))
-                .addGap(39, 39, 39)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -299,6 +301,14 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         this.jLabel3 = jLabel3;
     }
 
+    public JLabel getLbl_nombreArchivo() {
+        return lbl_nombreArchivo;
+    }
+
+    public void setLbl_nombreArchivo(JLabel lbl_nombreArchivo) {
+        this.lbl_nombreArchivo = lbl_nombreArchivo;
+    }
+
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
@@ -343,6 +353,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_actas;
+    private javax.swing.JLabel lbl_nombreArchivo;
     private javax.swing.JTable tabla_acta;
     // End of variables declaration//GEN-END:variables
 }

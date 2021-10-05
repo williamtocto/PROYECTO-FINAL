@@ -3,7 +3,9 @@ package controlador;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +36,7 @@ public class Control_Acta {
     private Vista_Acta vista;
 
     int codigo_reunion, num_acta;
-    String ruta, fecha, estado_acta, archivoActa;
+    String ruta, fecha, estado_acta, archivoActa, nombre_pdf;
 
     public Control_Acta(Modelo_Acta model, Vista_Acta vista) {
         this.model = model;
@@ -42,6 +44,8 @@ public class Control_Acta {
         vista.setTitle("Actas");
         vista.setVisible(true);
         VisualizarTabla(vista.getTabla_acta());
+        vista.getBtn_modificar().setEnabled(false);
+        vista.getBtn_aprobar().setEnabled(false);
 
     }
 
@@ -49,12 +53,14 @@ public class Control_Acta {
         int column = vista.getTabla_acta().getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / vista.getTabla_acta().getRowHeight();
         if (row < vista.getTabla_acta().getRowCount() && row >= 0 && column < vista.getTabla_acta().getColumnCount() && column >= 0) {
+            System.out.println("aquie activar boton");
+            vista.getBtn_modificar().setEnabled(true);
+            vista.getBtn_aprobar().setEnabled(true);
             id = (int) vista.getTabla_acta().getValueAt(row, 0);
             Object value = vista.getTabla_acta().getValueAt(row, column);
             if (value instanceof JButton) {
                 ((JButton) value).doClick();
                 JButton boton = (JButton) value;
-
                 if (boton.getText().equals("Vacio")) {
                     JOptionPane.showMessageDialog(null, "No hay archivo");
                 } else {
@@ -127,10 +133,9 @@ public class Control_Acta {
                     pd.ejecutar_archivoPDF(id);
                     try {
                         Desktop.getDesktop().open(new File("new.pdf"));
-                    } catch (Exception ex) {
+                    } catch (IOException ex) {
                     }
                 }
-
             } else {
                 String name = "" + vista.getTabla_acta().getValueAt(row, 1);
             }
@@ -138,7 +143,6 @@ public class Control_Acta {
     }
 
     public void DefinirMetodo(int n) throws SQLException {
-
         if (n == 1) {
             fila = vista.getTabla_acta().getSelectedRow();
             grabarActa();
@@ -164,7 +168,6 @@ public class Control_Acta {
             vista.getjLabel2().setIcon(icono);
             vista.getBtn_guardar().setEnabled(true);
         }
-
     }
 
     public void cargarDatos() {
@@ -221,11 +224,6 @@ public class Control_Acta {
 
     }
 
-    public void CargarDatosdeTabla() {
-        vista.getTabla_acta();
-
-    }
-
     private void cargarDialogo(int origen) throws SQLException {
         // vista.getL.setIcon(null);
         vista.getjDialog1().setSize(600, 350);
@@ -240,6 +238,7 @@ public class Control_Acta {
             if (fila == -1) {
                 JOptionPane.showMessageDialog(vista, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
             } else {
+                cargarDatosTable();
                 vista.getjDialog1().setTitle("Editar Acta");
                 n = 2;
                 vista.getjDialog1().setVisible(true);
@@ -308,17 +307,26 @@ public class Control_Acta {
 
     public void cargarDatosTable() {
 
-        fila = vista.getTabla_acta().getSelectedRow();
-        Date fecha1 = null;
-        String date1 = vista.getTabla_acta().getValueAt(fila, 5).toString().trim();
-        vista.getDateChooser_reunion().setDate(fecha1);
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            fila = vista.getTabla_acta().getSelectedRow();
+            Date fecha = null;
+            String date = vista.getTabla_acta().getValueAt(fila, 1).toString().trim();
+            fecha = (Date) sdf.parse(date);
+            vista.getDateChooser_reunion().setDate(fecha);
+            vista.getLbl_nombreArchivo().setText("Acta numero: " + vista.getTabla_acta().getValueAt(fila, 0)
+                    + "\n Fecha Reunion: " + vista.getTabla_acta().getValueAt(fila, 1).toString().trim());
+            ImageIcon icono = null;
+            if (get_Image("/vista/vista_imagenes/pdf.png") != null) {
+                icono = new ImageIcon(get_Image("/vista/vista_imagenes/pdf.png"));
+            }
+            vista.getBtn_seleccionar().setText("Seleccionar nueva Acta");
+            vista.getjLabel2().setIcon(icono);
+            
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
 
-        //  fecha1 = (Date) sdf.parse(date1);
-        //  vista.setDateChooser_reunion(dateChooser_reunion);
-
-        /*vista.getTxtID().setText(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
-        vista.getTxtNombres().setText(String.valueOf(vista.getTabla_acta().getValueAt(fila, 1)));
-        vista.getTxtApellidos().setText(String.valueOf(vista.getTabla_acta().getValueAt(fila, 2)));*/
     }
 
 }
