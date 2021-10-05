@@ -43,7 +43,6 @@ public class Modelo_Asistencia extends Socio {
         String sql = "  INSERT INTO asistencia(codigo_socio_asis,codigo_reunion,estado_asistencia) VALUES "
                 + "(" + asis.getCod_socio() + "," + asis.getCod_reunion() + ",'" + asis.getEstado() + "');";
         con.accion(sql);
-
     }
 
     public int Codigo_Asis() throws SQLException {
@@ -57,7 +56,5 @@ public class Modelo_Asistencia extends Socio {
         }
         return codigoAsistencia;
     }
-    
-    
 
 }

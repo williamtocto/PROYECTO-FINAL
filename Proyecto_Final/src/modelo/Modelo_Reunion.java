@@ -1,11 +1,8 @@
 package modelo;
 
 import java.awt.Component;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 
@@ -45,12 +42,11 @@ public class Modelo_Reunion extends Reunion {
         String sql = "UPDATE reunion SET fecha_reunion='" + getFecha_reunion() + "',duracion_reunion='" + getDuracion_reunion() + "',topico_reunion='" + getTopico_reunion() + "'WHERE codigo_reunion='" + getCodigo_reunion() + "'";
         return con.accion(sql);
     }
-    
+
     public boolean eliminarReunion() {
         String sql = "DELETE FROM reunion WHERE codigo_reunion='" + getCodigo_reunion() + "'";
         return con.accion(sql);
     }
-    
 
     public boolean consultaFecha() {
         int fila = 0;
@@ -68,8 +64,7 @@ public class Modelo_Reunion extends Reunion {
         }
         return con.accion(sql);//MUCHO OJO
     }
-    
-    
+
     public void Eliminar() {
         String format = null;
         int fila = 0;
@@ -78,9 +73,7 @@ public class Modelo_Reunion extends Reunion {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             format = sdf.format(getFecha_reunion());
         }
-
         int resp;
-
         resp = JOptionPane.showConfirmDialog(rootPane, "¿DESEA ELIMNAR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
             if (fila <= 0) {
@@ -111,6 +104,20 @@ public class Modelo_Reunion extends Reunion {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return cantidad;
+    }
+    
+    public int codigoReunion(String fecha) {
+        String sql = "Select codigo_reunion from reunion where fecha_reunion = '" + fecha + "'";
+        ResultSet rs = con.consulta(sql);
+        int codigo = 0;
+        try {
+            while (rs.next()) {
+                codigo = rs.getInt("codigo_reunion");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return codigo;
     }
 
 }

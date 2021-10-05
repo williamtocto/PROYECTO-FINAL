@@ -48,6 +48,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_privilegios = new javax.swing.JMenuItem();
         menu_reunion = new javax.swing.JMenu();
         submenu_reunion = new javax.swing.JMenuItem();
+        menuActas = new javax.swing.JMenuItem();
         menu_multas = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -123,6 +124,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         submenu_reunion.setText("Crear Reunion");
         menu_reunion.add(submenu_reunion);
 
+        menuActas.setText("Actas");
+        menuActas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuActasActionPerformed(evt);
+            }
+        });
+        menu_reunion.add(menuActas);
+
         jMenuBar1.add(menu_reunion);
 
         menu_multas.setText("Multas");
@@ -192,6 +201,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_submenu_socioActionPerformed
 
+    private void menuActasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuActasActionPerformed
+
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;
     }
@@ -202,6 +215,14 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     public JMenuItem getMenu_MantenimientoUser() {
         return menu_MantenimientoUser;
+    }
+
+    public JMenuItem getMenuActas() {
+        return menuActas;
+    }
+
+    public void setMenuActas(JMenuItem menuActas) {
+        this.menuActas = menuActas;
     }
 
     public void setMenu_MantenimientoUser(JMenuItem menu_MantenimientoUser) {
@@ -324,6 +345,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem menuActas;
     private javax.swing.JMenu menuPrincipal_rol;
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
