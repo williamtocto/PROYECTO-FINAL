@@ -9,10 +9,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-/**
- *
- * @author PCX
- */
+
 public class Vista_Principal extends javax.swing.JFrame {
 
     /**
@@ -68,7 +65,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desk_PrincipalLayout.createSequentialGroup()
-                .addGap(0, 624, Short.MAX_VALUE)
+                .addGap(0, 600, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
 

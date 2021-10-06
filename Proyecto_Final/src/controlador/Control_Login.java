@@ -1,11 +1,14 @@
 package controlador;
 
 import Vista.Vista_Login;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 import modelo.Modelo_Login;
 import modelo.Modelo_privilegios;
 import modelo.Privilegios;
@@ -48,7 +51,44 @@ public class Control_Login {
                 Logger.getLogger(Control_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+
+        vista.getTxtUsuari().addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtUsuariKeyPressed(evt);
+            }
+        });
+        
+         vista.getTxt_Password().addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ingresar(evt);
+            }
+        });
+        
+        
     }
+
+    private void TxtUsuariKeyPressed(java.awt.event.KeyEvent evt) {
+
+        char car = (char) evt.getKeyCode();
+        if (car == evt.VK_ENTER) {
+            vista.getTxt_Password().requestFocus();
+        }
+    }
+    
+     private void ingresar(java.awt.event.KeyEvent evt) {
+
+        char car = (char) evt.getKeyCode();
+        if (car == evt.VK_ENTER) {
+            try {
+                validarUsuario();
+            } catch (SQLException ex) {
+                Logger.getLogger(Control_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
 
     public void inicioVentanaPrincipal() throws SQLException {
 

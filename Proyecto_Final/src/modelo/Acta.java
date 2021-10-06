@@ -1,9 +1,5 @@
 package modelo;
 
-/**
- *
- * @author PCX
- */
 public class Acta {
 
     private int num_acta;
@@ -61,11 +57,5 @@ public class Acta {
 
     public void setArchivo_acta(byte[] archivo_acta) {
         this.archivo_acta = archivo_acta;
-    }
-    
-   
-    
-    
-    
-
+    }   
 }

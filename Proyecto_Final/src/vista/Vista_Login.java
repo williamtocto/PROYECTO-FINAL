@@ -5,7 +5,6 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
 public class Vista_Login extends javax.swing.JFrame {
 
     public Vista_Login() {
@@ -37,7 +36,7 @@ public class Vista_Login extends javax.swing.JFrame {
         this.TxtUsuari = TxtUsuari;
     }
 
-        public JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
@@ -81,7 +80,14 @@ public class Vista_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bienvenido");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 110, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 110, 40));
+
+        TxtUsuari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TxtUsuari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtUsuariKeyPressed(evt);
+            }
+        });
         getContentPane().add(TxtUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 200, 30));
 
         LblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -106,8 +112,9 @@ public class Vista_Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 140, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 140, 30));
 
+        txt_Password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PasswordActionPerformed(evt);
@@ -119,7 +126,7 @@ public class Vista_Login extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 310, 390));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/financial-profit (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, 110));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 70, 110));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 580));
@@ -134,6 +141,15 @@ public class Vista_Login extends javax.swing.JFrame {
     private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
 
     }//GEN-LAST:event_jbIngresarActionPerformed
+
+    private void TxtUsuariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtUsuariKeyPressed
+
+        char car = (char) evt.getKeyCode();
+        if (car == evt.VK_ENTER) {
+            System.out.println("se presiono la tecla Enter");
+            txt_Password.requestFocus();
+        }
+    }//GEN-LAST:event_TxtUsuariKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -167,7 +183,7 @@ public class Vista_Login extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblContraseña;
     private javax.swing.JLabel LblFondo;

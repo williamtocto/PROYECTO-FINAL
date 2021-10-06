@@ -14,7 +14,8 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JOptionPane;
+
 
 public class Modelo_Acta extends Acta {
 
@@ -73,8 +74,10 @@ public class Modelo_Acta extends Acta {
             pdf1 = null;
         }
         try {
-            String sql = "UPDATE pdf SET estado_acta= ?, codigo_reunion=?, archivo_acta=? "
+
+            String sql = "UPDATE acta SET estado_acta= ?, codigo_reunion=?, archivo_acta=? "
                     + " WHERE num_acta = " + getNum_acta();
+            System.out.println(getNum_acta() + " NUMERO DE ACTA1111");
             PreparedStatement ps = null;
 
             ps = con.getCon().prepareStatement(sql);
@@ -82,24 +85,30 @@ public class Modelo_Acta extends Acta {
             ps.setInt(2, getCod_reunion());
             ps.setBytes(3, pdf1);
             boolean ejecutar = false;
+            ps.execute();
             if (ps.executeUpdate() == 1) {
                 ejecutar = true;
+                System.out.println("aaaaa");
             }
             return ejecutar;
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "", 0);
             System.out.println(ex.getMessage());
             return false;
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "", 0);
             return false;
         }
 
     }
 
-    public List<Acta> ListarActas(String reunionCodigo) {
+    public List<Acta> ListarActas(String aguja) {
         List<Acta> lista = new ArrayList<>();
         String sql = "Select fecha_reunion,num_acta,estado_acta,codigo_reunion,archivo_acta from acta "
-                + "join reunion using (codigo_reunion);";
+                + "join reunion using (codigo_reunion) where ";
+        sql += " UPPER(estado_acta) like UPPER('%" + aguja + "%') OR ";
+        sql += "fecha_reunion::text  like '%" + aguja + "%' OR ";
+        sql += " num_acta::text like '%" + aguja + "%';";
         ResultSet rs = con.consulta(sql);
         try {
             while (rs.next()) {
@@ -120,25 +129,46 @@ public class Modelo_Acta extends Acta {
 
     }
 
-    public boolean Eliminar(String id) {
-        String sql;
-        sql = "DELETE from acta where num_acta='" + id + "'";
-        return con.accion(sql);
+    public List<Acta> ListarActa(String fecha) {
+        List<Acta> lista = new ArrayList<>();
+        String sql = "Select fecha_reunion,num_acta,estado_acta,codigo_reunion,archivo_acta from acta "
+                + "join reunion using (codigo_reunion) where fecha_reunion= '" + fecha + "'";
+        ResultSet rs = con.consulta(sql);
+        try {
+            while (rs.next()) {
+                Acta ac = new Acta();
+                ac.setFecha(rs.getString("fecha_reunion"));
+                ac.setNum_acta(rs.getInt("num_acta"));
+                ac.setCod_reunion(rs.getInt("codigo_reunion"));
+                ac.setEstado_acta(rs.getString("estado_acta"));
+                ac.setArchivo_acta(rs.getBytes("archivo_acta"));
+                lista.add(ac);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Acta.class.getName()).log(Level.SEVERE, null, ex);
+            return lista;
+        }
 
     }
 
+    public boolean Eliminar(int id) {
+        String sql;
+        sql = "DELETE from acta where num_acta=" + id + ";";
+        return con.accion(sql);
+    }
+
     public boolean AprobarActa() {
-        String sql = "update from acta set estado_acta= 'Aprobada' where num_acta= " + getNum_acta();
+        String sql = "update acta set estado_acta= 'Aprobada' where num_acta= " + getNum_acta();
         return con.accion(sql);
 
     }
 
     public void ejecutar_archivoPDF(int id) {
-
         PreparedStatement ps = null;
         ResultSet rs = null;
         byte[] b = null;
-
         try {
             ps = con.getCon().prepareStatement("SELECT archivo_acta FROM acta WHERE num_acta = ?;");
             ps.setInt(1, id);
@@ -154,7 +184,6 @@ public class Modelo_Acta extends Acta {
 
             OutputStream out = new FileOutputStream("new.pdf");
             out.write(datosPDF);
-
             //abrir archivo
             out.close();
             bos.close();
@@ -165,7 +194,11 @@ public class Modelo_Acta extends Acta {
         } catch (IOException | NumberFormatException | SQLException ex) {
             System.out.println("Error al abrir archivo PDF " + ex.getMessage());
         }
+        
     }
-    
-
 }
+        
+        
+     
+
+

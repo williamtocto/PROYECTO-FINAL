@@ -2,18 +2,17 @@ package controlador;
 
 import java.awt.Desktop;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -27,13 +26,13 @@ import modelo.Modelo_Reunion;
 import modelo.imgTabla;
 import vista.Vista_Acta;
 
-public class Control_Acta {
+public final class Control_Acta {
 
     int id = -1;
     int fila = -1, n;
     Modelo_Reunion mr = new Modelo_Reunion();
     private Modelo_Acta model;
-    private Vista_Acta vista;
+    private final Vista_Acta vista;
 
     int codigo_reunion, num_acta;
     String ruta, fecha, estado_acta, archivoActa, nombre_pdf;
@@ -43,9 +42,10 @@ public class Control_Acta {
         this.vista = vista;
         vista.setTitle("Actas");
         vista.setVisible(true);
-        VisualizarTabla(vista.getTabla_acta());
+        VisualizarTabla(vista.getTabla_acta(), "");
         vista.getBtn_modificar().setEnabled(false);
         vista.getBtn_aprobar().setEnabled(false);
+        vista.getBtn_eliminar().setEnabled(false);
 
     }
 
@@ -53,9 +53,9 @@ public class Control_Acta {
         int column = vista.getTabla_acta().getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / vista.getTabla_acta().getRowHeight();
         if (row < vista.getTabla_acta().getRowCount() && row >= 0 && column < vista.getTabla_acta().getColumnCount() && column >= 0) {
-            System.out.println("aquie activar boton");
             vista.getBtn_modificar().setEnabled(true);
             vista.getBtn_aprobar().setEnabled(true);
+            vista.getBtn_eliminar().setEnabled(true);
             id = (int) vista.getTabla_acta().getValueAt(row, 0);
             Object value = vista.getTabla_acta().getValueAt(row, column);
             if (value instanceof JButton) {
@@ -78,6 +78,22 @@ public class Control_Acta {
     }
 
     public void inciarControl() {
+
+        KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                VisualizarTabla(vista.getTabla_acta(), vista.getTxt_buscar().getText());
+            }
+        };
 
         vista.getTabla_acta().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,6 +128,8 @@ public class Control_Acta {
             }
         });
         vista.getBtn_cancelar().addActionListener(l -> vista.getjDialog1().dispose());
+        vista.getTxt_buscar().addKeyListener(kl);
+        vista.getBtn_buscar().addActionListener(l -> BuscarPorFecha(vista.getTabla_acta(), vista.getDate_chooserBuscar().getDate()));
 
     }
 
@@ -142,6 +160,52 @@ public class Control_Acta {
         }
     }
 
+    public void BuscarPorFecha(JTable tabla, Date date) {
+        Date fecha = null;
+        String aguja = null;
+        if (vista.getDate_chooserBuscar().getDate() != null) {
+            fecha = vista.getDate_chooserBuscar().getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            aguja = sdf.format(fecha);
+            tabla.setDefaultRenderer(Object.class, new imgTabla());
+            DefaultTableModel dt = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            dt.addColumn("Numero");
+            dt.addColumn("Fecha Reunion");
+            dt.addColumn("Estado");
+            dt.addColumn("Archivo Acta");
+            ImageIcon icono = null;
+            if (get_Image("/vista/vista_imagenes/32pdf.png") != null) {
+                icono = new ImageIcon(get_Image("/vista/vista_imagenes/32pdf.png"));
+            }
+            model = new Modelo_Acta();
+            Acta vo = new Acta();
+            List<Acta> list = model.ListarActas(aguja);
+            for (int i = 0; i < list.size(); i++) {
+                Object filas[] = new Object[4];
+                vo = list.get(i);
+                filas[0] = vo.getNum_acta();
+                filas[1] = vo.getFecha();
+                filas[2] = vo.getEstado_acta();
+                if (vo.getArchivo_acta() != null) {
+                    filas[3] = new JButton(icono);
+                } else {
+                    filas[3] = new JButton("Vacio");
+                }
+                dt.addRow(filas);
+            }
+            tabla.setModel(dt);
+            tabla.setRowHeight(32);
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero seleccione una fecha para buscar", "", 0);
+        }
+
+    }
+
     public void DefinirMetodo(int n) throws SQLException {
         if (n == 1) {
             fila = vista.getTabla_acta().getSelectedRow();
@@ -154,10 +218,8 @@ public class Control_Acta {
 
     public void SeleccionarPdf() {
         JFileChooser jfc = new JFileChooser();
-
         FileNameExtensionFilter fi = new FileNameExtensionFilter("pdf", "pdf");
         jfc.setFileFilter(fi);
-
         if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             ruta = jfc.getSelectedFile().getAbsolutePath();
             vista.getBtn_seleccionar().setText("" + jfc.getSelectedFile().getName());
@@ -175,22 +237,17 @@ public class Control_Acta {
         String formato = null;
         if (vista.getDateChooser_reunion().getDate() != null) {
             date = vista.getDateChooser_reunion().getDate();
-            //formato = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss").format(fecha);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(date);
         }
         fecha = formato;
         codigo_reunion = mr.codigoReunion(fecha);
         estado_acta = "Sin Aprobar";
-        List<Acta> lista = new ArrayList<>();
-        lista = model.ListarActas(formato);
-        for (int i = 0; i < lista.size(); i++) {
-            num_acta = lista.get(i).getNum_acta();
-        }
+        fila = vista.getTabla_acta().getSelectedRow();
+        num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
     }
 
     public void grabarActa() {
-
         if (vista.getDateChooser_reunion().getDate() == null) {
             JOptionPane.showMessageDialog(null, "Debe Seleccionar la fecha de la Reunion", "", 0);
         } else {
@@ -199,12 +256,12 @@ public class Control_Acta {
             model.setEstado_acta(estado_acta);
             File rutafile = new File(ruta);
             if (model.Agregar(rutafile)) {
+                VisualizarTabla(vista.getTabla_acta(), "");
                 JOptionPane.showMessageDialog(vista, "Acta Creada Satisfactoriamente", "", 1);
             } else {
                 JOptionPane.showMessageDialog(vista, "ERROR");
             }
         }
-
     }
 
     public void ModificarActa() {
@@ -214,13 +271,28 @@ public class Control_Acta {
         model.setNum_acta(num_acta);
         File rutafile = new File(ruta);
         if (model.Modificar(rutafile)) {
-            JOptionPane.showMessageDialog(vista, "Acta Creada Satisfactoriamente", "", 1);
+            VisualizarTabla(vista.getTabla_acta(), "");
+            JOptionPane.showMessageDialog(vista, "Acta modificada Satisfactoriamente", "", 1);
         } else {
             JOptionPane.showMessageDialog(vista, "ERROR");
         }
     }
 
     public void Eliminar() {
+        int op = JOptionPane.showOptionDialog(null, "ESTA SEGIRO QUE DESEA ELIMINAR ESTA PERSONA", "",
+                JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
+        if (op == 0) {
+            fila = vista.getTabla_acta().getSelectedRow();
+            num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
+            model.setNum_acta(num_acta);
+            if (model.Eliminar(num_acta)) {
+                VisualizarTabla(vista.getTabla_acta(), "");
+                JOptionPane.showMessageDialog(null, "Eliminada con Exito", "", 1);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+            }
+
+        }
 
     }
 
@@ -249,13 +321,14 @@ public class Control_Acta {
     }
 
     public void AprobarActa() {
-
-        codigo_reunion = mr.codigoReunion(fecha);
-        model.setCod_reunion(codigo_reunion);
-
+        fila = vista.getTabla_acta().getSelectedRow();
+        num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
+        model.setNum_acta(num_acta);
+        model.AprobarActa();
+        VisualizarTabla(vista.getTabla_acta(), vista.getTxt_buscar().getText());
     }
 
-    public void VisualizarTabla(JTable tabla) {
+    public void VisualizarTabla(JTable tabla, String aguja) {
         //System.out.println("para imprimir la tabla");
         tabla.setDefaultRenderer(Object.class, new imgTabla());
         DefaultTableModel dt = new DefaultTableModel() {
@@ -274,25 +347,22 @@ public class Control_Acta {
         }
         model = new Modelo_Acta();
         Acta vo = new Acta();
-        List<Acta> list = model.ListarActas("");
-        if (list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                Object fila[] = new Object[4];
-                vo = list.get(i);
-                fila[0] = vo.getNum_acta();
-                fila[1] = vo.getFecha();
-                fila[2] = vo.getEstado_acta();
-                if (vo.getArchivo_acta() != null) {
-                    fila[3] = new JButton(icono);
-                } else {
-                    fila[3] = new JButton("Vacio");
-                }
-                dt.addRow(fila);
+        List<Acta> list = model.ListarActas(aguja);
+        for (int i = 0; i < list.size(); i++) {
+            Object filas[] = new Object[4];
+            vo = list.get(i);
+            filas[0] = vo.getNum_acta();
+            filas[1] = vo.getFecha();
+            filas[2] = vo.getEstado_acta();
+            if (vo.getArchivo_acta() != null) {
+                filas[3] = new JButton(icono);
+            } else {
+                filas[3] = new JButton("Vacio");
             }
-            tabla.setModel(dt);
-            tabla.setRowHeight(32);
+            dt.addRow(filas);
         }
-
+        tabla.setModel(dt);
+        tabla.setRowHeight(32);
     }
 
     public Image get_Image(String ruta) {
@@ -315,18 +385,16 @@ public class Control_Acta {
             fecha = (Date) sdf.parse(date);
             vista.getDateChooser_reunion().setDate(fecha);
             vista.getLbl_nombreArchivo().setText("Acta numero: " + vista.getTabla_acta().getValueAt(fila, 0)
-                    + "\n Fecha Reunion: " + vista.getTabla_acta().getValueAt(fila, 1).toString().trim());
+                    + "\n       Fecha:" + vista.getTabla_acta().getValueAt(fila, 1).toString().trim());
             ImageIcon icono = null;
             if (get_Image("/vista/vista_imagenes/pdf.png") != null) {
                 icono = new ImageIcon(get_Image("/vista/vista_imagenes/pdf.png"));
             }
             vista.getBtn_seleccionar().setText("Seleccionar nueva Acta");
             vista.getjLabel2().setIcon(icono);
-            
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-
     }
 
 }
