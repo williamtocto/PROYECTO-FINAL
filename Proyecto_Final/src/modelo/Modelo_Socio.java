@@ -77,7 +77,7 @@ public class Modelo_Socio extends Socio {
     public List<Socio> socios(String aguja) {
 
         try {
-            String sql = "SELECT FROM* socio WHERE ";
+            String sql = "SELECT * FROM socio WHERE ";
             sql += " UPPER(cedula_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%')";
@@ -126,7 +126,7 @@ public class Modelo_Socio extends Socio {
 
     public boolean mostrar_socio_activo() {
         String sql;
-        sql = "SELECT *FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
+        sql = "SELECT * FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
         con.consulta(sql);
         return con.accion(sql);
     }
