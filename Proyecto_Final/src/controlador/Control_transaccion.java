@@ -46,6 +46,7 @@ public class Control_transaccion {
         //INICIALIZADORES
         vista.setTitle("TRANSACCIONES");
         vista.setVisible(true);
+        cargarlista("");
     }
 
     public void inicarControl() {
@@ -63,7 +64,7 @@ public class Control_transaccion {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                cargarlista("");
             }
             
         };
@@ -104,25 +105,17 @@ public class Control_transaccion {
         vistat.getBtn_imprimirConsulta().addActionListener(l ->imprimirTansaccion()) ;
     }
 
-    public void cargarDatos(String aguja) {
-        //vistat.getjTabla_tran().setDefaultRenderer(Object.class, new Render());
-        vistat.getjTabla_tran().setRowHeight(100);
-        DefaultTableCellRenderer render = new DefaultTableCellRenderer();
-        DefaultTableModel tbModel;
-        tbModel = (DefaultTableModel) vistat.getjTabla_tran().getModel();
-        tbModel.setNumRows(0);
-        List<Transaccion> lista = modelot.listaTransaccion(aguja);
-        int columnass = tbModel.getColumnCount();
-        for (int i = 0; i < lista.size(); i++) {
-            Transaccion ts = new Transaccion();
-            tbModel.addRow(new Object[columnass]);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getCod_transaccion(), i, 0);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getCodigo_socio(), i, 1);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getMonto(), i, 2);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getSaldo(), i, 3);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getTipo_transaccion(), i, 4);
-            vistat.getjTabla_tran().setValueAt(lista.get(i).getFecha_trans(), i, 5);
-        }
+    public void cargarlista(String aguja) {
+        DefaultTableModel tblModel;
+        tblModel= (DefaultTableModel) vistat.getjTabla_tran().getModel();
+        tblModel.setNumRows(0);
+        List<Transaccion> lista = transac.listaTransaccion(aguja);
+        lista.stream().forEach(r -> {
+            System.out.println(r.getTipo_transaccion());
+            String[] tra1 = {String.valueOf(r.getCod_transaccion()),String.valueOf(r.getCodigo_socio()), 
+                String.valueOf(r.getMonto()), String.valueOf(r.getSaldo()),r.getTipo_transaccion(),r.getFecha_trans()};
+            tblModel.addRow(tra1);
+        });
     }
 
     public void guardarTransaccion() {
@@ -153,7 +146,6 @@ public class Control_transaccion {
         transac.setSaldo(sald);//MUCHO OJO AQUI
         transac.setTipo_transaccion(t_transaccion);
         //transac.setFecha_trans(ruta);
-
     }
     
     java.util.Date fecha(String fecha) throws ParseException {
@@ -167,15 +159,14 @@ public class Control_transaccion {
         return null;
     }
 
-    public void Datos() {
+    /*public void Datos() {
         fila = vistat.getjTabla_tran().getSelectedRow();
         String codigo_socio = vistat.getTxtCodigo_socio().getText();
         String monto = vistat.getTxtDeposito().getText();
         String saldo = vistat.getTxtValor_cuenta().getText();
+    }*/
 
-    }
-
-    public void mostrarDatos() {
+    /*public void mostrarDatos() {
         String t_transaccion = null;
         if (vistat.getRbRetiro().isSelected()) {
             t_transaccion = "Retiro";
@@ -187,7 +178,7 @@ public class Control_transaccion {
         vistat.getTxtDeposito().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 1)));
         vistat.getTxtValor_cuenta().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 2)));
         t_transaccion= String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 3));
-    }
+    }*/
     
     public void cargarDialogo(int origen) {
 

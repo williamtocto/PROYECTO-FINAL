@@ -38,18 +38,18 @@ public class Modelo_transaccion extends Transaccion {
 
     public List<Transaccion> listaTransaccion(String aguja) {
         try {
-            String sql = "select * from transaccion WHERE ";
-            sql += " UPPER(idpersona) like UPPER('%" + aguja + "%') ";
+            String sql = "select * from transaccion where codigo_transaccion::text like '%" + aguja + "%'; ";
             ResultSet rs = con.consulta(sql);
             ArrayList<Transaccion> lt = new ArrayList<Transaccion>();
             while (rs.next()) {
-                tran.setCod_transaccion(rs.getInt("codigo_transaccion"));
-                tran.setCodigo_socio(rs.getInt("codigo_socio"));
-                tran.setMonto(rs.getDouble("monto"));
-                tran.setSaldo(rs.getDouble("saldo"));
-                tran.setTipo_transaccion(rs.getString("tipo_transaccion"));
-                tran.setTipo_transaccion(rs.getString("fecha_trans"));
-                lt.add(tran);
+                Transaccion t = new Transaccion();
+                t.setCod_transaccion(rs.getInt("codigo_transaccion"));
+                t.setCodigo_socio(rs.getInt("codigo_socio"));
+                t.setMonto(rs.getDouble("monto"));
+                t.setSaldo(rs.getDouble("saldo"));
+                t.setTipo_transaccion(rs.getString("tipo_transaccion"));
+                t.setFecha_trans(rs.getString("fecha_trans"));
+                lt.add(t);
             }
             rs.close();
             return lt;

@@ -10,12 +10,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.ConexionPG;
 import modelo.Modelo_Reunion;
+import modelo.Reunion;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -41,7 +44,7 @@ public class Control_Reunion {
     String formato = null;
     String formato2 = null;
     String ruta = "";
-    int fila = -1;
+    int fila;
     int n;
 
     public Control_Reunion(Modelo_Reunion modelo, Vista_Reunion vista) {
@@ -49,6 +52,7 @@ public class Control_Reunion {
         this.vista = vista;
         vista.setTitle("REUNION");
         vista.setVisible(true);
+        cargarLista("");
     }
 
     public Control_Reunion() {
@@ -63,12 +67,12 @@ public class Control_Reunion {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                cargarLista(vista.getTxtCodReu().getText());
             }
             
         };
@@ -81,6 +85,7 @@ public class Control_Reunion {
 
             @Override
             public void mousePressed(MouseEvent e) {
+                
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
@@ -91,12 +96,12 @@ public class Control_Reunion {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                //cargarDatos();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
             
         };
@@ -118,11 +123,12 @@ public class Control_Reunion {
                 Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
+        vista.getJTdatos().addMouseListener(ml);
+        vista.getTxtCodReu().addKeyListener(kl);
     }
 
     public void guardarReunion() throws ParseException {
-        cargarDatos();
+        //cargarDatos();
         int verificarFecha;
         if (vista.getJdFecha() == null || "".equals(vista.getTxtDuracion()) || "".equals(vista.getTxtTopic())) {
 
@@ -171,7 +177,7 @@ public class Control_Reunion {
     }
 
     public void modificarReunion() {
-        cargarDatos();
+        //cargarDatos();
         modelo.setCodigo_reunion(codigo_reunion);
         modelo.setFecha_reunion(fecha_reunion);
         modelo.setDuracion_reunion(duracion_reunion);
@@ -195,7 +201,7 @@ public class Control_Reunion {
             if (resp == 0) {
                 if (fila <= 0) {
                     if (modelo.eliminarReunion()) {
-                        cargarDatos();
+                        //cargarDatos();
                         JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 0);
                     } else {
                         JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
@@ -207,18 +213,26 @@ public class Control_Reunion {
         }
     }
     
-    public void cargarLista(){
-        String aguja=vista.getTxtCodReu().getText();
+    public void cargarLista(String aguja){
+        //aguja=vista.getTxtCodReu().getText();
+        DefaultTableModel tblModel;
+        tblModel= (DefaultTableModel) vista.getJTdatos().getModel();
+        tblModel.setNumRows(0);
+        List<Reunion> lista = modelo.listaReunion(aguja);
+        lista.stream().forEach(r -> {
+            String[] reuni1 = {String.valueOf(r.getCodigo_reunion()),r.getFecha_reunion(), r.getDuracion_reunion(), r.getTopico_reunion()};
+            tblModel.addRow(reuni1);
+        });
     }
 
-    public void cargarDatos() {
-        int fila= vista.getJTdatos().getSelectedRow();
+    /*public void cargarDatos() {
+        fila= vista.getJTdatos().getSelectedRow();
         vista.getTxtCodReu().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 0)));
         vista.getJdFecha().setDateFormatString(String.valueOf(vista.getJTdatos().getValueAt(fila, 1)));
         vista.getTxtDuracion().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 2)));
-        vista.getTxtTopic().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 3)));
+        //vista.getTxtTopic().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 3)));
 
-    }
+    */
 
     public String formatoFecha() {
         if (vista.getJdFecha().getDate() != null) {

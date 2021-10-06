@@ -35,18 +35,21 @@ public class Modelo_Reunion extends Reunion {
 
     Reunion reu = new Reunion();
     Component rootPane = null;
-    
+
     public List<Reunion> listaReunion(String aguja) {
         try {
-            String sql = "select * from reunion where codigo_reunion= " + getCodigo_reunion();
+            String sql = "select * from reunion where codigo_reunion::text like '%" + aguja + "%' OR "
+                    + "upper(topico_reunion) like upper('%" + aguja + "%') or "
+                    + "duracion_reunion::text like  '%" + aguja + "%'; ";
             ResultSet rs = con.consulta(sql);
             List<Reunion> lr = new ArrayList<Reunion>();
             while (rs.next()) {
-                reu.setCodigo_reunion(rs.getInt("codigo_reunion"));
-                reu.setFecha_reunion(rs.getString("fecha_reunion"));
-                reu.setDuracion_reunion(rs.getString("duracion_reunion"));
-                reu.setTopico_reunion(rs.getString("topico_reunion"));
-                lr.add(reu);
+                Reunion ree = new Reunion();
+                ree.setCodigo_reunion(rs.getInt("codigo_reunion"));
+                ree.setFecha_reunion(rs.getString("fecha_reunion"));
+                ree.setDuracion_reunion(rs.getString("duracion_reunion"));
+                ree.setTopico_reunion(rs.getString("topico_reunion"));
+                lr.add(ree);
             }
             rs.close();
             return lr;
@@ -56,9 +59,7 @@ public class Modelo_Reunion extends Reunion {
         }
 
     }
-    
-    
-    
+
     public boolean AgregarReunion() {
         String sql = "INSERT INTO reunion (fecha_reunion,duracion_reunion,topico_reunion)"
                 + "VALUES('" + getFecha_reunion() + "','" + getDuracion_reunion() + "','" + getTopico_reunion() + "')";
@@ -91,7 +92,7 @@ public class Modelo_Reunion extends Reunion {
         }
         return con.accion(sql);//MUCHO OJO
     }
-    
+
     public int codigoReunion(String fecha) {
         String sql = "Select codigo_reunion from reunion where fecha_reunion = '" + fecha + "'";
         ResultSet rs = con.consulta(sql);
