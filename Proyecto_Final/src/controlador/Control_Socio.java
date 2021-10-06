@@ -73,6 +73,7 @@ public class Control_Socio {
         };
 
         vista.getBtnRegistrar().addActionListener(l -> crearSocio());
+        vista.getTxtBuscar().addKeyListener(buscador);
         vista.getBtnLimpiar().addActionListener(l->limpiar());
         vista.getBtnImprimir().addActionListener(l->imprimirReporte());
     }
