@@ -18,6 +18,14 @@ import javax.swing.JTextField;
  */
 public class Vista_transaccion extends javax.swing.JInternalFrame {
 
+    public JButton getBtnBuscar() {
+        return BtnBuscar;
+    }
+
+    public void setBtnBuscar(JButton BtnBuscar) {
+        this.BtnBuscar = BtnBuscar;
+    }
+
     
     
     public JButton getBtnAceptar() {
@@ -523,6 +531,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTabla_tran = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
+        BtnBuscar = new javax.swing.JButton();
         LblFondo = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -654,13 +663,11 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_imprimirConsulta, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btn_buscarConsulta)
-                                        .addComponent(btn_limpiarConsulta)))
-                                .addGap(18, 18, 18))
+                            .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btn_imprimirConsulta, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btn_buscarConsulta)
+                                    .addComponent(btn_limpiarConsulta)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dgTransaccionesLayout.createSequentialGroup()
                                 .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Lbldesde)
@@ -761,11 +768,11 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 BtnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 120, 30));
+        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 120, 30));
 
         BtnLimpar.setText("Limpar");
         BtnLimpar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(BtnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 90, 30));
+        getContentPane().add(BtnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 90, 30));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Trámite:");
@@ -810,6 +817,9 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         BtnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 120, 30));
 
+        BtnBuscar.setText("Buscar");
+        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
+
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
         getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 970, 580));
 
@@ -839,6 +849,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAceptar;
+    private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnConsultar;
     private javax.swing.JButton BtnLimpar;
     private javax.swing.ButtonGroup Grupo_tipo;

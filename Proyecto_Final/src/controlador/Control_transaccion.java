@@ -49,72 +49,77 @@ public class Control_transaccion {
     }
 
     public void inicarControl() {
-        
-        KeyListener kl = new KeyListener(){
+
+        KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                
+
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                
+
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
                 cargarlista("");
             }
-            
+
         };
-        
+
         vistat.getBtnConsultar().addActionListener(l -> {
             cargarDialogo(2);
         });
-        
-        MouseListener ml = new MouseListener(){
+
+        MouseListener ml = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                
+
             }
-            
-        }; 
+
+        };
         vistat.getBtnAceptar().addActionListener(l -> guardarTransaccion());
         vistat.getBtnConsultar().addActionListener(l -> cargarDialogo(1));
-        vistat.getBtn_imprimirConsulta().addActionListener(l ->imprimirTansaccion()) ;
+        vistat.getBtnBuscar().addActionListener(l -> busquedaSocio(""));
+        vistat.getBtn_imprimirConsulta().addActionListener(l -> imprimirTansaccion());
     }
 
     public void cargarlista(String aguja) {
         DefaultTableModel tblModel;
-        tblModel= (DefaultTableModel) vistat.getjTabla_tran().getModel();
+        tblModel = (DefaultTableModel) vistat.getjTabla_tran().getModel();
         tblModel.setNumRows(0);
         List<Transaccion> lista = transac.listaTransaccion(aguja);
         lista.stream().forEach(r -> {
-            System.out.println(r.getTipo_transaccion());
-            String[] tra1 = {String.valueOf(r.getCod_transaccion()),String.valueOf(r.getCodigo_socio()), 
-                String.valueOf(r.getMonto()), String.valueOf(r.getSaldo()),r.getTipo_transaccion(),r.getFecha_trans()};
+            String[] tra1 = {String.valueOf(r.getCod_transaccion()), String.valueOf(r.getCodigo_socio()),
+                String.valueOf(r.getMonto()), String.valueOf(r.getSaldo()), r.getTipo_transaccion(), r.getFecha_trans()};
             tblModel.addRow(tra1);
         });
+    }
+
+    public void busquedaSocio(String cedula) {
+        cedula= String.valueOf(vistat.getTxtCedula_soc().getText());
+        transac.busquedaTransaccion(cedula);
     }
 
     public void guardarTransaccion() {
@@ -146,11 +151,11 @@ public class Control_transaccion {
         //transac.setFecha_trans(ruta);
         if (transac.AgregarTransaccion()) {
             JOptionPane.showInputDialog(null, "Se ha guardado correctamente", "", 1);
-        } else{
+        } else {
             JOptionPane.showInputDialog(null, "Error", "", 0);
         }
     }
-    
+
     java.util.Date fecha(String fecha) throws ParseException {
         try {
             DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -169,7 +174,7 @@ public class Control_transaccion {
         String saldo = vistat.getTxtValor_cuenta().getText();
     }*/
 
-    /*public void mostrarDatos() {
+ /*public void mostrarDatos() {
         String t_transaccion = null;
         if (vistat.getRbRetiro().isSelected()) {
             t_transaccion = "Retiro";
@@ -182,7 +187,6 @@ public class Control_transaccion {
         vistat.getTxtValor_cuenta().setText(String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 2)));
         t_transaccion= String.valueOf(vistat.getjTabla_tran().getValueAt(fila, 3));
     }*/
-    
     public void cargarDialogo(int origen) {
 
         vistat.getDgTransacciones().setSize(900, 500);
@@ -194,20 +198,20 @@ public class Control_transaccion {
             vistat.getDgTransacciones().setVisible(true);
         }
     }
-    
+
     private void imprimirTansaccion() {
         ConexionPG con = new ConexionPG();
         try {
             JasperReport reporte = null;
             String path = "C:\\Users\\Mateo\\Documents\\NetBeansProjects\\PROYECTO-FINAL\\Proyecto_Final\\src\\vista\\reportes\\historial_transaccion.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            Map<String, Object> params= new HashMap<String,Object>();
+            Map<String, Object> params = new HashMap<String, Object>();
             /*String miaguja=vista.getTxtBuscar().getText();
             params.put("aguja", "%"+miaguja+"%");//PARAMETROS PARA REPORTES
             params.put("titulo", "LISTADO DE PERSONAS INSCRITAS POR REVIZAR");
             params.put("footer", "Super Mercado Santa Cecilia, Ave Huaynacapac");*/
             //SUPER MERCADOS S.A. Ave. Americas
-            
+
             JasperPrint jp = JasperFillManager.fillReport(reporte, params, con.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
