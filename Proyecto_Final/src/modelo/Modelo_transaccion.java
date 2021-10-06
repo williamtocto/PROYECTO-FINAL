@@ -1,6 +1,5 @@
 package modelo;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,8 +7,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Mateo
@@ -58,23 +55,11 @@ public class Modelo_transaccion extends Transaccion {
             return null;
         }
     }
-
-    public boolean guardar() throws SQLException {
-        String sql1 = "INSERT INTO transaccion(codigo_socio,monto,tipo_transaccion,saldo,fecha_trans)"
-                + "VALUES (?,?,?,?,?);";
-        PreparedStatement ps = null;
-        ps = con.getCon().prepareStatement(sql1);
-        ps.setInt(1, getCodigo_socio());
-        ps.setDouble(2, getMonto());
-        ps.setDouble(3, getSaldo());
-        ps.setString(4, getTipo_transaccion());
-        ps.setString(5, getFecha_trans());
-        Boolean ejecutar = false;
-
-        if (ps.executeUpdate() == 1) {
-            ejecutar = true;
-        }
-        return ejecutar;
+    
+    public boolean AgregarTransaccion() {
+        String sql = "INSERT INTO transaccion(codigo_socio,monto,saldo,tipo_transaccion,fecha_trans)"
+                + "VALUES('" + getCodigo_socio() + "','" + getMonto() + "','" + getSaldo()+ "','" + getTipo_transaccion() + "','" + getFecha_trans() + "')";
+        return con.accion(sql);
     }
     
     public double cantidad_cuenta(int cod_so) {

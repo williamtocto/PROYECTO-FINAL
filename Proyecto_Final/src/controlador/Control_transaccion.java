@@ -7,7 +7,6 @@ import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_transaccion;
 import vista.Vista_transaccion;
@@ -54,12 +53,12 @@ public class Control_transaccion {
         KeyListener kl = new KeyListener(){
             @Override
             public void keyTyped(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
@@ -76,27 +75,27 @@ public class Control_transaccion {
         MouseListener ml = new MouseListener(){
             @Override
             public void mouseClicked(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
             
         }; 
@@ -119,7 +118,6 @@ public class Control_transaccion {
     }
 
     public void guardarTransaccion() {
-
         int codigo_socio = Integer.parseInt(vistat.getTxtCodigo_socio().getText());
         String t_transaccion = null;
         double sald = 0;//MUCHO OJO AQUI
@@ -146,6 +144,11 @@ public class Control_transaccion {
         transac.setSaldo(sald);//MUCHO OJO AQUI
         transac.setTipo_transaccion(t_transaccion);
         //transac.setFecha_trans(ruta);
+        if (transac.AgregarTransaccion()) {
+            JOptionPane.showInputDialog(null, "Se ha guardado correctamente", "", 1);
+        } else{
+            JOptionPane.showInputDialog(null, "Error", "", 0);
+        }
     }
     
     java.util.Date fecha(String fecha) throws ParseException {

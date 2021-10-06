@@ -1,10 +1,7 @@
 package modelo;
 
-import com.itextpdf.text.log.Logger;
 import java.awt.Component;
-import java.lang.System.Logger.Level;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;

@@ -62,7 +62,7 @@ public class Control_Reunion {
         KeyListener kl = new KeyListener(){
             @Override
             public void keyTyped(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
@@ -80,18 +80,17 @@ public class Control_Reunion {
         MouseListener ml = new MouseListener(){
             @Override
             public void mouseClicked(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               
             }
 
             @Override
