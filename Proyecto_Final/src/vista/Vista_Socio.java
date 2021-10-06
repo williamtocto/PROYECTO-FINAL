@@ -24,13 +24,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         initComponents();
     }
 
-    public JButton getButtonReporte() {
-        return ButtonReporte;
-    }
-
-    public void setButtonReporte(JButton ButtonReporte) {
-        this.ButtonReporte = ButtonReporte;
-    }
 
     public JLabel getLblFondo() {
         return LblFondo;
@@ -152,6 +145,23 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         this.btnSocioActivo = btnSocioActivo;
     }
 
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
+
+    public void setBtnImprimir(JButton btnImprimir) {
+        this.btnImprimir = btnImprimir;
+    }
+
+    public JButton getBtnNuevaCuenta() {
+        return btnNuevaCuenta;
+    }
+
+    public void setBtnNuevaCuenta(JButton btnNuevaCuenta) {
+        this.btnNuevaCuenta = btnNuevaCuenta;
+    }
+    
+
     public JDateChooser getJdFechaIng() {
         return jdFechaIng;
     }
@@ -190,6 +200,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         LblNombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -217,79 +228,83 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         btnLimpiar = new javax.swing.JButton();
         btnSocioActivo = new javax.swing.JButton();
         btnInactivar = new javax.swing.JButton();
-        ButtonReporte = new javax.swing.JButton();
         TxtNumCuenta = new javax.swing.JTextField();
         btnNuevaCuenta = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
         LblFondo = new javax.swing.JLabel();
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LblNombre.setText("Datos Socio.");
-        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 160, 50));
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, 50));
 
         jLabel1.setText("Código:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, 20));
 
         jLabel2.setText("Cédula:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
 
         jLabel3.setText("Nombre:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, 10));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 10));
 
         jLabel4.setText("Apellido:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, 10));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 10));
 
         jLabel5.setText("E-mail:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         TxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 190, 20));
-        getContentPane().add(TxtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 190, 20));
-        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 190, 20));
-        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 190, 20));
-        getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 190, 20));
+        getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
+        getContentPane().add(TxtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 190, 20));
+        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 190, 20));
+        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 190, 20));
+        getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 190, 20));
 
         jLabel6.setText("No. Cuenta");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 120, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 120, 30));
 
         jLabel7.setText("Dirección:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 110, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 110, 30));
 
         jLabel8.setText("Fecha Nac:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 120, 40));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 120, 40));
 
         jLabel9.setText("Teléfono:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 110, 40));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 110, 40));
 
         jLabel10.setText("Fecha de Ingreso:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 160, 40));
-        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 250, 20));
-        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 120, -1));
-        getContentPane().add(jdFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 250, -1));
-        getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 250, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 160, 40));
+        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 250, 20));
+        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 120, -1));
+        getContentPane().add(jdFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, 250, -1));
+        getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 250, -1));
 
         jtDatosSocio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Cédula", "Nombres", "Apellidos", "Fecha Nac", "Dirección", "Teléfono", "E-mail"
+                "Código", "Cédula", "Nombres", "Apellidos", "E-mail", "Dirección", "Teléfono", "Fecha Nacimiento", "Fecha Ingreso"
             }
         ));
         jScrollPane1.setViewportView(jtDatosSocio);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 820, 220));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 1070, 220));
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
@@ -298,39 +313,38 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 80, 30));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 80, 30));
 
         btnModificar.setText("Modificar");
         btnModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 70, 30));
+        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 70, 30));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 70, 30));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 70, 30));
 
         btnSocioActivo.setText("Socios Activos");
         btnSocioActivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 90, 30));
+        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 90, 30));
 
         btnInactivar.setText("Inactivar Socio");
         btnInactivar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 90, 30));
-
-        ButtonReporte.setText("Generar Reporte ");
-        ButtonReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        getContentPane().add(ButtonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 140, 30));
-        getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 160, 20));
+        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 90, 30));
+        getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 160, 20));
 
         btnNuevaCuenta.setText("+");
-        getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, -1, 20));
-        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, 190, -1));
+        getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, 20));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 190, -1));
 
         jLabel11.setText("Buscar:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 90, -1, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, 20));
+
+        btnImprimir.setText("Imprimir Reporte");
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, -1));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo internas.jpg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 650));
+        getContentPane().add(LblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -349,7 +363,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonReporte;
     private javax.swing.JLabel LblFondo;
     private javax.swing.JLabel LblNombre;
     private javax.swing.JTextField TxtApellido;
@@ -360,12 +373,14 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtNumCuenta;
     private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnInactivar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevaCuenta;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSocioActivo;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

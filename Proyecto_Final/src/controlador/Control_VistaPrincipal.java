@@ -81,7 +81,7 @@ public class Control_VistaPrincipal {
     public void IniciarVentanaSocio() {
         Modelo_Socio modelo_socio = new Modelo_Socio();
         Vista_Socio vista_socio = new Vista_Socio();
-        vista.getDesk_Principal().add(vista_socio);
+        Centrar(vista_socio);
         Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
         cs.IniciarContro();
     }

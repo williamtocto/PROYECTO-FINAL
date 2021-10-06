@@ -28,22 +28,24 @@ public class Modelo_Socio extends Socio {
 
     ConexionPG con = new ConexionPG();
     
-       public void CrearSocio() {
+       public boolean CrearSocio() {
         String sql = new String();
+        boolean resultado;
 //        String sentencia;
         Socio objtSocio = new Socio();
         sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
         sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
                 + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" 
                 + objtSocio.getDireccion_socio()+ "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
-        con.accion(sql);
+        resultado=con.accion(sql);
+        return resultado;
 
     }
 
     public List<Socio> socios() {
 
         try {
-            String sql = "SELECT FROM* socio";
+            String sql = "SELECT * FROM socio";
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
