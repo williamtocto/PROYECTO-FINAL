@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.ConexionPG;
 import modelo.Modelo_Reunion;
-import modelo.Reunion;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -208,12 +206,18 @@ public class Control_Reunion {
             }
         }
     }
+    
+    public void cargarLista(){
+        String aguja=vista.getTxtCodReu().getText();
+    }
 
     public void cargarDatos() {
-        codigo_reunion = Integer.parseInt(vista.getTxtCodReu().getText());
-        fecha_reunion = formatoFecha();
-        duracion_reunion = vista.getTxtDuracion().getText();
-        topico_reunion = vista.getTxtTopic().getText();
+        int fila= vista.getJTdatos().getSelectedRow();
+        vista.getTxtCodReu().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 0)));
+        vista.getJdFecha().setDateFormatString(String.valueOf(vista.getJTdatos().getValueAt(fila, 1)));
+        vista.getTxtDuracion().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 2)));
+        vista.getTxtTopic().setText(String.valueOf(vista.getJTdatos().getValueAt(fila, 3)));
+
     }
 
     public String formatoFecha() {

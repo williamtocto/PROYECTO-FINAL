@@ -89,7 +89,7 @@ public class Control_VistaPrincipal {
     public void InicarVentanaTransaccion() {
         Modelo_transaccion mt = new Modelo_transaccion();
         Vista_transaccion vt = new Vista_transaccion();
-        vista.getDesk_Principal().add(vt);
+        Centrar(vt);
         Control_transaccion ct = new Control_transaccion(mt, vt);
         ct.inicarControl();
     }
@@ -97,7 +97,7 @@ public class Control_VistaPrincipal {
     public void IniciarVentanaReunion() {
         Modelo_Reunion mr = new Modelo_Reunion();
         Vista_Reunion vr = new Vista_Reunion();
-        vista.getDesk_Principal().add(vr);
+        Centrar(vr);
         Control_Reunion cr = new Control_Reunion(mr, vr);
         cr.iniciaControl();
     }

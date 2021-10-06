@@ -1,10 +1,14 @@
 package modelo;
 
+import com.itextpdf.text.log.Logger;
 import java.awt.Component;
+import java.lang.System.Logger.Level;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,7 +35,30 @@ public class Modelo_Reunion extends Reunion {
 
     Reunion reu = new Reunion();
     Component rootPane = null;
+    
+    public List<Reunion> listaReunion(String aguja) {
+        try {
+            String sql = "select * from reunion where codigo_reunion= " + getCodigo_reunion();
+            ResultSet rs = con.consulta(sql);
+            List<Reunion> lr = new ArrayList<Reunion>();
+            while (rs.next()) {
+                reu.setCodigo_reunion(rs.getInt("codigo_reunion"));
+                reu.setFecha_reunion(rs.getString("fecha_reunion"));
+                reu.setDuracion_reunion(rs.getString("duracion_reunion"));
+                reu.setTopico_reunion(rs.getString("topico_reunion"));
+                lr.add(reu);
+            }
+            rs.close();
+            return lr;
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Modelo_Reunion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            return null;
+        }
 
+    }
+    
+    
+    
     public boolean AgregarReunion() {
         String sql = "INSERT INTO reunion (fecha_reunion,duracion_reunion,topico_reunion)"
                 + "VALUES('" + getFecha_reunion() + "','" + getDuracion_reunion() + "','" + getTopico_reunion() + "')";
@@ -63,47 +90,6 @@ public class Modelo_Reunion extends Reunion {
             JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
         }
         return con.accion(sql);//MUCHO OJO
-    }
-
-    public void Eliminar() {
-        String format = null;
-        int fila = 0;
-
-        if (getFecha_reunion() != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            format = sdf.format(getFecha_reunion());
-        }
-        int resp;
-        resp = JOptionPane.showConfirmDialog(rootPane, "¿DESEA ELIMNAR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-        if (resp == 0) {
-            if (fila <= 0) {
-                Reunion objtreu;
-                objtreu = new Reunion();
-                objtreu.setFecha_reunion(format);
-                objtreu.setTopico_reunion(getTopico_reunion());
-                objtreu.setDuracion_reunion(getDuracion_reunion());
-                String sentenciaSql = new String();
-                sentenciaSql = "DELETE FROM reunion WHERE codigo_reunion='" + getCodigo_reunion() + "'";
-                con.accion(sentenciaSql);
-                JOptionPane.showMessageDialog(null, "SE ELIMINO CORRECTAMENTE");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
-        }
-    }
-
-    public double cantidad_cuenta(int cod_so) {
-        String sql = "SELECT saldo,fecha_trans FROM transaccion WHERE codigo_socio= " + cod_so + " ORDER BY fecha_trans DESC LIMIT 1;";
-        ResultSet rs = con.consulta(sql);
-        double cantidad = 0;
-        try {
-            while (rs.next()) {
-                cantidad = rs.getDouble("saldo");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-        return cantidad;
     }
     
     public int codigoReunion(String fecha) {

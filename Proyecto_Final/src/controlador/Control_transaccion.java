@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,8 +11,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_transaccion;
 import vista.Vista_transaccion;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +111,7 @@ public class Control_transaccion {
         DefaultTableModel tbModel;
         tbModel = (DefaultTableModel) vistat.getjTabla_tran().getModel();
         tbModel.setNumRows(0);
-        ArrayList<Transaccion> lista = modelot.listaTransaccion(aguja);
+        List<Transaccion> lista = modelot.listaTransaccion(aguja);
         int columnass = tbModel.getColumnCount();
         for (int i = 0; i < lista.size(); i++) {
             Transaccion ts = new Transaccion();

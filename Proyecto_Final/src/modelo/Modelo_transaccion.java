@@ -35,11 +35,10 @@ public class Modelo_transaccion extends Transaccion {
 
     Transaccion tran = new Transaccion();
     Socio sc = new Socio();
-    //String sql = "SELECT FROM* transaccion";
 
-    public ArrayList<Transaccion> listaTransaccion(String aguja) {
+    public List<Transaccion> listaTransaccion(String aguja) {
         try {
-            String sql = "select * from socio WHERE ";
+            String sql = "select * from transaccion WHERE ";
             sql += " UPPER(idpersona) like UPPER('%" + aguja + "%') ";
             ResultSet rs = con.consulta(sql);
             ArrayList<Transaccion> lt = new ArrayList<Transaccion>();
@@ -76,6 +75,20 @@ public class Modelo_transaccion extends Transaccion {
             ejecutar = true;
         }
         return ejecutar;
+    }
+    
+    public double cantidad_cuenta(int cod_so) {
+        String sql = "SELECT saldo,fecha_trans FROM transaccion WHERE codigo_socio= " + cod_so + " ORDER BY fecha_trans DESC LIMIT 1;";
+        ResultSet rs = con.consulta(sql);
+        double cantidad = 0;
+        try {
+            while (rs.next()) {
+                cantidad = rs.getDouble("saldo");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return cantidad;
     }
 
 }
