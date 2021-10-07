@@ -1,0 +1,344 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package vista;
+
+import com.toedter.calendar.JDateChooser;
+import javax.accessibility.AccessibleContext;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
+
+/**
+ *
+ * @author PCX
+ */
+public class Vista_Asistencia extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form Vista_Asistencia
+     */
+    public Vista_Asistencia() {
+        initComponents();
+    }
+
+    public JButton getBtn_cargarLista() {
+        return btn_cargarLista;
+    }
+
+    public void setBtn_cargarLista(JButton btn_cargarLista) {
+        this.btn_cargarLista = btn_cargarLista;
+    }
+
+    public JButton getBtn_guardarFaltas() {
+        return btn_guardarFaltas;
+    }
+
+    public void setBtn_guardarFaltas(JButton btn_guardarFaltas) {
+        this.btn_guardarFaltas = btn_guardarFaltas;
+    }
+
+    public JButton getBtn_imprimir() {
+        return btn_imprimir;
+    }
+
+    public void setBtn_imprimir(JButton btn_imprimir) {
+        this.btn_imprimir = btn_imprimir;
+    }
+
+    public JDateChooser getDate_chooser() {
+        return date_chooser;
+    }
+
+    public void setDate_chooser(JDateChooser date_chooser) {
+        this.date_chooser = date_chooser;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JTextField getTxt_Nreunion() {
+        return txt_Nreunion;
+    }
+
+    public void setTxt_Nreunion(JTextField txt_Nreunion) {
+        this.txt_Nreunion = txt_Nreunion;
+    }
+
+    public JRootPane getRootPane() {
+        return rootPane;
+    }
+
+    public void setRootPane(JRootPane rootPane) {
+        this.rootPane = rootPane;
+    }
+
+    public boolean isRootPaneCheckingEnabled() {
+        return rootPaneCheckingEnabled;
+    }
+
+    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
+        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+    }
+
+    public boolean isClosable() {
+        return closable;
+    }
+
+    public void setClosable(boolean closable) {
+        this.closable = closable;
+    }
+
+    public boolean isIsClosed() {
+        return isClosed;
+    }
+
+    public void setIsClosed(boolean isClosed) {
+        this.isClosed = isClosed;
+    }
+
+    public boolean isMaximizable() {
+        return maximizable;
+    }
+
+    public void setMaximizable(boolean maximizable) {
+        this.maximizable = maximizable;
+    }
+
+    public boolean isIsMaximum() {
+        return isMaximum;
+    }
+
+    public void setIsMaximum(boolean isMaximum) {
+        this.isMaximum = isMaximum;
+    }
+
+    public boolean isIconable() {
+        return iconable;
+    }
+
+    public void setIconable(boolean iconable) {
+        this.iconable = iconable;
+    }
+
+    public boolean isIsIcon() {
+        return isIcon;
+    }
+
+    public void setIsIcon(boolean isIcon) {
+        this.isIcon = isIcon;
+    }
+
+    public boolean isResizable() {
+        return resizable;
+    }
+
+    public void setResizable(boolean resizable) {
+        this.resizable = resizable;
+    }
+
+    public boolean isIsSelected() {
+        return isSelected;
+    }
+
+    public void setIsSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
+
+    public Icon getFrameIcon() {
+        return frameIcon;
+    }
+
+    public void setFrameIcon(Icon frameIcon) {
+        this.frameIcon = frameIcon;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public JDesktopIcon getDesktopIcon() {
+        return desktopIcon;
+    }
+
+    public void setDesktopIcon(JDesktopIcon desktopIcon) {
+        this.desktopIcon = desktopIcon;
+    }
+
+    public ComponentUI getUi() {
+        return ui;
+    }
+
+    public void setUi(ComponentUI ui) {
+        this.ui = ui;
+    }
+
+    public EventListenerList getListenerList() {
+        return listenerList;
+    }
+
+    public void setListenerList(EventListenerList listenerList) {
+        this.listenerList = listenerList;
+    }
+
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txt_Nreunion = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn_cargarLista = new javax.swing.JButton();
+        date_chooser = new com.toedter.calendar.JDateChooser();
+        btn_guardarFaltas = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "N°", "Nombre", "Apellido", "Faltas"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
+
+        jLabel1.setText("ASISTENCIA");
+
+        txt_Nreunion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NreunionActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Fecha ");
+
+        jLabel3.setText("Renion");
+
+        btn_cargarLista.setText("Cargar Lista");
+
+        btn_guardarFaltas.setText("Guardar Faltas");
+
+        btn_imprimir.setText("Imprimir");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(date_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_Nreunion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_cargarLista)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_imprimir)
+                        .addGap(58, 58, 58))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_guardarFaltas, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Nreunion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_cargarLista)
+                            .addComponent(btn_imprimir)))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(date_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_guardarFaltas)
+                .addGap(12, 12, 12))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_NreunionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NreunionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NreunionActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargarLista;
+    private javax.swing.JButton btn_guardarFaltas;
+    private javax.swing.JButton btn_imprimir;
+    private com.toedter.calendar.JDateChooser date_chooser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla;
+    private javax.swing.JTextField txt_Nreunion;
+    // End of variables declaration//GEN-END:variables
+}

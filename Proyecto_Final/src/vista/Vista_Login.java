@@ -80,7 +80,7 @@ public class Vista_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bienvenido");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 110, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 110, 40));
 
         TxtUsuari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         TxtUsuari.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -112,7 +112,7 @@ public class Vista_Login extends javax.swing.JFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 140, 30));
+        getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 140, 30));
 
         txt_Password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
