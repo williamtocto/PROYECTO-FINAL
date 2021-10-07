@@ -62,6 +62,12 @@ public class Modelo_transaccion extends Transaccion {
         return con.accion(sql);
     }
     
+    public boolean busquedaTransaccion(String cedula) {
+        String sql = "SELECT codigo_socio,nombre_socio,apellido_socio,telefono_socio,direccion_socio,numero_de_cuenta FROM socio WHERE codigo_socio= " + cedula + "';";
+        ResultSet rs = con.consulta(sql);
+        return con.accion(sql);
+    }
+    
     public double cantidad_cuenta(int cod_so) {
         String sql = "SELECT saldo,fecha_trans FROM transaccion WHERE codigo_socio= " + cod_so + " ORDER BY fecha_trans DESC LIMIT 1;";
         ResultSet rs = con.consulta(sql);
