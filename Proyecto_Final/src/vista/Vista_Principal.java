@@ -46,13 +46,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Principal");
 
         jToolBar1.setRollover(true);
 
         jButton1.setText("jButton1");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("TEOLAMDY 2.0");
+        jLabel1.setText("Bienvenido...");
 
         desk_Principal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
