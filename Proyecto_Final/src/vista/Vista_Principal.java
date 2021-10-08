@@ -46,7 +46,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu Principal");
 
         jToolBar1.setRollover(true);
 
