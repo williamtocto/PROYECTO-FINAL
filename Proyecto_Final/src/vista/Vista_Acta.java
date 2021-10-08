@@ -24,9 +24,9 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         btn_seleccionar = new javax.swing.JButton();
         dateChooser_reunion = new com.toedter.calendar.JDateChooser();
         btn_guardar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        LblFecha = new javax.swing.JLabel();
         lbl_nombreArchivo = new javax.swing.JLabel();
         lbl_actas = new javax.swing.JLabel();
         date_chooserBuscar = new com.toedter.calendar.JDateChooser();
@@ -41,37 +41,48 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        jDialog1.setTitle("Consultar");
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_seleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/selecciona.png"))); // NOI18N
         btn_seleccionar.setText("Seleccionar Acta....");
         btn_seleccionar.setToolTipText("Seleccione una acta para guardar");
+        btn_seleccionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_seleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_seleccionarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 350, 30));
+        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 240, 40));
         jDialog1.getContentPane().add(dateChooser_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 184, -1));
 
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
+        btn_guardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 103, 35));
-        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 190, 130));
+        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 110, 35));
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/cancela.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 127, 35));
+        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 127, 35));
 
-        jLabel3.setText("Fecha");
-        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 88, -1, -1));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha:");
+        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 60));
+
+        LblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+        jDialog1.getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 300));
         jDialog1.getContentPane().add(lbl_nombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 300, 30));
 
         setClosable(true);
@@ -87,7 +98,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         btn_buscar.setText("Buscar Fecha");
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 130, -1));
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 130, 40));
 
         tabla_acta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_acta.setModel(new javax.swing.table.DefaultTableModel(
@@ -288,11 +299,11 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     }
 
     public JLabel getjLabel2() {
-        return jLabel2;
+        return LblFecha;
     }
 
     public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
+        this.LblFecha = jLabel2;
     }
 
     public JLabel getjLabel3() {
@@ -336,6 +347,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblFecha;
     private javax.swing.JButton btn_aprobar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
@@ -348,7 +360,6 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser date_chooserBuscar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
