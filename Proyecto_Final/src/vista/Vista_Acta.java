@@ -78,12 +78,13 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha:");
-        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 60));
+        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 100, 30));
 
         LblFecha.setForeground(new java.awt.Color(255, 255, 255));
         LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        jDialog1.getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 300));
-        jDialog1.getContentPane().add(lbl_nombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 300, 30));
+
+        lbl_nombreArchivo.setBackground(new java.awt.Color(0, 51, 204));
+        lbl_nombreArchivo.setForeground(new java.awt.Color(204, 0, 0));
 
         setClosable(true);
         setTitle("Actas");
