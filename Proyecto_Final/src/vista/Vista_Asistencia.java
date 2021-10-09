@@ -110,6 +110,7 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
+        setTitle("Asistencia");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
