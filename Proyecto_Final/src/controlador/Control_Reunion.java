@@ -86,7 +86,7 @@ public class Control_Reunion {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                
+
             }
 
             @Override
@@ -96,7 +96,13 @@ public class Control_Reunion {
 
         };
         //vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
-        vista.getBtnGuardar().addActionListener(l -> guardarReunion());
+        vista.getBtnGuardar().addActionListener(l -> {
+            try {
+                guardarReunion();
+            } catch (ParseException ex) {
+                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         vista.getBtnModificar().addActionListener(l -> modificarReunion());
         vista.getBtnEliminar().addActionListener(l -> eliminarReunion());
         vista.getBtnConsultar().addActionListener(l -> {
@@ -110,31 +116,33 @@ public class Control_Reunion {
         vista.getTxtCodReu().addKeyListener(kl);
     }
 
-    public void guardarReunion()  {
+    public void guardarReunion() throws ParseException {
         int verificarFecha;
+        int fila = 0;
         if (vista.getJdFecha().getDate() == null || "".equals(vista.getTxtDuracion().getText()) || "".equals(vista.getTxtTopic().getText())) {
             JOptionPane.showMessageDialog(null, " EXISTEN CAMPOS VACIOS DEBE LLENAR TODOS", "TEOLAM", 0);
         } else {
             verificarFecha = ValidarFechaIngreso();
             if (verificarFecha == -1) {
                 JOptionPane.showMessageDialog(null, " LA FECHA ES INCORRECTA", "TEOLAM", 0);
-
             } else {
-
                 if (vista.getJdFecha().getDate() != null) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     formato = sdf.format(vista.getJdFecha().getDate());
                 }
                 String format = null;
                 fila = 0;
-
                 if (vista.getJdFecha().getDate() != null) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     format = sdf.format(vista.getJdFecha().getDate());
                 }
+                modelo.consultaFecha(format);
+
+                if (fila > 0) {
+                    JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "TEOLAM", 0);
+                }
 
                 if (fila <= 0) {
-
                     modelo.setCodigo_reunion(codigo_reunion);
                     modelo.setFecha_reunion(fecha_reunion);
                     modelo.setDuracion_reunion(duracion_reunion);
@@ -193,13 +201,13 @@ public class Control_Reunion {
             resp = JOptionPane.showConfirmDialog(rootPane, "¿DESEA ELIMNAR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 System.out.println("entro");
-                    String codigoReu =String.valueOf(vista.getJTdatos().getValueAt(fila, 0));
-                    if (modelo.eliminarReunion(codigoReu)) {
-                        JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 0);
-                        cargarLista("");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
-                    }
+                String codigoReu = String.valueOf(vista.getJTdatos().getValueAt(fila, 0));
+                if (modelo.eliminarReunion(codigoReu)) {
+                    JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 0);
+                    cargarLista("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+                }
                 /*if (fila <= 0) {
                     
                 }*/
@@ -249,7 +257,7 @@ public class Control_Reunion {
         }
     }
 
-    public int ValidarFechaIngreso()  {
+    public int ValidarFechaIngreso() throws ParseException {
         Date fechaDispositivo = new Date();
         int f = 0;
         Date fecha = null;
@@ -257,19 +265,11 @@ public class Control_Reunion {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String fechaActual = sdf.format(fechaDispositivo);
         // Tranformar la fecha a String
-        if (vista.getJdFecha() != null) {
-            fechaIngreso = sdf.format(vista.getJdFecha());
-            try {
-                // PARSE PARA COMPARAR LAS FECHAS
-                fechaDispositivo = sdf.parse(fechaActual);
-            } catch (ParseException ex) {
-                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                fecha = sdf.parse(fechaIngreso);
-            } catch (ParseException ex) {
-                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        if (vista.getJdFecha().getDate() != null) {
+            fechaIngreso = sdf.format(vista.getJdFecha().getDate());
+            // PARSE PARA COMPARAR LAS FECHAS
+            fechaDispositivo = sdf.parse(fechaActual);
+            fecha = sdf.parse(fechaIngreso);
             f = fechaDispositivo.compareTo(fecha);
         }
         return f;

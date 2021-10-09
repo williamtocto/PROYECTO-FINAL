@@ -75,9 +75,9 @@ public class Modelo_Reunion extends Reunion {
         return ejecutar;
     }
 
-    public boolean consultaFecha() {
+    public boolean consultaFecha(String format) {
         int fila = 0;
-        String sql = " SELECT fecha_reunion from reunion where fecha_reunion= '" + getFecha_reunion() + " ';";
+        String sql = " SELECT fecha_reunion from reunion where fecha_reunion= '" + format + " ';";
         ResultSet rs = con.consulta(sql);
         try {
             while (rs.next()) {
