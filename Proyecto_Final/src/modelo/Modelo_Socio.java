@@ -122,9 +122,9 @@ public class Modelo_Socio extends Socio {
         return con.accion(sql);
     }
 
-    public void inactivar_socio() {
+    public boolean inactivar_socio(String codigo) {
         String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + getCodigo_socio() + ";";
-        con.accion(sql);
+        return con.accion(sql);
     }
 
     public boolean mostrar_socio_activo() {

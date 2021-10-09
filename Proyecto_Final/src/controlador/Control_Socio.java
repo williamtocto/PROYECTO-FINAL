@@ -78,6 +78,7 @@ public class Control_Socio {
         vista.getTxtBuscar().addKeyListener(buscador);
         vista.getBtnRegistrar().addActionListener(l-> mostrarDialogo(1));
         vista.getBtnModificar().addActionListener(l-> mostrarDialogo(2));
+        vista.getBtnInactivar().addActionListener(l->inactivarSocio());
         vista.getBtnAceptar().addActionListener(l ->  {
 
             try {
@@ -179,7 +180,7 @@ public class Control_Socio {
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
 
-        Date fecha = null;
+        Date fecha ;
         String formato = null;
         String formato2 = null;
         // Tranformar la fecha a String
@@ -330,6 +331,24 @@ public class Control_Socio {
      public void cancelar() {
         vista.getJDialogo().dispose();
 
+    }
+    public void inactivarSocio(){
+         Modelo_Socio modelo=new Modelo_Socio();
+           int op = JOptionPane.showOptionDialog(null,
+                    "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+            if (op == 0) {
+                try {
+                    String codigo=vista.getTxtCodigo().getText() ;
+                    modelo.inactivar_socio(codigo);
+                    cargarDatos();
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+            }
+ 
     }
 //    
 }
