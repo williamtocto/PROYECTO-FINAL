@@ -20,14 +20,14 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LblFecha = new javax.swing.JLabel();
+        lbl_nombreArchivo = new javax.swing.JLabel();
         jDialog1 = new javax.swing.JDialog();
         btn_seleccionar = new javax.swing.JButton();
         dateChooser_reunion = new com.toedter.calendar.JDateChooser();
         btn_guardar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        LblFecha = new javax.swing.JLabel();
-        lbl_nombreArchivo = new javax.swing.JLabel();
         lbl_actas = new javax.swing.JLabel();
         date_chooserBuscar = new com.toedter.calendar.JDateChooser();
         btn_buscar = new javax.swing.JButton();
@@ -40,6 +40,12 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         txt_buscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+
+        LblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+
+        lbl_nombreArchivo.setBackground(new java.awt.Color(0, 51, 204));
+        lbl_nombreArchivo.setForeground(new java.awt.Color(204, 0, 0));
 
         jDialog1.setTitle("Consultar");
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,13 +84,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha:");
-        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 100, 30));
-
-        LblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-
-        lbl_nombreArchivo.setBackground(new java.awt.Color(0, 51, 204));
-        lbl_nombreArchivo.setForeground(new java.awt.Color(204, 0, 0));
+        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 100, 30));
 
         setClosable(true);
         setTitle("Actas");
