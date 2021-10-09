@@ -68,9 +68,11 @@ public class Modelo_Reunion extends Reunion {
         return con.accion(sql);
     }
 
-    public boolean eliminarReunion() {
-        String sql = "DELETE FROM reunion WHERE codigo_reunion='" + getCodigo_reunion() + "'";
-        return con.accion(sql);
+    public boolean eliminarReunion(String codigo) {
+        String sql = "DELETE FROM reunion WHERE codigo_reunion='" + codigo + "'";
+        boolean ejecutar;
+        ejecutar = con.accion(sql);
+        return ejecutar;
     }
 
     public boolean consultaFecha() {
