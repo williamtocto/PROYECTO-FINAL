@@ -41,6 +41,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_reunion = new javax.swing.JMenu();
         submenu_reunion = new javax.swing.JMenuItem();
         menuActas = new javax.swing.JMenuItem();
+        menu_asistencia = new javax.swing.JMenuItem();
         menu_multas = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -128,6 +129,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         menu_reunion.add(menuActas);
 
+        menu_asistencia.setText("jMenuItem1");
+        menu_reunion.add(menu_asistencia);
+
         jMenuBar1.add(menu_reunion);
 
         menu_multas.setText("Multas");
@@ -157,6 +161,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_menu_MantenimientoUserActionPerformed
+
+    public JMenuItem getMenu_asistencia() {
+        return menu_asistencia;
+    }
+
+    public void setMenu_asistencia(JMenuItem menu_asistencia) {
+        this.menu_asistencia = menu_asistencia;
+    }
 
     public JMenuItem getMenuRol() {
         return menuRol;
@@ -339,6 +351,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu menuPrincipal_rol;
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
+    private javax.swing.JMenuItem menu_asistencia;
     private javax.swing.JMenu menu_multas;
     private javax.swing.JMenuItem menu_privilegios;
     private javax.swing.JMenu menu_reunion;

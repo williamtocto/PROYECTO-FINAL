@@ -6,55 +6,124 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-public class Modelo_Asistencia extends Socio {
+public class Modelo_Asistencia extends Asistencia {
 
     ConexionPG con = new ConexionPG();
-    Socio soc = new Socio();
-    Asistencia asis = new Asistencia();
 
-    public Modelo_Asistencia(int codigo_socio, String cedula_socio, String nombre_socio, String apellido_socio, String correo_socio, String fecha_nac_socio, String telefono_socio, String direccion_socio, String fecha_ingreso, int numero_cuenta) {
-        super(codigo_socio, cedula_socio, nombre_socio, apellido_socio, correo_socio, fecha_nac_socio, telefono_socio, direccion_socio, fecha_ingreso, numero_cuenta);
+    public Modelo_Asistencia() {
     }
 
-    public void ListarSocios() {
+    public Modelo_Asistencia(int cod_asistencia, int cod_socio, int cod_reunion, int estado, String nombre, String apellido, String cedula) {
+        super(cod_asistencia, cod_socio, cod_reunion, estado, nombre, apellido, cedula);
+    }
 
-        String sql = "SELECT codigo_socio,cedula_socio,nombre_socio,apellido_socio "
-                + "from socio where estado_socio= 'true' order by apellido_socio;";
+    public List<Asistencia> ListarAsistencias(String aguja) {
 
-        ResultSet rs = con.consulta(sql);
-        List<Socio> lista = new ArrayList<Socio>();
+        System.out.println("modelooo");
+
         try {
+            String sql = "SELECT codigo_asistencia,a.codigo_socio_asis,cedula_socio,nombre_socio,apellido_socio,estado_asistencia,codigo_reunion "
+                    + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis  where estado_socio= 'true' or "
+                    + " UPPER (nombre_socio) like UPPER('%" + aguja + "%') or "
+                    + "cedula_socio like '%" + aguja + "%' or "
+                    + "UPPER(apellido_socio) like UPPER('%" + aguja + "%') or "
+                    + " estado_asistencia::text like '%" + aguja + "%' order by apellido_socio;";
+            ResultSet rs = con.consulta(sql);
+            List<Asistencia> lista = new ArrayList<>();
             while (rs.next()) {
-                Socio so = new Socio();
-                so.setCodigo_socio(rs.getInt("codigo_socio"));
-                so.setCedula_socio(rs.getString("cedula_socio"));
-                so.setNombre_socio(rs.getString("nombre_socio"));
-                so.setApellido_socio(rs.getString("apellido_socio"));
-                lista.add(so);
+                Asistencia a = new Asistencia();
+                a.setNombre(rs.getString("nombre_socio"));
+                a.setApellido(rs.getString("apellido_socio"));
+                a.setCod_socio(rs.getInt("a.codigo_socio_asis"));
+                a.setCod_asistencia(rs.getInt("codigo_asistencia"));
+                a.setCedula(rs.getString("cedula_socio"));
+                a.setCod_reunion(rs.getInt("codigo_reunion"));
+                System.out.println(rs.getString("nombre_socio") + " nombre");
+                lista.add(a);
             }
+            return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Asistencia.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error" + ex.getMessage());
+            return null;
         }
 
     }
 
-    public void GuardarLista() {
+    public List<Asistencia> ListarSocios() {
+
+        String sql = "SELECT codigo_socio,cedula_socio,nombre_socio,apellido_socio "
+                + "from socio  where estado_socio= 'true' order by apellido_socio;";
+
+        ResultSet rs = con.consulta(sql);
+        List<Asistencia> lista = new ArrayList<Asistencia>();
+        try {
+            while (rs.next()) {
+                Asistencia so = new Asistencia();
+                so.setCod_socio(rs.getInt("codigo_socio"));
+                so.setCedula(rs.getString("cedula_socio"));
+                so.setNombre(rs.getString("nombre_socio"));
+                so.setApellido(rs.getString("apellido_socio"));
+                so.setEstado(0);
+                lista.add(so);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Asistencia.class.getName()).log(Level.SEVERE, null, ex);
+            return lista;
+        }
+
+    }
+
+    public List<Asistencia> listarSocioFecha(int reunion) {
+
+        try {
+            String sql = "SELECT codigo_asistencia,a.codigo_socio_asis,cedula_socio,nombre_socio,apellido_socio,estado_asistencia,codigo_reunion "
+                    + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis  where estado_socio= 'true' and codigo_reunion=" + reunion;
+            ResultSet rs = con.consulta(sql);
+            List<Asistencia> lista = new ArrayList<>();
+            while (rs.next()) {
+                Asistencia a = new Asistencia();
+                a.setNombre(rs.getString("nombre_socio"));
+                a.setApellido(rs.getString("apellido_socio"));
+                a.setCod_socio(rs.getInt("codigo_socio_asis"));
+                a.setCod_asistencia(rs.getInt("codigo_asistencia"));
+                a.setCedula(rs.getString("cedula_socio"));
+                a.setCod_reunion(rs.getInt("codigo_reunion"));
+                a.setEstado(rs.getInt("estado_asistencia"));
+                lista.add(a);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro" + ex.getMessage());
+            return null;
+        }
+
+    }
+
+    public boolean GuardarLista() {
         String sql = "  INSERT INTO asistencia(codigo_socio_asis,codigo_reunion,estado_asistencia) VALUES "
-                + "(" + asis.getCod_socio() + "," + asis.getCod_reunion() + ",'" + asis.getEstado() + "');";
-        con.accion(sql);
+                + "(" + getCod_socio() + "," + getCod_reunion() + "," + getEstado() + ");";
+        return con.accion(sql);
+    }
+
+    public boolean Editar() {
+        String sql = " UPDATE asistencia set estado_asistencia=" + getEstado()+ " "
+                + "where codigo_socio_asis="+getCod_socio() +" and codigo_reunion= "+getCod_reunion();
+        return con.accion(sql);
     }
 
     public int Codigo_Asis() throws SQLException {
         int codigoAsistencia = 0;
         String sql = "SELECT codigo_asistencia from asistencia where codigo_socio_asis="
-                + asis.getCod_socio() + " and codigo_reunion=" + asis.getCod_reunion();
+                + getCod_socio() + " and codigo_reunion=" + getCod_reunion();
         ResultSet rs = con.consulta(sql);
 
         while (rs.next()) {
             codigoAsistencia = rs.getInt("codigo_asistencia");
         }
         return codigoAsistencia;
-    }
 
+    }
 }

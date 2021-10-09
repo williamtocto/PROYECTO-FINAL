@@ -3,6 +3,7 @@ package controlador;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JInternalFrame;
 import modelo.Modelo_Acta;
+import modelo.Modelo_Asistencia;
 import modelo.Modelo_Reunion;
 import modelo.Modelo_Rol;
 import modelo.Modelo_Socio;
@@ -10,6 +11,7 @@ import modelo.Modelo_Usuario;
 import modelo.Modelo_privilegios;
 import modelo.Modelo_transaccion;
 import vista.Vista_Acta;
+import vista.Vista_Asistencia;
 import vista.Vista_Principal;
 import vista.Vista_Privilegios;
 import vista.Vista_Reunion;
@@ -39,6 +41,7 @@ public class Control_VistaPrincipal {
         vista.getSubmenuTransaccion().addActionListener(l -> InicarVentanaTransaccion());
         vista.getSubmenu_reunion().addActionListener(l -> IniciarVentanaReunion());
         vista.getMenuActas().addActionListener(l -> iniciarVentanaActa());
+        vista.getMenu_asistencia().addActionListener(l-> InciaciarVentanaAsistencia());
     }
 
     public void Usuario() {
@@ -108,5 +111,14 @@ public class Control_VistaPrincipal {
         vista.getDesk_Principal().add(vista_privilegios);
         Control_Privilegios cp = new Control_Privilegios(modelo_privilegios, vista_privilegios);
         cp.iniciarControl();
+    }
+    
+    public void InciaciarVentanaAsistencia() {
+        
+        Modelo_Asistencia modelo=new Modelo_Asistencia();
+        Vista_Asistencia Vista = new Vista_Asistencia(); 
+        Centrar(Vista);
+        Control_Asistencia ca=new Control_Asistencia(modelo, Vista);
+        ca.iniciarControl();
     }
 }

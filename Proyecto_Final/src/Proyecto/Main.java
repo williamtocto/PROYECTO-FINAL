@@ -5,6 +5,7 @@ import controlador.Control_Login;
 import java.sql.SQLException;
 import modelo.Modelo_Login;
 
+
 public class Main {
 
     public static void main(String[] args) throws SQLException {
@@ -12,6 +13,7 @@ public class Main {
         Vista_Login vista = new Vista_Login();
         Control_Login control = new Control_Login(ml, vista);
         control.IniciaControl();
+
     }
 
 }
