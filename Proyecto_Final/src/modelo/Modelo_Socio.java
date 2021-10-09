@@ -80,7 +80,10 @@ public class Modelo_Socio extends Socio {
             String sql = "SELECT * FROM socio WHERE ";
             sql += " UPPER(cedula_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
-            sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%')";
+            sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%')OR";
+            sql += " UPPER(correo_socio) like UPPER('%" + aguja + "%') OR";
+            sql += " numero_de_cuenta=(" + aguja + ")";
+             
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 

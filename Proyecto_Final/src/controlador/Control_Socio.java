@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,6 +41,7 @@ public class Control_Socio {
 
     private Modelo_Socio modelo;
     private Vista_Socio vista;
+    int fila,n;
 
     public Control_Socio(Modelo_Socio modelo, Vista_Socio vista) {
         this.modelo = modelo;
@@ -74,6 +76,18 @@ public class Control_Socio {
 
         vista.getBtnRegistrar().addActionListener(l -> crearSocio());
         vista.getTxtBuscar().addKeyListener(buscador);
+        vista.getBtnRegistrar().addActionListener(l-> mostrarDialogo(1));
+        vista.getBtnModificar().addActionListener(l-> mostrarDialogo(2));
+        vista.getBtnAceptar().addActionListener(l ->  {
+
+            try {
+                DefinirMetodo(n);
+            } catch (SQLException ex) {
+                Logger.getLogger(Control_Socio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        });
+        vista.getBtnCancelar().addActionListener(l->cancelar());
         vista.getBtnLimpiar().addActionListener(l->limpiar());
         vista.getBtnImprimir().addActionListener(l->imprimirReporte());
     }
@@ -153,18 +167,6 @@ public class Control_Socio {
 
     }
 
-//    public void mostrarDatos() {
-// 
-//        int fila = vista.getJtDatosSocio().getSelectedRow();
-//        vista.getTxtCodigo().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 0)));
-//        vista.getTxtCedula().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1)));
-//        vista.getTxtNombre().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 2)));
-//        vista.getTxtApellido().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 3)));
-//        vista.getJdFechaNac().setDate(fomato_fecha_nac(fecha)).valueOf(vista.getJtDatosSocio().getValueAt(fila, 4));
-//        vista.getTxtDireccion().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 5)));
-//        vista.getTxtTelefono().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 6)));
-//        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 7)));
-//    }
     
      private void editarSocio() {
 
@@ -297,5 +299,37 @@ public class Control_Socio {
 //        }
 //        return f;
 //    }
+    
+     public void DefinirMetodo(int n) throws SQLException  {
+
+        if (n == 1) {
+            fila = vista.getJtDatosSocio().getSelectedRow();
+            crearSocio();
+        } else if (n == 2) {
+            fila = vista.getJtDatosSocio().getSelectedRow();
+            editarSocio();
+        }
+    }
+    
+    private void mostrarDialogo(int origen) {
+        vista.getJDialogo().setSize(745, 520);
+        vista.getJDialogo().setLocationRelativeTo(vista);
+        fila = vista.getJtDatosSocio().getSelectedRow();
+        if (origen == 1) {
+            n = 1;
+            vista.getJDialogo().setTitle("Crear Socio");
+        } else {
+            n = 2;
+            cargarDatos();
+
+            vista.getJDialogo().setTitle("Editar Socio");
+        }
+        vista.getJDialogo().setVisible(true);
+
+    }
+     public void cancelar() {
+        vista.getJDialogo().dispose();
+
+    }
 //    
 }
