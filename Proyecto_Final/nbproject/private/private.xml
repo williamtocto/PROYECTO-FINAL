@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/modelo/Modelo_Reunion.java</file>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/vista/Vista_Acta.java</file>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/modelo/Modelo_Acta.java</file>
-            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_Acta.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_Rol.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/controlador/Control_Asistencia.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/modelo/Modelo_Asistencia.java</file>
+            <file>file:/C:/Users/PCX/Documents/GitHub/PROYECTO-FINAL/Proyecto_Final/src/vista/Vista_Asistencia.java</file>
         </group>
     </open-files>
 </project-private>

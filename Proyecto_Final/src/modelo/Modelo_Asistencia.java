@@ -19,24 +19,21 @@ public class Modelo_Asistencia extends Asistencia {
         super(cod_asistencia, cod_socio, cod_reunion, estado, nombre, apellido, cedula);
     }
 
-    public List<Asistencia> ListarAsistencias(String aguja) {
-
-        System.out.println("modelooo");
-
+    /*public List<Asistencia> ListarAsistencias(String aguja, int codigo) {
         try {
             String sql = "SELECT codigo_asistencia,a.codigo_socio_asis,cedula_socio,nombre_socio,apellido_socio,estado_asistencia,codigo_reunion "
                     + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis  where estado_socio= 'true' or "
                     + " UPPER (nombre_socio) like UPPER('%" + aguja + "%') or "
                     + "cedula_socio like '%" + aguja + "%' or "
                     + "UPPER(apellido_socio) like UPPER('%" + aguja + "%') or "
-                    + " estado_asistencia::text like '%" + aguja + "%' order by apellido_socio;";
+                    + " estado_asistencia::text like '%" + aguja + "%' and codigo_reunion=" + codigo + " order by apellido_socio;";
             ResultSet rs = con.consulta(sql);
             List<Asistencia> lista = new ArrayList<>();
             while (rs.next()) {
                 Asistencia a = new Asistencia();
                 a.setNombre(rs.getString("nombre_socio"));
                 a.setApellido(rs.getString("apellido_socio"));
-                a.setCod_socio(rs.getInt("a.codigo_socio_asis"));
+                a.setCod_socio(rs.getInt("codigo_socio_asis"));
                 a.setCod_asistencia(rs.getInt("codigo_asistencia"));
                 a.setCedula(rs.getString("cedula_socio"));
                 a.setCod_reunion(rs.getInt("codigo_reunion"));
@@ -49,7 +46,7 @@ public class Modelo_Asistencia extends Asistencia {
             return null;
         }
 
-    }
+    }*/
 
     public List<Asistencia> ListarSocios() {
 
@@ -109,21 +106,9 @@ public class Modelo_Asistencia extends Asistencia {
     }
 
     public boolean Editar() {
-        String sql = " UPDATE asistencia set estado_asistencia=" + getEstado()+ " "
-                + "where codigo_socio_asis="+getCod_socio() +" and codigo_reunion= "+getCod_reunion();
+        String sql = " UPDATE asistencia set estado_asistencia=" + getEstado() + " "
+                + "where codigo_socio_asis=" + getCod_socio() + " and codigo_reunion= " + getCod_reunion();
         return con.accion(sql);
     }
 
-    public int Codigo_Asis() throws SQLException {
-        int codigoAsistencia = 0;
-        String sql = "SELECT codigo_asistencia from asistencia where codigo_socio_asis="
-                + getCod_socio() + " and codigo_reunion=" + getCod_reunion();
-        ResultSet rs = con.consulta(sql);
-
-        while (rs.next()) {
-            codigoAsistencia = rs.getInt("codigo_asistencia");
-        }
-        return codigoAsistencia;
-
-    }
 }

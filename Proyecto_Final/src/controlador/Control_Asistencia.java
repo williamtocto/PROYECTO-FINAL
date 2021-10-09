@@ -23,34 +23,12 @@ public class Control_Asistencia {
         this.vista = vista;
         vista.setTitle("Asistencia");
         vista.setVisible(true);
-        System.out.println("lleeee");
-    }
-
-    public void GuardarAsistencia() {
-
-        int op = JOptionPane.showOptionDialog(null, "ESTA SEGURO DE GUARDAR ESTOS DATOS", "", JOptionPane.YES_NO_CANCEL_OPTION, 3, null,
-                new Object[]{"SI", "NO"}, null);
-
-        if (op == 0) {
-
-        }
 
     }
 
     public void iniciarControl() {
         vista.getBtn_cargarLista().addActionListener(l -> Cargar());
         vista.getBtn_guardarFaltas().addActionListener(l -> GuardarDatos());
-    }
-
-    public void CargarLista(String aguja) {
-        DefaultTableModel tblModel;
-        tblModel = (DefaultTableModel) vista.getTabla().getModel();
-        tblModel.setNumRows(0);
-        List<Asistencia> lista = modelo.ListarSocios();
-        lista.stream().forEach(a -> {
-            String[] asistencia = {String.valueOf(a.getCod_socio()), a.getNombre(), a.getApellido(), String.valueOf(a.getEstado())};
-            tblModel.addRow(asistencia);
-        });
     }
 
     public void Cargar() {
@@ -66,10 +44,13 @@ public class Control_Asistencia {
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) vista.getTabla().getModel();
         tblModel.setNumRows(0);
+        vista.getTabla().getColumnModel().getColumn(0).setPreferredWidth(5);
+        vista.getTabla().getColumnModel().getColumn(3).setPreferredWidth(3);
+
         codigo_reunion = mr.codigoReunion(fecha);
-       
+
         if (codigo_reunion == 0) {
-            JOptionPane.showMessageDialog(null, "No existe esta reunion");
+            JOptionPane.showMessageDialog(null, "No existe esta reunion", "", 0);
         } else {
             List<Asistencia> lista = modelo.listarSocioFecha(codigo_reunion);
             Boton = 1;
@@ -113,9 +94,9 @@ public class Control_Asistencia {
                         if (modelo.GuardarLista()) {
                             a = true;
                         }
-                    }else{
+                    } else {
                         if (modelo.Editar()) {
-                            a=false;
+                            a = false;
                         }
                     }
 
@@ -125,7 +106,7 @@ public class Control_Asistencia {
 
             if (a == true) {
                 JOptionPane.showMessageDialog(null, "Datos guardados correctamente", "", 1);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Datos modificados correctamente", "", 1);
             }
 

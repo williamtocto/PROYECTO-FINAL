@@ -377,7 +377,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "             Código", "           Fecha", "           Duración", "          Tópico"
+                "            Código", "           Fecha", "           Duración", "          Tópico"
             }
         ));
         JTdatos.setGridColor(new java.awt.Color(255, 153, 51));
