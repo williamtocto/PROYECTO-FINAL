@@ -421,6 +421,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Socios");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -428,6 +429,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         LblNombre.setText("Datos Socio.");
         getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, 50));
 
+        jtDatosSocio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         jtDatosSocio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -436,13 +438,17 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Cédula", "Nombres", "Apellidos", "E-mail", "Dirección", "Teléfono", "Fecha Nacimiento", "Fecha Ingreso"
+                "               Código", "               Cédula ", "              Nombres", "               Apellidos", "                E-mail", "              Dirección", "            Teléfono", "    Fecha Nacimiento", "            Fecha Ingreso"
             }
         ));
+        jtDatosSocio.setGridColor(new java.awt.Color(255, 153, 51));
+        jtDatosSocio.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jtDatosSocio.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(jtDatosSocio);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 1070, 220));
 
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/añadir_usuario.png"))); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -450,32 +456,42 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 80, 30));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 100, 40));
 
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/editar.png"))); // NOI18N
         btnModificar.setText("Modificar");
         btnModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 70, 30));
+        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 100, 40));
 
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/limpiar.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 70, 30));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 90, 40));
 
+        btnSocioActivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/usuario.png"))); // NOI18N
         btnSocioActivo.setText("Socios Activos");
         btnSocioActivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 90, 30));
+        getContentPane().add(btnSocioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 120, 40));
 
-        btnInactivar.setText("Inactivar Socio");
+        btnInactivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/inactivar-socio.png"))); // NOI18N
+        btnInactivar.setText("Inactivar ");
         btnInactivar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 90, 30));
-        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 190, -1));
+        btnInactivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInactivarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 100, 40));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 190, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Buscar:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, 40));
 
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
         btnImprimir.setText("Imprimir Reporte");
         btnImprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, -1, -1));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 130, -1));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -495,6 +511,10 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private void TxtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtDireccionActionPerformed
+
+    private void btnInactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInactivarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInactivarActionPerformed
 
     /**
      * @param args the command line arguments
