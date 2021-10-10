@@ -20,14 +20,14 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LblFecha = new javax.swing.JLabel();
-        lbl_nombreArchivo = new javax.swing.JLabel();
         jDialog1 = new javax.swing.JDialog();
         btn_seleccionar = new javax.swing.JButton();
         dateChooser_reunion = new com.toedter.calendar.JDateChooser();
         btn_guardar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_fecha = new javax.swing.JLabel();
+        lbñ_iconoPdf = new javax.swing.JLabel();
+        lbl_nombreArchivo = new javax.swing.JLabel();
         lbl_actas = new javax.swing.JLabel();
         date_chooserBuscar = new com.toedter.calendar.JDateChooser();
         btn_buscar = new javax.swing.JButton();
@@ -41,12 +41,6 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        LblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-
-        lbl_nombreArchivo.setBackground(new java.awt.Color(0, 51, 204));
-        lbl_nombreArchivo.setForeground(new java.awt.Color(204, 0, 0));
-
         jDialog1.setTitle("Consultar");
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,8 +53,8 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_seleccionarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 240, 40));
-        jDialog1.getContentPane().add(dateChooser_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 184, -1));
+        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 240, 40));
+        jDialog1.getContentPane().add(dateChooser_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 184, -1));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
@@ -70,7 +64,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 110, 35));
+        jDialog1.getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 110, 35));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/cancela.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
@@ -80,11 +74,13 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 127, 35));
+        jDialog1.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 127, 35));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Fecha:");
-        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 100, 30));
+        lbl_fecha.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fecha.setText("Fecha:");
+        jDialog1.getContentPane().add(lbl_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 30));
+        jDialog1.getContentPane().add(lbñ_iconoPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 48, 153, 126));
+        jDialog1.getContentPane().add(lbl_nombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 211, 20));
 
         setClosable(true);
         setTitle("Actas");
@@ -164,7 +160,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buscar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -299,29 +295,14 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         this.jDialog1 = jDialog1;
     }
 
-    public JLabel getjLabel2() {
-        return LblFecha;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.LblFecha = jLabel2;
-    }
-
     public JLabel getjLabel3() {
-        return jLabel3;
+        return lbl_fecha;
     }
 
     public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
+        this.lbl_fecha = jLabel3;
     }
 
-    public JLabel getLbl_nombreArchivo() {
-        return lbl_nombreArchivo;
-    }
-
-    public void setLbl_nombreArchivo(JLabel lbl_nombreArchivo) {
-        this.lbl_nombreArchivo = lbl_nombreArchivo;
-    }
 
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
@@ -347,8 +328,23 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         this.tabla_acta = tabla_acta;
     }
 
+    public JLabel getLbl_nombreArchivo() {
+        return lbl_nombreArchivo;
+    }
+
+    public void setLbl_nombreArchivo(JLabel lbl_nombreArchivo) {
+        this.lbl_nombreArchivo = lbl_nombreArchivo;
+    }
+
+    public JLabel getLbñ_iconoPdf() {
+        return lbñ_iconoPdf;
+    }
+
+    public void setLbñ_iconoPdf(JLabel lbñ_iconoPdf) {
+        this.lbñ_iconoPdf = lbñ_iconoPdf;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LblFecha;
     private javax.swing.JButton btn_aprobar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
@@ -361,11 +357,12 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser date_chooserBuscar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_actas;
+    private javax.swing.JLabel lbl_fecha;
     private javax.swing.JLabel lbl_nombreArchivo;
+    private javax.swing.JLabel lbñ_iconoPdf;
     private javax.swing.JTable tabla_acta;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables

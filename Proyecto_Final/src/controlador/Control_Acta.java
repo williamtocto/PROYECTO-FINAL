@@ -227,7 +227,7 @@ public final class Control_Acta {
             if (get_Image("/vista/vista_imagenes/pdf.png") != null) {
                 icono = new ImageIcon(get_Image("/vista/vista_imagenes/pdf.png"));
             }
-            vista.getjLabel2().setIcon(icono);
+            vista.getLbñ_iconoPdf().setIcon(icono);
             vista.getBtn_guardar().setEnabled(true);
         }
     }
@@ -391,7 +391,7 @@ public final class Control_Acta {
                 icono = new ImageIcon(get_Image("/vista/vista_imagenes/pdf.png"));
             }
             vista.getBtn_seleccionar().setText("Seleccionar nueva Acta");
-            vista.getjLabel2().setIcon(icono);
+            vista.getLbñ_iconoPdf().setIcon(icono);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
