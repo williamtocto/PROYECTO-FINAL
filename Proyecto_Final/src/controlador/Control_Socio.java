@@ -5,24 +5,30 @@
  */
 package controlador;
 
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.ConexionPG;
+import modelo.Modelo_Acta;
 import modelo.Modelo_Socio;
 import modelo.Socio;
 import net.sf.jasperreports.engine.JRException;
@@ -49,15 +55,25 @@ public class Control_Socio {
         vista.setTitle("Datos y registro del Socio");
         vista.setVisible(true);
         cargarDatos();
+        vista.getBtnModificar().setEnabled(false);
+        vista.getBtnInactivar().setEnabled(false);
     }
-
-    public Control_Socio() {
+    //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
+    private void habilitarBoton(java.awt.event.MouseEvent evt) {
+        int column = vista.getJtDatosSocio().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / vista.getJtDatosSocio().getRowHeight();
+        if (row < vista.getJtDatosSocio().getRowCount() && row >= 0 && column < vista.getJtDatosSocio().getColumnCount() && column >= 0) {
+            vista.getBtnModificar().setEnabled(true);
+            vista.getBtnInactivar().setEnabled(true);
+        } else {
+            String name = "" + vista.getJtDatosSocio().getValueAt(row, 1);
+        }
 
     }
 
     public void IniciarControl() {
-        KeyListener validar = new KeyListener(){
-                @Override
+        KeyListener validar = new KeyListener() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 //VALIDACIONES
                 if (e.getSource() == vista.getTxtNombre() || e.getSource() == vista.getTxtApellido()) {
@@ -85,16 +101,16 @@ public class Control_Socio {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                 
+
             }
+
             @Override
             public void keyReleased(KeyEvent e) {
-                 
+
             }
         };
-        
+
         KeyListener buscador = new KeyListener() {
-            
 
             @Override
             public void keyPressed(KeyEvent e) {
@@ -109,10 +125,14 @@ public class Control_Socio {
 
             @Override
             public void keyTyped(KeyEvent e) {
-                 
+
             }
         };
-
+        vista.getJtDatosSocio().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                habilitarBoton(evt);
+            }
+        });
         vista.getBtnRegistrar().addActionListener(l -> crearSocio());
         vista.getTxtBuscar().addKeyListener(buscador);
         vista.getBtnRegistrar().addActionListener(l -> mostrarDialogo(1));
@@ -158,7 +178,7 @@ public class Control_Socio {
             fecha = vista.getJdFechaNac().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(fecha);
-        } else {
+        } else if (vista.getJdFechaIng().getDate() != null) {
             fecha = vista.getJdFechaIng().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato2 = sdf.format(fecha);
@@ -225,7 +245,7 @@ public class Control_Socio {
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
 
-        Date fecha;
+        Date fecha = null;
         String formato = null;
         String formato2 = null;
         // Tranformar la fecha a String
@@ -233,7 +253,7 @@ public class Control_Socio {
             fecha = vista.getJdFechaNac().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(fecha);
-        } else {
+        } else if (vista.getJdFechaIng().getDate() != null) {
             fecha = vista.getJdFechaIng().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato2 = sdf.format(fecha);
@@ -270,28 +290,6 @@ public class Control_Socio {
         return String.valueOf(fecha.getYears());
     }
 
-    java.util.Date fomato_fecha_nac(String fecha) throws ParseException {
-        try {
-            DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date date = sourceFormat.parse(fecha);
-            return date;
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Error de formato en la fecha", "Error Parseo", 0);
-        }
-        return null;
-    }
-
-    java.util.Date fomato_fecha_ingreso(String fecha) throws ParseException {
-        try {
-            DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date date = sourceFormat.parse(fecha);
-            return date;
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Error de formato en la fecha", "Error Parseo", 0);
-        }
-        return null;
-    }
-
     //Método para imprimir reportes con JasperStudio
     private void imprimirReporte() {
         ConexionPG con = new ConexionPG();
@@ -301,7 +299,6 @@ public class Control_Socio {
             Map<String, Object> parametro = new HashMap<String, Object>();
             String miaguja = vista.getTxtBuscar().getText();
             parametro.put("aguja", "%" + miaguja + "%");
-//            parametro.put("titulo", "REPORTE DE PERSONAL REGISTRADO");
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametro, con.getCon());
             JasperViewer jv = new JasperViewer(jp);
@@ -324,24 +321,6 @@ public class Control_Socio {
         vista.getJdFechaIng().setDate(null);
     }
 
-//    public int ValidarFechaNac() throws ParseException {
-//           Date fechaDispositivo = new Date();
-//        int f = 0;
-//        Date fecha = null;
-//        String fechaNac = null;
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String fechaActual = sdf.format(fechaDispositivo);
-//        // Tranformar la fecha a String
-//        if (vista.getJdFechaNac().getDate() != null) {
-//            fecha = vista.getJdFechaNac().getDate();
-//            fechaNac = sdf.format(fecha);
-//            // PARSE PARA COMPARAR LAS FECHAS
-//            fechaDispositivo = sdf.parse(fechaActual);
-//            fecha = sdf.parse(fechaNac);
-//            f = fechaDispositivo.compareTo(fecha);
-//        }
-//        return f;
-//    }
     public void DefinirMetodo(int n) throws SQLException {
 
         if (n == 1) {
@@ -369,18 +348,39 @@ public class Control_Socio {
         vista.getJDialogo().setVisible(true);
 
     }
-        public void mostrarDatos() {
- 
+
+    public void mostrarDatos() {
+
+        List<Socio> socios = modelo.socios(vista.getTxtBuscar().getText());
+
         int fila = vista.getJtDatosSocio().getSelectedRow();
-        vista.getTxtCodigo().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 0)));
-        vista.getTxtCedula().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1)));
-        vista.getTxtNombre().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 2)));
-        vista.getTxtApellido().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 3)));
-        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 4)));
-//        vista.getJdFechaNac().setDate(fomato_fecha_nac(fecha)).valueOf(vista.getJtDatosSocio().getValueAt(fila, 4));
-        vista.getTxtDireccion().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 5)));
-        vista.getTxtTelefono().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 6)));
-        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 7)));
+
+        vista.getTxtCodigo().setText(String.valueOf(socios.get(fila).getCodigo_socio()));
+        vista.getTxtCedula().setText(String.valueOf(socios.get(fila).getCedula_socio()));
+        vista.getTxtNombre().setText(String.valueOf(socios.get(fila).getNombre_socio()));
+        vista.getTxtApellido().setText(String.valueOf(socios.get(fila).getApellido_socio()));
+        vista.getTxtEmail().setText(String.valueOf(socios.get(fila).getCorreo_socio()));
+        vista.getTxtDireccion().setText(String.valueOf(socios.get(fila).getDireccion_socio()));
+        vista.getTxtTelefono().setText(String.valueOf(socios.get(fila).getTelefono_socio()));
+        //Transformar fecha
+        String fecha = socios.get(fila).getFecha_nac_socio();
+        String fechan[] = fecha.split("-");
+        System.out.println(fecha);
+        LocalDate fechanac = LocalDate.of(Integer.parseInt(fechan[0]), Integer.parseInt(fechan[1]), Integer.parseInt(fechan[2]));
+        Calendar calendar = Calendar.getInstance();
+        calendar.clear();
+        calendar.set(fechanac.getYear(), fechanac.getMonthValue() - 1, fechanac.getDayOfMonth());
+        vista.getJdFechaNac().setCalendar(calendar);
+
+        fecha = socios.get(fila).getFecha_ingreso();
+        String fechai[] = fecha.split("-");
+        LocalDate fechain = LocalDate.of(Integer.parseInt(fechai[0]), Integer.parseInt(fechai[1]), Integer.parseInt(fechai[2]));
+        calendar = Calendar.getInstance();
+        calendar.clear();
+        calendar.set(fechain.getYear(), fechain.getMonthValue() - 1, fechain.getDayOfMonth());
+        vista.getJdFechaIng().setCalendar(calendar);
+
+//   
     }
 
     public void cancelar() {

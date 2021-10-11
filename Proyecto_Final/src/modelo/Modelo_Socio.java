@@ -41,7 +41,7 @@ public class Modelo_Socio extends Socio {
     public List<Socio> socios() {
 
         try {
-            String sql = "SELECT * FROM socio";
+            String sql = "SELECT * FROM socio WHERE nombre_socio<>'Cuenta'";
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
@@ -73,7 +73,7 @@ public class Modelo_Socio extends Socio {
     public List<Socio> socios(String aguja) {
 
         try {
-            String sql = "SELECT * FROM socio WHERE ";
+            String sql = "SELECT * FROM socio WHERE";
             sql += " UPPER(cedula_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%') OR";
