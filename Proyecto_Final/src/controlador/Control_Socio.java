@@ -41,7 +41,7 @@ public class Control_Socio {
 
     private Modelo_Socio modelo;
     private Vista_Socio vista;
-    int fila,n;
+    int fila, n;
 
     public Control_Socio(Modelo_Socio modelo, Vista_Socio vista) {
         this.modelo = modelo;
@@ -59,7 +59,28 @@ public class Control_Socio {
         KeyListener buscador = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                //VALIDACIONES
+                if (e.getSource() == vista.getTxtNombre() || e.getSource() == vista.getTxtApellido()) {
+                    char caracter = e.getKeyChar();
 
+                    // Verificar si la tecla pulsada no es un digito
+                    char c = e.getKeyChar();
+                    if (Character.isDigit(c) == false) {
+                    } else {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo letras en este campo", "ERROR", 0);
+                    }
+                }
+                if (e.getSource() == vista.getTxtCodigo() || e.getSource() == vista.getTxtCedula() || e.getSource() == vista.getTxtNumCuenta() || e.getSource() == vista.getTxtTelefono()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    if (((caracter < '0')
+                            || (caracter > '9'))
+                            && (caracter != '\b')) {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+                    }
+                }
             }
 
             @Override
@@ -76,10 +97,10 @@ public class Control_Socio {
 
         vista.getBtnRegistrar().addActionListener(l -> crearSocio());
         vista.getTxtBuscar().addKeyListener(buscador);
-        vista.getBtnRegistrar().addActionListener(l-> mostrarDialogo(1));
-        vista.getBtnModificar().addActionListener(l-> mostrarDialogo(2));
-        vista.getBtnInactivar().addActionListener(l->inactivarSocio());
-        vista.getBtnAceptar().addActionListener(l ->  {
+        vista.getBtnRegistrar().addActionListener(l -> mostrarDialogo(1));
+        vista.getBtnModificar().addActionListener(l -> mostrarDialogo(2));
+        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
+        vista.getBtnAceptar().addActionListener(l -> {
 
             try {
                 DefinirMetodo(n);
@@ -88,9 +109,16 @@ public class Control_Socio {
             }
 
         });
-        vista.getBtnCancelar().addActionListener(l->cancelar());
-        vista.getBtnLimpiar().addActionListener(l->limpiar());
-        vista.getBtnImprimir().addActionListener(l->imprimirReporte());
+        vista.getBtnCancelar().addActionListener(l -> cancelar());
+        vista.getBtnLimpiar().addActionListener(l -> limpiar());
+        vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
+        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
+        vista.getTxtApellido().addKeyListener(buscador);
+        vista.getTxtCedula().addKeyListener(buscador);
+        vista.getTxtCodigo().addKeyListener(buscador);
+        vista.getTxtNombre().addKeyListener(buscador);
+        vista.getTxtNumCuenta().addKeyListener(buscador);
+        vista.getTxtTelefono().addKeyListener(buscador);
     }
 
     private void crearSocio() {
@@ -133,9 +161,9 @@ public class Control_Socio {
 
         if (socio.CrearSocio()) {
             JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE");
-            
+
         } else {
-            JOptionPane.showMessageDialog(vista,"ERROR" );
+            JOptionPane.showMessageDialog(vista, "ERROR");
         }
     }
 
@@ -161,15 +189,14 @@ public class Control_Socio {
         lista.stream().forEach(s -> {
             String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
                 s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
-                s.getTelefono_socio(),s.getFecha_nac_socio(), s.getFecha_ingreso()
+                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()
             };
             dtm.addRow(socio);
         });
 
     }
 
-    
-     private void editarSocio() {
+    private void editarSocio() {
 
         String cod_socio = vista.getTxtCodigo().getText();
         String ced_socio = vista.getTxtCedula().getText();
@@ -180,7 +207,7 @@ public class Control_Socio {
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
 
-        Date fecha ;
+        Date fecha;
         String formato = null;
         String formato2 = null;
         // Tranformar la fecha a String
@@ -209,13 +236,11 @@ public class Control_Socio {
 
         if (socio.editar_socio(cod_socio)) {
             JOptionPane.showMessageDialog(vista, "SE HA MODIFICADO CORRECTAMENTE");
-            
+
         } else {
-            JOptionPane.showMessageDialog(vista,"ERROR" );
+            JOptionPane.showMessageDialog(vista, "ERROR");
         }
     }
-
-  
 
     private String calcularEdad(Date fecha_nac) {
         String convertirFecha = fecha_nac.toString();
@@ -226,7 +251,7 @@ public class Control_Socio {
         Period fecha = Period.between(fechaNacimiento, fechaActual);
         return String.valueOf(fecha.getYears());
     }
-    
+
     java.util.Date fomato_fecha_nac(String fecha) throws ParseException {
         try {
             DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -237,7 +262,8 @@ public class Control_Socio {
         }
         return null;
     }
-     java.util.Date fomato_fecha_ingreso(String fecha) throws ParseException {
+
+    java.util.Date fomato_fecha_ingreso(String fecha) throws ParseException {
         try {
             DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date date = sourceFormat.parse(fecha);
@@ -247,39 +273,37 @@ public class Control_Socio {
         }
         return null;
     }
-    
-     //Método para imprimir reportes con JasperStudio
 
-    private void imprimirReporte(){   
-        ConexionPG con= new ConexionPG();
+    //Método para imprimir reportes con JasperStudio
+    private void imprimirReporte() {
+        ConexionPG con = new ConexionPG();
         try {
-            JasperReport jr=(JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reporte_Socios.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reporte_Socios.jasper"));
             //Aquí se lee el parámetro segun el que ingresemos para poder imprimirlo en el Jasper
-            Map<String,Object> parametro= new HashMap<String,Object>();
-            String miaguja=vista.getTxtBuscar().getText();
-            parametro.put("aguja", "%"+miaguja+"%");
+            Map<String, Object> parametro = new HashMap<String, Object>();
+            String miaguja = vista.getTxtBuscar().getText();
+            parametro.put("aguja", "%" + miaguja + "%");
 //            parametro.put("titulo", "REPORTE DE PERSONAL REGISTRADO");
-            
-            JasperPrint jp =JasperFillManager.fillReport(jr, parametro,con.getCon());
-            JasperViewer jv=new JasperViewer(jp);
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametro, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(Control_Socio.class.getName()).log(Level.SEVERE, null, ex);
-        }      
+        }
     }
-    
+
     //Método para limpiar campos
-    
     private void limpiar() {
-       vista.getTxtCodigo().setText("");
-       vista.getTxtCedula().setText("");
-       vista.getTxtNombre().setText("");
-       vista.getTxtApellido().setText("");
-       vista.getTxtDireccion().setText("");
-       vista.getTxtTelefono().setText("");
-       vista.getTxtEmail().setText("");
-       vista.getJdFechaNac().setDate(null);
-       vista.getJdFechaIng().setDate(null);
+        vista.getTxtCodigo().setText("");
+        vista.getTxtCedula().setText("");
+        vista.getTxtNombre().setText("");
+        vista.getTxtApellido().setText("");
+        vista.getTxtDireccion().setText("");
+        vista.getTxtTelefono().setText("");
+        vista.getTxtEmail().setText("");
+        vista.getJdFechaNac().setDate(null);
+        vista.getJdFechaIng().setDate(null);
     }
 
 //    public int ValidarFechaNac() throws ParseException {
@@ -300,8 +324,7 @@ public class Control_Socio {
 //        }
 //        return f;
 //    }
-    
-     public void DefinirMetodo(int n) throws SQLException  {
+    public void DefinirMetodo(int n) throws SQLException {
 
         if (n == 1) {
             fila = vista.getJtDatosSocio().getSelectedRow();
@@ -311,7 +334,7 @@ public class Control_Socio {
             editarSocio();
         }
     }
-    
+
     private void mostrarDialogo(int origen) {
         vista.getJDialogo().setSize(745, 520);
         vista.getJDialogo().setLocationRelativeTo(vista);
@@ -328,27 +351,29 @@ public class Control_Socio {
         vista.getJDialogo().setVisible(true);
 
     }
-     public void cancelar() {
+
+    public void cancelar() {
         vista.getJDialogo().dispose();
 
     }
-    public void inactivarSocio(){
-         Modelo_Socio modelo=new Modelo_Socio();
-           int op = JOptionPane.showOptionDialog(null,
-                    "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
-            if (op == 0) {
-                try {
-                    String codigo=vista.getTxtCodigo().getText() ;
-                    modelo.inactivar_socio(codigo);
-                    cargarDatos();
 
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+    public void inactivarSocio() {
+        Modelo_Socio modelo = new Modelo_Socio();
+        int op = JOptionPane.showOptionDialog(null,
+                "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+        if (op == 0) {
+            try {
+                String codigo = vista.getTxtCodigo().getText();
+                modelo.inactivar_socio(codigo);
+                cargarDatos();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
             }
- 
+        } else {
+            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+        }
+
     }
 //    
 }

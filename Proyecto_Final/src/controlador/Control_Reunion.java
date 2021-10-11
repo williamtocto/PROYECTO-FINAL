@@ -53,7 +53,28 @@ public class Control_Reunion {
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                //VALIDACIONES
+                if (e.getSource() == vista.getTxtDuracion()) {
+                    char caracter = e.getKeyChar();
 
+                    // Verificar si la tecla pulsada no es un digito
+                    char c = e.getKeyChar();
+                    if (Character.isDigit(c) == false) {
+                    } else {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo letras en este campo", "ERROR", 0);
+                    }
+                }
+                if (e.getSource() == vista.getTxtCodReu() || e.getSource() == vista.getTxtDuracion()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    if (((caracter < '0')
+                            || (caracter > '9'))
+                            && (caracter != '\b')) {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+                    }
+                }
             }
 
             @Override
@@ -114,6 +135,9 @@ public class Control_Reunion {
         });
         vista.getJTdatos().addMouseListener(ml);
         vista.getTxtCodReu().addKeyListener(kl);
+        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
+        vista.getTxtDuracion().addKeyListener(kl);
+        vista.getTxtTopic().addKeyListener(kl);
     }
 
     public void guardarReunion() throws ParseException {
