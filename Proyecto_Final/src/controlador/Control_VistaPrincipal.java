@@ -85,7 +85,7 @@ public class Control_VistaPrincipal {
         Vista_Socio vista_socio = new Vista_Socio();
         Centrar(vista_socio);
         Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
-        cs.IniciarContro();
+        cs.IniciarControl();
     }
 
     public void InicarVentanaTransaccion() {

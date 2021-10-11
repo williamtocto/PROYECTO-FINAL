@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.util.ArrayList;
@@ -80,9 +76,9 @@ public class Modelo_Socio extends Socio {
             String sql = "SELECT * FROM socio WHERE ";
             sql += " UPPER(cedula_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
-            sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%')OR";
-            sql += " UPPER(correo_socio) like UPPER('%" + aguja + "%') OR";
-            sql += " numero_de_cuenta=(" + aguja + ")";
+            sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%') OR";
+            sql += " UPPER(correo_socio) like UPPER('%" + aguja + "%')";
+            
              
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();

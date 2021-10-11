@@ -55,9 +55,9 @@ public class Control_Socio {
 
     }
 
-    public void IniciarContro() {
-        KeyListener buscador = new KeyListener() {
-            @Override
+    public void IniciarControl() {
+        KeyListener validar = new KeyListener(){
+                @Override
             public void keyTyped(KeyEvent e) {
                 //VALIDACIONES
                 if (e.getSource() == vista.getTxtNombre() || e.getSource() == vista.getTxtApellido()) {
@@ -85,6 +85,19 @@ public class Control_Socio {
 
             @Override
             public void keyPressed(KeyEvent e) {
+                 
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                 
+            }
+        };
+        
+        KeyListener buscador = new KeyListener() {
+            
+
+            @Override
+            public void keyPressed(KeyEvent e) {
 
             }
 
@@ -92,6 +105,11 @@ public class Control_Socio {
             public void keyReleased(KeyEvent e) {
 
                 cargarDatosbusqueda(vista.getTxtBuscar().getText());
+            }
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                 
             }
         };
 
@@ -113,12 +131,12 @@ public class Control_Socio {
         vista.getBtnLimpiar().addActionListener(l -> limpiar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
-        vista.getTxtApellido().addKeyListener(buscador);
-        vista.getTxtCedula().addKeyListener(buscador);
-        vista.getTxtCodigo().addKeyListener(buscador);
-        vista.getTxtNombre().addKeyListener(buscador);
-        vista.getTxtNumCuenta().addKeyListener(buscador);
-        vista.getTxtTelefono().addKeyListener(buscador);
+        vista.getTxtApellido().addKeyListener(validar);
+        vista.getTxtCedula().addKeyListener(validar);
+        vista.getTxtCodigo().addKeyListener(validar);
+        vista.getTxtNombre().addKeyListener(validar);
+        vista.getTxtNumCuenta().addKeyListener(validar);
+        vista.getTxtTelefono().addKeyListener(validar);
     }
 
     private void crearSocio() {
@@ -154,7 +172,7 @@ public class Control_Socio {
         socio.setNombre_socio(nombre);
         socio.setApellido_socio(apellido);
         socio.setCorreo_socio(correo);
-        socio.setDireccion_socio(cod_socio);
+        socio.setDireccion_socio(dir);
         socio.setTelefono_socio(telf);
         socio.setFecha_nac_socio(formato);
         socio.setFecha_ingreso(formato2);
@@ -344,12 +362,25 @@ public class Control_Socio {
             vista.getJDialogo().setTitle("Crear Socio");
         } else {
             n = 2;
-            cargarDatos();
+            mostrarDatos();
 
             vista.getJDialogo().setTitle("Editar Socio");
         }
         vista.getJDialogo().setVisible(true);
 
+    }
+        public void mostrarDatos() {
+ 
+        int fila = vista.getJtDatosSocio().getSelectedRow();
+        vista.getTxtCodigo().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 0)));
+        vista.getTxtCedula().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1)));
+        vista.getTxtNombre().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 2)));
+        vista.getTxtApellido().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 3)));
+        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 4)));
+//        vista.getJdFechaNac().setDate(fomato_fecha_nac(fecha)).valueOf(vista.getJtDatosSocio().getValueAt(fila, 4));
+        vista.getTxtDireccion().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 5)));
+        vista.getTxtTelefono().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 6)));
+        vista.getTxtEmail().setText(String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 7)));
     }
 
     public void cancelar() {
