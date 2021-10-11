@@ -298,6 +298,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         Lbldinerocaja = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jcombox = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         TxtCedula_soc = new javax.swing.JTextField();
         LblCedula_so = new javax.swing.JLabel();
@@ -332,21 +333,35 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        dgTransacciones.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("CONSULTAR TRANSACCIONES");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Consultar Transacciones.");
+        dgTransacciones.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 226, 22));
 
-        Lbldesde.setText("FECHA DESDE:");
+        Lbldesde.setForeground(new java.awt.Color(255, 255, 255));
+        Lbldesde.setText("Fecha desde:");
+        dgTransacciones.getContentPane().add(Lbldesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, -1, -1));
 
-        Lblhasta.setText("FECHA HASTA:");
+        Lblhasta.setForeground(new java.awt.Color(255, 255, 255));
+        Lblhasta.setText("Fecha hasta:");
+        dgTransacciones.getContentPane().add(Lblhasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, -1, -1));
+        dgTransacciones.getContentPane().add(jDatedesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 45, 185, -1));
+        dgTransacciones.getContentPane().add(jDatehasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 82, 185, -1));
 
-        Lblcedula.setText("CEDULA:");
+        Lblcedula.setForeground(new java.awt.Color(255, 255, 255));
+        Lblcedula.setText("Cédula:");
+        dgTransacciones.getContentPane().add(Lblcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 123, -1, -1));
 
         txt_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cedulaActionPerformed(evt);
             }
         });
+        dgTransacciones.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 120, 185, -1));
 
+        jTablaconsultart.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         jTablaconsultart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -355,7 +370,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "APELLIDO", "FECHA", "TIPO TRANSACCION", "MONTO", "SALDO"
+                "                Nombre", "                 Apellido", "                 Fecha", "        Tipo Transaccion", "                Monto", "                 Saldo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -366,132 +381,60 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablaconsultart.setGridColor(new java.awt.Color(255, 153, 51));
+        jTablaconsultart.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jTablaconsultart.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane3.setViewportView(jTablaconsultart);
 
-        btn_buscarConsulta.setText("CONSULTAR");
+        dgTransacciones.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 710, 146));
 
-        btn_imprimirConsulta.setText("IMPRIMIR");
+        btn_buscarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
+        btn_buscarConsulta.setText("Consultar");
+        btn_buscarConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        btn_buscarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarConsultaActionPerformed(evt);
+            }
+        });
+        dgTransacciones.getContentPane().add(btn_buscarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 110, -1));
 
-        btn_limpiarConsulta.setText("LIMPIAR");
+        btn_imprimirConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
+        btn_imprimirConsulta.setText("Imprimir");
+        btn_imprimirConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        dgTransacciones.getContentPane().add(btn_imprimirConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 90, -1));
 
-        Lblnombre.setText("NOMBRE:");
+        btn_limpiarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/limpiar.png"))); // NOI18N
+        btn_limpiarConsulta.setText("Limipar");
+        btn_limpiarConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        dgTransacciones.getContentPane().add(btn_limpiarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 50, 90, -1));
+
+        Lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        Lblnombre.setText("Nombre:");
+        dgTransacciones.getContentPane().add(Lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 94, -1, 20));
 
         txt_nombre.setEditable(false);
+        dgTransacciones.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 100, 110, -1));
 
-        Lblapellido.setText("APELLIDO:");
+        Lblapellido.setForeground(new java.awt.Color(255, 255, 255));
+        Lblapellido.setText("Apellido:");
+        dgTransacciones.getContentPane().add(Lblapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
         txt_apellido.setEditable(false);
+        dgTransacciones.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 129, 110, -1));
 
-        Lbldinerocaja.setText("DINERO TOTAL EN CAJA:");
+        Lbldinerocaja.setForeground(new java.awt.Color(255, 255, 255));
+        Lbldinerocaja.setText("Dinero total en caja:");
+        dgTransacciones.getContentPane().add(Lbldinerocaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
 
         jTextField4.setEditable(false);
+        jTextField4.setBackground(new java.awt.Color(153, 204, 255));
+        dgTransacciones.getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 125, 90, 29));
 
-        jcombox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jcombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE PARA ORDENAR", "ORDENAR POR APELLIDO ASCENDENTE", "ORDENAR POR APELLIDO DESCENDENTE", "ORDENAR POR FECHA ASCENDENTE", "ORDENAR POR FECHA DESCENDENTE" }));
+        jcombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Ordenar por Apellido Ascendente ", "Ordenar por Apellido Descendente", "Ordenar por Fecha Ascendente  ", "Ordenar por Fecha Descendente ", " " }));
+        dgTransacciones.getContentPane().add(jcombox, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 167, 211, -1));
 
-        javax.swing.GroupLayout dgTransaccionesLayout = new javax.swing.GroupLayout(dgTransacciones.getContentPane());
-        dgTransacciones.getContentPane().setLayout(dgTransaccionesLayout);
-        dgTransaccionesLayout.setHorizontalGroup(
-            dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lblhasta)
-                                    .addComponent(Lbldesde)
-                                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(Lblcedula)))
-                                .addGap(30, 30, 30)
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jDatedesde, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                    .addComponent(jDatehasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_cedula))
-                                .addGap(29, 29, 29)
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Lblnombre)
-                                            .addComponent(Lblapellido))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_apellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                                .addGap(41, 41, 41)
-                                                .addComponent(Lbldinerocaja))
-                                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                                .addGap(59, 59, 59)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                        .addComponent(btn_buscarConsulta)
-                                        .addGap(47, 47, 47)
-                                        .addComponent(btn_imprimirConsulta)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_limpiarConsulta)))
-                                .addGap(52, 52, 52)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dgTransaccionesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(251, 251, 251))))
-            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jcombox, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        dgTransaccionesLayout.setVerticalGroup(
-            dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(Lblhasta))
-                    .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_imprimirConsulta, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_buscarConsulta)
-                                    .addComponent(btn_limpiarConsulta)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dgTransaccionesLayout.createSequentialGroup()
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lbldesde)
-                                    .addComponent(jDatedesde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(17, 17, 17)))
-                        .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(Lblnombre)
-                                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jDatehasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lblcedula)))
-                            .addGroup(dgTransaccionesLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(Lbldinerocaja)
-                                .addGap(18, 18, 18)
-                                .addGroup(dgTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Lblapellido)
-                                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jcombox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+        dgTransacciones.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 380));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -658,6 +601,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAceptarActionPerformed
 
+    private void btn_buscarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarConsultaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscarConsultaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAceptar;
@@ -699,6 +646,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
