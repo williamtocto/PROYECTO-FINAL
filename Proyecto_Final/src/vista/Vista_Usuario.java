@@ -82,7 +82,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_titulo.setText("Usuario");
-        dialogo_usuario.getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 260, 40));
+        dialogo_usuario.getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 260, 40));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         dialogo_usuario.getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 207, 220, -1));
@@ -119,6 +119,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula2.setText("Apellido");
         dialogo_usuario.getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 170, 71, -1));
 
+        btn_cancelar.setBackground(new java.awt.Color(204, 204, 204));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -178,8 +179,8 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
             }
         ));
         tabla_usuario.setGridColor(new java.awt.Color(255, 153, 51));
-        tabla_usuario.setSelectionBackground(new java.awt.Color(255, 153, 51));
-        tabla_usuario.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        tabla_usuario.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tabla_usuario.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(tabla_usuario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 77, 480, 253));
