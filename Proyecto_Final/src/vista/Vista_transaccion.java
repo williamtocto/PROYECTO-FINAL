@@ -326,6 +326,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -494,33 +495,56 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Transacciones");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Transacciones.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
 
         TxtCedula_soc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCedula_socActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
 
+        LblCedula_so.setForeground(new java.awt.Color(255, 255, 255));
         LblCedula_so.setText("Cédula del Socio:");
+        getContentPane().add(LblCedula_so, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        LblCantidad_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         LblCantidad_cuenta.setText("Cantidad en la cuenta:");
+        getContentPane().add(LblCantidad_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        LblNombre.setForeground(new java.awt.Color(255, 255, 255));
         LblNombre.setText("Nombre:");
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
 
+        LblApellido.setForeground(new java.awt.Color(255, 255, 255));
         LblApellido.setText("Apellido:");
+        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, -1, -1));
 
+        LblCodigo_socio.setForeground(new java.awt.Color(255, 255, 255));
         LblCodigo_socio.setText("Código Socio:");
+        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
+        LblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         LblTelefono.setText("Télefono:");
+        getContentPane().add(LblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
+        LblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         LblDireccion.setText("Dirección:");
+        getContentPane().add(LblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, -1, 19));
 
+        LblNume_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         LblNume_cuenta.setText("Número de Cuenta:");
+        getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 90, -1, -1));
+        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, -1));
 
         TxtCodigo_socio.setEditable(false);
+        getContentPane().add(TxtCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 140, -1));
 
         TxtNombre.setEditable(false);
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -528,10 +552,13 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtNombreActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 140, -1));
 
         TxtApellido.setEditable(false);
+        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 140, -1));
 
         TxtTelefono.setEditable(false);
+        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, -1));
 
         TxtDireccion.setEditable(false);
         TxtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -539,21 +566,32 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtDireccionActionPerformed(evt);
             }
         });
+        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 60, 140, -1));
 
         TxtNumero_cu.setEditable(false);
+        getContentPane().add(TxtNumero_cu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 90, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Trámite:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
+        LblIngrese_monto.setForeground(new java.awt.Color(255, 255, 255));
         LblIngrese_monto.setText("Monto:");
+        getContentPane().add(LblIngrese_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
+        LblTipo_transa.setForeground(new java.awt.Color(255, 255, 255));
         LblTipo_transa.setText("Tipo de Transacción:");
+        getContentPane().add(LblTipo_transa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
+        getContentPane().add(TxtDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 130, -1));
 
         Grupo_tipo.add(rbRetiro);
         rbRetiro.setText("Retiro");
+        getContentPane().add(rbRetiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
 
         Grupo_tipo.add(rbDeposito);
         rbDeposito.setText("Depósito");
+        getContentPane().add(rbDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
 
         jTabla_tran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         jTabla_tran.setModel(new javax.swing.table.DefaultTableModel(
@@ -564,158 +602,38 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "       Fecha", "   Tipo Transacción", "       Monto", "       Saldo"
+                "              Fecha", "         Tipo Transacción", "                    Monto", "                    Saldo"
             }
         ));
+        jTabla_tran.setGridColor(new java.awt.Color(255, 153, 51));
+        jTabla_tran.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jTabla_tran.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(jTabla_tran);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Historial de Transacciones.");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 761, 290));
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Historial de Transacciones.");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, -1));
+
+        BtnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         BtnAceptar.setText("Registrar");
-        BtnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        BtnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         BtnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 110, 40));
 
+        BtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         BtnBuscar.setText("Buscar");
+        BtnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 80, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(595, 595, 595)
-                                        .addComponent(jLabel14)
-                                        .addGap(35, 35, 35))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(LblCantidad_cuenta)
-                                            .addComponent(LblCedula_so))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(TxtCedula_soc, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20)
-                                                .addComponent(BtnBuscar))
-                                            .addComponent(TxtValor_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(48, 48, 48)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(LblCodigo_socio)
-                                            .addComponent(LblNombre))
-                                        .addGap(27, 27, 27)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(TxtCodigo_socio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(33, 33, 33)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(LblApellido)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(LblTelefono)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LblDireccion)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LblNume_cuenta)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtNumero_cu, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LblIngrese_monto)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(TxtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(BtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(LblTipo_transa)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(rbRetiro)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbDeposito)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)))))
-                .addGap(19, 19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(BtnBuscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtCedula_soc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(LblCodigo_socio)
-                                .addComponent(TxtCodigo_socio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LblApellido)
-                                .addComponent(TxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LblCedula_so, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(TxtValor_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LblCantidad_cuenta))
-                            .addComponent(LblNombre)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LblTelefono)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LblNume_cuenta)
-                            .addComponent(TxtNumero_cu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel11))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblIngrese_monto)
-                            .addComponent(TxtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblTipo_transa)
-                            .addComponent(rbRetiro)
-                            .addComponent(rbDeposito))
-                        .addGap(29, 29, 29)
-                        .addComponent(BtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -780,6 +698,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
