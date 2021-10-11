@@ -24,7 +24,20 @@ public class Vista_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
+        jSeparator5 = new javax.swing.JSeparator();
         jToolBar1 = new javax.swing.JToolBar();
+        jButton2 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jButton3 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        jButton4 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
+        jButton5 = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JToolBar.Separator();
+        jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         desk_Principal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -33,22 +46,90 @@ public class Vista_Principal extends javax.swing.JFrame {
         submenu_socio = new javax.swing.JMenuItem();
         menu_transaccion = new javax.swing.JMenu();
         submenuTransaccion = new javax.swing.JMenuItem();
-        menu_usuario = new javax.swing.JMenu();
-        menu_MantenimientoUser = new javax.swing.JMenuItem();
-        menuPrincipal_rol = new javax.swing.JMenu();
-        menuRol = new javax.swing.JMenuItem();
-        menu_privilegios = new javax.swing.JMenuItem();
         menu_reunion = new javax.swing.JMenu();
         submenu_reunion = new javax.swing.JMenuItem();
         menuActas = new javax.swing.JMenuItem();
         menu_asistencia = new javax.swing.JMenuItem();
         menu_multas = new javax.swing.JMenu();
+        menuPrincipal_rol = new javax.swing.JMenu();
+        menuRol = new javax.swing.JMenuItem();
+        menu_privilegios = new javax.swing.JMenuItem();
+        menu_usuario = new javax.swing.JMenu();
+        menu_MantenimientoUser = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setRollover(true);
+
+        jButton2.setText("Imprimir reporte socios");
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2);
+        jToolBar1.add(jSeparator1);
+
+        jButton3.setText("AgregarSocio");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton3);
+        jToolBar1.add(jSeparator2);
+
+        jButton4.setText("registrarReunion");
+        jButton4.setFocusable(false);
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton4);
+        jToolBar1.add(jSeparator3);
+
+        jButton5.setText("Asistencia");
+        jButton5.setFocusable(false);
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton5);
+        jToolBar1.add(jSeparator4);
+
+        jButton6.setText("actas");
+        jButton6.setFocusable(false);
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton6);
+
+        jButton7.setText("trnsacciones");
+        jButton7.setFocusable(false);
+        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton7);
+        jToolBar1.add(jSeparator6);
+
+        jButton8.setText("Multas");
+        jButton8.setToolTipText("ggggg");
+        jButton8.setFocusable(false);
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton8);
 
         jButton1.setText("jButton1");
 
@@ -66,7 +147,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desk_PrincipalLayout.createSequentialGroup()
-                .addGap(0, 600, Short.MAX_VALUE)
+                .addGap(0, 498, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
 
@@ -89,33 +170,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_transaccion);
 
-        menu_usuario.setText("Usuario");
-
-        menu_MantenimientoUser.setText("Matenimiento Usuarios");
-        menu_MantenimientoUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_MantenimientoUserActionPerformed(evt);
-            }
-        });
-        menu_usuario.add(menu_MantenimientoUser);
-
-        jMenuBar1.add(menu_usuario);
-
-        menuPrincipal_rol.setText("Rol");
-
-        menuRol.setText("Roles");
-        menuRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuRolActionPerformed(evt);
-            }
-        });
-        menuPrincipal_rol.add(menuRol);
-
-        menu_privilegios.setText("Privilegios");
-        menuPrincipal_rol.add(menu_privilegios);
-
-        jMenuBar1.add(menuPrincipal_rol);
-
         menu_reunion.setText("Reunion");
 
         submenu_reunion.setText("Crear Reunion");
@@ -136,6 +190,33 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menu_multas.setText("Multas");
         jMenuBar1.add(menu_multas);
+
+        menuPrincipal_rol.setText("Rol");
+
+        menuRol.setText("Roles");
+        menuRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRolActionPerformed(evt);
+            }
+        });
+        menuPrincipal_rol.add(menuRol);
+
+        menu_privilegios.setText("Privilegios");
+        menuPrincipal_rol.add(menu_privilegios);
+
+        jMenuBar1.add(menuPrincipal_rol);
+
+        menu_usuario.setText("Usuario");
+
+        menu_MantenimientoUser.setText("Matenimiento Usuarios");
+        menu_MantenimientoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_MantenimientoUserActionPerformed(evt);
+            }
+        });
+        menu_usuario.add(menu_MantenimientoUser);
+
+        jMenuBar1.add(menu_usuario);
 
         setJMenuBar(jMenuBar1);
 
@@ -206,6 +287,22 @@ public class Vista_Principal extends javax.swing.JFrame {
     private void menuActasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuActasActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;
@@ -343,9 +440,22 @@ public class Vista_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem menuActas;
     private javax.swing.JMenu menuPrincipal_rol;
