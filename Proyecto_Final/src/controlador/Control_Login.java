@@ -54,27 +54,24 @@ public class Control_Login {
                 TxtUsuariKeyPressed(evt);
             }
         });
-        
-         vista.getTxt_Password().addKeyListener(new java.awt.event.KeyAdapter() {
+
+        vista.getTxt_Password().addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ingresar(evt);
             }
         });
-        
-        
+
     }
 
     private void TxtUsuariKeyPressed(java.awt.event.KeyEvent evt) {
-
         char car = (char) evt.getKeyCode();
         if (car == evt.VK_ENTER) {
             vista.getTxt_Password().requestFocus();
         }
     }
-    
-     private void ingresar(java.awt.event.KeyEvent evt) {
 
+    private void ingresar(java.awt.event.KeyEvent evt) {
         char car = (char) evt.getKeyCode();
         if (car == evt.VK_ENTER) {
             try {
@@ -84,7 +81,6 @@ public class Control_Login {
             }
         }
     }
-    
 
     public void inicioVentanaPrincipal() throws SQLException {
 
