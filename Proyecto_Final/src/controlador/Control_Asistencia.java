@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,12 +25,71 @@ public class Control_Asistencia {
         this.vista = vista;
         vista.setTitle("Asistencia");
         vista.setVisible(true);
+        vista.getBtn_guardarFaltas().setEnabled(false);
+        
+    }
+    
+    //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
+    private void habilitarBoton(java.awt.event.MouseEvent evt) {
+        int column = vista.getTabla().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / vista.getTabla().getRowHeight();
+        if (row < vista.getTabla().getRowCount() && row >= 0 && column < vista.getTabla().getColumnCount() && column >= 0) {
+            vista.getBtn_guardarFaltas().setEnabled(true);
+        } else {
+            String name = "" + vista.getTabla().getValueAt(row, 1);
+        }
 
     }
-
+    
     public void iniciarControl() {
+        KeyListener kl = new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //VALIDACIONES
+                if (e.getSource() == vista.getDate_chooser()) {
+                    char caracter = e.getKeyChar();
+
+                    // Verificar si la tecla pulsada no es un digito
+                    char c = e.getKeyChar();
+                    if (Character.isDigit(c) == false) {
+                    } else {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo letras en este campo", "ERROR", 0);
+                    }
+                }
+                if (e.getSource() == vista.getDate_chooser()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    if (((caracter < '0')
+                            || (caracter > '9'))
+                            && (caracter != '\b')) {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+            
+        };
+        
         vista.getBtn_cargarLista().addActionListener(l -> Cargar());
         vista.getBtn_guardarFaltas().addActionListener(l -> GuardarDatos());
+        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
+        vista.getDate_chooser().addKeyListener(kl);
+        vista.getTabla().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                habilitarBoton(evt);
+            }
+        });
     }
 
     public void Cargar() {

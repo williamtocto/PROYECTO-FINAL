@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,10 +36,49 @@ public class Control_transaccion {
         vista.setTitle("Transacciones");
         vista.setVisible(true);
         cargarlista("");
+        vistat.getBtnAceptar().setEnabled(false);
     }
 
+    //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
+    private void habilitarBoton(java.awt.event.MouseEvent evt) {
+        int column = vistat.getjTabla_tran().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / vistat.getjTabla_tran().getRowHeight();
+        if (row < vistat.getjTabla_tran().getRowCount() && row >= 0 && column < vistat.getjTabla_tran().getColumnCount() && column >= 0) {
+            vistat.getBtnAceptar().setEnabled(true);
+        } else {
+            String name = "" + vistat.getjTabla_tran().getValueAt(row, 1);
+        }
+
+    }
     public void inicarControl() {
-         vistat.getTxtCedula_soc().addKeyListener(new java.awt.event.KeyAdapter() {
+        KeyListener kl = new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //VALIDACIONES
+                if (e.getSource() == vistat.getTxtCedula_soc() || e.getSource() == vistat.getTxtValor_cuenta() || e.getSource() == vistat.getTxtDeposito()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    if (((caracter < '0')
+                            || (caracter > '9'))
+                            && (caracter != '\b')) {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+            
+        };
+        vistat.getTxtCedula_soc().addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 enter(evt);
@@ -46,6 +87,15 @@ public class Control_transaccion {
 
         vistat.getBtnAceptar().addActionListener(l -> Registrar());
         vistat.getBtnBuscar().addActionListener(l -> busquedaSocio(vistat.getTxtCedula_soc().getText()));
+        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
+        vistat.getTxtCedula_soc().addKeyListener(kl);
+        vistat.getTxtValor_cuenta().addKeyListener(kl);
+        vistat.getTxtDeposito().addKeyListener(kl);
+        /*vistat.getjTabla_tran().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                habilitarBoton(evt);
+            }
+        });*/
     }
     
     public void enter(java.awt.event.KeyEvent evt) {

@@ -36,6 +36,27 @@ public class Control_Rol {
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                //VALIDACIONES
+                if (e.getSource() == vista.getTxt_nombreRol()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    char c = e.getKeyChar();
+                    if (Character.isDigit(c) == false) {
+                    } else {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo letras en este campo", "ERROR", 0);
+                    }
+                }
+                if (e.getSource() == vista.getTxt_cod_rol()) {
+                    char caracter = e.getKeyChar();
+                    // Verificar si la tecla pulsada no es un digito
+                    if (((caracter < '0')
+                            || (caracter > '9'))
+                            && (caracter != '\b')) {
+                        e.consume();
+                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+                    }
+                }
             }
 
             @Override
@@ -80,6 +101,9 @@ public class Control_Rol {
         vista.getBtn_modificar().addActionListener(l -> modificarRol());
         vista.getTabla_roles().addMouseListener(ml);
         vista.getTxt_buscar().addKeyListener(kl);
+        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
+        vista.getTxt_cod_rol().addKeyListener(kl);
+        vista.getTxt_nombreRol().addKeyListener(kl);
     }
 
     public void cargarNombreSocio() {
