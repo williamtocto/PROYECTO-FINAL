@@ -53,7 +53,7 @@ public class Modelo_Acta extends Acta {
             }
             return ejecutar;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"No existe esta Reunion");
+            JOptionPane.showMessageDialog(null,"No existe esta Reunion","",0);
             System.out.println(ex.getMessage());
             return false;
         } catch (Exception ex) {
