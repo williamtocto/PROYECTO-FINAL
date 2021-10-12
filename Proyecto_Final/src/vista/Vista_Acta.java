@@ -7,11 +7,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
 public class Vista_Acta extends javax.swing.JInternalFrame {
-
- 
+    
     public Vista_Acta() {
         initComponents();
     }
@@ -37,8 +35,6 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         btn_modificar = new javax.swing.JButton();
         btn_aprobar = new javax.swing.JButton();
         btn_nuevo = new javax.swing.JButton();
-        txt_buscar = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         jDialog1.setTitle("Consultar");
@@ -53,7 +49,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
                 btn_seleccionarActionPerformed(evt);
             }
         });
-        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 240, 40));
+        jDialog1.getContentPane().add(btn_seleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 300, 40));
         jDialog1.getContentPane().add(dateChooser_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 184, -1));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
@@ -89,13 +85,13 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         lbl_actas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_actas.setForeground(new java.awt.Color(255, 255, 255));
         lbl_actas.setText("Actas");
-        getContentPane().add(lbl_actas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 110, -1));
-        getContentPane().add(date_chooserBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 182, 23));
+        getContentPane().add(lbl_actas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 110, -1));
+        getContentPane().add(date_chooserBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 182, 30));
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         btn_buscar.setText("Buscar Fecha");
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 120, 40));
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 120, -1));
 
         tabla_acta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_acta.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,7 +110,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         tabla_acta.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(tabla_acta);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 830, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 830, 260));
 
         btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
@@ -155,16 +151,10 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 90, 40));
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 182, -1));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Buscar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 410));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,14 +235,6 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
 
     public void setBtn_modificar(JButton btn_modificar) {
         this.btn_modificar = btn_modificar;
-    }
-
-    public JTextField getTxt_buscar() {
-        return txt_buscar;
-    }
-
-    public void setTxt_buscar(JTextField txt_buscar) {
-        this.txt_buscar = txt_buscar;
     }
 
     public JButton getBtn_nuevo() {
@@ -356,7 +338,6 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser dateChooser_reunion;
     private com.toedter.calendar.JDateChooser date_chooserBuscar;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_actas;
@@ -364,6 +345,5 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_nombreArchivo;
     private javax.swing.JLabel lbñ_iconoPdf;
     private javax.swing.JTable tabla_acta;
-    private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

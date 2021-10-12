@@ -2,8 +2,6 @@ package controlador;
 
 import java.awt.Desktop;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -79,22 +77,6 @@ public final class Control_Acta {
 
     public void inciarControl() {
 
-        KeyListener kl = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                VisualizarTabla(vista.getTabla_acta(), vista.getTxt_buscar().getText());
-            }
-        };
-
         vista.getTabla_acta().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
@@ -128,7 +110,6 @@ public final class Control_Acta {
             }
         });
         vista.getBtn_cancelar().addActionListener(l -> vista.getjDialog1().dispose());
-        vista.getTxt_buscar().addKeyListener(kl);
         vista.getBtn_buscar().addActionListener(l -> BuscarPorFecha(vista.getTabla_acta(), vista.getDate_chooserBuscar().getDate()));
 
     }
@@ -185,21 +166,25 @@ public final class Control_Acta {
             model = new Modelo_Acta();
             Acta vo = new Acta();
             List<Acta> list = model.ListarActas(aguja);
-            for (int i = 0; i < list.size(); i++) {
-                Object filas[] = new Object[4];
-                vo = list.get(i);
-                filas[0] = vo.getNum_acta();
-                filas[1] = vo.getFecha();
-                filas[2] = vo.getEstado_acta();
-                if (vo.getArchivo_acta() != null) {
-                    filas[3] = new JButton(icono);
-                } else {
-                    filas[3] = new JButton("Vacio");
+            if (list.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se encontraron resultados", "", 2);
+            } else {
+                for (int i = 0; i < list.size(); i++) {
+                    Object filas[] = new Object[4];
+                    vo = list.get(i);
+                    filas[0] = vo.getNum_acta();
+                    filas[1] = vo.getFecha();
+                    filas[2] = vo.getEstado_acta();
+                    if (vo.getArchivo_acta() != null) {
+                        filas[3] = new JButton(icono);
+                    } else {
+                        filas[3] = new JButton("Vacio");
+                    }
+                    dt.addRow(filas);
                 }
-                dt.addRow(filas);
+                tabla.setModel(dt);
+                tabla.setRowHeight(32);
             }
-            tabla.setModel(dt);
-            tabla.setRowHeight(32);
         } else {
             JOptionPane.showMessageDialog(null, "Primero seleccione una fecha para buscar", "", 0);
         }
@@ -244,24 +229,40 @@ public final class Control_Acta {
         codigo_reunion = mr.codigoReunion(fecha);
         estado_acta = "Sin Aprobar";
         fila = vista.getTabla_acta().getSelectedRow();
-        num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
+        System.out.println(vista.getTabla_acta().getRowCount());
+        if (vista.getTabla_acta().getRowCount() > 0 && fila>0) {
+            num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
+        }
+
     }
 
     public void grabarActa() {
-        if (vista.getDateChooser_reunion().getDate() == null) {
-            JOptionPane.showMessageDialog(null, "Debe Seleccionar la fecha de la Reunion", "", 0);
-        } else {
-            cargarDatos();
-            model.setCod_reunion(codigo_reunion);
-            model.setEstado_acta(estado_acta);
-            File rutafile = new File(ruta);
-            if (model.Agregar(rutafile)) {
-                VisualizarTabla(vista.getTabla_acta(), "");
-                JOptionPane.showMessageDialog(vista, "Acta Creada Satisfactoriamente", "", 1);
-            } else {
-                JOptionPane.showMessageDialog(vista, "ERROR");
-            }
+        Date date = null;
+        String formato = null;
+        if (vista.getDateChooser_reunion().getDate() != null) {
+            date = vista.getDateChooser_reunion().getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            formato = sdf.format(date);
         }
+        List<Acta> list = model.ListarActa(formato);
+        if (list.isEmpty()) {
+            if (vista.getDateChooser_reunion().getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar la fecha de la Reunion", "", 0);
+            } else {
+                cargarDatos();
+                model.setCod_reunion(codigo_reunion);
+                model.setEstado_acta(estado_acta);
+                File rutafile = new File(ruta);
+                if (model.Agregar(rutafile)) {
+                    VisualizarTabla(vista.getTabla_acta(), "");
+                    vista.getjDialog1().dispose();
+                    JOptionPane.showMessageDialog(vista, "Acta Creada Satisfactoriamente", "", 1);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Esta reunion ya tiene Acta", "", 2);
+        }
+
     }
 
     public void ModificarActa() {
@@ -297,7 +298,7 @@ public final class Control_Acta {
     }
 
     private void cargarDialogo(int origen) throws SQLException {
-        // vista.getL.setIcon(null);
+       // vista.get(null);
         vista.getjDialog1().setSize(600, 350);
         vista.getjDialog1().setLocationRelativeTo(vista);
         fila = vista.getTabla_acta().getSelectedRow();
@@ -325,7 +326,6 @@ public final class Control_Acta {
         num_acta = Integer.parseInt(String.valueOf(vista.getTabla_acta().getValueAt(fila, 0)));
         model.setNum_acta(num_acta);
         model.AprobarActa();
-        VisualizarTabla(vista.getTabla_acta(), vista.getTxt_buscar().getText());
     }
 
     public void VisualizarTabla(JTable tabla, String aguja) {
@@ -376,7 +376,6 @@ public final class Control_Acta {
     }
 
     public void cargarDatosTable() {
-
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             fila = vista.getTabla_acta().getSelectedRow();

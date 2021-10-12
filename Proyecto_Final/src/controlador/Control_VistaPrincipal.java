@@ -10,7 +10,8 @@ import modelo.Modelo_Socio;
 import modelo.Modelo_Usuario;
 import modelo.Modelo_privilegios;
 import modelo.Modelo_transaccion;
-import vista.Vista_Acta;import vista.Vista_Asistencia;
+import vista.Vista_Acta;
+import vista.Vista_Asistencia;
 import vista.Vista_Principal;
 import vista.Vista_Privilegios;
 import vista.Vista_Reunion;
@@ -44,10 +45,9 @@ public class Control_VistaPrincipal {
     }
 
     public void Usuario() {
-        System.out.println("hola");
         Modelo_Usuario mu = new Modelo_Usuario();
         Vista_Usuario vu = new Vista_Usuario();
-        vista.getDesk_Principal().add(vu);
+        Centrar(vu);
         Control_user c = new Control_user(mu, vu);
         c.iniciaControl();
     }
@@ -77,7 +77,6 @@ public class Control_VistaPrincipal {
             vista.getDesk_Principal().add(frame);
             frame.setLocation(x, y);
         }
-
     }
 
     public void IniciarVentanaSocio() {
@@ -112,8 +111,7 @@ public class Control_VistaPrincipal {
         cp.iniciarControl();
     }
     
-    public void InciaciarVentanaAsistencia() {
-        
+    public void InciaciarVentanaAsistencia() {       
         Modelo_Asistencia modelo=new Modelo_Asistencia();
         Vista_Asistencia Vista = new Vista_Asistencia(); 
         Centrar(Vista);
