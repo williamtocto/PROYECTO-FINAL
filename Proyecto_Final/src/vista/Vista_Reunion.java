@@ -348,22 +348,18 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         jLabel1.setText("Reuniones.");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 11, -1, -1));
 
-        LblCodigo_reun.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblCodigo_reun.setForeground(new java.awt.Color(255, 255, 255));
         LblCodigo_reun.setText("Código:");
         getContentPane().add(LblCodigo_reun, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
-        LblFecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblFecha.setForeground(new java.awt.Color(255, 255, 255));
         LblFecha.setText("Fecha de la Reunion:");
         getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        LblDuracion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         LblDuracion.setText("Duración estimada:");
         getContentPane().add(LblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
-        LblTopico.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblTopico.setForeground(new java.awt.Color(255, 255, 255));
         LblTopico.setText("Tòpico de la Reunion:");
         getContentPane().add(LblTopico, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));

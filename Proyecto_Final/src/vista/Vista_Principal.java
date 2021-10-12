@@ -64,6 +64,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         setTitle("Caja de Ahorro y Crédito");
 
         jToolBar1.setBackground(new java.awt.Color(0, 51, 102));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
         jToolBar1.setRollover(true);
 
         jButton2.setBackground(new java.awt.Color(0, 51, 102));
