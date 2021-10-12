@@ -44,6 +44,22 @@ public class Control_Reunion {
         vista.setTitle("REUNION");
         vista.setVisible(true);
         cargarLista("");
+        vista.getBtnModificar().setEnabled(false);
+        vista.getBtnEliminar().setEnabled(false);
+
+    }
+
+    //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
+    private void habilitarBoton(java.awt.event.MouseEvent evt) {
+        int column = vista.getJTdatos().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / vista.getJTdatos().getRowHeight();
+        if (row < vista.getJTdatos().getRowCount() && row >= 0 && column < vista.getJTdatos().getColumnCount() && column >= 0) {
+            vista.getBtnModificar().setEnabled(true);
+            vista.getBtnModificar().setEnabled(true);
+        } else {
+            String name = "" + vista.getJTdatos().getValueAt(row, 1);
+        }
+
     }
 
     public Control_Reunion() {
@@ -116,7 +132,13 @@ public class Control_Reunion {
             }
 
         };
-        //vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
+
+        vista.getJTdatos().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                habilitarBoton(evt);
+            }
+        });
+//vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
         vista.getBtnGuardar().addActionListener(l -> {
             try {
                 guardarReunion();
@@ -126,13 +148,6 @@ public class Control_Reunion {
         });
         vista.getBtnModificar().addActionListener(l -> modificarReunion());
         vista.getBtnEliminar().addActionListener(l -> eliminarReunion());
-        vista.getBtnConsultar().addActionListener(l -> {
-            try {
-                cargarDialogo(1);
-            } catch (SQLException ex) {
-                Logger.getLogger(Control_Reunion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
         vista.getJTdatos().addMouseListener(ml);
         vista.getTxtCodReu().addKeyListener(kl);
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
@@ -268,17 +283,6 @@ public class Control_Reunion {
             formato = sdf.format(fecha);
         }
         return formato;
-    }
-
-    private void cargarDialogo(int origen) throws SQLException {
-        vista.getDgReunion().setSize(600, 600);
-        vista.getDgReunion().setLocationRelativeTo(vista);
-        fila = vista.getJTdatos().getSelectedRow();
-        if (origen == 1) {
-            vista.getDgReunion().setTitle("Consultar Reunion");
-            n = 1;
-            vista.getDgReunion().setVisible(true);
-        }
     }
 
     public int ValidarFechaIngreso() throws ParseException {
