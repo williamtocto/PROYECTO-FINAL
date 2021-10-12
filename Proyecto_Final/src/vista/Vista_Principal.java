@@ -35,6 +35,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jButton6 = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JToolBar.Separator();
         jButton7 = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         jButton8 = new javax.swing.JButton();
@@ -60,10 +61,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Caja de Ahorro y Crédito");
 
+        jToolBar1.setBackground(new java.awt.Color(0, 51, 102));
         jToolBar1.setRollover(true);
 
-        jButton2.setText("Imprimir reporte socios");
+        jButton2.setBackground(new java.awt.Color(0, 51, 102));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
+        jButton2.setToolTipText("Imprimir reporte socios");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -75,7 +80,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton2);
         jToolBar1.add(jSeparator1);
 
-        jButton3.setText("AgregarSocio");
+        jButton3.setBackground(new java.awt.Color(0, 51, 102));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/añadir_usuario.png"))); // NOI18N
+        jButton3.setToolTipText("Agregar socio");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -87,7 +94,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton3);
         jToolBar1.add(jSeparator2);
 
-        jButton4.setText("registrarReunion");
+        jButton4.setBackground(new java.awt.Color(0, 51, 102));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/agendar reunion.png"))); // NOI18N
+        jButton4.setToolTipText("Registrar Reunión");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -99,7 +108,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton4);
         jToolBar1.add(jSeparator3);
 
-        jButton5.setText("Asistencia");
+        jButton5.setBackground(new java.awt.Color(0, 51, 102));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/asistencia.png"))); // NOI18N
+        jButton5.setToolTipText("Asistencia");
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -109,23 +120,31 @@ public class Vista_Principal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton5);
+
+        jSeparator4.setBackground(new java.awt.Color(204, 204, 255));
         jToolBar1.add(jSeparator4);
 
-        jButton6.setText("actas");
+        jButton6.setBackground(new java.awt.Color(0, 51, 102));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/acta.png"))); // NOI18N
+        jButton6.setToolTipText("Actas");
         jButton6.setFocusable(false);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton6);
+        jToolBar1.add(jSeparator7);
 
-        jButton7.setText("trnsacciones");
+        jButton7.setBackground(new java.awt.Color(0, 51, 102));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/transaccion.png"))); // NOI18N
+        jButton7.setToolTipText("Transacciones");
         jButton7.setFocusable(false);
         jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton7);
         jToolBar1.add(jSeparator6);
 
-        jButton8.setText("Multas");
-        jButton8.setToolTipText("ggggg");
+        jButton8.setBackground(new java.awt.Color(0, 51, 102));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/multa.png"))); // NOI18N
+        jButton8.setToolTipText("Multas");
         jButton8.setFocusable(false);
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -147,11 +166,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desk_PrincipalLayout.createSequentialGroup()
-                .addGap(0, 498, Short.MAX_VALUE)
+                .addGap(0, 506, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
 
-        menu_socio.setText("Socio");
+        menu_socio.setText("Socios");
 
         submenu_socio.setText("Registro y datos del socio");
         submenu_socio.addActionListener(new java.awt.event.ActionListener() {
@@ -163,16 +182,16 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_socio);
 
-        menu_transaccion.setText("Transaccion");
+        menu_transaccion.setText("Transacción");
 
         submenuTransaccion.setText("Registrar Transaccion");
         menu_transaccion.add(submenuTransaccion);
 
         jMenuBar1.add(menu_transaccion);
 
-        menu_reunion.setText("Reunion");
+        menu_reunion.setText("Reunión");
 
-        submenu_reunion.setText("Crear Reunion");
+        submenu_reunion.setText("Crear Reunión");
         menu_reunion.add(submenu_reunion);
 
         menuActas.setText("Actas");
@@ -230,9 +249,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desk_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(desk_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -456,6 +476,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem menuActas;
     private javax.swing.JMenu menuPrincipal_rol;
