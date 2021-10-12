@@ -263,6 +263,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         btnImprimir = new javax.swing.JButton();
         LblFondo = new javax.swing.JLabel();
 
+        JDialogo.setTitle("Socios");
         JDialogo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JDialogo.getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 190, -1));
 
@@ -391,7 +392,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
                 btnInactivarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 100, 40));
+        getContentPane().add(btnInactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 100, 40));
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 190, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));

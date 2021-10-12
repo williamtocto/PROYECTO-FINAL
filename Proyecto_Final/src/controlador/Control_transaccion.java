@@ -31,7 +31,7 @@ public class Control_transaccion {
     public Control_transaccion(Modelo_transaccion transac, Vista_transaccion vista) {
         this.modelot = transac;
         this.vistat = vista;
-        vista.setTitle("TRANSACCIONES");
+        vista.setTitle("Transacciones");
         vista.setVisible(true);
         cargarlista("");
     }
