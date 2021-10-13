@@ -48,6 +48,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="submenuTransaccion">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+T"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Transaccion"/>
               </Properties>
             </MenuItem>
@@ -60,11 +63,20 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="submenu_reunion">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+R"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Crear Reuni&#xf3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submenu_reunionActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuActas">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+A"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Actas"/>
               </Properties>
               <Events>
@@ -73,6 +85,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menu_asistencia">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Asistencia"/>
               </Properties>
               <Events>
@@ -93,6 +108,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuRol">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+R"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Roles"/>
               </Properties>
               <Events>
@@ -101,6 +119,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menu_privilegios">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+P"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Privilegios"/>
               </Properties>
             </MenuItem>
@@ -113,6 +134,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menu_MantenimientoUser">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+M"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Matenimiento Usuarios"/>
               </Properties>
               <Events>

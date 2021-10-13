@@ -186,6 +186,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menu_transaccion.setText("Transacción");
 
+        submenuTransaccion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         submenuTransaccion.setText("Registrar Transaccion");
         menu_transaccion.add(submenuTransaccion);
 
@@ -193,9 +194,16 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menu_reunion.setText("Reunión");
 
+        submenu_reunion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         submenu_reunion.setText("Crear Reunión");
+        submenu_reunion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submenu_reunionActionPerformed(evt);
+            }
+        });
         menu_reunion.add(submenu_reunion);
 
+        menuActas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuActas.setText("Actas");
         menuActas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +212,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         menu_reunion.add(menuActas);
 
+        menu_asistencia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menu_asistencia.setText("Asistencia");
         menu_asistencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +228,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menuPrincipal_rol.setText("Rol");
 
+        menuRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuRol.setText("Roles");
         menuRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +237,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         menuPrincipal_rol.add(menuRol);
 
+        menu_privilegios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menu_privilegios.setText("Privilegios");
         menuPrincipal_rol.add(menu_privilegios);
 
@@ -234,6 +245,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menu_usuario.setText("Usuario");
 
+        menu_MantenimientoUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menu_MantenimientoUser.setText("Matenimiento Usuarios");
         menu_MantenimientoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +352,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     private void menu_asistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_asistenciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menu_asistenciaActionPerformed
+
+    private void submenu_reunionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenu_reunionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submenu_reunionActionPerformed
 
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;

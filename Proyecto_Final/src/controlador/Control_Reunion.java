@@ -48,7 +48,6 @@ public class Control_Reunion {
         cargarLista("");
         vista.getBtnModificar().setEnabled(false);
         vista.getBtnEliminar().setEnabled(false);
-
     }
 
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
