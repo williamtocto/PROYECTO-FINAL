@@ -92,7 +92,7 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         btn_buscar.setText("Buscar Fecha");
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 120, 30));
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 120, 40));
 
         tabla_acta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_acta.setModel(new javax.swing.table.DefaultTableModel(
@@ -153,8 +153,10 @@ public class Vista_Acta extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 90, 40));
 
+        btn_refrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/Refresca.png"))); // NOI18N
         btn_refrescar.setText("Refrescar");
-        getContentPane().add(btn_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, 40));
+        btn_refrescar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        getContentPane().add(btn_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 100, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
