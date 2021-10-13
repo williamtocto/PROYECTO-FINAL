@@ -285,7 +285,7 @@ public class Control_Socio {
     }
 
     //Método para imprimir reportes con JasperStudio
-    private void imprimirReporte() {
+    public void imprimirReporte() {
         ConexionPG con = new ConexionPG();
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reporte_Socios.jasper"));
@@ -326,7 +326,7 @@ public class Control_Socio {
         }
     }
 
-    private void mostrarDialogo(int origen) {
+    public void mostrarDialogo(int origen) {
         vista.getJDialogo().setSize(745, 520);
         vista.getJDialogo().setLocationRelativeTo(vista);
         fila = vista.getJtDatosSocio().getSelectedRow();
