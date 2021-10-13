@@ -255,6 +255,54 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         this.txt_cedula = txt_cedula;
     }
 
+    public JDateChooser getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(JDateChooser dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public JDateChooser getDateInicio() {
+        return dateInicio;
+    }
+
+    public void setDateInicio(JDateChooser dateInicio) {
+        this.dateInicio = dateInicio;
+    }
+
+    public JDialog getjDialog1() {
+        return jDialog1;
+    }
+
+    public void setjDialog1(JDialog jDialog1) {
+        this.jDialog1 = jDialog1;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtn_aceptar() {
+        return btn_aceptar;
+    }
+
+    public void setBtn_aceptar(JButton btn_aceptar) {
+        this.btn_aceptar = btn_aceptar;
+    }
+
+    public JButton getBtn_imprimir() {
+        return btn_imprimir;
+    }
+
+    public void setBtn_imprimir(JButton btn_imprimir) {
+        this.btn_imprimir = btn_imprimir;
+    }
+
     public JTextField getTxt_nombre() {
         return txt_nombre;
     }
@@ -299,6 +347,14 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTextField4 = new javax.swing.JTextField();
         jcombox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jDialog1 = new javax.swing.JDialog();
+        dateInicio = new com.toedter.calendar.JDateChooser();
+        dateFin = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btn_aceptar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         TxtCedula_soc = new javax.swing.JTextField();
         LblCedula_so = new javax.swing.JLabel();
@@ -327,6 +383,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -435,6 +492,25 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         dgTransacciones.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 380));
+
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDialog1.getContentPane().add(dateInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 160, -1));
+        jDialog1.getContentPane().add(dateFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, -1));
+
+        jLabel5.setText("Seleccione las fechas para el Reporte");
+        jDialog1.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+
+        jLabel6.setText("Fin");
+        jDialog1.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, 20));
+
+        jLabel7.setText("Inicio");
+        jDialog1.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, 20));
+
+        btn_aceptar.setText("Aceptar");
+        jDialog1.getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+
+        btnCancelar.setText("Cancelar");
+        jDialog1.getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -575,6 +651,14 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         BtnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 80, -1));
 
+        btn_imprimir.setText("Imprimir");
+        btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 160, -1, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 520));
 
@@ -604,6 +688,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private void btn_buscarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarConsultaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_buscarConsultaActionPerformed
+
+    private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_imprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -635,18 +723,27 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtNumero_cu;
     private javax.swing.JTextField TxtTelefono;
     private javax.swing.JTextField TxtValor_cuenta;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_buscarConsulta;
+    private javax.swing.JButton btn_imprimir;
     private javax.swing.JButton btn_imprimirConsulta;
     private javax.swing.JButton btn_limpiarConsulta;
+    private com.toedter.calendar.JDateChooser dateFin;
+    private com.toedter.calendar.JDateChooser dateInicio;
     private javax.swing.JDialog dgTransacciones;
     private com.toedter.calendar.JDateChooser jDatedesde;
     private com.toedter.calendar.JDateChooser jDatehasta;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

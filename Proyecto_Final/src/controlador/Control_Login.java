@@ -98,30 +98,42 @@ public class Control_Login {
                 case 1 -> {
                     if (estado == true) {
                         vp.getMenu_socio().setEnabled(true);
+                        vp.getBtn_asistencia().setEnabled(true);
                     } else {
                         vp.getMenu_socio().setEnabled(false);
+                        vp.getBtn_asistencia().setEnabled(false);
                     }
 
                 }
                 case 2 -> {
                     if (estado == true) {
                         vp.getMenu_transaccion().setEnabled(true);
+                        vp.getBtn_transacciones().setEnabled(true);
                     } else {
                         vp.getMenu_transaccion().setEnabled(false);
+                        vp.getBtn_transacciones().setEnabled(false);
                     }
                 }
                 case 3 -> {
                     if (estado == true) {
                         vp.getMenu_reunion().setEnabled(true);
+                        vp.getBtn_registrarReunion().setEnabled(true);
+                        vp.getBtn_asistencia().setEnabled(true);
+                         vp.getBtn_actas().setEnabled(true);
                     } else {
                         vp.getMenu_reunion().setEnabled(false);
+                        vp.getBtn_registrarReunion().setEnabled(false);
+                        vp.getBtn_asistencia().setEnabled(false);
+                        vp.getBtn_actas().setEnabled(false);
                     }
                 }
                 case 4 -> {
                     if (estado == true) {
                         vp.getMenu_multas().setEnabled(true);
+                        vp.getBtn_multas().setEnabled(true);
                     } else {
                         vp.getMenu_multas().setEnabled(false);
+                        vp.getBtn_multas().setEnabled(false);
                     }
                 }
                 case 5 -> {

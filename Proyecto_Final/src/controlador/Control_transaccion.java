@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,8 +51,9 @@ public class Control_transaccion {
         }
 
     }
+
     public void inicarControl() {
-        KeyListener kl = new KeyListener(){
+        KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 //VALIDACIONES
@@ -69,14 +71,14 @@ public class Control_transaccion {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                
+
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                
+
             }
-            
+
         };
         vistat.getTxtCedula_soc().addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
@@ -84,20 +86,31 @@ public class Control_transaccion {
                 enter(evt);
             }
         });
-
+        vistat.getBtn_imprimir().addActionListener(l -> dialogo());
         vistat.getBtnAceptar().addActionListener(l -> Registrar());
         vistat.getBtnBuscar().addActionListener(l -> busquedaSocio(vistat.getTxtCedula_soc().getText()));
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vistat.getTxtCedula_soc().addKeyListener(kl);
         vistat.getTxtValor_cuenta().addKeyListener(kl);
         vistat.getTxtDeposito().addKeyListener(kl);
+        vistat.getBtn_aceptar().addActionListener(l -> imprimirTansaccion());
         /*vistat.getjTabla_tran().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 habilitarBoton(evt);
             }
         });*/
     }
-    
+
+    public void dialogo() {
+       
+        vistat.getjDialog1().setSize(400, 300);
+         vistat.getjDialog1().setLocationRelativeTo(vistat);
+        vistat.getDateInicio().setDate(null);
+        vistat.getDateFin().setDate(null);
+        vistat.getjDialog1().setVisible(true);
+
+    }
+
     public void enter(java.awt.event.KeyEvent evt) {
         char car = (char) evt.getKeyCode();
         if (car == evt.VK_ENTER) {
@@ -199,18 +212,38 @@ public class Control_transaccion {
 
     private void imprimirTansaccion() {
         ConexionPG con = new ConexionPG();
+        System.out.println("hola");
+        vistat.getjDialog1().dispose();
+
+        String sql = null;
+        Date fecha = null, fecha1 = null;
+        String formato = null;
+        String formato1 = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        // Tranformar la fecha a String
+        if (vistat.getDateInicio() != null) {
+            fecha = vistat.getDateInicio().getDate();
+            formato = sdf.format(fecha);
+        }
+        if (vistat.getDateFin() != null) {
+            fecha1 = vistat.getDateFin().getDate();
+            formato1 = sdf.format(fecha1);          // formato1 = new SimpleDateFormat("d/M/y H:m:s").format(fecha1);
+        }
+        formato = formato + " 00:00:00";
+        formato1 = formato1 + " 11:59:59";
+
         try {
             JasperReport reporte = null;
-            String path = "C:\\Users\\Mateo\\Documents\\NetBeansProjects\\PROYECTO-FINAL\\Proyecto_Final\\src\\vista\\reportes\\historial_transaccion.jasper";
+            String path = "src\\vista\\reportes\\historial_transaccion_1.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            Map<String, Object> params = new HashMap<String, Object>();
-            /*String miaguja=vista.getTxtBuscar().getText();
-            params.put("aguja", "%"+miaguja+"%");//PARAMETROS PARA REPORTES
-            params.put("titulo", "LISTADO DE PERSONAS INSCRITAS POR REVIZAR");
-            params.put("footer", "Super Mercado Santa Cecilia, Ave Huaynacapac");*/
-            //SUPER MERCADOS S.A. Ave. Americas
-
-            JasperPrint jp = JasperFillManager.fillReport(reporte, params, con.getCon());
+            java.sql.Timestamp fc = java.sql.Timestamp.valueOf(formato);
+            java.sql.Timestamp fc1 = java.sql.Timestamp.valueOf(formato1);
+            Map parametro = new HashMap();
+            parametro.put("fecha_inicio", fc);
+            parametro.put("fecha_fin", fc1);
+            parametro.put("cedula", vistat.getTxtCedula_soc().getText());
+            parametro.put("Titulo", "Reporte transacciones");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, con.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {

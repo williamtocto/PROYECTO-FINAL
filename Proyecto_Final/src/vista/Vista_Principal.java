@@ -5,6 +5,7 @@
  */
 package vista;
 
+import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -26,19 +27,19 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jSeparator5 = new javax.swing.JSeparator();
         jToolBar1 = new javax.swing.JToolBar();
-        jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
+        btn_agregarSocio = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        jButton4 = new javax.swing.JButton();
+        btn_registrarReunion = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton5 = new javax.swing.JButton();
+        btn_asistencia = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
-        jButton6 = new javax.swing.JButton();
+        btn_actas = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
-        jButton7 = new javax.swing.JButton();
+        btn_transacciones = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        jButton8 = new javax.swing.JButton();
+        btn_multas = new javax.swing.JButton();
+        btn_imprimirReporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         desk_Principal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -66,113 +67,113 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.setBackground(new java.awt.Color(0, 51, 102));
         jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
         jToolBar1.setRollover(true);
-
-        jButton2.setBackground(new java.awt.Color(0, 51, 102));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
-        jButton2.setToolTipText("Imprimir reporte socios");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton2);
         jToolBar1.add(jSeparator1);
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/añadir_usuario.png"))); // NOI18N
-        jButton3.setToolTipText("Agregar socio");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_agregarSocio.setBackground(new java.awt.Color(0, 51, 102));
+        btn_agregarSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/añadir_usuario.png"))); // NOI18N
+        btn_agregarSocio.setToolTipText("Agregar socio");
+        btn_agregarSocio.setFocusable(false);
+        btn_agregarSocio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_agregarSocio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_agregarSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_agregarSocioActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton3);
+        jToolBar1.add(btn_agregarSocio);
         jToolBar1.add(jSeparator2);
 
-        jButton4.setBackground(new java.awt.Color(0, 51, 102));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/agendar reunion.png"))); // NOI18N
-        jButton4.setToolTipText("Registrar Reunión");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_registrarReunion.setBackground(new java.awt.Color(0, 51, 102));
+        btn_registrarReunion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/agendar reunion.png"))); // NOI18N
+        btn_registrarReunion.setToolTipText("Registrar Reunión");
+        btn_registrarReunion.setFocusable(false);
+        btn_registrarReunion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_registrarReunion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_registrarReunion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_registrarReunionActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton4);
+        jToolBar1.add(btn_registrarReunion);
         jToolBar1.add(jSeparator3);
 
-        jButton5.setBackground(new java.awt.Color(0, 51, 102));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/asistencia.png"))); // NOI18N
-        jButton5.setToolTipText("Asistencia");
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_asistencia.setBackground(new java.awt.Color(0, 51, 102));
+        btn_asistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/asistencia.png"))); // NOI18N
+        btn_asistencia.setToolTipText("Asistencia");
+        btn_asistencia.setFocusable(false);
+        btn_asistencia.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_asistencia.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_asistencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_asistenciaActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton5);
+        jToolBar1.add(btn_asistencia);
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 255));
         jToolBar1.add(jSeparator4);
 
-        jButton6.setBackground(new java.awt.Color(0, 51, 102));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/acta.png"))); // NOI18N
-        jButton6.setToolTipText("Actas");
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton6);
+        btn_actas.setBackground(new java.awt.Color(0, 51, 102));
+        btn_actas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/acta.png"))); // NOI18N
+        btn_actas.setToolTipText("Actas");
+        btn_actas.setFocusable(false);
+        btn_actas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_actas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_actas);
         jToolBar1.add(jSeparator7);
 
-        jButton7.setBackground(new java.awt.Color(0, 51, 102));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/transaccion.png"))); // NOI18N
-        jButton7.setToolTipText("Transacciones");
-        jButton7.setFocusable(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton7);
+        btn_transacciones.setBackground(new java.awt.Color(0, 51, 102));
+        btn_transacciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/transaccion.png"))); // NOI18N
+        btn_transacciones.setToolTipText("Transacciones");
+        btn_transacciones.setFocusable(false);
+        btn_transacciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_transacciones.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_transacciones);
         jToolBar1.add(jSeparator6);
 
-        jButton8.setBackground(new java.awt.Color(0, 51, 102));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/multa.png"))); // NOI18N
-        jButton8.setToolTipText("Multas");
-        jButton8.setFocusable(false);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton8);
+        btn_multas.setBackground(new java.awt.Color(0, 51, 102));
+        btn_multas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/multa.png"))); // NOI18N
+        btn_multas.setToolTipText("Multas");
+        btn_multas.setFocusable(false);
+        btn_multas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_multas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_multas);
+
+        btn_imprimirReporte.setBackground(new java.awt.Color(0, 51, 102));
+        btn_imprimirReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
+        btn_imprimirReporte.setToolTipText("Imprimir reporte socios");
+        btn_imprimirReporte.setFocusable(false);
+        btn_imprimirReporte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_imprimirReporte.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_imprimirReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirReporteActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_imprimirReporte);
 
         jButton1.setText("jButton1");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Bienvenido...");
-
-        desk_Principal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desk_PrincipalLayout = new javax.swing.GroupLayout(desk_Principal);
         desk_Principal.setLayout(desk_PrincipalLayout);
         desk_PrincipalLayout.setHorizontalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1093, Short.MAX_VALUE)
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desk_PrincipalLayout.createSequentialGroup()
-                .addGap(0, 506, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGap(0, 612, Short.MAX_VALUE)
         );
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Bienvenido...");
+
+        jMenuBar1.setBackground(new java.awt.Color(102, 255, 204));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 204));
 
         menu_socio.setText("Socios");
 
+        submenu_socio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         submenu_socio.setText("Registro y datos del socio");
         submenu_socio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +204,12 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         menu_reunion.add(menuActas);
 
-        menu_asistencia.setText("jMenuItem1");
+        menu_asistencia.setText("Asistencia");
+        menu_asistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_asistenciaActionPerformed(evt);
+            }
+        });
         menu_reunion.add(menu_asistencia);
 
         jMenuBar1.add(menu_reunion);
@@ -245,15 +251,21 @@ public class Vista_Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1105, Short.MAX_VALUE)
-            .addComponent(desk_Principal, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(desk_Principal, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desk_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(desk_Principal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1))
         );
 
         pack();
@@ -309,21 +321,25 @@ public class Vista_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuActasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_imprimirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirReporteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_imprimirReporteActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_agregarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarSocioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_agregarSocioActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_registrarReunionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarReunionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_registrarReunionActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_asistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asistenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_asistenciaActionPerformed
+
+    private void menu_asistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_asistenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_asistenciaActionPerformed
 
     public JDesktopPane getDesk_Principal() {
         return desk_Principal;
@@ -332,6 +348,64 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setDesk_Principal(JDesktopPane desk_Principal) {
         this.desk_Principal = desk_Principal;
     }
+
+    public JButton getBtn_actas() {
+        return btn_actas;
+    }
+
+    public void setBtn_actas(JButton btn_actas) {
+        this.btn_actas = btn_actas;
+    }
+
+    public JButton getBtn_agregarSocio() {
+        return btn_agregarSocio;
+    }
+
+    public void setBtn_agregarSocio(JButton btn_agregarSocio) {
+        this.btn_agregarSocio = btn_agregarSocio;
+    }
+
+    public JButton getBtn_asistencia() {
+        return btn_asistencia;
+    }
+
+    public void setBtn_asistencia(JButton btn_asistencia) {
+        this.btn_asistencia = btn_asistencia;
+    }
+
+    public JButton getBtn_imprimirReporte() {
+        return btn_imprimirReporte;
+    }
+
+    public void setBtn_imprimirReporte(JButton btn_imprimirReporte) {
+        this.btn_imprimirReporte = btn_imprimirReporte;
+    }
+
+    public JButton getBtn_multas() {
+        return btn_multas;
+    }
+
+    public void setBtn_multas(JButton btn_multas) {
+        this.btn_multas = btn_multas;
+    }
+
+    public JButton getBtn_registrarReunion() {
+        return btn_registrarReunion;
+    }
+
+    public void setBtn_registrarReunion(JButton btn_registrarReunion) {
+        this.btn_registrarReunion = btn_registrarReunion;
+    }
+
+    public JButton getBtn_transacciones() {
+        return btn_transacciones;
+    }
+
+    public void setBtn_transacciones(JButton btn_transacciones) {
+        this.btn_transacciones = btn_transacciones;
+    }
+    
+    
 
     public JMenuItem getMenu_MantenimientoUser() {
         return menu_MantenimientoUser;
@@ -459,15 +533,15 @@ public class Vista_Principal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_actas;
+    private javax.swing.JButton btn_agregarSocio;
+    private javax.swing.JButton btn_asistencia;
+    private javax.swing.JButton btn_imprimirReporte;
+    private javax.swing.JButton btn_multas;
+    private javax.swing.JButton btn_registrarReunion;
+    private javax.swing.JButton btn_transacciones;
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;

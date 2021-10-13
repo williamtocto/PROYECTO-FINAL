@@ -41,7 +41,13 @@ public class Control_VistaPrincipal {
         vista.getSubmenuTransaccion().addActionListener(l -> InicarVentanaTransaccion());
         vista.getSubmenu_reunion().addActionListener(l -> IniciarVentanaReunion());
         vista.getMenuActas().addActionListener(l -> iniciarVentanaActa());
-        vista.getMenu_asistencia().addActionListener(l-> InciaciarVentanaAsistencia());
+        vista.getMenu_asistencia().addActionListener(l -> InciaciarVentanaAsistencia());
+        vista.getBtn_agregarSocio().addActionListener(l -> IngresarSocio());
+        vista.getBtn_registrarReunion().addActionListener(l -> IniciarVentanaReunion());
+        vista.getBtn_asistencia().addActionListener(l -> InciaciarVentanaAsistencia());
+        vista.getBtn_actas().addActionListener(l -> iniciarVentanaActa());
+        vista.getBtn_transacciones().addActionListener(l -> InicarVentanaTransaccion());
+        vista.getBtn_imprimirReporte().addActionListener(l -> imprimirReporte());
     }
 
     public void Usuario() {
@@ -52,9 +58,23 @@ public class Control_VistaPrincipal {
         c.iniciaControl();
     }
 
+    public void imprimirReporte() {
+        Modelo_Socio modelo_socio = new Modelo_Socio();
+        Vista_Socio vista_socio = new Vista_Socio();
+        Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
+        cs.imprimirReporte();
+    }
+
+    public void IngresarSocio() {
+        Modelo_Socio modelo_socio = new Modelo_Socio();
+        Vista_Socio vista_socio = new Vista_Socio();
+        Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
+        cs.mostrarDialogo(1);
+    }
+
     public void iniciarVentanaActa() {
         Modelo_Acta mr = new Modelo_Acta();
-        Vista_Acta va = new Vista_Acta();
+        Vista_Acta va  = new Vista_Acta();
         Centrar(va);
         Control_Acta ca = new Control_Acta(mr, va);
         ca.inciarControl();
@@ -110,12 +130,12 @@ public class Control_VistaPrincipal {
         Control_Privilegios cp = new Control_Privilegios(modelo_privilegios, vista_privilegios);
         cp.iniciarControl();
     }
-    
-    public void InciaciarVentanaAsistencia() {       
-        Modelo_Asistencia modelo=new Modelo_Asistencia();
-        Vista_Asistencia Vista = new Vista_Asistencia(); 
+
+    public void InciaciarVentanaAsistencia() {
+        Modelo_Asistencia modelo = new Modelo_Asistencia();
+        Vista_Asistencia Vista = new Vista_Asistencia();
         Centrar(Vista);
-        Control_Asistencia ca=new Control_Asistencia(modelo, Vista);
+        Control_Asistencia ca = new Control_Asistencia(modelo, Vista);
         ca.iniciarControl();
     }
 }
