@@ -2,32 +2,69 @@ package modelo;
 
 public class Usuario {
 
-    private int codigo_usario;
-    private int codigo_socio;
-    private int codig_rol;
+    private String cedula;
+    private String rol;
     private String usuario;
     private String contrasenia;
+    private int codigo_usuario;
+    private int codigo_socio;
+    private int codig_rol;
+    private String nombre;
 
-    public Usuario(int codigo_usario, int codigo_socio, int codig_rol, String usuario, String contraseña) {
-        this.codigo_usario = codigo_usario;
+
+    
+    public Usuario() {
+    }
+
+    public Usuario(String cedula, String rol, String usuario, String contrasenia, int codigo_usuario, int codigo_socio, int codig_rol, String nombre) {
+        this.cedula = cedula;
+        this.rol = rol;
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
+        this.codigo_usuario = codigo_usuario;
         this.codigo_socio = codigo_socio;
         this.codig_rol = codig_rol;
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
-        this.contrasenia = contraseña;
     }
-
-    public Usuario() {
-         //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
 
     public int getCodigo_usuario() {
-        return codigo_usario;
+        return codigo_usuario;
     }
 
     public void setCodigo_usuario(int codigo_usario) {
-        this.codigo_usario = codigo_usario;
+        this.codigo_usuario = codigo_usario;
     }
 
     public int getCodigo_socio() {
@@ -46,19 +83,12 @@ public class Usuario {
         this.codig_rol = codig_rol;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public String getContrasenia() {
         return contrasenia;
     }
 
-    public void setContrasenia(String contraseña) {
-        this.contrasenia = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
+
 }

@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -26,13 +27,11 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         LblCodigo_rol = new javax.swing.JLabel();
         LblNombre_usuario = new javax.swing.JLabel();
         LblContraseña = new javax.swing.JLabel();
-        txt_confirma_contrasenia = new javax.swing.JTextField();
         txt_cedula = new javax.swing.JTextField();
         txt_usuario = new javax.swing.JTextField();
         lbl_titulo = new javax.swing.JLabel();
         combo_box = new javax.swing.JComboBox<>();
         lbl_contrasenia_nueva = new javax.swing.JLabel();
-        txt_contrasenia = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
         lbl_cedula = new javax.swing.JLabel();
@@ -40,6 +39,8 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_cedula2 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
         btn_aceptar = new javax.swing.JButton();
+        txt_confirmeClave = new javax.swing.JPasswordField();
+        txt_contraseniaNueva = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         btn_agregar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
@@ -67,10 +68,6 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         LblContraseña.setText(" Confirme su contraseña:");
         dialogo_usuario.getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 346, -1, -1));
 
-        txt_confirma_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
-        txt_confirma_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_confirma_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 339, 220, -1));
-
         txt_cedula.setBackground(new java.awt.Color(240, 240, 240));
         txt_cedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dialogo_usuario.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 82, 220, -1));
@@ -90,11 +87,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_contrasenia_nueva.setForeground(new java.awt.Color(255, 255, 255));
         lbl_contrasenia_nueva.setText("Contraseña:");
-        dialogo_usuario.getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 302, 148, -1));
-
-        txt_contrasenia.setBackground(new java.awt.Color(240, 240, 240));
-        txt_contrasenia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 295, 220, -1));
+        dialogo_usuario.getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 302, 180, -1));
 
         txt_nombre.setEditable(false);
         txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -133,9 +126,17 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         btn_aceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         dialogo_usuario.getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 103, 30));
 
+        txt_confirmeClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_confirmeClaveActionPerformed(evt);
+            }
+        });
+        dialogo_usuario.getContentPane().add(txt_confirmeClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_contraseniaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 220, -1));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        dialogo_usuario.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 470));
+        dialogo_usuario.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 470));
 
         setClosable(true);
         setTitle("Usuarios");
@@ -169,21 +170,29 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         tabla_usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "       Código", "       Código Socio", "      Código Rol", "      Nombre Usuario"
+                "     Numero", "      Cedulla", "     Tipo de Rol", "     Nombre", "     Usuario"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabla_usuario.setGridColor(new java.awt.Color(255, 153, 51));
         tabla_usuario.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tabla_usuario.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(tabla_usuario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 500, 253));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 500, 253));
 
         txt_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +229,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
+    private void txt_confirmeClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_confirmeClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_confirmeClaveActionPerformed
+
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
     }
@@ -238,6 +251,14 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
 
     public JButton getBtn_modificar() {
         return btn_modificar;
+    }
+
+    public JLabel getLbl_contrasenia_nueva() {
+        return lbl_contrasenia_nueva;
+    }
+
+    public void setLbl_contrasenia_nueva(JLabel lbl_contrasenia_nueva) {
+        this.lbl_contrasenia_nueva = lbl_contrasenia_nueva;
     }
 
     public void setBtn_modificar(JButton btm_modificar) {
@@ -310,21 +331,23 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         this.txt_cedula = txt_cedula;
     }
 
-    public JTextField getTxt_confirma_contrasenia() {
-        return txt_confirma_contrasenia;
+    public JPasswordField getTxt_confirmeClave() {
+        return txt_confirmeClave;
     }
 
-    public void setTxt_confirma_contrasenia(JTextField txt_confirma_contrasenia) {
-        this.txt_confirma_contrasenia = txt_confirma_contrasenia;
+    public void setTxt_confirmeClave(JPasswordField txt_confirmeClave) {
+        this.txt_confirmeClave = txt_confirmeClave;
     }
 
-    public JTextField getTxt_contrasenia() {
-        return txt_contrasenia;
+    public JPasswordField getTxt_contraseniaNueva() {
+        return txt_contraseniaNueva;
     }
 
-    public void setTxt_contrasenia(JTextField txt_contrasenia) {
-        this.txt_contrasenia = txt_contrasenia;
+    public void setTxt_contraseniaNueva(JPasswordField txt_contraseniaNueva) {
+        this.txt_contraseniaNueva = txt_contraseniaNueva;
     }
+
+ 
 
     public JTextField getTxt_nombre() {
         return txt_nombre;
@@ -393,8 +416,8 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cedula;
-    private javax.swing.JTextField txt_confirma_contrasenia;
-    private javax.swing.JTextField txt_contrasenia;
+    private javax.swing.JPasswordField txt_confirmeClave;
+    private javax.swing.JPasswordField txt_contraseniaNueva;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
