@@ -126,7 +126,7 @@ public class Control_VistaPrincipal {
     public void IniciarVentanaPrivilegios() {
         Modelo_privilegios modelo_privilegios = new Modelo_privilegios();
         Vista_Privilegios vista_privilegios = new Vista_Privilegios();
-        vista.getDesk_Principal().add(vista_privilegios);
+        Centrar(vista_privilegios);
         Control_Privilegios cp = new Control_Privilegios(modelo_privilegios, vista_privilegios);
         cp.iniciarControl();
     }
