@@ -171,15 +171,16 @@ public class Modelo_Socio extends Socio {
 
     public String[] nombres(String cedula) {
 
-        String[] socio = new String[2];
+        String[] socio = new String[3];
 
-        String sql = "SELECT nombre_socio, apellido_socio from socio where cedula_socio= '" + cedula + "'";
+        String sql = "SELECT nombre_socio, apellido_socio, tipo_rol from socio s join usuario u on s.codigo_socio=u.codigo_socio join rol r on u.codigo_rol="
+                + " r.codigo_rol  where cedula_socio= '" + cedula + "'";
         ResultSet rs = con.consulta(sql);
         try {
             while (rs.next()) {
-                System.out.println(rs.getString("nombre_socio"));
                 socio[0] = rs.getString("nombre_socio");
                 socio[1] = rs.getString("apellido_socio");
+                socio[2] = rs.getString("tipo_rol");
             }
             return socio;
         } catch (SQLException ex) {
