@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -139,7 +140,7 @@ public class Control_Reunion {
                 habilitarBoton(evt);
             }
         });
-
+//vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
         vista.getBtnGuardar().addActionListener(l -> {
             try {
                 guardarReunion();
@@ -152,7 +153,7 @@ public class Control_Reunion {
         vista.getJTdatos().addMouseListener(ml);
         vista.getTxtBuscar().addKeyListener(kl);
         vista.getBtnLimpiar().addActionListener(l -> limpiar());
-        vista.getBtn_Buscar_consult1().addActionListener(l -> BuscarPorFecha(vista.getJTdatos(), vista.getjDcDesde1().getDate(), vista.getjDcHasta1().getDate()));
+        vista.getBtn_Buscar_consult1().addActionListener(l -> BuscarPorFecha(vista.getJTdatos(), vista.getjDcDesde1().getDate()));
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vista.getTxtDuracion().addKeyListener(kl);
         vista.getTxtTopic().addKeyListener(kl);
@@ -190,6 +191,8 @@ public class Control_Reunion {
                     modelo.setFecha_reunion(format);
                     modelo.setDuracion_reunion(duracion_reunion);
                     modelo.setTopico_reunion(topico_reunion);
+                    //codigo_reunion = 0;
+                    //codigo_reunion = Integer.parseInt(vista.getTxtCodReu().getText());
                     if (modelo.AgregarReunion()) {
                         JOptionPane.showMessageDialog(null, "Se guardo la reunion correctamente", "", 1);
                         cargarLista("");
@@ -271,6 +274,7 @@ public class Control_Reunion {
     }
 
     public void cargarLista(String aguja) {
+        //aguja=vista.getTxtCodReu().getText();
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) vista.getJTdatos().getModel();
         tblModel.setNumRows(0);
@@ -331,20 +335,13 @@ public class Control_Reunion {
         vista.getJdFecha().setDate(null);
     }
 
-    public void BuscarPorFecha(JTable tabla, Date date, Date date1) {
-        Date fecha1 = null;
-        Date fecha2 = null;
-        String aguja1 = null;
-        String aguja2 = null;
-        if (vista.getjDcDesde1().getDate() != null || vista.getjDcHasta1().getDate() != null) {
-            //PRIMERA FECHA
-            fecha1 = vista.getjDcDesde1().getDate();
+    public void BuscarPorFecha(JTable tabla, Date date) {
+        Date fecha = null;
+        String aguja = null;
+        if (vista.getjDcDesde1().getDate() != null) {
+            fecha = vista.getjDcDesde1().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            aguja1 = sdf.format(fecha1);
-            //SEGUNDA FECHA
-            fecha2 = vista.getjDcHasta1().getDate();
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-            aguja2 = sd.format(fecha2);
+            aguja = sdf.format(fecha);
             tabla.setDefaultRenderer(Object.class, new imgTabla());
             DefaultTableModel dt = new DefaultTableModel() {
                 @Override
@@ -352,31 +349,11 @@ public class Control_Reunion {
                     return false;
                 }
             };
-            dt.addColumn("Codigo");
-            dt.addColumn("Fecha");
-            dt.addColumn("Duracion");
-            dt.addColumn("Tópico");
-            modelo = new Modelo_Reunion();
-            Reunion re =new Reunion();
-            List<Reunion> lr =modelo.listaReunion(aguja2);
-            if (lr.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se encontraron resultados", "", 2);
-            } else {
-                for (int i = 0; i < lr.size(); i++) {
-                    Object filas[] = new Object[4];
-                    re = lr.get(i);
-                    filas[0] = re.getCodigo_reunion();
-                    filas[1] = re.getFecha_reunion();
-                    filas[2] = re.getDuracion_reunion();
-                    filas[3] = re.getTopico_reunion();
-                    dt.addRow(filas);
-                }
-                tabla.setModel(dt);
-                tabla.setRowHeight(32);
-            }
+            
+            
             
         } else {
-            JOptionPane.showMessageDialog(null, "Primero seleccione ambas fecha para buscar", "", 0);
+            JOptionPane.showMessageDialog(null, "Primero seleccione una fecha para buscar", "", 0);
         }
 
     }
