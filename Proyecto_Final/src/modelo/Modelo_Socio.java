@@ -1,4 +1,3 @@
-
 package modelo;
 
 import java.util.ArrayList;
@@ -7,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,18 +21,16 @@ public class Modelo_Socio extends Socio {
     }
 
     ConexionPG con = new ConexionPG();
-    
-       public boolean CrearSocio() {
+
+    public boolean CrearSocio() {
         String sql = new String();
-        boolean resultado;
 //        String sentencia;
-        Socio objtSocio = new Socio();
+
         sql = "INSERT INTO socio (cedula_socio,nombre_socio,apellido_socio,correo_socio,fecha_nac_socio,telefono_socio,direccion_socio,fecha_ingreso_socio,numero_de_cuenta,estado_socio)";
-        sql = sql + "VALUES('" + objtSocio.getCedula_socio() + "','" + objtSocio.getNombre_socio() + "','" + objtSocio.getApellido_socio() + "','"
-                + objtSocio.getCorreo_socio() + "','" + objtSocio.getFecha_nac_socio() + "','" + objtSocio.getTelefono_socio() + "','" 
-                + objtSocio.getDireccion_socio()+ "','" + objtSocio.getFecha_ingreso() + "','" + objtSocio.getNumero_cuenta() + "','TRUE')";
-        resultado=con.accion(sql);
-        return resultado;
+        sql = sql + "VALUES('" + getCedula_socio() + "','" + getNombre_socio() + "','" + getApellido_socio() + "','"
+                + getCorreo_socio() + "','" + getFecha_nac_socio() + "','" + getTelefono_socio() + "','"
+                + getDireccion_socio() + "','" + getFecha_ingreso() + "','" + getNumero_cuenta() + "','TRUE')";
+        return con.accion(sql);
 
     }
 
@@ -68,7 +64,7 @@ public class Modelo_Socio extends Socio {
         }
 
     }
-    
+
     //Consulta y método para realizar la búsqueda del socio
     public List<Socio> socios(String aguja) {
 
@@ -78,8 +74,7 @@ public class Modelo_Socio extends Socio {
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(correo_socio) like UPPER('%" + aguja + "%')";
-            
-             
+
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
@@ -107,8 +102,6 @@ public class Modelo_Socio extends Socio {
 
     }
 
-
-
     public boolean editar_socio(String id) {
         String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"
                 + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
@@ -118,16 +111,46 @@ public class Modelo_Socio extends Socio {
         return con.accion(sql);
     }
 
-    public boolean inactivar_socio(String codigo) {
-        String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + getCodigo_socio() + ";";
+    public boolean inactivar_socio(int codigo) {
+        String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + codigo + ";";
         return con.accion(sql);
     }
 
     public boolean mostrar_socio_activo() {
         String sql;
         sql = "SELECT * FROM socio where estado_socio='TRUE' order by fecha_ingreso_socio";
-        con.consulta(sql);
         return con.accion(sql);
+    }
+
+   public List<Socio> nuevaCuenta(int num) {
+
+        try {
+            String sql = "SELECT * FROM socio WHERE numero_de_cuenta="+num+";";
+            ResultSet rs = con.consulta(sql);
+            List<Socio> ls = new ArrayList<Socio>();
+
+            while (rs.next()) {
+                Socio socio = new Socio();
+                socio.setCodigo_socio(rs.getInt("codigo_socio"));
+                socio.setCedula_socio(rs.getString("cedula_socio"));
+                socio.setNombre_socio(rs.getString("nombre_socio"));
+                socio.setApellido_socio(rs.getString("apellido_socio"));
+                socio.setCorreo_socio(rs.getString("correo_socio"));
+                socio.setFecha_nac_socio(rs.getString("fecha_nac_socio"));
+                socio.setTelefono_socio(rs.getString("telefono_socio"));
+                socio.setDireccion_socio(rs.getString("direccion_socio"));
+                socio.setFecha_ingreso(rs.getString("fecha_ingreso_socio"));
+                socio.setNumero_cuenta(rs.getInt("numero_de_cuenta"));
+
+                ls.add(socio);
+            }
+            rs.close();
+            return ls;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
     }
 
     public int codigoSocio(String cedula) {

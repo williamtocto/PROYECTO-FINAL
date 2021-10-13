@@ -5,7 +5,6 @@
  */
 package controlador;
 
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
@@ -52,6 +51,7 @@ public class Control_Socio {
         vista.getBtnModificar().setEnabled(false);
         vista.getBtnInactivar().setEnabled(false);
     }
+
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
     private void habilitarBoton(java.awt.event.MouseEvent evt) {
         int column = vista.getJtDatosSocio().getColumnModel().getColumnIndexAtX(evt.getX());
@@ -127,23 +127,16 @@ public class Control_Socio {
                 habilitarBoton(evt);
             }
         });
-        vista.getBtnRegistrar().addActionListener(l -> crearSocio());
+//        vista.getBtnRegistrar().addActionListener(l -> crearSocio());
         vista.getTxtBuscar().addKeyListener(buscador);
         vista.getBtnRegistrar().addActionListener(l -> mostrarDialogo(1));
         vista.getBtnModificar().addActionListener(l -> mostrarDialogo(2));
-        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
-        vista.getBtnAceptar().addActionListener(l -> {
-
-            try {
-                DefinirMetodo(n);
-            } catch (SQLException ex) {
-                Logger.getLogger(Control_Socio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        });
+//        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
+        vista.getBtnAceptar().addActionListener(l -> DefinirMetodo(n));
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnLimpiar().addActionListener(l -> limpiar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
+        vista.getBtnNuevaCuenta().addActionListener(l->nuevaCuenta());
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vista.getTxtApellido().addKeyListener(validar);
         vista.getTxtCedula().addKeyListener(validar);
@@ -164,7 +157,8 @@ public class Control_Socio {
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
 
-        Date fecha = null;
+        Date fecha;
+        Date fecha2;
         String formato = null;
         String formato2 = null;
         // Tranformar la fecha a String
@@ -173,16 +167,17 @@ public class Control_Socio {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(fecha);
         } else if (vista.getJdFechaIng().getDate() != null) {
-            fecha = vista.getJdFechaIng().getDate();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            formato2 = sdf.format(fecha);
+            fecha2 = vista.getJdFechaIng().getDate();
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            formato2 = sdf2.format(fecha2);
         }
-
+        System.out.println(formato);
+        System.out.println(formato2);
         Modelo_Socio socio = new Modelo_Socio();
 
-        socio.setCodigo_socio(Integer.valueOf(cod_socio));
+        socio.setCodigo_socio(Integer.parseInt(cod_socio));
         socio.setCedula_socio(ced_socio);
-        socio.setNumero_cuenta(Integer.valueOf(num_cuenta));
+        socio.setNumero_cuenta(Integer.parseInt(num_cuenta));
         socio.setNombre_socio(nombre);
         socio.setApellido_socio(apellido);
         socio.setCorreo_socio(correo);
@@ -315,7 +310,7 @@ public class Control_Socio {
         vista.getJdFechaIng().setDate(null);
     }
 
-    public void DefinirMetodo(int n) throws SQLException {
+    public void DefinirMetodo(int n) {
 
         if (n == 1) {
             fila = vista.getJtDatosSocio().getSelectedRow();
@@ -382,23 +377,45 @@ public class Control_Socio {
 
     }
 
-    public void inactivarSocio() {
-        Modelo_Socio modelo = new Modelo_Socio();
-        int op = JOptionPane.showOptionDialog(null,
-                "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
-        if (op == 0) {
-            try {
-                String codigo = vista.getTxtCodigo().getText();
-                modelo.inactivar_socio(codigo);
-                cargarDatos();
+    public void nuevaCuenta() {
+        List<Socio> ls = modelo.socios();
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
+        int n;
+        String num;
+        do {
+            n = 1;
+            num = n + "";
+            for (int i = 0; i < 9; i++) {
+
+                n = (int) Math.floor(Math.random() * 9);
+                num = num + n;
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
-        }
+            ls = modelo.nuevaCuenta(Integer.parseInt(num));
+            if (ls.size() == 0) {
+                break;
+            }
+        } while (true);
+        vista.getTxtNumCuenta().setText(num);
 
     }
+
+//    public void inactivarSocio() {
+//        Modelo_Socio modelo = new Modelo_Socio();
+//        int op = JOptionPane.showOptionDialog(null,
+//                "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+//        if (op == 0) {
+//            try {
+//                String codigo = vista.getTxtCodigo().getText();
+//                modelo.inactivar_socio(codigo);
+//                cargarDatos();
+//
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+//        }
+
+//    }
 //    
 }

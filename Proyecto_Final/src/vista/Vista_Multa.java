@@ -201,7 +201,7 @@ public class Vista_Multa extends javax.swing.JInternalFrame {
         getContentPane().add(jdFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 142, 20));
         getContentPane().add(jdFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 142, 20));
 
-        jComboTipoMulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboTipoMulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAGADA", "PENDIENTE" }));
         getContentPane().add(jComboTipoMulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 140, 30));
         getContentPane().add(txtCedulaSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 140, -1));
 
