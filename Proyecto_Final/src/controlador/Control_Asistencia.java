@@ -4,12 +4,23 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Asistencia;
+import modelo.ConexionPG;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Reunion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.Vista_Asistencia;
 
 public class Control_Asistencia {
@@ -26,9 +37,9 @@ public class Control_Asistencia {
         vista.setTitle("Asistencia");
         vista.setVisible(true);
         vista.getBtn_guardarFaltas().setEnabled(false);
-        
+
     }
-    
+
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
     private void habilitarBoton(java.awt.event.MouseEvent evt) {
         int column = vista.getTabla().getColumnModel().getColumnIndexAtX(evt.getX());
@@ -40,9 +51,9 @@ public class Control_Asistencia {
         }
 
     }
-    
+
     public void iniciarControl() {
-        KeyListener kl = new KeyListener(){
+        KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 //VALIDACIONES
@@ -71,16 +82,14 @@ public class Control_Asistencia {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                
+
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                
             }
-            
         };
-        
+
         vista.getBtn_cargarLista().addActionListener(l -> Cargar());
         vista.getBtn_guardarFaltas().addActionListener(l -> GuardarDatos());
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
@@ -90,41 +99,84 @@ public class Control_Asistencia {
                 habilitarBoton(evt);
             }
         });
+        vista.getBtn_imprimir().addActionListener(l -> abrirDialogo());
+        vista.getBtnAceptar().addActionListener(l -> imprimir());
+        vista.getBtnCancelar().addActionListener(l -> vista.getjDialog1().dispose());
+    }
+
+    public void abrirDialogo() {
+        vista.getjDialog1().setSize(370, 280);
+        vista.getjDialog1().setVisible(true);
+        vista.getjDialog1().setLocationRelativeTo(vista);
+    }
+
+    public void imprimir() {
+
+        ConexionPG con = new ConexionPG();
+        vista.getjDialog1().dispose();
+        Date date1 = null;
+        Date date2 = null;
+        if (vista.getDateInicio().getDate() != null) {
+            date1 = vista.getDateInicio().getDate();
+        }
+        if (vista.getDateFin().getDate() != null) {
+            date2 = vista.getDateFin().getDate();
+        }
+        try {
+            JasperReport reporte = null;
+            String ruta = "src\\vista\\reportes\\ReporteAsistencia_1_1.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            Map parametro = new HashMap();
+            parametro.put("fecha_inicio", date1);
+            parametro.put("fecha_fin", date2);
+            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, con.getCon());
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Control_Asistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void Cargar() {
         Date date = null;
         String formato = null;
+        boolean b = false;
         if (vista.getDate_chooser().getDate() != null) {
             date = vista.getDate_chooser().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(date);
+            b = true;
         }
-        String fecha = formato;
-        Modelo_Reunion mr = new Modelo_Reunion();
-        DefaultTableModel tblModel;
-        tblModel = (DefaultTableModel) vista.getTabla().getModel();
-        tblModel.setNumRows(0);
-        vista.getTabla().getColumnModel().getColumn(0).setPreferredWidth(5);
-        vista.getTabla().getColumnModel().getColumn(3).setPreferredWidth(3);
+        if (b) {
+            String fecha = formato;
+            Modelo_Reunion mr = new Modelo_Reunion();
+            DefaultTableModel tblModel;
+            tblModel = (DefaultTableModel) vista.getTabla().getModel();
+            tblModel.setNumRows(0);
+            vista.getTabla().getColumnModel().getColumn(0).setPreferredWidth(5);
+            vista.getTabla().getColumnModel().getColumn(3).setPreferredWidth(3);
 
-        codigo_reunion = mr.codigoReunion(fecha);
+            codigo_reunion = mr.codigoReunion(fecha);
 
-        if (codigo_reunion == 0) {
-            JOptionPane.showMessageDialog(null, "No existe esta reunion", "", 0);
-        } else {
-            List<Asistencia> lista = modelo.listarSocioFecha(codigo_reunion);
-            Boton = 1;
-            if (lista.isEmpty()) {
-                lista = modelo.ListarSocios();
-                Boton = 0;
+            if (codigo_reunion == 0) {
+                JOptionPane.showMessageDialog(null, "No existe esta reunion", "", 0);
+            } else {
+                List<Asistencia> lista = modelo.listarSocioFecha(codigo_reunion);
+                Boton = 1;
+                if (lista.isEmpty()) {
+                    lista = modelo.ListarSocios();
+                    Boton = 0;
+                }
+                lista.stream().forEach(a -> {
+                    a.setCod_asistencia(codigo_reunion);
+                    String[] asistencia = {String.valueOf(a.getCod_socio()), a.getNombre(),
+                        a.getApellido(), String.valueOf(a.getEstado())};
+                    tblModel.addRow(asistencia);
+                });
             }
-            lista.stream().forEach(a -> {
-                a.setCod_asistencia(codigo_reunion);
-                String[] asistencia = {String.valueOf(a.getCod_socio()), a.getNombre(),
-                    a.getApellido(), String.valueOf(a.getEstado())};
-                tblModel.addRow(asistencia);
-            });
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione la fecha", "", 0);
         }
 
     }
@@ -132,22 +184,39 @@ public class Control_Asistencia {
     public void GuardarDatos() {
 
         boolean a = false;
+        boolean b = false;
 
         int op = JOptionPane.showOptionDialog(null, "ESTA SEGURO DE GUARDAR ESTOS DATOS", "",
                 JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
 
         if (op == 0) {
-
+            int codigo_socio = 0;
+            int estado = 0;
             for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
+                try {
 
-                int codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
-                int estado = Integer.parseInt((String) vista.getTabla().getValueAt(i, 3));
+                    codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
+                    estado = Integer.parseInt((String) vista.getTabla().getValueAt(i, 3));
+                    if (estado != 0 && estado != 1) {
+                        JOptionPane.showMessageDialog(null, "Registro Socio: " + vista.getTabla().getValueAt(i, 1) + " "
+                                + vista.getTabla().getValueAt(i, 2), "", 0);
 
-                if (estado != 0 && estado != 1) {
-                    JOptionPane.showMessageDialog(null, "Registro Socio: " + vista.getTabla().getValueAt(i, 1) + " "
+                        b = true;
+                        break;
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Valor incorrecto: " + vista.getTabla().getValueAt(i, 1) + " "
                             + vista.getTabla().getValueAt(i, 2), "", 0);
+                    b = true;
                     break;
-                } else {
+                }
+            }
+            if (b == false) {
+                for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
+                    codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
+                    estado = Integer.parseInt((String) vista.getTabla().getValueAt(i, 3));
                     modelo.setCod_socio(codigo_socio);
                     modelo.setEstado(estado);
                     modelo.setCod_reunion(codigo_reunion);
@@ -157,17 +226,18 @@ public class Control_Asistencia {
                         }
                     } else {
                         if (modelo.Editar()) {
-                            a = false;
+                            b = false;
                         }
                     }
 
                 }
             }
-            Cargar();
 
             if (a == true) {
+                Cargar();
                 JOptionPane.showMessageDialog(null, "Datos guardados correctamente", "", 1);
-            } else {
+            } else if (b == false) {
+                Cargar();
                 JOptionPane.showMessageDialog(null, "Datos modificados correctamente", "", 1);
             }
 

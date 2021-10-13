@@ -1,30 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
 import com.toedter.calendar.JDateChooser;
-import javax.accessibility.AccessibleContext;
-import javax.swing.Icon;
 import javax.swing.JButton;
-import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
+import javax.swing.JDialog;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.EventListenerList;
-import javax.swing.plaf.ComponentUI;
 
-/**
- *
- * @author PCX
- */
+
 public class Vista_Asistencia extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Vista_Asistencia
-     */
+   
     public Vista_Asistencia() {
         initComponents();
     }
@@ -47,6 +32,46 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
 
     public JButton getBtn_imprimir() {
         return btn_imprimir;
+    }
+
+    public JButton getBtnAceptar() {
+        return btnAceptar;
+    }
+
+    public void setBtnAceptar(JButton btnAceptar) {
+        this.btnAceptar = btnAceptar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JDateChooser getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(JDateChooser dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public JDateChooser getDateInicio() {
+        return dateInicio;
+    }
+
+    public void setDateInicio(JDateChooser dateInicio) {
+        this.dateInicio = dateInicio;
+    }
+
+    public JDialog getjDialog1() {
+        return jDialog1;
+    }
+
+    public void setjDialog1(JDialog jDialog1) {
+        this.jDialog1 = jDialog1;
     }
 
     public void setBtn_imprimir(JButton btn_imprimir) {
@@ -80,6 +105,14 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        dateInicio = new com.toedter.calendar.JDateChooser();
+        dateFin = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnAceptar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -89,6 +122,25 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
         btn_guardarFaltas = new javax.swing.JButton();
         btn_imprimir = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDialog1.getContentPane().add(dateInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 160, -1));
+        jDialog1.getContentPane().add(dateFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, -1));
+
+        jLabel3.setText("Seleccione las fechas para el Reporte");
+        jDialog1.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+
+        jLabel4.setText("Fin");
+        jDialog1.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, 20));
+
+        jLabel6.setText("Inicio");
+        jDialog1.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, 20));
+
+        btnAceptar.setText("Aceptar");
+        jDialog1.getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+
+        btnCancelar.setText("Cancelar");
+        jDialog1.getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         setClosable(true);
         setTitle("Asistencia");
@@ -155,13 +207,21 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btn_cargarLista;
     private javax.swing.JButton btn_guardarFaltas;
     private javax.swing.JButton btn_imprimir;
+    private com.toedter.calendar.JDateChooser dateFin;
+    private com.toedter.calendar.JDateChooser dateInicio;
     private com.toedter.calendar.JDateChooser date_chooser;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
