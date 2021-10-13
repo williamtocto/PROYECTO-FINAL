@@ -166,7 +166,6 @@ public class Modelo_Socio extends Socio {
             Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
-
     }
 
     public String[] nombres(String cedula) {
