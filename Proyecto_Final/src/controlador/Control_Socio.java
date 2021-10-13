@@ -5,16 +5,12 @@
  */
 package controlador;
 
-import java.awt.Desktop;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -24,11 +20,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.ConexionPG;
-import modelo.Modelo_Acta;
 import modelo.Modelo_Socio;
 import modelo.Socio;
 import net.sf.jasperreports.engine.JRException;
