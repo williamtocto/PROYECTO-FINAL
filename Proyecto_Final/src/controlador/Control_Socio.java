@@ -136,7 +136,7 @@ public class Control_Socio {
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnLimpiar().addActionListener(l -> limpiar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
-        vista.getBtnNuevaCuenta().addActionListener(l->nuevaCuenta());
+        vista.getBtnNuevaCuenta().addActionListener(l -> nuevaCuenta());
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vista.getTxtApellido().addKeyListener(validar);
         vista.getTxtCedula().addKeyListener(validar);
@@ -148,7 +148,7 @@ public class Control_Socio {
 
     private void crearSocio() {
 
-        String cod_socio = vista.getTxtCodigo().getText();
+//        String cod_socio = vista.getTxtCodigo().getText();
         String ced_socio = vista.getTxtCedula().getText();
         String num_cuenta = vista.getTxtNumCuenta().getText();
         String nombre = vista.getTxtNombre().getText();
@@ -166,7 +166,8 @@ public class Control_Socio {
             fecha = vista.getJdFechaNac().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(fecha);
-        } else if (vista.getJdFechaIng().getDate() != null) {
+        }
+        if (vista.getJdFechaIng().getDate() != null) {
             fecha2 = vista.getJdFechaIng().getDate();
             SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
             formato2 = sdf2.format(fecha2);
@@ -175,7 +176,7 @@ public class Control_Socio {
         System.out.println(formato2);
         Modelo_Socio socio = new Modelo_Socio();
 
-        socio.setCodigo_socio(Integer.parseInt(cod_socio));
+//        socio.setCodigo_socio(Integer.parseInt(cod_socio));
         socio.setCedula_socio(ced_socio);
         socio.setNumero_cuenta(Integer.parseInt(num_cuenta));
         socio.setNombre_socio(nombre);
@@ -233,8 +234,9 @@ public class Control_Socio {
         String correo = vista.getTxtEmail().getText();
         String dir = vista.getTxtDireccion().getText();
         String telf = vista.getTxtTelefono().getText();
-
-        Date fecha = null;
+  
+        Date fecha;
+        Date fecha2;
         String formato = null;
         String formato2 = null;
         // Tranformar la fecha a String
@@ -242,10 +244,11 @@ public class Control_Socio {
             fecha = vista.getJdFechaNac().getDate();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             formato = sdf.format(fecha);
-        } else if (vista.getJdFechaIng().getDate() != null) {
-            fecha = vista.getJdFechaIng().getDate();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            formato2 = sdf.format(fecha);
+        }
+        if (vista.getJdFechaIng().getDate() != null) {
+            fecha2 = vista.getJdFechaIng().getDate();
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            formato2 = sdf2.format(fecha2);
         }
 
         Modelo_Socio socio = new Modelo_Socio();
@@ -415,7 +418,6 @@ public class Control_Socio {
 //        } else {
 //            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
 //        }
-
 //    }
 //    
 }
