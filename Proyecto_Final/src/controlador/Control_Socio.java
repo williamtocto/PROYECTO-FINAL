@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -149,7 +150,7 @@ public class Control_Socio {
         vista.getTxtBuscar().addKeyListener(buscador);
         vista.getBtnRegistrar().addActionListener(l -> mostrarDialogo(1));
         vista.getBtnModificar().addActionListener(l -> mostrarDialogo(2));
-//        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
+        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
         vista.getBtnAceptar().addActionListener(l -> DefinirMetodo(n));
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
@@ -415,10 +416,9 @@ public class Control_Socio {
         vista.getJDialogo().dispose();
 
     }
-
+//Método para generar el numero de cuenta automático del socio
     public void nuevaCuenta() {
         List<Socio> ls = modelo.socios();
-
         int n;
         String num;
         do {
@@ -435,25 +435,46 @@ public class Control_Socio {
             }
         } while (true);
         vista.getTxtNumCuenta().setText(num);
-
     }
 
-//    public void inactivarSocio() {
-//        Modelo_Socio modelo = new Modelo_Socio();
-//        int op = JOptionPane.showOptionDialog(null,
-//                "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
-//        if (op == 0) {
-//            try {
-//                String codigo = vista.getTxtCodigo().getText();
-//                modelo.inactivar_socio(codigo);
-//                cargarDatos();
-//
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
-//        }
-//    }
+    public void inactivarSocio() {
+        Modelo_Socio ms = new Modelo_Socio();
+        int op = JOptionPane.showOptionDialog(null,
+                "¿Está seguro que desea inactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+        if (op == 0) {
+            try {
+                int fila = vista.getJtDatosSocio().getSelectedRow();
+                String cedula=String.valueOf(vista.getJtDatosSocio().getValueAt(fila,1));
+                if(ms.inactivar_socio(cedula)){
+                   System.out.println(cedula);
+                   JOptionPane.showMessageDialog(null, "Acción realizada correctamente", "", 0);
+                   cargarDatos(); 
+                }
+                
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+        }
+    }
+     public int ValidarFechaNac() throws ParseException {
+        Date fechaDispositivo = new Date();
+        int f = 0;
+        Date fecha = null;
+        String fechaNac = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaActual = sdf.format(fechaDispositivo);
+        // Tranformar la fecha a String
+        if (vista.getJdFechaIng().getDate() != null) {
+            fecha = vista.getJdFechaNac().getDate();
+            fechaNac = sdf.format(fecha);
+            fechaDispositivo = sdf.parse(fechaActual);
+            fecha = sdf.parse(fechaNac);
+            f = fechaDispositivo.compareTo(fecha);
+        }
+        return f;
+    }
 //    
 }

@@ -37,7 +37,8 @@ public class Modelo_Socio extends Socio {
     public List<Socio> socios() {
 
         try {
-            String sql = "SELECT * FROM socio WHERE nombre_socio<>'Cuenta'";
+            String sql = "SELECT * FROM socio WHERE estado_socio='true' AND nombre_socio<>'Cuenta' "
+                    + "ORDER BY fecha_ingreso_socio";
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
@@ -74,6 +75,7 @@ public class Modelo_Socio extends Socio {
             sql += " UPPER(nombre_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(apellido_socio) like UPPER('%" + aguja + "%') OR";
             sql += " UPPER(correo_socio) like UPPER('%" + aguja + "%')";
+ 
 
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
@@ -111,8 +113,8 @@ public class Modelo_Socio extends Socio {
         return con.accion(sql);
     }
 
-    public boolean inactivar_socio(int codigo) {
-        String sql = "UPDATE socio SET estado_socio=" + "'FALSE'" + "WHERE codigo_socio=" + codigo + ";";
+    public boolean inactivar_socio(String ced) {
+        String sql = "UPDATE socio SET estado_socio='FALSE'" + "WHERE cedula_socio='" + ced + "';";
         return con.accion(sql);
     }
 
@@ -122,10 +124,10 @@ public class Modelo_Socio extends Socio {
         return con.accion(sql);
     }
 
-   public List<Socio> nuevaCuenta(int num) {
+    public List<Socio> nuevaCuenta(int num) {
 
         try {
-            String sql = "SELECT * FROM socio WHERE numero_de_cuenta="+num+";";
+            String sql = "SELECT * FROM socio WHERE numero_de_cuenta=" + num + ";";
             ResultSet rs = con.consulta(sql);
             List<Socio> ls = new ArrayList<Socio>();
 
@@ -167,11 +169,12 @@ public class Modelo_Socio extends Socio {
             return 0;
         }
     }
-    public int validarCed(){
+
+    public int validarCed() {
         int fila = 0;
         String sql = "SELECT * from socio where cedula_socio='" + getCedula_socio() + "';";
         ResultSet rs = con.consulta(sql);
-        
+
         try {
             while (rs.next()) {
                 fila++;
@@ -203,7 +206,7 @@ public class Modelo_Socio extends Socio {
         }
 
     }
-    
+
     public String[] nombres2(String cedula) {
 
         String[] socio = new String[2];
