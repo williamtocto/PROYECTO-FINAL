@@ -257,7 +257,7 @@ public class Control_user {
                 desactivarBotones();
                 JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito", "", 0);
             } else {
-                JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+                JOptionPane.showMessageDialog(null, "No se ha podido eliminar", "", 0);
             }
         }
     }
