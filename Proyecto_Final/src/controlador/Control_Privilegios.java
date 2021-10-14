@@ -215,7 +215,7 @@ public class Control_Privilegios {
     }
 
     public void limpiar() {
-
+        
     }
 
     public void eliminarPrivilegio() throws SQLException {

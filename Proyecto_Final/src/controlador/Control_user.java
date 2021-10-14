@@ -197,7 +197,7 @@ public class Control_user {
             vu.getDialogo_usuario().setVisible(true);
         } else {
             if (fila == -1) {
-                JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
+                JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "", 2);
             } else {
                 vu.getTxt_cedula().setEditable(false);
                 TablaDatos();
@@ -249,7 +249,7 @@ public class Control_user {
     public void eliminarUsuario() {
         fila = vu.getTabla_usuario().getSelectedRow();
         if (fila == -1) {
-            JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
+            JOptionPane.showMessageDialog(vu, "SELECCIONE UN DATO DE LA TABLA", "", 2);
         } else {
             modelo.setCodigo_usuario(Integer.parseInt(String.valueOf(vu.getTabla_usuario().getValueAt(fila, 0))));
             if (modelo.EliminarUsuario()) {
