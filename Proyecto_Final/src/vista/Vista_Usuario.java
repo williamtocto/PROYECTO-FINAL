@@ -51,68 +51,75 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        dialogo_usuario.setTitle("Usuarios");
         dialogo_usuario.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LblCodigo_rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblCodigo_rol.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblCodigo_rol.setForeground(new java.awt.Color(255, 255, 255));
         LblCodigo_rol.setText("Tipo de Rol:");
-        dialogo_usuario.getContentPane().add(LblCodigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 209, 136, -1));
+        dialogo_usuario.getContentPane().add(LblCodigo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 136, -1));
 
-        LblNombre_usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNombre_usuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblNombre_usuario.setForeground(new java.awt.Color(255, 255, 255));
         LblNombre_usuario.setText("Nombre del Usuario:");
-        dialogo_usuario.getContentPane().add(LblNombre_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 255, 200, 20));
+        dialogo_usuario.getContentPane().add(LblNombre_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 200, 20));
 
-        LblContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblContraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LblContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        LblContraseña.setText(" Confirme su contraseña:");
-        dialogo_usuario.getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 346, -1, -1));
+        LblContraseña.setText(" Confirmar contraseña:");
+        dialogo_usuario.getContentPane().add(LblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         txt_cedula.setBackground(new java.awt.Color(240, 240, 240));
         txt_cedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 82, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 82, 220, 20));
 
         txt_usuario.setBackground(new java.awt.Color(240, 240, 240));
         txt_usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 251, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 220, 20));
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_titulo.setText("Usuario");
-        dialogo_usuario.getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 260, 40));
+        lbl_titulo.setText("Usuarios");
+        dialogo_usuario.getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 260, 40));
 
         combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        dialogo_usuario.getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 207, 220, -1));
+        dialogo_usuario.getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 220, -1));
 
-        lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_contrasenia_nueva.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_contrasenia_nueva.setForeground(new java.awt.Color(255, 255, 255));
         lbl_contrasenia_nueva.setText("Contraseña:");
-        dialogo_usuario.getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 302, 180, -1));
+        dialogo_usuario.getContentPane().add(lbl_contrasenia_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, -1));
 
         txt_nombre.setEditable(false);
         txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 126, 220, -1));
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+        dialogo_usuario.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 220, 20));
 
         txt_apellido.setEditable(false);
         txt_apellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dialogo_usuario.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 163, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 220, 20));
 
-        lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cedula.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_cedula.setText("Cedula:");
-        dialogo_usuario.getContentPane().add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 89, 110, -1));
+        lbl_cedula.setText("Cédula:");
+        dialogo_usuario.getContentPane().add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, -1));
 
-        lbl_cedula1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cedula1.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula1.setText("Nombre:");
-        dialogo_usuario.getContentPane().add(lbl_cedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 133, 102, -1));
+        dialogo_usuario.getContentPane().add(lbl_cedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 102, -1));
 
-        lbl_cedula2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_cedula2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cedula2.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_cedula2.setText("Apellido");
-        dialogo_usuario.getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 170, 71, -1));
+        lbl_cedula2.setText("Apellido:");
+        dialogo_usuario.getContentPane().add(lbl_cedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 71, 20));
 
         btn_cancelar.setBackground(new java.awt.Color(204, 204, 204));
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/cancela.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,19 +127,20 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        dialogo_usuario.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 120, 30));
+        dialogo_usuario.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 120, 30));
 
+        btn_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/acepta.png"))); // NOI18N
         btn_aceptar.setText("Acpetar");
         btn_aceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        dialogo_usuario.getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 103, 30));
+        dialogo_usuario.getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 103, 30));
 
         txt_confirmeClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_confirmeClaveActionPerformed(evt);
             }
         });
-        dialogo_usuario.getContentPane().add(txt_confirmeClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 220, -1));
-        dialogo_usuario.getContentPane().add(txt_contraseniaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_confirmeClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 220, -1));
+        dialogo_usuario.getContentPane().add(txt_contraseniaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 220, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -176,7 +184,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "     Numero", "      Cedulla", "     Tipo de Rol", "     Nombre", "     Usuario"
+                "     Número", "      Cédula", "     Tipo de Rol", "     Nombre", "     Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -199,7 +207,7 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
                 txt_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, 30));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 150, 20));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,6 +240,10 @@ public class Vista_Usuario extends javax.swing.JInternalFrame {
     private void txt_confirmeClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_confirmeClaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_confirmeClaveActionPerformed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
 
     public JLabel getLblCodigo_rol() {
         return LblCodigo_rol;
