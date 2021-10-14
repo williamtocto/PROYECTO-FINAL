@@ -527,43 +527,43 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtCedula_socActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
+        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, 20));
 
         LblCedula_so.setForeground(new java.awt.Color(255, 255, 255));
-        LblCedula_so.setText("Cédula del Socio:");
-        getContentPane().add(LblCedula_so, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        LblCedula_so.setText("Cédula Socio:");
+        getContentPane().add(LblCedula_so, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         LblCantidad_cuenta.setForeground(new java.awt.Color(255, 255, 255));
-        LblCantidad_cuenta.setText("Cantidad en la cuenta:");
-        getContentPane().add(LblCantidad_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        LblCantidad_cuenta.setText("Cantidad en cuenta:");
+        getContentPane().add(LblCantidad_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         LblNombre.setForeground(new java.awt.Color(255, 255, 255));
         LblNombre.setText("Nombre:");
-        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
         LblApellido.setForeground(new java.awt.Color(255, 255, 255));
         LblApellido.setText("Apellido:");
-        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, -1, -1));
+        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
 
         LblCodigo_socio.setForeground(new java.awt.Color(255, 255, 255));
         LblCodigo_socio.setText("Código Socio:");
-        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
+        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
 
         LblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         LblTelefono.setText("Télefono:");
-        getContentPane().add(LblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
+        getContentPane().add(LblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, -1, -1));
 
         LblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         LblDireccion.setText("Dirección:");
-        getContentPane().add(LblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, -1, 19));
+        getContentPane().add(LblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, 19));
 
         LblNume_cuenta.setForeground(new java.awt.Color(255, 255, 255));
-        LblNume_cuenta.setText("Número de Cuenta:");
-        getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 90, -1, -1));
-        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, -1));
+        LblNume_cuenta.setText("Nro. Cuenta:");
+        getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
+        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
 
         TxtCodigo_socio.setEditable(false);
-        getContentPane().add(TxtCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 140, -1));
+        getContentPane().add(TxtCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 140, -1));
 
         TxtNombre.setEditable(false);
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -571,13 +571,18 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 140, -1));
+        getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 140, -1));
 
         TxtApellido.setEditable(false);
-        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 140, -1));
+        TxtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtApellidoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 140, -1));
 
         TxtTelefono.setEditable(false);
-        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, -1));
+        getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 100, 140, -1));
 
         TxtDireccion.setEditable(false);
         TxtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -585,15 +590,15 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtDireccionActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 60, 140, -1));
+        getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 140, -1));
 
         TxtNumero_cu.setEditable(false);
-        getContentPane().add(TxtNumero_cu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 90, 140, -1));
+        getContentPane().add(TxtNumero_cu, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 130, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Trámite:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
         LblIngrese_monto.setForeground(new java.awt.Color(255, 255, 255));
         LblIngrese_monto.setText("Monto:");
@@ -602,7 +607,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         LblTipo_transa.setForeground(new java.awt.Color(255, 255, 255));
         LblTipo_transa.setText("Tipo de Transacción:");
         getContentPane().add(LblTipo_transa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
-        getContentPane().add(TxtDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 130, -1));
+        getContentPane().add(TxtDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 120, -1));
 
         Grupo_tipo.add(rbRetiro);
         rbRetiro.setText("Retiro");
@@ -629,12 +634,12 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         jTabla_tran.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(jTabla_tran);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 761, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 680, 180));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Historial de Transacciones.");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
 
         BtnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         BtnAceptar.setText("Registrar");
@@ -644,23 +649,25 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 BtnAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 110, 40));
+        getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 110, 30));
 
         BtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         BtnBuscar.setText("Buscar");
         BtnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 80, -1));
+        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 90, 30));
 
+        btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
         btn_imprimir.setText("Imprimir");
+        btn_imprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_imprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 160, -1, -1));
+        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, -1, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 520));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -692,6 +699,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirActionPerformed
+
+    private void TxtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtApellidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
