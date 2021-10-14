@@ -27,6 +27,8 @@ public class Control_Rol {
         this.vista = vista;
         vista.setTitle("Crud Roles");
         vista.setVisible(true);
+        vista.getBtn_modificar().setEnabled(false);
+        vista.getBtn_eliminar().setEnabled(false);
         cargarLista();
 
     }
@@ -69,9 +71,26 @@ public class Control_Rol {
             }
         };
 
+        KeyListener k = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        };
+
         MouseListener ml = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                activarBotones();
             }
 
             @Override
@@ -95,7 +114,6 @@ public class Control_Rol {
             }
 
         };
-
         vista.getBtn_registrar().addActionListener(l -> grabarUsuario());
         vista.getBtn_eliminar().addActionListener(l -> eliminarRol());
         vista.getBtn_modificar().addActionListener(l -> modificarRol());
@@ -104,22 +122,39 @@ public class Control_Rol {
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vista.getTxt_cod_rol().addKeyListener(kl);
         vista.getTxt_nombreRol().addKeyListener(kl);
+
+    }
+
+    public void activarBotones() {
+        vista.getBtn_modificar().setEnabled(true);
+        vista.getBtn_eliminar().setEnabled(true);
     }
 
     public void cargarNombreSocio() {
-        List<Socio> ls = new ArrayList<>();       
-        ls=mr.socios();      
+        List<Socio> ls = new ArrayList<>();
+        ls = mr.socios();
     }
 
     public void grabarUsuario() {
-        nombreRol = vista.getTxt_nombreRol().getText();
-        modelo.setTipo_rol(nombreRol);
 
-        if (modelo.grabarRol()) {
-            JOptionPane.showMessageDialog(null, "Rol guardado correctamente");
-            cargarLista();
+        if (vista.getTxt_nombreRol().getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Nombre del Rol", "", 0);
         } else {
-            JOptionPane.showMessageDialog(null, "Error no se podido registrar este rol");
+
+            nombreRol = vista.getTxt_nombreRol().getText();
+            modelo.setTipo_rol(nombreRol);
+            int rl = modelo.CodigoRol();
+            if (rl == 0) {
+                if (modelo.grabarRol()) {
+                    JOptionPane.showMessageDialog(null, "Rol guardado correctamente");
+                    cargarLista();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error no se podido registrar este rol", "", 0);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Este rol ya existe", "", 0);
+            }
+
         }
 
     }
@@ -137,13 +172,21 @@ public class Control_Rol {
     }
 
     public void modificarRol() {
-        nombreRol = vista.getTxt_nombreRol().getText();
-        int codigo = Integer.parseInt(vista.getTxt_cod_rol().getText());
-        modelo.setTipo_rol(nombreRol);
-        modelo.setCodigo_rol(codigo);
-        if (modelo.modificarRol()) {
-            cargarLista();
-            JOptionPane.showMessageDialog(null, "MODIFICADO ELIMINADO CORRECTAMENTE");
+
+        int op = JOptionPane.showOptionDialog(null, "Esta seguro de Modificar este Rol", "",
+                JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
+
+        if (op == 0) {
+            nombreRol = vista.getTxt_nombreRol().getText();
+            int codigo = Integer.parseInt(vista.getTxt_cod_rol().getText());
+            modelo.setTipo_rol(nombreRol);
+            modelo.setCodigo_rol(codigo);
+            if (modelo.modificarRol()) {
+                cargarLista();
+                vista.getBtn_registrar().setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Modicficado Correctamente");
+            }
+
         }
 
     }
@@ -161,7 +204,7 @@ public class Control_Rol {
             JOptionPane.showMessageDialog(null, "Rol elimnado correctamente");
             cargarLista();
         } else {
-            JOptionPane.showMessageDialog(null, "No se a podido eliminar este rol");
+            JOptionPane.showMessageDialog(null, "Este Rol esta en uso","",0);
         }
     }
 

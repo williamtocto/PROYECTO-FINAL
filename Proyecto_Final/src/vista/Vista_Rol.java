@@ -101,7 +101,7 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/editar.png"))); // NOI18N
         btn_modificar.setText("Modificar");
         btn_modificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 110, 40));
+        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 110, 40));
 
         btn_registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/agregar-rol.png"))); // NOI18N
         btn_registrar.setText("Registrar");
@@ -111,7 +111,7 @@ public class Vista_Rol extends javax.swing.JInternalFrame {
                 btn_registrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 130, 40));
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 40));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Buscar:");
