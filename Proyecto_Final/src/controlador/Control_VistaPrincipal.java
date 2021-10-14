@@ -68,8 +68,9 @@ public class Control_VistaPrincipal {
     public void IngresarSocio() {
         Modelo_Socio modelo_socio = new Modelo_Socio();
         Vista_Socio vista_socio = new Vista_Socio();
+        Centrar(vista_socio);
         Control_Socio cs = new Control_Socio(modelo_socio, vista_socio);
-        cs.mostrarDialogo(1);
+        cs.IniciarControl();
     }
 
     public void iniciarVentanaActa() {
