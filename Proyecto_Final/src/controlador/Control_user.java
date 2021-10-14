@@ -123,22 +123,40 @@ public class Control_user {
     }
 
     public void grabarUsuario() {
-        int usu = modelo.validarUsuario();
-        if (usu != 0) {
+
+        if ("".equals(vu.getTxt_cedula().getText())) {
+            JOptionPane.showMessageDialog(null, "Llenar el campo de la cedula", "", 0);
+        } else if ("".equals(vu.getTxt_usuario().getText())) {
+            JOptionPane.showMessageDialog(null, "Llenar el campo del usuario", "", 0);
+        } else if (vu.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
+            JOptionPane.showMessageDialog(null, "Selecciona el ", "", 0);
+        } else if ("".equals(vu.getTxt_contraseniaNueva().getText())) {
+            JOptionPane.showMessageDialog(null, "Ingrese una contraseña", "", 0);
+        } else if (vu.getTxt_contraseniaNueva().getText().equals(vu.getTxt_confirmeClave().getText())) {
             CargarDatos();
-            modelo.setCodigo_socio(cod_socio);
-            modelo.setCodig_rol(cod_rol);
-            modelo.setUsuario(usuario);
-            modelo.setContrasenia(clave);
-            if (modelo.AgregarUsuario()) {
-                cargarLista("");
-                JOptionPane.showMessageDialog(null, "Usuario Registrado con Éxito", "", 1);
-                vu.getDialogo_usuario().dispose();
+            int cod_rol = modelo.validarRol();
+            int cod_soc = modelo.codigoSocio();
+            int usuario = modelo.validarUsuario();
+
+            if (cod_rol != 0) {
+                JOptionPane.showMessageDialog(null, "Este rol ya esta en uso", "", 0);
+            } else if (cod_soc != 0) {
+                JOptionPane.showMessageDialog(null, "Este Socio ya tiene un usuario", "", 0);
+            } else if (usuario != 0) {
+                JOptionPane.showMessageDialog(null, "Este usuario ya esta siendo utlizado", "", 0);
             } else {
-                JOptionPane.showMessageDialog(null, "Error", "", 0);
+                if (modelo.AgregarUsuario()) {
+                    cargarLista("");
+                    JOptionPane.showMessageDialog(null, "Usuario Registrado con Éxito", "", 1);
+                    vu.getDialogo_usuario().dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error", "", 0);
+                }
+
             }
+
         } else {
-            JOptionPane.showMessageDialog(null, "Este usuario ya existe, Ingrese un nuevo", "", 0);
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "", 0);
         }
 
     }
@@ -248,6 +266,11 @@ public class Control_user {
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
         clave = vu.getTxt_contraseniaNueva().getText();
+        modelo.setCodig_rol(cod_rol);
+        modelo.setCodigo_socio(cod_socio);
+        modelo.setUsuario(usuario);
+        modelo.setCedula(clave);
+
     }
 
     public int codigoSocio() {

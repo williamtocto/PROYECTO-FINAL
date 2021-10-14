@@ -55,21 +55,55 @@ public class Modelo_Usuario extends Usuario {
     }
 
     public int validarUsuario() {
-        
+
         int fila = 0;
         try {
-            String sql = "Select * from usuario where usuario=" + getUsuario();
+            System.out.println(getUsuario() + " Usuario");
+            String sql = "Select * from usuario where usuario= '" + getUsuario() + "'";
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
                 fila++;
             }
             return fila;
         } catch (SQLException ex) {
-           Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return fila;
         }
-
     }
+
+    public int validarRol() {
+        int fila = 0;
+        try {
+            System.out.println(getUsuario() + " Usuario");
+            String sql = "Select * from usuario where codigo_rol= '" + getCodig_rol() + "'";
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                fila++;
+            }
+            return fila;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return fila;
+        }
+    }
+    
+    public int codigoSocio() {
+        int fila = 0;
+        try {
+            System.out.println(getUsuario() + " Usuario");
+            String sql = "Select * from usuario where codigo_socio= '" + getCodigo_socio() + "'";
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                fila++;
+            }
+            return fila;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return fila;
+        }
+    }
+    
+    
 
     public List<Usuario> listarUsuario(String aguja) {
         try {

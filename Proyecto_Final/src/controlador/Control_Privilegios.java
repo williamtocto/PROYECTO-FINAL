@@ -13,8 +13,6 @@ import modelo.Modelo_Rol;
 import modelo.Modelo_privilegios;
 import modelo.Privilegios;
 import vista.Vista_Privilegios;
-import java.sql.ResultSet;
-
 public class Control_Privilegios {
 
     private Modelo_privilegios mp;
