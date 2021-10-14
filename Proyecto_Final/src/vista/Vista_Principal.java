@@ -38,7 +38,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         btn_transacciones = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        btn_multas = new javax.swing.JButton();
         btn_imprimirReporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         desk_Principal = new javax.swing.JDesktopPane();
@@ -53,7 +52,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         submenu_reunion = new javax.swing.JMenuItem();
         menuActas = new javax.swing.JMenuItem();
         menu_asistencia = new javax.swing.JMenuItem();
-        menu_multas = new javax.swing.JMenu();
         menuPrincipal_rol = new javax.swing.JMenu();
         menuRol = new javax.swing.JMenuItem();
         menu_privilegios = new javax.swing.JMenuItem();
@@ -133,14 +131,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_transacciones.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btn_transacciones);
         jToolBar1.add(jSeparator6);
-
-        btn_multas.setBackground(new java.awt.Color(0, 51, 102));
-        btn_multas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/multa.png"))); // NOI18N
-        btn_multas.setToolTipText("Multas");
-        btn_multas.setFocusable(false);
-        btn_multas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_multas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btn_multas);
 
         btn_imprimirReporte.setBackground(new java.awt.Color(0, 51, 102));
         btn_imprimirReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
@@ -234,9 +224,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_reunion.add(menu_asistencia);
 
         jMenuBar1.add(menu_reunion);
-
-        menu_multas.setText("Multas");
-        jMenuBar1.add(menu_multas);
 
         menuPrincipal_rol.setText("Rol");
 
@@ -387,13 +374,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.btn_imprimirReporte = btn_imprimirReporte;
     }
 
-    public JButton getBtn_multas() {
-        return btn_multas;
-    }
-
-    public void setBtn_multas(JButton btn_multas) {
-        this.btn_multas = btn_multas;
-    }
+   
 
     public JButton getBtn_registrarReunion() {
         return btn_registrarReunion;
@@ -484,13 +465,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.submenu_reunion = submenu_reunion;
     }
 
-    public JMenu getMenu_multas() {
-        return menu_multas;
-    }
-
-    public void setMenu_multas(JMenu menu_multas) {
-        this.menu_multas = menu_multas;
-    }
+   
 
     public JMenu getMenu_usuario() {
         return menu_usuario;
@@ -543,7 +518,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarSocio;
     private javax.swing.JButton btn_asistencia;
     private javax.swing.JButton btn_imprimirReporte;
-    private javax.swing.JButton btn_multas;
     private javax.swing.JButton btn_registrarReunion;
     private javax.swing.JButton btn_transacciones;
     private javax.swing.JDesktopPane desk_Principal;
@@ -565,7 +539,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
     private javax.swing.JMenuItem menu_asistencia;
-    private javax.swing.JMenu menu_multas;
     private javax.swing.JMenuItem menu_privilegios;
     private javax.swing.JMenu menu_reunion;
     private javax.swing.JMenu menu_socio;

@@ -128,6 +128,7 @@ public class Control_Login {
                     }
                 }
                 case 4 -> {
+                    /*
                     if (estado == true) {
                         vp.getMenu_multas().setEnabled(true);
                         vp.getBtn_multas().setEnabled(true);
@@ -135,6 +136,7 @@ public class Control_Login {
                         vp.getMenu_multas().setEnabled(false);
                         vp.getBtn_multas().setEnabled(false);
                     }
+*/
                 }
                 case 5 -> {
                     if (estado == true) {

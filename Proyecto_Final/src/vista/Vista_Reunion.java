@@ -314,12 +314,12 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
 
         lblhasta1.setForeground(new java.awt.Color(255, 255, 255));
         lblhasta1.setText("Consultar reunión hasta:");
-        getContentPane().add(lblhasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 174, -1, 20));
+        getContentPane().add(lblhasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, 30));
 
         lbldesde1.setForeground(new java.awt.Color(255, 255, 255));
         lbldesde1.setText("Consultar reunión desde:");
-        getContentPane().add(lbldesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 144, -1, 20));
-        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 170, -1));
+        getContentPane().add(lbldesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, 20));
+        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -338,7 +338,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Buscar:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 70, 20));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Codigo:");

@@ -527,7 +527,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 TxtCedula_socActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, 20));
+        getContentPane().add(TxtCedula_soc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 20));
 
         LblCedula_so.setForeground(new java.awt.Color(255, 255, 255));
         LblCedula_so.setText("Cédula Socio:");
@@ -539,15 +539,15 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
 
         LblNombre.setForeground(new java.awt.Color(255, 255, 255));
         LblNombre.setText("Nombre:");
-        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        getContentPane().add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
 
         LblApellido.setForeground(new java.awt.Color(255, 255, 255));
         LblApellido.setText("Apellido:");
-        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
+        getContentPane().add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, -1));
 
         LblCodigo_socio.setForeground(new java.awt.Color(255, 255, 255));
         LblCodigo_socio.setText("Código Socio:");
-        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
+        getContentPane().add(LblCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, -1));
 
         LblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         LblTelefono.setText("Télefono:");
@@ -560,7 +560,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         LblNume_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         LblNume_cuenta.setText("Nro. Cuenta:");
         getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
-        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
+        getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 130, -1));
 
         TxtCodigo_socio.setEditable(false);
         getContentPane().add(TxtCodigo_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 140, -1));
@@ -615,7 +615,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
 
         Grupo_tipo.add(rbDeposito);
         rbDeposito.setText("Depósito");
-        getContentPane().add(rbDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
+        getContentPane().add(rbDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
 
         jTabla_tran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
         jTabla_tran.setModel(new javax.swing.table.DefaultTableModel(
@@ -654,7 +654,12 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         BtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         BtnBuscar.setText("Buscar");
         BtnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 90, 30));
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 90, 30));
 
         btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
         btn_imprimir.setText("Imprimir");
@@ -703,6 +708,10 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
     private void TxtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtApellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtApellidoActionPerformed
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -37,7 +37,6 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         rad_socio = new javax.swing.JRadioButton();
         rad_trans = new javax.swing.JRadioButton();
         rad_reunion = new javax.swing.JRadioButton();
-        rad_multa = new javax.swing.JRadioButton();
         rad_usuario = new javax.swing.JRadioButton();
         rad_rol = new javax.swing.JRadioButton();
         combo_box = new javax.swing.JComboBox<>();
@@ -113,20 +112,15 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         rad_reunion.setText("Menú Reuniones");
         getContentPane().add(rad_reunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 170, -1));
 
-        rad_multa.setBackground(new java.awt.Color(204, 204, 255));
-        rad_multa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rad_multa.setText("Menú Multas");
-        getContentPane().add(rad_multa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 170, -1));
-
         rad_usuario.setBackground(new java.awt.Color(204, 204, 255));
         rad_usuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rad_usuario.setText("Menú Usuarios");
-        getContentPane().add(rad_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 170, -1));
+        getContentPane().add(rad_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 170, -1));
 
         rad_rol.setBackground(new java.awt.Color(204, 204, 255));
         rad_rol.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rad_rol.setText("Menú Rol");
-        getContentPane().add(rad_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 170, -1));
+        getContentPane().add(rad_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 170, -1));
 
         combo_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,13 +176,6 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         this.combo_box = combo_box;
     }
 
-    public JRadioButton getRad_multa() {
-        return rad_multa;
-    }
-
-    public void setRad_multa(JRadioButton rad_multa) {
-        this.rad_multa = rad_multa;
-    }
 
     public JRadioButton getRad_reunion() {
         return rad_reunion;
@@ -248,7 +235,6 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlabel_nombre;
     private javax.swing.JLabel jlabel_opciones_menu;
-    private javax.swing.JRadioButton rad_multa;
     private javax.swing.JRadioButton rad_reunion;
     private javax.swing.JRadioButton rad_rol;
     private javax.swing.JRadioButton rad_socio;
