@@ -100,7 +100,7 @@ public class Control_user {
             }
         };
         vu.getTabla_usuario().addMouseListener(ml);
-        vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
+//        vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
         vu.getBtn_agregar().addActionListener(l -> cargarDialogo(1));
         vu.getBtn_modificar().addActionListener(l -> cargarDialogo(2));
         vu.getTxt_buscar().addKeyListener(kl);
@@ -130,9 +130,12 @@ public class Control_user {
             JOptionPane.showMessageDialog(null, "Llenar el campo del usuario", "", 0);
         } else if (vu.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
             JOptionPane.showMessageDialog(null, "Selecciona el Rol", "", 0);
-        } else if ("".equals(vu.getTxt_contraseniaNueva().getText())) {
+            
+        } 
+        else if ("".equals(vu.getTxt_contraseniaNueva().getText())) {
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña", "", 0);
-        } else if (vu.getTxt_contraseniaNueva().getText().equals(vu.getTxt_confirmeClave().getText())) {
+        } else if (vu.getTxt_contraseniaNueva().getText().equals(vu.getTxt_confirmeClave().getText())) 
+        {
             CargarDatos();
             int cod_rol = modelo.validarRol();
             int cod_soc = modelo.codigoSocio();
@@ -279,7 +282,7 @@ public class Control_user {
         cod_socio = codigoSocio();
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
-        clave = vu.getTxt_contraseniaNueva().getText();
+      //  clave = vu.getTxt_contraseniaNueva().getText();
         modelo.setCodig_rol(cod_rol);
         modelo.setCodigo_socio(cod_socio);
         modelo.setUsuario(usuario);
