@@ -316,7 +316,7 @@ public final class Control_Acta {
                 JOptionPane.showMessageDialog(null, "Eliminada con Exito", "", 1);
             } else {
                 desactivarBotones();
-                JOptionPane.showMessageDialog(null, "No se a podido eliminar", "", 0);
+                JOptionPane.showMessageDialog(null, "No se ha podido eliminar", "", 0);
             }
             
         }
@@ -337,7 +337,7 @@ public final class Control_Acta {
             vista.getBtn_guardar().setEnabled(false);
         } else {
             if (fila == -1) {
-                JOptionPane.showMessageDialog(vista, "SELECCIONE UN DATO DE LA TABLA", "WILLIAM TOCTO", 2);
+                JOptionPane.showMessageDialog(vista, "SELECCIONE UN DATO DE LA TABLA", "", 2);
             } else {
                 cargarDatosTable();
                 vista.getjDialog1().setTitle("Editar Acta");

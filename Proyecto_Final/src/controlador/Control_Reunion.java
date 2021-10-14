@@ -195,7 +195,7 @@ public class Control_Reunion {
                         cargarLista("");
                         limpiar();
                     } else {
-                        JOptionPane.showMessageDialog(null, "No se a podido guardar", "Error", 0);
+                        JOptionPane.showMessageDialog(null, "No se ha podido guardar", "Error", 0);
                     }
                     //Vista_Asistencia asis = new Vista_Asistencia(formato, codigo_reunion);
                     //asis.setVisible(true);
@@ -236,7 +236,7 @@ public class Control_Reunion {
                         cargarLista("");
                         limpiar();
                     } else {
-                        JOptionPane.showMessageDialog(null, "No se a podido modificar", "Error", 0);
+                        JOptionPane.showMessageDialog(null, "No se ha podido modificar", "Error", 0);
                     }
                 }
             } else {
@@ -262,7 +262,7 @@ public class Control_Reunion {
                     cargarLista("");
                     limpiar();
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se a podido eliminar por que se tomo asistencia en esa reunion", "", 0);
+                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar por que se tomo asistencia en esa reunion", "", 0);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
@@ -361,7 +361,7 @@ public class Control_Reunion {
             Reunion re =new Reunion();
             List<Reunion> lr =modelo.listaReunion(aguja2);
             if (lr.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se encontraron resultados", "", 2);
+                JOptionPane.showMessageDialog(null, "No se han encontraron resultados", "", 2);
             } else {
                 for (int i = 0; i < lr.size(); i++) {
                     Object filas[] = new Object[4];
