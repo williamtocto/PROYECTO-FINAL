@@ -41,9 +41,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_multas = new javax.swing.JButton();
         btn_imprimirReporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         desk_Principal = new javax.swing.JDesktopPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_socio = new javax.swing.JMenu();
         submenu_socio = new javax.swing.JMenuItem();
@@ -65,6 +65,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Caja de Ahorro y Crédito");
         setBackground(new java.awt.Color(255, 204, 51));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jToolBar1.setBackground(new java.awt.Color(0, 51, 102));
         jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
@@ -154,13 +155,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_imprimirReporte);
 
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2119, 33));
+
         jButton1.setText("jButton1");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        jLabel1.setText("Bienvenido...");
-
-        jLabel2.setText("Bienvenido...");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         desk_Principal.setBackground(new java.awt.Color(255, 204, 102));
 
@@ -168,12 +166,20 @@ public class Vista_Principal extends javax.swing.JFrame {
         desk_Principal.setLayout(desk_PrincipalLayout);
         desk_PrincipalLayout.setHorizontalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1380, Short.MAX_VALUE)
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 610, Short.MAX_VALUE)
         );
+
+        getContentPane().add(desk_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1380, -1));
+
+        jLabel2.setText("Bienvenido...");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 655, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 1300, 20));
 
         jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -263,30 +269,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenuBar1.add(menu_usuario);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 2129, Short.MAX_VALUE)
-            .addComponent(desk_Principal)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desk_Principal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -566,8 +548,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_transacciones;
     private javax.swing.JDesktopPane desk_Principal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar.Separator jSeparator1;
