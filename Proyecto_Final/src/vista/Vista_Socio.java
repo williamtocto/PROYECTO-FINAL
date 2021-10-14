@@ -210,9 +210,14 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setBtnCancelar(JButton btnCancelar) {
         this.btnCancelar = btnCancelar;
     }
-    
-    
-    
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -220,7 +225,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
 
         JDialogo = new javax.swing.JDialog();
         TxtCodigo = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         TxtNombre = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -258,9 +263,9 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         JDialogo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JDialogo.getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 170, -1));
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Código:");
-        JDialogo.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 50, 20));
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("Código:");
+        JDialogo.getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 50, 20));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Nombre:");
@@ -432,7 +437,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -446,6 +450,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private com.toedter.calendar.JDateChooser jdFechaIng;
     private com.toedter.calendar.JDateChooser jdFechaNac;
     private javax.swing.JTable jtDatosSocio;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

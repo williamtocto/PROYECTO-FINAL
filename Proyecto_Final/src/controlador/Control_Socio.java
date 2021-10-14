@@ -174,62 +174,76 @@ public class Control_Socio {
             JOptionPane.showMessageDialog(null, " Existen campos vacíos, llenar todos por favor ", "DATOS INCOMPLETOS", 0);
         } else {
             modelo.setCedula_socio(vista.getTxtCedula().getText());
-            ced=modelo.validarCed();
-            if(ced==0){
-                String ced_socio = vista.getTxtCedula().getText();
-            String num_cuenta = vista.getTxtNumCuenta().getText();
-            String nombre = vista.getTxtNombre().getText();
-            String apellido = vista.getTxtApellido().getText();
-            String correo = vista.getTxtEmail().getText();
-            String dir = vista.getTxtDireccion().getText();
-            String telf = vista.getTxtTelefono().getText();
+            ced = modelo.validarCed();
+            if (ced == 0) {
+                int edad = 0;
+                int fechaIngreso = 0;
+                int fechaNac = 0;
+                try {
+                    fechaIngreso = ValidarFechaIngreso();
+                    fechaNac = ValidarFechaNac();
+                } catch (ParseException ex) {
+                    Logger.getLogger(Control_Socio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (fechaIngreso == -1 || fechaNac == -1) {
+                    if (fechaIngreso == -1) {
+                        JOptionPane.showMessageDialog(null, " LA FECHA DE INGRESO SOBREPASA A LA ACTUAL", "", 0);
+                    } else if(fechaNac==-1) {
+                        JOptionPane.showMessageDialog(null, " LA FECHA DE NACIMIENTO SOBREPASA A LA ACTUAL", "", 0);
+                    }
+                    Date fecha;
+                    Date fecha2;
+                    String formato = null;
+                    String formato2 = null;
+                    // Tranformar la fecha a String
+                    if (vista.getJdFechaNac().getDate() != null) {
+                        fecha = vista.getJdFechaNac().getDate();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        formato = sdf.format(fecha);
+                    }
+                    if (vista.getJdFechaIng().getDate() != null) {
+                        fecha2 = vista.getJdFechaIng().getDate();
+                        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+                        formato2 = sdf2.format(fecha2);
+                    }
+                    String ced_socio = vista.getTxtCedula().getText();
+                    String num_cuenta = vista.getTxtNumCuenta().getText();
+                    String nombre = vista.getTxtNombre().getText();
+                    String apellido = vista.getTxtApellido().getText();
+                    String correo = vista.getTxtEmail().getText();
+                    String dir = vista.getTxtDireccion().getText();
+                    String telf = vista.getTxtTelefono().getText();
 
-            Date fecha;
-            Date fecha2;
-            String formato = null;
-            String formato2 = null;
-            // Tranformar la fecha a String
-            if (vista.getJdFechaNac().getDate() != null) {
-                fecha = vista.getJdFechaNac().getDate();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                formato = sdf.format(fecha);
-            }
-            if (vista.getJdFechaIng().getDate() != null) {
-                fecha2 = vista.getJdFechaIng().getDate();
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                formato2 = sdf2.format(fecha2);
+                    
+                    Modelo_Socio socio = new Modelo_Socio();
+
+                    socio.setCedula_socio(ced_socio);
+                    socio.setNumero_cuenta(Integer.parseInt(num_cuenta));
+                    socio.setNombre_socio(nombre);
+                    socio.setApellido_socio(apellido);
+                    socio.setCorreo_socio(correo);
+                    socio.setDireccion_socio(dir);
+                    socio.setTelefono_socio(telf);
+                    socio.setFecha_nac_socio(formato);
+                    socio.setFecha_ingreso(formato2);
+                    if (socio.CrearSocio()) {
+                        JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE");
+
+                    } else {
+                        JOptionPane.showMessageDialog(vista, "ERROR");
+                    }
+                    limpiar();
+                    vista.getJDialogo().setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ya existe un socio con esta cédula");
+                }
             }
 
-            System.out.println(formato);
-            System.out.println(formato2);
-            Modelo_Socio socio = new Modelo_Socio();
-
-            socio.setCedula_socio(ced_socio);
-            socio.setNumero_cuenta(Integer.parseInt(num_cuenta));
-            socio.setNombre_socio(nombre);
-            socio.setApellido_socio(apellido);
-            socio.setCorreo_socio(correo);
-            socio.setDireccion_socio(dir);
-            socio.setTelefono_socio(telf);
-            socio.setFecha_nac_socio(formato);
-            socio.setFecha_ingreso(formato2);
-            if (socio.CrearSocio()) {
-                JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE");
-
-            } else {
-                JOptionPane.showMessageDialog(vista, "ERROR");
-            }
-            limpiar();
-            vista.getJDialogo().setVisible(false);
-            
-            }
-            else{
-               JOptionPane.showMessageDialog(null, "Ya existe un socio con esta cédula");
-            }     
+            cargarDatos();
         }
 
-        cargarDatos();
-    }
+    }    
 
     private void cargarDatos() {
         DefaultTableModel dtm;
@@ -287,7 +301,6 @@ public class Control_Socio {
 
         Modelo_Socio socio = new Modelo_Socio();
 
-        socio.setCodigo_socio(Integer.valueOf(cod_socio));
         socio.setCedula_socio(ced_socio);
         socio.setNumero_cuenta(Integer.valueOf(num_cuenta));
         socio.setNombre_socio(nombre);
@@ -368,11 +381,15 @@ public class Control_Socio {
         if (origen == 1) {
             n = 1;
             vista.getJDialogo().setTitle("Crear Socio");
+            vista.getLblCodigo().setVisible(false);
+            vista.getTxtCodigo().setVisible(false);
         } else {
             n = 2;
             mostrarDatos();
-
             vista.getJDialogo().setTitle("Editar Socio");
+            vista.getTxtCedula().setEnabled(false);
+            vista.getLblCodigo().setVisible(true);
+            vista.getTxtCodigo().setVisible(true);
         }
         vista.getJDialogo().setVisible(true);
 
@@ -380,7 +397,7 @@ public class Control_Socio {
 
     public void mostrarDatos() {
 
-        List<Socio> socios = modelo.socios(vista.getTxtBuscar().getText());
+        List<Socio> socios = modelo.socios();
 
         int fila = vista.getJtDatosSocio().getSelectedRow();
 
@@ -391,6 +408,7 @@ public class Control_Socio {
         vista.getTxtEmail().setText(String.valueOf(socios.get(fila).getCorreo_socio()));
         vista.getTxtDireccion().setText(String.valueOf(socios.get(fila).getDireccion_socio()));
         vista.getTxtTelefono().setText(String.valueOf(socios.get(fila).getTelefono_socio()));
+        
         //Transformar fecha
         String fecha = socios.get(fila).getFecha_nac_socio();
         String fechan[] = fecha.split("-");
@@ -417,6 +435,7 @@ public class Control_Socio {
 
     }
 //Método para generar el numero de cuenta automático del socio
+
     public void nuevaCuenta() {
         List<Socio> ls = modelo.socios();
         int n;
@@ -444,13 +463,12 @@ public class Control_Socio {
         if (op == 0) {
             try {
                 int fila = vista.getJtDatosSocio().getSelectedRow();
-                String cedula=String.valueOf(vista.getJtDatosSocio().getValueAt(fila,1));
-                if(ms.inactivar_socio(cedula)){
-                   System.out.println(cedula);
-                   JOptionPane.showMessageDialog(null, "Acción realizada correctamente", "", 0);
-                   cargarDatos(); 
+                String cedula = String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1));
+                if (ms.inactivar_socio(cedula)) {
+                    System.out.println(cedula);
+                    JOptionPane.showMessageDialog(null, "Acción realizada correctamente");
+                    cargarDatos();
                 }
-                
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR AL INACTIVAR", "TEOLAMDY", 0);
@@ -459,7 +477,28 @@ public class Control_Socio {
             JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
         }
     }
-     public int ValidarFechaNac() throws ParseException {
+
+    public int ValidarFechaIngreso() throws ParseException {
+        Date fechaDispositivo = new Date();
+        int f = 0;
+        Date fecha = null;
+        String fechaIngreso = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaActual = sdf.format(fechaDispositivo);
+        // Tranformar la fecha a String
+        if (vista.getJdFechaIng().getDate() != null) {
+            fecha = vista.getJdFechaIng().getDate();
+            fechaIngreso = sdf.format(fecha);
+            // PARSE PARA COMPARAR LAS FECHAS
+            fechaDispositivo = sdf.parse(fechaActual);
+            fecha = sdf.parse(fechaIngreso);
+            f = fechaDispositivo.compareTo(fecha);
+        }
+        return f;
+
+    }
+
+    public int ValidarFechaNac() throws ParseException {
         Date fechaDispositivo = new Date();
         int f = 0;
         Date fecha = null;
