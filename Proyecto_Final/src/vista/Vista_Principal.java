@@ -145,7 +145,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_imprimirReporte);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2119, 33));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 40));
 
         jButton1.setText("jButton1");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
@@ -160,16 +160,16 @@ public class Vista_Principal extends javax.swing.JFrame {
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        getContentPane().add(desk_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1380, -1));
+        getContentPane().add(desk_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1380, 640));
 
         jLabel2.setText("Bienvenido...");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 655, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 1300, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 670, 1300, 20));
 
         jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -474,44 +474,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setMenu_usuario(JMenu menu_usuario) {
         this.menu_usuario = menu_usuario;
     }
-    
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_Principal().setVisible(true);
-            }
-        });
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actas;
