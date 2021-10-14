@@ -13,6 +13,7 @@ import modelo.Modelo_Rol;
 import modelo.Modelo_privilegios;
 import modelo.Privilegios;
 import vista.Vista_Privilegios;
+
 public class Control_Privilegios {
 
     private Modelo_privilegios mp;
@@ -63,45 +64,50 @@ public class Control_Privilegios {
     }
 
     public void agregarPrivilegios() throws SQLException {
-        List<Privilegios> lp = new ArrayList<>();
-        lp = mp.CargarLista();
-        if (lp.isEmpty()) {
-            int c = 0;
-            if (vp.getRad_socio().isSelected()) {
-                mp.setCod_opcion(1);
-                mp.setEstado_rol("TRUE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            } else {
-                mp.setCod_opcion(1);
-                mp.setEstado_rol("FALSE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            }
-            if (vp.getRad_trans().isSelected()) {
-                mp.setCod_opcion(2);
-                mp.setEstado_rol("TRUE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            } else {
-                mp.setCod_opcion(2);
-                mp.setEstado_rol("FALSE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            }
-            if (vp.getRad_reunion().isSelected()) {
-                mp.setCod_opcion(3);
-                mp.setEstado_rol("TRUE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            } else {
-                mp.setCod_opcion(3);
-                mp.setEstado_rol("FALSE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            }
-            //MULTAS
-            /*
+        if (vp.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
+            JOptionPane.showMessageDialog(null, "Primero Selecciona un Rol", "", 2);
+
+        } else {
+            int cod = mp.verificarPrivilegios(vp.getCombo_box().getSelectedItem().toString());
+            System.out.println(cod);
+
+            if (cod == 0) {
+                int c = 0;
+                if (vp.getRad_socio().isSelected()) {
+                    mp.setCod_opcion(1);
+                    mp.setEstado_rol("TRUE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(1);
+                    mp.setEstado_rol("FALSE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                }
+                if (vp.getRad_trans().isSelected()) {
+                    mp.setCod_opcion(2);
+                    mp.setEstado_rol("TRUE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(2);
+                    mp.setEstado_rol("FALSE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                }
+                if (vp.getRad_reunion().isSelected()) {
+                    mp.setCod_opcion(3);
+                    mp.setEstado_rol("TRUE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(3);
+                    mp.setEstado_rol("FALSE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                }
+                //MULTAS
+                /*
             if (vp.getRad_multa().isSelected()) {
                 mp.setCod_opcion(4);
                 mp.setEstado_rol("TRUE");
@@ -115,71 +121,83 @@ public class Control_Privilegios {
                 mp.grabarPrivilegios();
                 c = c + 1;
             }
-            */
-            
-            if (vp.getRad_usuario().isSelected()) {
-                mp.setCod_opcion(5);
-                mp.setEstado_rol("TRUE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            } else {
-                mp.setCod_opcion(5);
-                mp.setEstado_rol("FALSE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            }
-            if (vp.getRad_rol().isSelected()) {
-                mp.setCod_opcion(6);
-                mp.setEstado_rol("TRUE");
-                if (mp.grabarPrivilegios()) {
-                    JOptionPane.showMessageDialog(null, "Guardado Correctamente", "", 1);
-                }
-                mp.grabarPrivilegios();
-                c = c + 1;
-            } else {
-                mp.setCod_opcion(6);
-                mp.setEstado_rol("FALSE");
-                if (mp.grabarPrivilegios()) {
-                    JOptionPane.showMessageDialog(null, "Guardado Correctamente", "", 1);
-                }
-                c = c + 1;
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Este Rol ya esta registro", "", 0);
-        }
+                 */
 
+                if (vp.getRad_usuario().isSelected()) {
+                    mp.setCod_opcion(5);
+                    mp.setEstado_rol("TRUE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(5);
+                    mp.setEstado_rol("FALSE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                }
+                if (vp.getRad_rol().isSelected()) {
+                    mp.setCod_opcion(6);
+                    mp.setEstado_rol("TRUE");
+                    if (mp.grabarPrivilegios()) {
+                        JOptionPane.showMessageDialog(null, "Guardado Correctamente", "", 1);
+                    }
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(6);
+                    mp.setEstado_rol("FALSE");
+                    if (mp.grabarPrivilegios()) {
+                        limpiar();
+                        JOptionPane.showMessageDialog(null, "Guardado Correctamente", "", 1);
+                    }
+                    c = c + 1;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Este Rol ya esta registro", "", 0);
+            }
+
+        }
     }
 
     public void modificarPrivilegio() {
 
-        if (vp.getRad_socio().isSelected()) {
-            mp.setCod_opcion(1);
-            mp.setEstado_rol("TRUE");
-            mp.modificarPrivilegios();
+        if (vp.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
+            JOptionPane.showMessageDialog(null, "Primero Selecciona un Rol", "", 2);
+
         } else {
-            mp.setCod_opcion(1);
-            mp.setEstado_rol("FALSE");
-            mp.modificarPrivilegios();
-        }
-        if (vp.getRad_trans().isSelected()) {
-            mp.setCod_opcion(2);
-            mp.setEstado_rol("TRUE");
-            mp.modificarPrivilegios();
-        } else {
-            mp.setCod_opcion(2);
-            mp.setEstado_rol("FALSE");
-            mp.modificarPrivilegios();
-        }
-        if (vp.getRad_reunion().isSelected()) {
-            mp.setCod_opcion(3);
-            mp.setEstado_rol("TRUE");
-            mp.modificarPrivilegios();
-        } else {
-            mp.setCod_opcion(3);
-            mp.setEstado_rol("FALSE");
-            mp.modificarPrivilegios();
-        }
-        /*
+            int op = JOptionPane.showOptionDialog(null, "Esta Seguro de Modificar los Privilegios de este Rol", "",
+                    JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
+            if (op == 0) {
+                int cod = mp.verificarPrivilegios(vp.getCombo_box().getSelectedItem().toString());
+                if (cod != 0) {
+
+                    if (vp.getRad_socio().isSelected()) {
+                        mp.setCod_opcion(1);
+                        mp.setEstado_rol("TRUE");
+                        mp.modificarPrivilegios();
+                    } else {
+                        mp.setCod_opcion(1);
+                        mp.setEstado_rol("FALSE");
+                        mp.modificarPrivilegios();
+                    }
+                    if (vp.getRad_trans().isSelected()) {
+                        mp.setCod_opcion(2);
+                        mp.setEstado_rol("TRUE");
+                        mp.modificarPrivilegios();
+                    } else {
+                        mp.setCod_opcion(2);
+                        mp.setEstado_rol("FALSE");
+                        mp.modificarPrivilegios();
+                    }
+                    if (vp.getRad_reunion().isSelected()) {
+                        mp.setCod_opcion(3);
+                        mp.setEstado_rol("TRUE");
+                        mp.modificarPrivilegios();
+                    } else {
+                        mp.setCod_opcion(3);
+                        mp.setEstado_rol("FALSE");
+                        mp.modificarPrivilegios();
+                    }
+                    /*
         if (vp.getRad_multa().isSelected()) {
             mp.setCod_opcion(4);
             mp.setEstado_rol("TRUE");
@@ -189,55 +207,79 @@ public class Control_Privilegios {
             mp.setEstado_rol("FALSE");
             mp.modificarPrivilegios();
         }
-*/
-        if (vp.getRad_usuario().isSelected()) {
-            mp.setCod_opcion(5);
-            mp.setEstado_rol("TRUE");
-            mp.modificarPrivilegios();
-        } else {
-            mp.setCod_opcion(5);
-            mp.setEstado_rol("FALSE");
-            mp.modificarPrivilegios();
-        }
-        if (vp.getRad_rol().isSelected()) {
-            mp.setCod_opcion(6);
-            mp.setEstado_rol("TRUE");
-            if (mp.modificarPrivilegios()) {
-                JOptionPane.showMessageDialog(null, "Modificado Correctamente", "", 1);
+                     */
+                    if (vp.getRad_usuario().isSelected()) {
+                        mp.setCod_opcion(5);
+                        mp.setEstado_rol("TRUE");
+                        mp.modificarPrivilegios();
+                    } else {
+                        mp.setCod_opcion(5);
+                        mp.setEstado_rol("FALSE");
+                        mp.modificarPrivilegios();
+                    }
+                    if (vp.getRad_rol().isSelected()) {
+                        mp.setCod_opcion(6);
+                        mp.setEstado_rol("TRUE");
+                        if (mp.modificarPrivilegios()) {
+                            limpiar();
+                            JOptionPane.showMessageDialog(null, "Modificado Correctamente", "", 1);
+                        }
+
+                    } else {
+                        mp.setCod_opcion(6);
+                        mp.setEstado_rol("FALSE");
+                        if (mp.modificarPrivilegios()) {
+                            limpiar();
+                            JOptionPane.showMessageDialog(null, "Modificado Correctamente", "", 1);
+                        }
+                    }
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Este Rol ya tiene Asignado Privilegios", "", 2);
             }
-        } else {
-            mp.setCod_opcion(6);
-            mp.setEstado_rol("FALSE");
-            if (mp.modificarPrivilegios()) {
-                JOptionPane.showMessageDialog(null, "Modificado Correctamente", "", 1);
-            }
+
         }
+
     }
 
     public void limpiar() {
-        
+
+        Modelo_Rol r = new Modelo_Rol();
+        DefaultComboBoxModel combo = new DefaultComboBoxModel(r.mostrarRoles());
+        vp.getCombo_box().addItem("<Seleccionar>");
+        vp.getCombo_box().setModel(combo);
+        vp.getRad_socio().setSelected(false);
+        vp.getRad_trans().setSelected(false);
+        vp.getRad_reunion().setSelected(false);
+        vp.getRad_usuario().setSelected(false);
+        vp.getRad_rol().setSelected(false);
     }
 
     public void eliminarPrivilegio() throws SQLException {
+        if (vp.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
+            JOptionPane.showMessageDialog(null, "Primero Selecciona un Rol", "", 2);
 
-        List<Privilegios> lp = new ArrayList<>();
-        lp = mp.CargarLista();
-        if (lp.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No se pudo eliminar este rol");
         } else {
-            int op = JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR "
-                    + "LOS PRIVILEGIOS DE ESTE ROL", "CONFIRME", JOptionPane.YES_NO_OPTION);
-            if (op == 0) {
-                if (mp.EliminarPrivilegios()) {
-                    JOptionPane.showMessageDialog(vp, "Eliminado correctamente");
-                } else {
-                    JOptionPane.showMessageDialog(vp, "Error");
-                }
+
+            List<Privilegios> lp = new ArrayList<>();
+            lp = mp.CargarLista();
+            if (lp.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se pudo eliminar este rol");
             } else {
-                JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
+                int op = JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR "
+                        + "LOS PRIVILEGIOS DE ESTE ROL", "CONFIRME", JOptionPane.YES_NO_OPTION);
+                if (op == 0) {
+                    if (mp.EliminarPrivilegios()) {
+                        limpiar();
+                        JOptionPane.showMessageDialog(vp, "Eliminado correctamente");
+                    } else {
+                        JOptionPane.showMessageDialog(vp, "Error");
+                    }
+                }
             }
         }
     }
 
-    
 }
