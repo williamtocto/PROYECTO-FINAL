@@ -64,7 +64,7 @@ public class Control_transaccion {
                             || (caracter > '9'))
                             && (caracter != '\b')) {
                         e.consume();
-                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
+
                     }
                 }
             }
@@ -76,7 +76,7 @@ public class Control_transaccion {
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                vistat.getBtnAceptar().setEnabled(true);
             }
 
         };
@@ -102,9 +102,9 @@ public class Control_transaccion {
     }
 
     public void dialogo() {
-       
+
         vistat.getjDialog1().setSize(400, 300);
-         vistat.getjDialog1().setLocationRelativeTo(vistat);
+        vistat.getjDialog1().setLocationRelativeTo(vistat);
         vistat.getDateInicio().setDate(null);
         vistat.getDateFin().setDate(null);
         vistat.getjDialog1().setVisible(true);
