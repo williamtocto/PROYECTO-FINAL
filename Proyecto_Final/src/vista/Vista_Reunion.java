@@ -290,48 +290,46 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
                 BtnModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 100, 40));
+        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 100, 40));
 
         BtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/eliminar.png"))); // NOI18N
         BtnEliminar.setText("Eliminar");
         BtnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 100, 40));
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 100, 40));
 
         BtnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/limpiar.png"))); // NOI18N
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 100, 40));
+        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 100, 40));
         getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 150, -1));
         getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 150, -1));
         getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 150, -1));
-        getContentPane().add(jDcDesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 170, 20));
-        getContentPane().add(jDcHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 170, -1));
+        getContentPane().add(jDcDesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 170, 20));
+        getContentPane().add(jDcHasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 170, 20));
 
         Btn_Buscar_consult1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/consultar.png"))); // NOI18N
         Btn_Buscar_consult1.setText("Consultar");
         Btn_Buscar_consult1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(Btn_Buscar_consult1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 110, 40));
+        getContentPane().add(Btn_Buscar_consult1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 110, 30));
 
         lblhasta1.setForeground(new java.awt.Color(255, 255, 255));
-        lblhasta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/buscar.png"))); // NOI18N
         lblhasta1.setText("Consultar reunión hasta:");
-        getContentPane().add(lblhasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
+        getContentPane().add(lblhasta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 174, -1, 20));
 
         lbldesde1.setForeground(new java.awt.Color(255, 255, 255));
-        lbldesde1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/buscar.png"))); // NOI18N
         lbldesde1.setText("Consultar reunión desde:");
-        getContentPane().add(lbldesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
-        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 170, -1));
+        getContentPane().add(lbldesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 144, -1, 20));
+        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Reuniones.");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 11, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("CONSULTAR POR FECHAS:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel4.setText("Consultar por fecha:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -339,15 +337,15 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 11, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Buscar");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+        jLabel6.setText("Buscar:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Codigo:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         TxtCodReu.setEditable(false);
-        getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, -1));
+        getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
