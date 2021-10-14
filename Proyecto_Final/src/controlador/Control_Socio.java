@@ -97,44 +97,41 @@ public class Control_Socio {
 
             @Override
             public void keyPressed(KeyEvent e) {
-
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-
             }
         };
-        KeyListener validarCed=new KeyListener() {
+        KeyListener validarCed = new KeyListener() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
-            
+                //Validación de cédula para que se ingresen solo 10 dígitos
                 if (vista.getTxtCedula().getText().length() >= 10) {
-                    evt.consume();                 
+                    evt.consume();
+                    vista.getToolkit().beep();
                     JOptionPane.showMessageDialog(null, "La cédula excede el número de dígitos", "Sintaxis Error", 0);
                 }
             }
 
             @Override
-            public void keyPressed(KeyEvent e) {    
+            public void keyPressed(KeyEvent e) {
             }
+
             @Override
             public void keyReleased(KeyEvent e) {
-               
+
             }
         };
 
         KeyListener buscador;
         buscador = new KeyListener() {
-
             @Override
             public void keyPressed(KeyEvent e) {
-
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-
                 cargarDatosbusqueda(vista.getTxtBuscar().getText());
             }
 
@@ -155,7 +152,6 @@ public class Control_Socio {
 //        vista.getBtnInactivar().addActionListener(l -> inactivarSocio());
         vista.getBtnAceptar().addActionListener(l -> DefinirMetodo(n));
         vista.getBtnCancelar().addActionListener(l -> cancelar());
-        vista.getBtnLimpiar().addActionListener(l -> limpiar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
         vista.getBtnNuevaCuenta().addActionListener(l -> nuevaCuenta());
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
@@ -170,13 +166,16 @@ public class Control_Socio {
 
     private void crearSocio() {
         fila = 0;
-
+        int ced;
         if (vista.getTxtNumCuenta().getText() == null || "".equals(vista.getTxtNombre().getText()) || "".equals(vista.getTxtApellido().getText())
                 || "".equals(vista.getTxtDireccion().getText()) || "".equals(vista.getTxtEmail().getText())
                 || "".equals(vista.getTxtTelefono().getText()) || "".equals(vista.getTxtCedula().getText())) {
-            JOptionPane.showMessageDialog(null, " EXISTEN CAMPOS VACIOS, LLENAR TODOS POR FAVOR ", "DATOS INCOMPLETOS", 0);
+            JOptionPane.showMessageDialog(null, " Existen campos vacíos, llenar todos por favor ", "DATOS INCOMPLETOS", 0);
         } else {
-            String ced_socio = vista.getTxtCedula().getText();
+            modelo.setCedula_socio(vista.getTxtCedula().getText());
+            ced=modelo.validarCed();
+            if(ced==0){
+                String ced_socio = vista.getTxtCedula().getText();
             String num_cuenta = vista.getTxtNumCuenta().getText();
             String nombre = vista.getTxtNombre().getText();
             String apellido = vista.getTxtApellido().getText();
@@ -199,6 +198,7 @@ public class Control_Socio {
                 SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
                 formato2 = sdf2.format(fecha2);
             }
+
             System.out.println(formato);
             System.out.println(formato2);
             Modelo_Socio socio = new Modelo_Socio();
@@ -212,13 +212,19 @@ public class Control_Socio {
             socio.setTelefono_socio(telf);
             socio.setFecha_nac_socio(formato);
             socio.setFecha_ingreso(formato2);
-
             if (socio.CrearSocio()) {
                 JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE");
 
             } else {
                 JOptionPane.showMessageDialog(vista, "ERROR");
             }
+            limpiar();
+            vista.getJDialogo().setVisible(false);
+            
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "Ya existe un socio con esta cédula");
+            }     
         }
 
         cargarDatos();
@@ -235,7 +241,6 @@ public class Control_Socio {
                 s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()};
             dtm.addRow(socio);
         });
-
     }
 
     private void cargarDatosbusqueda(String aguja) {
@@ -250,7 +255,6 @@ public class Control_Socio {
             };
             dtm.addRow(socio);
         });
-
     }
 
     private void editarSocio() {
@@ -299,6 +303,8 @@ public class Control_Socio {
         } else {
             JOptionPane.showMessageDialog(vista, "ERROR");
         }
+        limpiar();
+        vista.getJDialogo().setVisible(false);
     }
 
     private String calcularEdad(Date fecha_nac) {
@@ -322,7 +328,7 @@ public class Control_Socio {
             parametro.put("aguja", "%" + miaguja + "%");
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametro, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp, false);//Poner false para que el resto de ventanas no se cierren
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(Control_Socio.class.getName()).log(Level.SEVERE, null, ex);
@@ -332,6 +338,7 @@ public class Control_Socio {
     //Método para limpiar campos
     private void limpiar() {
         vista.getTxtCodigo().setText("");
+        vista.getTxtNumCuenta().setText("");
         vista.getTxtCedula().setText("");
         vista.getTxtNombre().setText("");
         vista.getTxtApellido().setText("");

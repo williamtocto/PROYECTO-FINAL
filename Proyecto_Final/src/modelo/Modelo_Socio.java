@@ -167,6 +167,21 @@ public class Modelo_Socio extends Socio {
             return 0;
         }
     }
+    public int validarCed(){
+        int fila = 0;
+        String sql = "SELECT * from socio where cedula_socio='" + getCedula_socio() + "';";
+        ResultSet rs = con.consulta(sql);
+        
+        try {
+            while (rs.next()) {
+                fila++;
+            }
+            return fila;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Socio.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
 
     public String[] nombres(String cedula) {
 
