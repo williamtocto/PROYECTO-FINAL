@@ -129,7 +129,7 @@ public class Control_user {
         } else if ("".equals(vu.getTxt_usuario().getText())) {
             JOptionPane.showMessageDialog(null, "Llenar el campo del usuario", "", 0);
         } else if (vu.getCombo_box().getSelectedItem().toString().equals("<Selecciona el Rol>")) {
-            JOptionPane.showMessageDialog(null, "Selecciona el ", "", 0);
+            JOptionPane.showMessageDialog(null, "Selecciona el Rol", "", 0);
         } else if ("".equals(vu.getTxt_contraseniaNueva().getText())) {
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña", "", 0);
         } else if (vu.getTxt_contraseniaNueva().getText().equals(vu.getTxt_confirmeClave().getText())) {
@@ -137,7 +137,6 @@ public class Control_user {
             int cod_rol = modelo.validarRol();
             int cod_soc = modelo.codigoSocio();
             int usuario = modelo.validarUsuario();
-
             if (cod_rol != 0) {
                 JOptionPane.showMessageDialog(null, "Este rol ya esta en uso", "", 0);
             } else if (cod_soc != 0) {
@@ -152,7 +151,6 @@ public class Control_user {
                 } else {
                     JOptionPane.showMessageDialog(null, "Error", "", 0);
                 }
-
             }
 
         } else {
@@ -167,13 +165,9 @@ public class Control_user {
             fila = vu.getTabla_usuario().getSelectedRow();
             grabarUsuario();
         } else if (n == 2) {
-            int op = JOptionPane.showOptionDialog(null, "Esta seguro de Modificar este Usuario", "",
-                    JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
-            if (op == 0) {
-                fila = vu.getTabla_usuario().getSelectedRow();
-                modificarUsuario();
-                vu.getDialogo_usuario().dispose();
-            }
+
+            fila = vu.getTabla_usuario().getSelectedRow();
+            modificarUsuario();
 
         }
     }
@@ -216,20 +210,40 @@ public class Control_user {
 
     public void modificarUsuario() {
 
-        CargarDatos();
-        modelo.setCodigo_socio(cod_socio);
-        modelo.setCodig_rol(cod_rol);
-        modelo.setUsuario(usuario);
-        modelo.setContrasenia(clave);
-
-        if (modelo.modificarUsuario()) {
-            JOptionPane.showMessageDialog(null, "Usuario Modificado con Éxito", "", 1);
-            cargarLista("");
-            desactivarBotones();
+        if (vu.getTxt_contraseniaNueva().getText().equals("") || vu.getTxt_confirmeClave().getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la contraseña", "", 0);
         } else {
-            JOptionPane.showMessageDialog(null, "Error", "", 0);
-            desactivarBotones();
+            if (vu.getTxt_contraseniaNueva().getText().equals(vu.getTxt_confirmeClave().getText())) {
+                int op = JOptionPane.showOptionDialog(null, "Esta seguro de Modificar este Usuario", "",
+                        JOptionPane.YES_NO_CANCEL_OPTION, 2, null, new Object[]{"SI", "NO",}, null);
+                if (op == 0) {
+                    CargarDatos();
+                    int usuario = modelo.validarUsuario();
+                    System.out.println(vu.getTxt_usuario().getText().length()+" 444");
+                    if (vu.getTxt_usuario().getText().length()>1 || usuario == 0) {
+                        if (modelo.modificarUsuario()) {
+                            JOptionPane.showMessageDialog(null, "Usuario Modificado con Éxito", "", 1);
+                            cargarLista("");
+                            desactivarBotones();
+                            vu.getTxt_contraseniaNueva().setText("");
+                            vu.getTxt_confirmeClave().setText("");
+                            vu.getDialogo_usuario().dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Error", "", 0);
+                            desactivarBotones();
+                        }
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Este usuario no esta disponible, INGRESE UN NUEVO", "", 0);
+                        vu.getTxt_usuario().setText("");
+                    }
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "", 1);
+            }
         }
+
     }
 
     public void eliminarUsuario() {
@@ -269,7 +283,7 @@ public class Control_user {
         modelo.setCodig_rol(cod_rol);
         modelo.setCodigo_socio(cod_socio);
         modelo.setUsuario(usuario);
-        modelo.setCedula(clave);
+        modelo.setContrasenia(clave);
 
     }
 
