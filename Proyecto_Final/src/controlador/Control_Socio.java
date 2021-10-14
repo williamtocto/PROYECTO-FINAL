@@ -164,6 +164,7 @@ public class Control_Socio {
         vista.getTxtNumCuenta().addKeyListener(validar);
         vista.getTxtTelefono().addKeyListener(validar);
     }
+    
 
     private void crearSocio() {
         fila = 0;
@@ -245,35 +246,14 @@ public class Control_Socio {
 
     }    
 
-    private void cargarDatos() {
-        DefaultTableModel dtm;
-        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
-        dtm.setNumRows(0);
-        List<Socio> lista = modelo.socios();
-        lista.stream().forEach(s -> {
-            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
-                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
-                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()};
-            dtm.addRow(socio);
-        });
-    }
-
-    private void cargarDatosbusqueda(String aguja) {
-        DefaultTableModel dtm;
-        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
-        dtm.setNumRows(0);
-        List<Socio> lista = modelo.socios(aguja);
-        lista.stream().forEach(s -> {
-            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
-                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
-                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()
-            };
-            dtm.addRow(socio);
-        });
-    }
-
     private void editarSocio() {
 
+        if ("".equals(vista.getTxtNumCuenta().getText())|| "".equals(vista.getTxtNombre().getText()) || "".equals(vista.getTxtApellido().getText())
+                || "".equals(vista.getTxtDireccion().getText()) || "".equals(vista.getTxtEmail().getText())
+                || "".equals(vista.getTxtTelefono().getText()) || "".equals(vista.getTxtCedula().getText())) {
+            JOptionPane.showMessageDialog(null, " Existen campos vacíos, llenar todos por favor ", "DATOS INCOMPLETOS", 0);
+        } else {
+            
         String cod_socio = vista.getTxtCodigo().getText();
         String ced_socio = vista.getTxtCedula().getText();
         String num_cuenta = vista.getTxtNumCuenta().getText();
@@ -319,7 +299,37 @@ public class Control_Socio {
         }
         limpiar();
         vista.getJDialogo().setVisible(false);
+        
+        }
+ 
     }
+      private void cargarDatos() {
+        DefaultTableModel dtm;
+        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
+        dtm.setNumRows(0);
+        List<Socio> lista = modelo.socios();
+        lista.stream().forEach(s -> {
+            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
+                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
+                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()};
+            dtm.addRow(socio);
+        });
+    }
+
+    private void cargarDatosbusqueda(String aguja) {
+        DefaultTableModel dtm;
+        dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
+        dtm.setNumRows(0);
+        List<Socio> lista = modelo.socios(aguja);
+        lista.stream().forEach(s -> {
+            String[] socio = {Integer.toString(s.getCodigo_socio()), s.getCedula_socio(),
+                s.getNombre_socio(), s.getApellido_socio(), s.getCorreo_socio(), s.getDireccion_socio(),
+                s.getTelefono_socio(), s.getFecha_nac_socio(), s.getFecha_ingreso()
+            };
+            dtm.addRow(socio);
+        });
+    }
+
 
     private String calcularEdad(Date fecha_nac) {
         String convertirFecha = fecha_nac.toString();
@@ -371,6 +381,7 @@ public class Control_Socio {
         } else if (n == 2) {
             fila = vista.getJtDatosSocio().getSelectedRow();
             editarSocio();
+            cargarDatos();
         }
     }
 
