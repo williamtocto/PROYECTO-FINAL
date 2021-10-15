@@ -117,7 +117,7 @@ public class Control_user {
     }
 
     public void desactivarBotones() {
-        // vu.getBtn_agregar().setEnabled(false);
+        vu.getBtn_agregar().setEnabled(false);
         vu.getBtn_modificar().setEnabled(false);
         vu.getBtn_eliminar().setEnabled(false);
     }
@@ -278,11 +278,11 @@ public class Control_user {
     }
 
     public void CargarDatos() {
-        // codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());   
+        codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());   
         cod_socio = codigoSocio();
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();
-      //  clave = vu.getTxt_contraseniaNueva().getText();
+        clave = vu.getTxt_contraseniaNueva().getText();
         modelo.setCodig_rol(cod_rol);
         modelo.setCodigo_socio(cod_socio);
         modelo.setUsuario(usuario);

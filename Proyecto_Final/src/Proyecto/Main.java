@@ -1,6 +1,6 @@
 package Proyecto;
 
-import Vista.Vista_Login;
+import vista.Vista_Login;
 import controlador.Control_Login;
 import java.sql.SQLException;
 import modelo.Modelo_Login;

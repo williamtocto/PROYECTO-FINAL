@@ -1,6 +1,6 @@
 package controlador;
 
-import Vista.Vista_Login;
+import vista.Vista_Login;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
