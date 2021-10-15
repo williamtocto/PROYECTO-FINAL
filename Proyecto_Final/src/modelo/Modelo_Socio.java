@@ -109,7 +109,7 @@ public class Modelo_Socio extends Socio {
                 + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
                 + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='"
                 + getCorreo_socio() + "',fecha_ingreso_socio='" + getFecha_ingreso()
-                + "'WHERE codigo_socio=" + getCodigo_socio() + ";";
+                + "'WHERE codigo_socio=" + id+ ";";
         return con.accion(sql);
     }
 
