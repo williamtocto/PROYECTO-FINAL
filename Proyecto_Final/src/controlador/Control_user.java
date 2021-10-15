@@ -100,7 +100,7 @@ public class Control_user {
             }
         };
         vu.getTabla_usuario().addMouseListener(ml);
-//        vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
+        vu.getBtn_aceptar().addActionListener(l -> DefinirMetodo(n));
         vu.getBtn_agregar().addActionListener(l -> cargarDialogo(1));
         vu.getBtn_modificar().addActionListener(l -> cargarDialogo(2));
         vu.getTxt_buscar().addKeyListener(kl);
