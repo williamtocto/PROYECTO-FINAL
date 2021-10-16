@@ -1,6 +1,6 @@
 package controlador;
 
-import Modelo.Rol;
+import modelo.Rol;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;

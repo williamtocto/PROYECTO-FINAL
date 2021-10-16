@@ -232,17 +232,18 @@ public class Control_transaccion {
         formato1 = formato1 + " 11:59:59";
 
         try {
-            JasperReport reporte = null;
-            String path = "src\\vista\\reportes\\historial_transaccion_1.jasper";
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+          
+           // String path = "src\\vista\\reportes\\historial_transaccion_1.jasper";
+            JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/historial_transaccion_1.jasper"));
+            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             java.sql.Timestamp fc = java.sql.Timestamp.valueOf(formato);
             java.sql.Timestamp fc1 = java.sql.Timestamp.valueOf(formato1);
-            Map parametro = new HashMap();
+             Map<String, Object> parametro = new HashMap<String, Object>();
             parametro.put("fecha_inicio", fc);
             parametro.put("fecha_fin", fc1);
             parametro.put("cedula", vistat.getTxtCedula_soc().getText());
             parametro.put("Titulo", "Reporte transacciones");
-            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, con.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(ruta, parametro, con.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {

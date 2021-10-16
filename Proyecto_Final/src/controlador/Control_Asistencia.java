@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -111,6 +112,9 @@ public class Control_Asistencia {
     }
 
     public void imprimir() {
+        
+        
+     
 
         ConexionPG con = new ConexionPG();
         vista.getjDialog1().dispose();
@@ -124,12 +128,15 @@ public class Control_Asistencia {
         }
         try {
             JasperReport reporte = null;
-            String ruta = "src\\vista\\reportes\\ReporteAsistencia_1_1.jasper";
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
-            Map parametro = new HashMap();
+           JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteAsistencia_1_1.jasper"));
+           // String ruta = "src\\vista\\reportes\\ReporteAsistencia_1_1.jasper";
+            System.out.println(ruta.toString());
+            System.out.println(String.valueOf(ruta));
+          //  reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta.toString());
+            Map<String, Object> parametro = new HashMap<String, Object>();
             parametro.put("fecha_inicio", date1);
             parametro.put("fecha_fin", date2);
-            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, con.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(ruta, parametro, con.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {
