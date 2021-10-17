@@ -2,7 +2,6 @@ package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +30,7 @@ public class Control_Asistencia {
     private Vista_Asistencia vista;
     int codigo_reunion;
 
+    int array2[];
     int Boton;
 
     public Control_Asistencia(Modelo_Asistencia modelo, Vista_Asistencia vista) {
@@ -173,6 +173,12 @@ public class Control_Asistencia {
                     tblModel.addRow(asistencia);
                 });
             }
+            array2 = new int[vista.getTabla().getRowCount()];
+            int estado;
+            for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
+                estado = Integer.parseInt((String) vista.getTabla().getValueAt(i, 3));
+                array2[i]=estado;
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione la fecha", "", 0);
@@ -192,6 +198,8 @@ public class Control_Asistencia {
         if (op == 0) {
             int codigo_socio = 0;
             int estado = 0;
+            int array1[] = new int[vista.getTabla().getRowCount()];
+            
             for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
                 try {
                     codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
@@ -199,11 +207,10 @@ public class Control_Asistencia {
                     if (estado != 0 && estado != 1) {
                         JOptionPane.showMessageDialog(null, "Registro Socio: " + vista.getTabla().getValueAt(i, 1) + " "
                                 + vista.getTabla().getValueAt(i, 2), "", 0);
-
                         b = true;
                         break;
                     }
-
+                    array1[i] = estado;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Valor incorrecto: " + vista.getTabla().getValueAt(i, 1) + " "
                             + vista.getTabla().getValueAt(i, 2), "", 0);
@@ -220,23 +227,34 @@ public class Control_Asistencia {
                     modelo.setEstado(estado);
                     modelo.setCod_reunion(codigo_reunion);
                     if (Boton == 0) {
+                        if (modelo.GuardarLista()) {
+                            a = true;
+                        }
                         if (estado == 1) {
                             mMulta.setEstado_multa("Pendiente");
                             mMulta.setCodigo_asistencia(modelo.codAsistencia());
                             mMulta.AsignarMulta();
                         }
-                        if (modelo.GuardarLista()) {
-                            a = true;
-                        }
                     } else {
+
                         if (modelo.Editar()) {
                             b = false;
                         }
+                        if (array2[i] != array1[i]) {
+                            if (estado == 1) {
+                                mMulta.setEstado_multa("Pendiente");
+                                mMulta.setCodigo_asistencia(modelo.codAsistencia());
+                                mMulta.AsignarMulta();
+                            } else {
+                                mMulta.setCodigo_asistencia(modelo.codAsistencia());
+                                mMulta.EliminarMulta();
+                            }
+                        }
+                        array2[i] = array1[i];
                     }
 
                 }
             }
-
             if (a == true) {
                 Cargar();
                 JOptionPane.showMessageDialog(null, "Datos guardados correctamente", "", 1);

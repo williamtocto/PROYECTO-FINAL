@@ -15,5 +15,7 @@ public class Control_Multa {
         vista.setTitle("Cobrar Multas");
         vista.setVisible(true);
     }
+    
+    
 
 }

@@ -50,10 +50,11 @@ public class Modelo_Asistencia extends Asistencia {
         try {
             String sql = "Select codigo_Asistencia from asistencia where codigo_socio_asis= " + getCod_socio() + " and codigo_reunion = " + getCod_reunion() + ";";
             ResultSet rs = con.consulta(sql);
-            List<Asistencia> lista = new ArrayList<>();
             while (rs.next()) {
                 cod = rs.getInt("codigo_asistencia");
             }
+            System.out.println(cod);
+            rs.close();
             return cod;
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Asistencia.class.getName()).log(Level.SEVERE, null, ex);
