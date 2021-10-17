@@ -5,6 +5,7 @@
  */
 package vista;
 
+import JTextField_Especial.JtxtCedula;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -51,11 +52,11 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     }
 
     public JTextField getTxtCedula() {
-        return TxtCedula;
+        return txtCedula;
     }
 
-    public void setTxtCedula(JTextField TxtCedula) {
-        this.TxtCedula = TxtCedula;
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
     }
 
     public JTextField getTxtCodigo() {
@@ -238,7 +239,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         jLabel15 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         TxtApellido = new javax.swing.JTextField();
-        TxtCedula = new javax.swing.JTextField();
         jdFechaIng = new com.toedter.calendar.JDateChooser();
         TxtNumCuenta = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -247,6 +247,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         jdFechaNac = new com.toedter.calendar.JDateChooser();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        txtCedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         LblNombre = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -259,48 +260,56 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         btnImprimir = new javax.swing.JButton();
         LblFondo = new javax.swing.JLabel();
 
+        JDialogo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         JDialogo.setTitle("Socios");
         JDialogo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JDialogo.getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 170, -1));
+        JDialogo.getContentPane().add(TxtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 170, -1));
 
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Código:");
-        JDialogo.getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 50, 20));
+        JDialogo.getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 50, 20));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Nombre:");
-        JDialogo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
-        JDialogo.getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 190, -1));
+        JDialogo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 20));
+        JDialogo.getContentPane().add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 170, -1));
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Dirección:");
-        JDialogo.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 60, 20));
-        JDialogo.getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 190, -1));
+        JDialogo.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 20));
+
+        TxtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtDireccionActionPerformed(evt);
+            }
+        });
+        JDialogo.getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 190, -1));
+        TxtDireccion.getAccessibleContext().setAccessibleName("");
+        TxtDireccion.getAccessibleContext().setAccessibleDescription("");
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("E-mail:");
-        JDialogo.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 70, 20));
-        JDialogo.getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 170, -1));
+        JDialogo.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 70, 20));
+        JDialogo.getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 170, -1));
 
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Teléfono:");
-        JDialogo.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 60, 50));
-        JDialogo.getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 190, -1));
+        JDialogo.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 60, 50));
+        JDialogo.getContentPane().add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 140, -1));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Cédula:");
-        JDialogo.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 20));
+        JDialogo.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Apellido:");
-        JDialogo.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, 20));
+        JDialogo.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
 
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Fecha Ingreso:");
-        JDialogo.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 90, 20));
-        JDialogo.getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 170, -1));
-        JDialogo.getContentPane().add(TxtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, -1));
-        JDialogo.getContentPane().add(jdFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 170, -1));
+        JDialogo.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 90, 20));
+        JDialogo.getContentPane().add(TxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, -1));
+        JDialogo.getContentPane().add(jdFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 170, -1));
         JDialogo.getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 140, -1));
 
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,8 +321,8 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Fecha de Nac:");
-        JDialogo.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 90, 30));
-        JDialogo.getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 170, -1));
+        JDialogo.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 90, 30));
+        JDialogo.getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 170, -1));
 
         btnAceptar.setText("Aceptar");
         btnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
@@ -323,17 +332,16 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         JDialogo.getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 100, 30));
+        JDialogo.getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 140, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        JDialogo.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
+        JDialogo.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 480));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("Socios");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -411,6 +419,10 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInactivarActionPerformed
 
+    private void TxtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtDireccionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,7 +433,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JLabel LblFondo;
     private javax.swing.JLabel LblNombre;
     private javax.swing.JTextField TxtApellido;
-    private javax.swing.JTextField TxtCedula;
     private javax.swing.JTextField TxtCodigo;
     private javax.swing.JTextField TxtDireccion;
     private javax.swing.JTextField TxtEmail;
@@ -452,5 +463,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     private javax.swing.JTable jtDatosSocio;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtCedula;
     // End of variables declaration//GEN-END:variables
 }
