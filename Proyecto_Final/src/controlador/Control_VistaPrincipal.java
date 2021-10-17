@@ -149,6 +149,7 @@ public class Control_VistaPrincipal {
         Vista_Multa vm=new Vista_Multa();
         Centrar(vm);
         Control_Multa cm=new Control_Multa(mod, vm);
+        cm.iniciarControl();
         
         
     }
