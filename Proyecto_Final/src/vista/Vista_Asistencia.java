@@ -199,12 +199,12 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
                 btn_guardarFaltasActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_guardarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 110, -1));
+        getContentPane().add(btn_guardarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 110, -1));
 
         btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
         btn_imprimir.setText("Imprimir");
         btn_imprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 100, 40));
+        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 100, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 430));

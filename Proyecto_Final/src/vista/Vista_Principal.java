@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
 import javax.swing.JButton;
@@ -13,9 +9,6 @@ import javax.swing.JMenuItem;
 
 public class Vista_Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista_Principal
-     */
     public Vista_Principal() {
         initComponents();
     }
@@ -52,6 +45,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         submenu_reunion = new javax.swing.JMenuItem();
         menuActas = new javax.swing.JMenuItem();
         menu_asistencia = new javax.swing.JMenuItem();
+        menu_Multas = new javax.swing.JMenu();
+        menuMulta = new javax.swing.JMenuItem();
         menuPrincipal_rol = new javax.swing.JMenu();
         menuRol = new javax.swing.JMenuItem();
         menu_privilegios = new javax.swing.JMenuItem();
@@ -224,6 +219,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_reunion.add(menu_asistencia);
 
         jMenuBar1.add(menu_reunion);
+
+        menu_Multas.setText("Multa");
+
+        menuMulta.setText("Cobrar Multas");
+        menu_Multas.add(menuMulta);
+
+        jMenuBar1.add(menu_Multas);
 
         menuPrincipal_rol.setText("Rol");
 
@@ -475,6 +477,15 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.menu_usuario = menu_usuario;
     }
 
+    public JMenuItem getMenuMulta() {
+        return menuMulta;
+    }
+
+    public void setMenuMulta(JMenuItem menuMulta) {
+        this.menuMulta = menuMulta;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actas;
     private javax.swing.JButton btn_agregarSocio;
@@ -497,9 +508,11 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem menuActas;
+    private javax.swing.JMenuItem menuMulta;
     private javax.swing.JMenu menuPrincipal_rol;
     private javax.swing.JMenuItem menuRol;
     private javax.swing.JMenuItem menu_MantenimientoUser;
+    private javax.swing.JMenu menu_Multas;
     private javax.swing.JMenuItem menu_asistencia;
     private javax.swing.JMenuItem menu_privilegios;
     private javax.swing.JMenu menu_reunion;

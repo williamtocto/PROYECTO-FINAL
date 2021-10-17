@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Asistencia;
 import modelo.ConexionPG;
 import modelo.Modelo_Asistencia;
+import modelo.Modelo_Multa;
 import modelo.Modelo_Reunion;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -83,7 +84,6 @@ public class Control_Asistencia {
 
             @Override
             public void keyPressed(KeyEvent e) {
-
             }
 
             @Override
@@ -112,9 +112,6 @@ public class Control_Asistencia {
     }
 
     public void imprimir() {
-        
-        
-     
 
         ConexionPG con = new ConexionPG();
         vista.getjDialog1().dispose();
@@ -127,12 +124,7 @@ public class Control_Asistencia {
             date2 = vista.getDateFin().getDate();
         }
         try {
-            JasperReport reporte = null;
-           JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteAsistencia_1_1.jasper"));
-           // String ruta = "src\\vista\\reportes\\ReporteAsistencia_1_1.jasper";
-            System.out.println(ruta.toString());
-            System.out.println(String.valueOf(ruta));
-          //  reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta.toString());
+            JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteAsistencia_1_1.jasper"));
             Map<String, Object> parametro = new HashMap<String, Object>();
             parametro.put("fecha_inicio", date1);
             parametro.put("fecha_fin", date2);
@@ -182,7 +174,7 @@ public class Control_Asistencia {
                 });
             }
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Seleccione la fecha", "", 0);
         }
 
@@ -192,6 +184,7 @@ public class Control_Asistencia {
 
         boolean a = false;
         boolean b = false;
+        Modelo_Multa mMulta = new Modelo_Multa();
 
         int op = JOptionPane.showOptionDialog(null, "ESTA SEGURO DE GUARDAR ESTOS DATOS", "",
                 JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
@@ -201,7 +194,6 @@ public class Control_Asistencia {
             int estado = 0;
             for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
                 try {
-
                     codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
                     estado = Integer.parseInt((String) vista.getTabla().getValueAt(i, 3));
                     if (estado != 0 && estado != 1) {
@@ -210,7 +202,6 @@ public class Control_Asistencia {
 
                         b = true;
                         break;
-
                     }
 
                 } catch (NumberFormatException e) {
@@ -220,6 +211,7 @@ public class Control_Asistencia {
                     break;
                 }
             }
+
             if (b == false) {
                 for (int i = 0; i < vista.getTabla().getRowCount(); i++) {
                     codigo_socio = Integer.parseInt((String) vista.getTabla().getValueAt(i, 0));
@@ -228,6 +220,11 @@ public class Control_Asistencia {
                     modelo.setEstado(estado);
                     modelo.setCod_reunion(codigo_reunion);
                     if (Boton == 0) {
+                        if (estado == 1) {
+                            mMulta.setEstado_multa("Pendiente");
+                            mMulta.setCodigo_asistencia(modelo.codAsistencia());
+                            mMulta.AsignarMulta();
+                        }
                         if (modelo.GuardarLista()) {
                             a = true;
                         }

@@ -4,6 +4,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JInternalFrame;
 import modelo.Modelo_Acta;
 import modelo.Modelo_Asistencia;
+import modelo.Modelo_Multa;
 import modelo.Modelo_Reunion;
 import modelo.Modelo_Rol;
 import modelo.Modelo_Socio;
@@ -12,6 +13,7 @@ import modelo.Modelo_privilegios;
 import modelo.Modelo_transaccion;
 import vista.Vista_Acta;
 import vista.Vista_Asistencia;
+import vista.Vista_Multa;
 import vista.Vista_Principal;
 import vista.Vista_Privilegios;
 import vista.Vista_Reunion;
@@ -48,6 +50,7 @@ public class Control_VistaPrincipal {
         vista.getBtn_actas().addActionListener(l -> iniciarVentanaActa());
         vista.getBtn_transacciones().addActionListener(l -> InicarVentanaTransaccion());
         vista.getBtn_imprimirReporte().addActionListener(l -> imprimirReporte());
+        vista.getMenuMulta().addActionListener(l-> IniciarVentanaMultas());
     }
 
     public void Usuario() {
@@ -138,5 +141,15 @@ public class Control_VistaPrincipal {
         Centrar(Vista);
         Control_Asistencia ca = new Control_Asistencia(modelo, Vista);
         ca.iniciarControl();
+    }
+    
+    public void IniciarVentanaMultas() {
+        System.out.println("multa");
+        Modelo_Multa mod=new Modelo_Multa();
+        Vista_Multa vm=new Vista_Multa();
+        Centrar(vm);
+        Control_Multa cm=new Control_Multa(mod, vm);
+        
+        
     }
 }
