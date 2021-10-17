@@ -20,10 +20,11 @@ public class Control_Multa {
         this.vista = vista;
         vista.setTitle("Cobrar Multas");
         vista.setVisible(true);
+       // vista.getBtn_cobrar().get
     }
 
     public void iniciarControl() {
-        vista.getBtn_buscar().addActionListener(l-> listar());
+        vista.getBtn_buscar().addActionListener(l -> listar());
 
     }
 
@@ -39,11 +40,14 @@ public class Control_Multa {
             tblModel = (DefaultTableModel) vista.getTabla().getModel();
             tblModel.setNumRows(0);
             List<Multa> lista = modelo.listar(fecha);
-            lista.stream().forEach(r -> {
-                String[] multa = {String.valueOf(r.getCedula()), r.getNombre(),r.getEstado(),r.getFecha_multa()};
-                tblModel.addRow(multa);
-            });
-
+            if (lista.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No exite multas en esta fecha", "", 1);
+            } else {
+                lista.stream().forEach(r -> {
+                    String[] multa = {String.valueOf(r.getCedula()), r.getNombre(), r.getEstado(), r.getFecha_multa()};
+                    tblModel.addRow(multa);
+                });
+            }
         } else {
             JOptionPane.showMessageDialog(null, " Ingrese una fecha para buscar", "", 2);
         }
