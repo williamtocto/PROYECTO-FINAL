@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Modelo_Multa extends Multa {
 
@@ -28,19 +29,15 @@ public class Modelo_Multa extends Multa {
         return con.accion(sql1);
     }
 
-    public   List<Multa> listar(String fecha) {
+    public List<Multa> listar(String fecha) {
         try {
             ConexionPG con = new ConexionPG();
-
             String tipo_transaccion = "Pago Multa";
-
             String sql = "select  cedula_socio,nombre_socio ||' '|| apellido_socio as nombres,fecha_reunion,estado_multa,codigo_multa "
                     + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis join reunion r on  r.codigo_reunion=a.codigo_reunion "
                     + "join multa m on m.codigo_asistencia=a.codigo_asistencia where fecha_reunion= '" + fecha + "' order by fecha_reunion;";
-
             ResultSet rs = con.consulta(sql);
             List<Multa> lista = new ArrayList<Multa>();
-
             while (rs.next()) {
                 Multa m = new Multa();
                 m.setCedula(rs.getString("cedula_socio"));
@@ -48,7 +45,7 @@ public class Modelo_Multa extends Multa {
                 m.setEstado(rs.getString("estado_multa"));
                 m.setFecha_multa(rs.getString("fecha_reunion"));
                 lista.add(m);
-            }         
+            }
             rs.close();
             return lista;
 
@@ -56,11 +53,24 @@ public class Modelo_Multa extends Multa {
             Logger.getLogger(Modelo_Multa.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-
     }
+    
 
-    public void cobrarMulta() {
-
+    public double dineroMultas() {
+        ConexionPG con = new ConexionPG();
+        String sql = "SELECT sum(monto) from transaccion where tipo_transaccion='Pago Multa';";
+        ResultSet rs = con.consulta(sql);
+        double dinero = 0;
+        try {
+            while (rs.next()) {
+                dinero = rs.getDouble("sum");
+            }
+            rs.close();
+            return dinero;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            return dinero;
+        }
     }
 
 }

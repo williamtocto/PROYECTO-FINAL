@@ -89,8 +89,6 @@ public class Multa {
     public void setEstado_multa(String estado_multa) {
         this.estado_multa = estado_multa;
     }
-    
-    
 
 }
     

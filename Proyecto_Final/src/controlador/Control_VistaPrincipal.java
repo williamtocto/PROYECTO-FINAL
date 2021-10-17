@@ -50,7 +50,7 @@ public class Control_VistaPrincipal {
         vista.getBtn_actas().addActionListener(l -> iniciarVentanaActa());
         vista.getBtn_transacciones().addActionListener(l -> InicarVentanaTransaccion());
         vista.getBtn_imprimirReporte().addActionListener(l -> imprimirReporte());
-        vista.getMenuMulta().addActionListener(l-> IniciarVentanaMultas());
+        vista.getMenuMulta().addActionListener(l -> IniciarVentanaMultas());
     }
 
     public void Usuario() {
@@ -142,15 +142,14 @@ public class Control_VistaPrincipal {
         Control_Asistencia ca = new Control_Asistencia(modelo, Vista);
         ca.iniciarControl();
     }
-    
+
     public void IniciarVentanaMultas() {
         System.out.println("multa");
-        Modelo_Multa mod=new Modelo_Multa();
-        Vista_Multa vm=new Vista_Multa();
+        Modelo_Multa mod = new Modelo_Multa();
+        Vista_Multa vm = new Vista_Multa();
         Centrar(vm);
-        Control_Multa cm=new Control_Multa(mod, vm);
+        Control_Multa cm = new Control_Multa(mod, vm);
         cm.iniciarControl();
-        
-        
+
     }
 }

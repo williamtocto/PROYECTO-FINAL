@@ -12,6 +12,7 @@ public class Modelo_transaccion extends Transaccion {
 
     public Modelo_transaccion() {
     }
+    
     ConexionPG con = new ConexionPG();
 
     public List<Transaccion> listaTransaccion(String cedula) {
@@ -22,7 +23,6 @@ public class Modelo_transaccion extends Transaccion {
                     + "transaccion t on s.codigo_socio=t.codigo_socio and s.cedula_socio = '" + cedula + "' order by fecha_trans";
             ResultSet rs = con.consulta(sql);
             ArrayList<Transaccion> lt = new ArrayList<Transaccion>();
-
             while (rs.next()) {
                 Transaccion t = new Transaccion();
                 t.setNombre(rs.getString("nombre_socio"));
@@ -38,7 +38,6 @@ public class Modelo_transaccion extends Transaccion {
                 t.setFecha_trans(rs.getString("fecha_trans"));
                 lt.add(t);
                 a = true;
-                System.out.println("11111111111111111111111111111111111111111111111111111111");
             }
 
             if (a == false) {
@@ -59,8 +58,6 @@ public class Modelo_transaccion extends Transaccion {
 //                    t.setTipo_transaccion(rs.getString("tipo_transaccion"));
 //                    t.setFecha_trans(rs.getString("fecha_trans"));
                     lt.add(t);
-                    System.out.println("7777777777777777777777777777777777777");
-
                 }
                 rs1.close();
             }
@@ -73,7 +70,7 @@ public class Modelo_transaccion extends Transaccion {
         }
     }
 
-    public Double CatidadCuenta() {
+    public double CatidadCuenta() {
 
         String sql = "SELECT saldo,fecha_trans FROM transaccion WHERE codigo_socio= " + getCodigo_socio() + " "
                 + "ORDER BY fecha_trans DESC LIMIT 1;";
@@ -82,7 +79,6 @@ public class Modelo_transaccion extends Transaccion {
         try {
             while (rs.next()) {
                 cantidad = rs.getDouble("saldo");
-
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -96,5 +92,7 @@ public class Modelo_transaccion extends Transaccion {
                 + "','" + getTipo_transaccion() + "','" + getFecha_trans() + "')";
         return con.accion(sql);
     }
+    
+    
 
 }

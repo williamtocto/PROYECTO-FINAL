@@ -113,6 +113,14 @@ public class Vista_Multa extends javax.swing.JInternalFrame {
         this.txt_cedula = txt_cedula;
     }
 
+    public JTextField getTxt_nombre() {
+        return txt_nombre;
+    }
+
+    public void setTxt_nombre(JTextField txt_nombre) {
+        this.txt_nombre = txt_nombre;
+    }
+
     public JTextField getTxt_monto() {
         return txt_monto;
     }
