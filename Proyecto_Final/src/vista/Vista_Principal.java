@@ -155,16 +155,16 @@ public class Vista_Principal extends javax.swing.JFrame {
         );
         desk_PrincipalLayout.setVerticalGroup(
             desk_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        getContentPane().add(desk_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1380, 640));
+        getContentPane().add(desk_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1380, 620));
 
         jLabel2.setText("Bienvenido...");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, -1, 10));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 670, 1300, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 1300, 20));
 
         jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
