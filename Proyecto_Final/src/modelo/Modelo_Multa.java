@@ -33,13 +33,14 @@ public class Modelo_Multa extends Multa {
         try {
             ConexionPG con = new ConexionPG();
             String tipo_transaccion = "Pago Multa";
-            String sql = "select  cedula_socio,nombre_socio ||' '|| apellido_socio as nombres,fecha_reunion,estado_multa,codigo_multa,m.fecha_pago "
+            String sql = "select  cedula_socio,nombre_socio ||' '|| apellido_socio as nombres,fecha_reunion,codigo_multa,estado_multa,codigo_multa,m.fecha_pago "
                     + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis join reunion r on  r.codigo_reunion=a.codigo_reunion "
                     + "join multa m on m.codigo_asistencia=a.codigo_asistencia where fecha_reunion= '" + fecha + "' order by fecha_reunion;";
             ResultSet rs = con.consulta(sql);
             List<Multa> lista = new ArrayList<Multa>();
             while (rs.next()) {
                 Multa m = new Multa();
+                m.setCodigo_multa(rs.getInt("codigo_multa"));
                 m.setCedula(rs.getString("cedula_socio"));
                 m.setNombre(rs.getString("nombres"));
                 m.setEstado(rs.getString("estado_multa"));

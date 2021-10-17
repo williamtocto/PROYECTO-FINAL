@@ -253,13 +253,13 @@ public class Vista_Multa extends javax.swing.JInternalFrame {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Cédula", "Nombre", "Estado", "Fecha Multa", "Fecha de Pago"
+                "N°", "Cédula", "Nombre", "Estado", "Fecha Multa", "Fecha de Pago"
             }
         ));
         jScrollPane1.setViewportView(tabla);
