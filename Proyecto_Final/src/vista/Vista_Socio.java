@@ -18,7 +18,7 @@ import javax.swing.JTextField;
  *
  * @author Paola
  */
-public class Vista_Socio extends javax.swing.JInternalFrame{
+public class Vista_Socio extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_Socio
@@ -27,20 +27,20 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         initComponents();
     }
 
-    public JtxtSoloLetras getTxtApellido() {
-        return txtApellido;
-    }
-
-    public void setTxtApellido(JtxtSoloLetras txtApellido) {
-        this.txtApellido = txtApellido;
-    }
-
     public JtxtSoloNumeros getTxtCedula() {
         return txtCedula;
     }
 
     public void setTxtCedula(JtxtSoloNumeros txtCedula) {
         this.txtCedula = txtCedula;
+    }
+
+    public JtxtSoloLetras getTxtApellido() {
+        return txtApellido;
+    }
+
+    public void setTxtApellido(JtxtSoloLetras txtApellido) {
+        this.txtApellido = txtApellido;
     }
 
     public JtxtSoloLetras getTxtNombre() {
@@ -58,8 +58,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setTxtTelefono(JtxtSoloNumeros txtTelefono) {
         this.txtTelefono = txtTelefono;
     }
-    
-    
+
     public JLabel getLblFondo() {
         return LblFondo;
     }
@@ -75,23 +74,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setLblNombre(JLabel LblNombre) {
         this.LblNombre = LblNombre;
     }
-    
-
-//    public JTextField getTxtApellido() {
-//        return TxtApellido;
-//    }
-//
-//    public void setTxtApellido(JTextField TxtApellido) {
-//        this.TxtApellido = TxtApellido;
-//    }
-
-//    public JTextField getTxtCedula() {
-//        return txtCedula;
-//    }
-//
-//    public void setTxtCedula(JTextField txtCedula) {
-//        this.txtCedula = txtCedula;
-//    }
 
     public JTextField getTxtCodigo() {
         return TxtCodigo;
@@ -117,14 +99,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
         this.TxtEmail = TxtEmail;
     }
 
-//    public JTextField getTxtNombre() {
-//        return TxtNombre;
-//    }
-//
-//    public void setTxtNombre(JTextField TxtNombre) {
-//        this.TxtNombre = TxtNombre;
-//    }
-
     public JTextField getTxtNumCuenta() {
         return TxtNumCuenta;
     }
@@ -132,14 +106,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setTxtNumCuenta(JTextField TxtNumCuenta) {
         this.TxtNumCuenta = TxtNumCuenta;
     }
-
-//    public JTextField getTxtTelefono() {
-//        return TxtTelefono;
-//    }
-//
-//    public void setTxtTelefono(JTextField TxtTelefono) {
-//        this.TxtTelefono = TxtTelefono;
-//    }
 
     public JButton getBtnInactivar() {
         return btnInactivar;
@@ -196,7 +162,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setBtnNuevaCuenta(JButton btnNuevaCuenta) {
         this.btnNuevaCuenta = btnNuevaCuenta;
     }
-    
 
     public JDateChooser getJdFechaIng() {
         return jdFechaIng;
@@ -261,7 +226,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     public void setLblCodigo(JLabel lblCodigo) {
         this.lblCodigo = lblCodigo;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -495,7 +460,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame{
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog JDialogo;

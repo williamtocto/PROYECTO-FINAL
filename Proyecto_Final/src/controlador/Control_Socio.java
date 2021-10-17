@@ -211,7 +211,7 @@ public class Control_Socio {
     private void editarSocio() {
         
         int op = JOptionPane.showOptionDialog(null,
-                "¿Está seguro de modificar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+                "¿Está seguro de modificar al socio a continuación?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
         if (op == 0) {
 
             if ("".equals(vista.getTxtNumCuenta().getText()) || "".equals(vista.getTxtNombre().getText()) || "".equals(vista.getTxtApellido().getText())
