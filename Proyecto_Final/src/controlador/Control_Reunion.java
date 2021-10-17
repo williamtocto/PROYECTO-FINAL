@@ -8,18 +8,19 @@ import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo_Reunion;
 import modelo.Reunion;
-import modelo.imgTabla;
 import vista.Vista_Reunion;
 
 /**
@@ -152,7 +153,6 @@ public class Control_Reunion {
         vista.getJTdatos().addMouseListener(ml);
         vista.getTxtBuscar().addKeyListener(kl);
         vista.getBtnLimpiar().addActionListener(l -> limpiar());
-        vista.getBtn_Buscar_consult1().addActionListener(l -> BuscarPorFecha(vista.getJTdatos(), vista.getjDcDesde1().getDate(), vista.getjDcHasta1().getDate()));
         //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
         vista.getTxtDuracion().addKeyListener(kl);
         vista.getTxtTopic().addKeyListener(kl);
@@ -165,8 +165,8 @@ public class Control_Reunion {
             JOptionPane.showMessageDialog(null, " EXISTEN CAMPOS VACIOS DEBE LLENAR TODOS", "ERROR", 0);
         } else {
             verificarFecha = ValidarFechaIngreso();
-            if (verificarFecha == 0) {
-                JOptionPane.showMessageDialog(null, " LA FECHA ES INCORRECTA", "ERROR", 0);
+            if (verificarFecha == 1) {
+                JOptionPane.showMessageDialog(null, " LA FECHA NO PUEDE SER ANTERIOR AL DIA ACTUAL", "ERROR", 0);
             } else {
                 if (vista.getJdFecha().getDate() != null) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -179,27 +179,30 @@ public class Control_Reunion {
                     format = sdf.format(vista.getJdFecha().getDate());
                 }
                 modelo.consultaFecha(format);
-
+                System.out.println("LA FECHA NO ES MENOR");
                 if (fila > 0) {
                     JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "ERROR", 0);
+                    System.out.println("LA FECHA ES IGUAL");
+                } else if (fila == -1) {
+                    System.out.println("GUARDANDO FECHA");
+                    fila = -1;
+                    if (fila == -1) {
+                        System.out.println("FECHA = CERO");
+                        String duracion_reunion = vista.getTxtDuracion().getText();
+                        String topico_reunion = vista.getTxtTopic().getText();
+                        modelo.setFecha_reunion(format);
+                        modelo.setDuracion_reunion(duracion_reunion);
+                        modelo.setTopico_reunion(topico_reunion);
+                        if (modelo.AgregarReunion()) {
+                            JOptionPane.showMessageDialog(null, "Se guardo la reunion correctamente", "", 1);
+                            cargarLista("");
+                            limpiar();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No se ha podido guardar", "Error", 0);
+                        }
+                    }
                 }
 
-                if (fila <= 0) {
-                    String duracion_reunion = vista.getTxtDuracion().getText();
-                    String topico_reunion = vista.getTxtTopic().getText();
-                    modelo.setFecha_reunion(format);
-                    modelo.setDuracion_reunion(duracion_reunion);
-                    modelo.setTopico_reunion(topico_reunion);
-                    if (modelo.AgregarReunion()) {
-                        JOptionPane.showMessageDialog(null, "Se guardo la reunion correctamente", "", 1);
-                        cargarLista("");
-                        limpiar();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se ha podido guardar", "Error", 0);
-                    }
-                    //Vista_Asistencia asis = new Vista_Asistencia(formato, codigo_reunion);
-                    //asis.setVisible(true);
-                }
             }
         }
     }
@@ -337,48 +340,6 @@ public class Control_Reunion {
         Date fecha2 = null;
         String aguja1 = null;
         String aguja2 = null;
-        if (vista.getjDcDesde1().getDate() != null || vista.getjDcHasta1().getDate() != null) {
-            //PRIMERA FECHA
-            fecha1 = vista.getjDcDesde1().getDate();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            aguja1 = sdf.format(fecha1);
-            //SEGUNDA FECHA
-            fecha2 = vista.getjDcHasta1().getDate();
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-            aguja2 = sd.format(fecha2);
-            tabla.setDefaultRenderer(Object.class, new imgTabla());
-            DefaultTableModel dt = new DefaultTableModel() {
-                @Override
-                public boolean isCellEditable(int row, int column) {
-                    return false;
-                }
-            };
-            dt.addColumn("Codigo");
-            dt.addColumn("Fecha");
-            dt.addColumn("Duracion");
-            dt.addColumn("Tópico");
-            modelo = new Modelo_Reunion();
-            Reunion re =new Reunion();
-            List<Reunion> lr =modelo.listaReunion(aguja2);
-            if (lr.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se han encontraron resultados", "", 2);
-            } else {
-                for (int i = 0; i < lr.size(); i++) {
-                    Object filas[] = new Object[4];
-                    re = lr.get(i);
-                    filas[0] = re.getCodigo_reunion();
-                    filas[1] = re.getFecha_reunion();
-                    filas[2] = re.getDuracion_reunion();
-                    filas[3] = re.getTopico_reunion();
-                    dt.addRow(filas);
-                }
-                tabla.setModel(dt);
-                tabla.setRowHeight(32);
-            }
-            
-        } else {
-            JOptionPane.showMessageDialog(null, "Primero seleccione ambas fecha para buscar", "", 0);
-        }
 
     }
 }
