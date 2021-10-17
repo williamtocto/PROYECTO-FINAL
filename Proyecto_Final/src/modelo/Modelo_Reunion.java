@@ -75,21 +75,18 @@ public class Modelo_Reunion extends Reunion {
         return ejecutar;
     }
 
-    public boolean consultaFecha(String format) {
-        int fila = 0;
+    public int consultaFecha(String format) {
         String sql = " SELECT fecha_reunion from reunion where fecha_reunion= '" + format + " ';";
         ResultSet rs = con.consulta(sql);
+        int fila = 0;
         try {
             while (rs.next()) {
-                fila++;
-            }
-            if (fila > 0) {
-                JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "TEOLAM", 0);
-            }
+                fila=1;
+                            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
         }
-        return con.accion(sql);//MUCHO OJO
+        return fila;//MUCHO OJO
     }
 
     public int codigoReunion(String fecha) {

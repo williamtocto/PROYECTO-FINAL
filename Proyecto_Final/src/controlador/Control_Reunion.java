@@ -8,9 +8,6 @@ import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -173,36 +170,47 @@ public class Control_Reunion {
                     formato = sdf.format(vista.getJdFecha().getDate());
                 }
                 String format = null;
-                fila = 0;
+
                 if (vista.getJdFecha().getDate() != null) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     format = sdf.format(vista.getJdFecha().getDate());
                 }
-                modelo.consultaFecha(format);
+                //modelo.consultaFecha(format);
                 System.out.println("LA FECHA NO ES MENOR");
-                if (fila > 0) {
-                    JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "ERROR", 0);
-                    System.out.println("LA FECHA ES IGUAL");
-                } else if (fila == -1) {
+                fila=0;
+                //if(  1  <  0)
+                Date fechaDispositivo = new Date();
+                Date fecha = null;
+                String fechaIngreso = null;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaActual = sdf.format(fechaDispositivo);
+                // Tranformar la fecha a String
+                if (vista.getJdFecha().getDate() != null) {
+                    fechaIngreso = sdf.format(vista.getJdFecha().getDate());
+                    // PARSE PARA COMPARAR LAS FECHAS
+                    fechaDispositivo = sdf.parse(fechaActual);
+                    fecha = sdf.parse(fechaIngreso);
+                    fila = fechaDispositivo.compareTo(fecha);
+                    System.out.println("ingreso" + fila +"");
+                }
+                if (modelo.consultaFecha(format) > fila) {
+                    JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "TEOLAM", 0);
+                } else {
                     System.out.println("GUARDANDO FECHA");
-                    fila = -1;
-                    if (fila == -1) {
-                        System.out.println("FECHA = CERO");
-                        String duracion_reunion = vista.getTxtDuracion().getText();
-                        String topico_reunion = vista.getTxtTopic().getText();
-                        modelo.setFecha_reunion(format);
-                        modelo.setDuracion_reunion(duracion_reunion);
-                        modelo.setTopico_reunion(topico_reunion);
-                        if (modelo.AgregarReunion()) {
-                            JOptionPane.showMessageDialog(null, "Se guardo la reunion correctamente", "", 1);
-                            cargarLista("");
-                            limpiar();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "No se ha podido guardar", "Error", 0);
-                        }
+                    System.out.println("FECHA = CERO");
+                    String duracion_reunion = vista.getTxtDuracion().getText();
+                    String topico_reunion = vista.getTxtTopic().getText();
+                    modelo.setFecha_reunion(format);
+                    modelo.setDuracion_reunion(duracion_reunion);
+                    modelo.setTopico_reunion(topico_reunion);
+                    if (modelo.AgregarReunion()) {
+                        JOptionPane.showMessageDialog(null, "Se guardo la reunion correctamente", "", 1);
+                        cargarLista("");
+                        limpiar();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se ha podido guardar", "Error", 0);
                     }
                 }
-
             }
         }
     }
