@@ -7,7 +7,6 @@ package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -50,9 +49,9 @@ public class Control_Socio {
         vista.setTitle("Datos y registro del Socio");
         vista.setVisible(true);
         cargarDatos();
-        vista.getBtnModificar().setEnabled(false);
-        vista.getBtnInactivar().setEnabled(false);
+        desactivarBotones();
         vista.getTxtCodigo().setEditable(false);
+        vista.getTxtCedula().setEditable(true);
     }
 
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
@@ -69,41 +68,7 @@ public class Control_Socio {
     }
 
     public void IniciarControl() {
-        KeyListener validar = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                //VALIDACIONES
-                if (e.getSource() == vista.getTxtNombre() || e.getSource() == vista.getTxtApellido()) {
-                    char caracter = e.getKeyChar();
 
-                    // Verificar si la tecla pulsada no es un digito
-                    char c = e.getKeyChar();
-                    if (Character.isDigit(c) == false) {
-                    } else {
-                        e.consume();
-                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo letras en este campo", "ERROR", 0);
-                    }
-                }
-                if (e.getSource() == vista.getTxtCodigo() || e.getSource() == vista.getTxtCedula() || e.getSource() == vista.getTxtNumCuenta() || e.getSource() == vista.getTxtTelefono()) {
-                    char caracter = e.getKeyChar();
-                    // Verificar si la tecla pulsada no es un digito
-                    if (((caracter < '0')
-                            || (caracter > '9'))
-                            && (caracter != '\b')) {
-                        e.consume();
-                        JOptionPane.showMessageDialog(null, "Ingrese por favor solo numeros en este campo", "ERROR", 0);// ignorar el evento de teclado
-                    }
-                }
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-            }
-        };
         KeyListener validarCed = new KeyListener() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -142,6 +107,7 @@ public class Control_Socio {
             }
         };
         vista.getJtDatosSocio().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 habilitarBoton(evt);
             }
@@ -155,14 +121,10 @@ public class Control_Socio {
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnImprimir().addActionListener(l -> imprimirReporte());
         vista.getBtnNuevaCuenta().addActionListener(l -> nuevaCuenta());
-        //INVOCAMOS LOES EVENTOS KEYLISTENER PARA VALIDAR
-        vista.getTxtApellido().addKeyListener(validar);
-        vista.getTxtCedula().addKeyListener(validar);
+        vista.getBtnActivar().addActionListener(l -> reactivarSocio());
+        vista.getBtnRefrescar().addActionListener(l -> cargarDatos());
+
         vista.getTxtCedula().addKeyListener(validarCed);
-        vista.getTxtCodigo().addKeyListener(validar);
-        vista.getTxtNombre().addKeyListener(validar);
-        vista.getTxtNumCuenta().addKeyListener(validar);
-        vista.getTxtTelefono().addKeyListener(validar);
     }
 
     private void crearSocio() {
@@ -178,10 +140,10 @@ public class Control_Socio {
             if (ced == 0) {
                 int edad = 0;
                 int fechaIngreso = 0;
-        
-                if (fechaIngreso == -1) {
-                        JOptionPane.showMessageDialog(null, " La fecha de ingreso no puede ser posterior a la actual", "TEOLAM", 0);
-                    
+
+                if (fechaIngreso == +1) {
+                    JOptionPane.showMessageDialog(null, " La fecha de ingreso no puede ser posterior a la actual", null, 0);
+
                 } else if (fechaIngreso == 0) {
 
                     Date fecha;
@@ -231,13 +193,13 @@ public class Control_Socio {
                             JOptionPane.showMessageDialog(vista, "ERROR");
                         }
                         limpiar();
+                        vista.getJDialogo().setVisible(false);
 
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "El socio no puede ser menor de edad");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El socio no puede ser menor de edad", null, 2);
                     }
                 }
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Ya existe un socio con esta cédula");
             }
@@ -247,62 +209,73 @@ public class Control_Socio {
     }
 
     private void editarSocio() {
+        
+        int op = JOptionPane.showOptionDialog(null,
+                "¿Está seguro de modificar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+        if (op == 0) {
 
-        if ("".equals(vista.getTxtNumCuenta().getText()) || "".equals(vista.getTxtNombre().getText()) || "".equals(vista.getTxtApellido().getText())
-                || "".equals(vista.getTxtDireccion().getText()) || "".equals(vista.getTxtEmail().getText())
-                || "".equals(vista.getTxtTelefono().getText())) {
-            JOptionPane.showMessageDialog(null, " Existen campos vacíos, llenar todos por favor ", "DATOS INCOMPLETOS", 0);
-        } else {
-
-            String cod_socio = vista.getTxtCodigo().getText();
-            String ced_socio = vista.getTxtCedula().getText();
-            String num_cuenta = vista.getTxtNumCuenta().getText();
-            String nombre = vista.getTxtNombre().getText();
-            String apellido = vista.getTxtApellido().getText();
-            String correo = vista.getTxtEmail().getText();
-            String dir = vista.getTxtDireccion().getText();
-            String telf = vista.getTxtTelefono().getText();
-
-            Date fecha;
-            Date fecha2;
-            String formato = null;
-            String formato2 = null;
-            // Tranformar la fecha a String
-            if (vista.getJdFechaNac().getDate() != null) {
-                fecha = vista.getJdFechaNac().getDate();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                formato = sdf.format(fecha);
-            }
-            if (vista.getJdFechaIng().getDate() != null) {
-                fecha2 = vista.getJdFechaIng().getDate();
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                formato2 = sdf2.format(fecha2);
-            }
-
-            Modelo_Socio socio = new Modelo_Socio();
-
-            socio.setCedula_socio(ced_socio);
-            socio.setNumero_cuenta(Integer.valueOf(num_cuenta));
-            socio.setNombre_socio(nombre);
-            socio.setApellido_socio(apellido);
-            socio.setCorreo_socio(correo);
-            socio.setDireccion_socio(dir);
-            socio.setTelefono_socio(telf);
-            socio.setFecha_nac_socio(formato);
-            socio.setFecha_ingreso(formato2);
-
-            if (socio.editar_socio(cod_socio)) {
-                JOptionPane.showMessageDialog(vista, "SE HA MODIFICADO CORRECTAMENTE");
-
+            if ("".equals(vista.getTxtNumCuenta().getText()) || "".equals(vista.getTxtNombre().getText()) || "".equals(vista.getTxtApellido().getText())
+                    || "".equals(vista.getTxtDireccion().getText()) || "".equals(vista.getTxtEmail().getText())
+                    || "".equals(vista.getTxtTelefono().getText())) {
+                JOptionPane.showMessageDialog(null, " Existen campos vacíos, llenar todos por favor ", "DATOS INCOMPLETOS", 0);
             } else {
-                JOptionPane.showMessageDialog(vista, "ERROR");
+
+                String cod_socio = vista.getTxtCodigo().getText();
+                String ced_socio = vista.getTxtCedula().getText();
+                String num_cuenta = vista.getTxtNumCuenta().getText();
+                String nombre = vista.getTxtNombre().getText();
+                String apellido = vista.getTxtApellido().getText();
+                String correo = vista.getTxtEmail().getText();
+                String dir = vista.getTxtDireccion().getText();
+                String telf = vista.getTxtTelefono().getText();
+
+                Date fecha;
+                Date fecha2;
+                String formato = null;
+                String formato2 = null;
+                // Tranformar la fecha a String
+                if (vista.getJdFechaNac().getDate() != null) {
+                    fecha = vista.getJdFechaNac().getDate();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    formato = sdf.format(fecha);
+                }
+                if (vista.getJdFechaIng().getDate() != null) {
+                    fecha2 = vista.getJdFechaIng().getDate();
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+                    formato2 = sdf2.format(fecha2);
+                }
+
+                Modelo_Socio socio = new Modelo_Socio();
+
+                socio.setCedula_socio(ced_socio);
+                socio.setNumero_cuenta(Integer.valueOf(num_cuenta));
+                socio.setNombre_socio(nombre);
+                socio.setApellido_socio(apellido);
+                socio.setCorreo_socio(correo);
+                socio.setDireccion_socio(dir);
+                socio.setTelefono_socio(telf);
+                socio.setFecha_nac_socio(formato);
+                socio.setFecha_ingreso(formato2);
+
+                if (socio.editar_socio(cod_socio)) {
+                    JOptionPane.showMessageDialog(vista, "SE HA MODIFICADO CORRECTAMENTE");
+
+                } else {
+                    JOptionPane.showMessageDialog(vista, "ERROR");
+                }
+                limpiar();
+                vista.getJDialogo().setVisible(false);
+
             }
-            limpiar();
-
+            cargarDatos();
+            desactivarBotones();
         }
-        cargarDatos();
-    }
 
+    }
+    private void desactivarBotones(){
+        vista.getBtnModificar().setEnabled(false);
+        vista.getBtnInactivar().setEnabled(false);
+    }
     private void cargarDatos() {
         DefaultTableModel dtm;
         dtm = (DefaultTableModel) vista.getJtDatosSocio().getModel();
@@ -347,7 +320,7 @@ public class Control_Socio {
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reporte_Socios.jasper"));
             //Aquí se lee el parámetro segun el que ingresemos para poder imprimirlo en el Jasper
-            Map<String, Object> parametro = new HashMap<String, Object>();
+            Map<String, Object> parametro = new HashMap();
             String miaguja = vista.getTxtBuscar().getText();
             parametro.put("aguja", "%" + miaguja + "%");
 
@@ -396,12 +369,11 @@ public class Control_Socio {
             n = 2;
             mostrarDatos();
             vista.getJDialogo().setTitle("Editar Socio");
-            vista.getTxtCedula().setEnabled(false);
+            vista.getTxtCedula().setEditable(false);
             vista.getLblCodigo().setVisible(true);
             vista.getTxtCodigo().setVisible(true);
         }
         vista.getJDialogo().setVisible(true);
-
     }
 
     public void mostrarDatos() {
@@ -417,6 +389,7 @@ public class Control_Socio {
         vista.getTxtEmail().setText(String.valueOf(socios.get(fila).getCorreo_socio()));
         vista.getTxtDireccion().setText(String.valueOf(socios.get(fila).getDireccion_socio()));
         vista.getTxtTelefono().setText(String.valueOf(socios.get(fila).getTelefono_socio()));
+        vista.getTxtNumCuenta().setText(String.valueOf(socios.get(fila).getNumero_cuenta()));
 
         //Transformar fecha
         String fecha = socios.get(fila).getFecha_nac_socio();
@@ -435,7 +408,7 @@ public class Control_Socio {
         calendar.clear();
         calendar.set(fechain.getYear(), fechain.getMonthValue() - 1, fechain.getDayOfMonth());
         vista.getJdFechaIng().setCalendar(calendar);
-   
+
     }
 
     public void cancelar() {
@@ -486,10 +459,32 @@ public class Control_Socio {
         }
     }
 
+    public void reactivarSocio() {
+        Modelo_Socio ms = new Modelo_Socio();
+        int op = JOptionPane.showOptionDialog(null,
+                "¿Está seguro que desea reactivar al socio seleccionado?", "ADVERTENCIA", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, new Object[]{"SI", "NO"}, null);
+        if (op == 0) {
+            try {
+                int fila = vista.getJtDatosSocio().getSelectedRow();
+                String cedula = String.valueOf(vista.getJtDatosSocio().getValueAt(fila, 1));
+                if (ms.reactivarSocio(cedula)) {
+                    System.out.println(cedula);
+                    JOptionPane.showMessageDialog(null, "Acción realizada correctamente");
+                    cargarDatos();
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ERROR AL ACTIVAR SOCIO", "TEOLAMDY", 0);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "ACCION CANCELADA", "TEOLAMDY", 1);
+        }
+    }
+
     public int ValidarFechaIngreso() throws ParseException {
         Date fechaDispositivo = new Date();
         int f = 0;
-        Date fecha = null;
+        Date fecha;
         String fechaIngreso = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String fechaActual = sdf.format(fechaDispositivo);
@@ -497,19 +492,17 @@ public class Control_Socio {
         if (vista.getJdFechaIng().getDate() != null) {
             fecha = vista.getJdFechaIng().getDate();
             fechaIngreso = sdf.format(fecha);
-            // PARSE PARA COMPARAR LAS FECHAS
             fechaDispositivo = sdf.parse(fechaActual);
             fecha = sdf.parse(fechaIngreso);
             f = fechaDispositivo.compareTo(fecha);
         }
         return f;
-
     }
 
     public int ValidarFechaNac() throws ParseException {
         Date fechaDispositivo = new Date();
         int f = 0;
-        Date fecha = null;
+        Date fecha;
         String fechaNac = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String fechaActual = sdf.format(fechaDispositivo);
