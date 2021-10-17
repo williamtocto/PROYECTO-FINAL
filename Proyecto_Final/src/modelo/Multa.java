@@ -11,6 +11,7 @@ public class Multa {
     private int codigo_multa;
     private int codigo_asistencia;
     private String estado_multa;
+    
 
     public Multa(String cedula, String nombre, String estado, String fecha_multa, String fecha_pago, int codigo_multa, int codigo_asistencia, String estado_multa) {
         this.cedula = cedula;

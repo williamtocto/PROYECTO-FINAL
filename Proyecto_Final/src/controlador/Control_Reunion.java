@@ -193,7 +193,8 @@ public class Control_Reunion {
                     fila = fechaDispositivo.compareTo(fecha);
                     System.out.println("ingreso" + fila +"");
                 }
-                if (modelo.consultaFecha(format) > fila) {
+                
+                if (modelo.consultaFecha(format)!=0) {
                     JOptionPane.showMessageDialog(null, "LA REUNION YA EXISTE NO SE PÚEDE CREAR", "TEOLAM", 0);
                 } else {
                     System.out.println("GUARDANDO FECHA");

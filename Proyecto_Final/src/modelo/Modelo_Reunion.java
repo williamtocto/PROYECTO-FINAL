@@ -81,12 +81,14 @@ public class Modelo_Reunion extends Reunion {
         int fila = 0;
         try {
             while (rs.next()) {
-                fila=1;
-                            }
+                fila++;
+            }
+            return fila;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
+            return fila;
         }
-        return fila;//MUCHO OJO
+        //MUCHO OJO
     }
 
     public int codigoReunion(String fecha) {

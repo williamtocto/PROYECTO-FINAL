@@ -14,20 +14,36 @@ public class Control_Multa {
 
     private Modelo_Multa modelo;
     private Vista_Multa vista;
-    private Modelo_transaccion modelot;
+    Modelo_transaccion modelot = new Modelo_transaccion();
 
     public Control_Multa(Modelo_Multa modelo, Vista_Multa vista) {
         this.modelo = modelo;
         this.vista = vista;
         vista.setTitle("Cobrar Multas");
         vista.setVisible(true);
+        vista.getBtn_cobrar().setEnabled(false);
     }
 
     public void iniciarControl() {
+        vista.getTabla().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         vista.getBtn_buscar().addActionListener(l -> listar());
         vista.getBtn_cobrar().addActionListener(l -> abrirDialogo());
         vista.getBtn_aceptar().addActionListener(l -> cobrar());
+    }
 
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {
+        cargarDatosTabla();
+        int fila = vista.getTabla().getSelectedRow();
+        String estado = String.valueOf(vista.getTabla().getValueAt(fila, 2));
+        if (estado.equals("Pendiente")) {
+            vista.getBtn_cobrar().setEnabled(true);
+        } else {
+
+        }
     }
 
     public void listar() {
@@ -45,7 +61,7 @@ public class Control_Multa {
                 JOptionPane.showMessageDialog(null, "No exite multas en esta fecha", "", 1);
             } else {
                 lista.stream().forEach(r -> {
-                    String[] multa = {String.valueOf(r.getCedula()), r.getNombre(), r.getEstado(), r.getFecha_multa()};
+                    String[] multa = {String.valueOf(r.getCodigo_multa()),r.getCedula(), r.getNombre(), r.getEstado(), r.getFecha_multa(),r.getFecha_pago()};
                     tblModel.addRow(multa);
                 });
             }
@@ -60,6 +76,7 @@ public class Control_Multa {
     }
 
     public void cobrar() {
+
         if (vista.getTxt_monto().getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el monto a depositar", "", 1);
         } else {
@@ -76,16 +93,17 @@ public class Control_Multa {
             modelot.setSaldo(saldo);
             if (modelot.AgregarTransaccion()) {
                 JOptionPane.showMessageDialog(null, "Accion realizada con exito", "", 1);
+                modelo.modificarMulta(fecha());
+                vista.getjDialog2().dispose();
+                listar();
             }
         }
     }
 
     public double cantidadCuenta() {
-        String codigo_socio = "1";
-        modelot.setCodigo_socio(Integer.parseInt(codigo_socio));
+        modelot.setCodigo_socio(1);
         return modelot.CatidadCuenta();
     }
-    
 
     public String fecha() {
         Date fecha = new Date();
@@ -93,18 +111,11 @@ public class Control_Multa {
         String fecha1 = sdf.format(fecha);
         return fecha1;
     }
-    
+
     public void cargarDatosTabla() {
-        
-        int fila=vista.getTabla().getSelectedRow();
+        int fila = vista.getTabla().getSelectedRow();
         vista.getTxt_cedula().setText(String.valueOf(vista.getTabla().getValueAt(fila, 0)));
-        
-        
-        
-        
-        
-        
-        
+        vista.getTxt_nombre().setText(String.valueOf(vista.getTabla().getValueAt(fila, 1)));
     }
 
 }

@@ -33,7 +33,7 @@ public class Modelo_Multa extends Multa {
         try {
             ConexionPG con = new ConexionPG();
             String tipo_transaccion = "Pago Multa";
-            String sql = "select  cedula_socio,nombre_socio ||' '|| apellido_socio as nombres,fecha_reunion,estado_multa,codigo_multa "
+            String sql = "select  cedula_socio,nombre_socio ||' '|| apellido_socio as nombres,fecha_reunion,estado_multa,codigo_multa,m.fecha_pago "
                     + "from socio s join asistencia a on s.codigo_socio=a.codigo_socio_asis join reunion r on  r.codigo_reunion=a.codigo_reunion "
                     + "join multa m on m.codigo_asistencia=a.codigo_asistencia where fecha_reunion= '" + fecha + "' order by fecha_reunion;";
             ResultSet rs = con.consulta(sql);
@@ -44,6 +44,7 @@ public class Modelo_Multa extends Multa {
                 m.setNombre(rs.getString("nombres"));
                 m.setEstado(rs.getString("estado_multa"));
                 m.setFecha_multa(rs.getString("fecha_reunion"));
+                m.setFecha_pago(rs.getString("fecha_pago"));
                 lista.add(m);
             }
             rs.close();
@@ -54,7 +55,6 @@ public class Modelo_Multa extends Multa {
             return null;
         }
     }
-    
 
     public double dineroMultas() {
         ConexionPG con = new ConexionPG();
@@ -71,6 +71,13 @@ public class Modelo_Multa extends Multa {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             return dinero;
         }
+    }
+
+    public void modificarMulta(String fecha) {
+        
+        String sql = "Update multa set estado_multa='Pagada', fecha_pago= '"+fecha+"' where codigo_multa= "+getCodigo_multa();
+        ConexionPG con = new ConexionPG();
+        con.accion(sql);
     }
 
 }
