@@ -19,6 +19,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenu4 = new javax.swing.JMenu();
         jSeparator5 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
         jToolBar1 = new javax.swing.JToolBar();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         btn_agregarSocio = new javax.swing.JButton();
@@ -31,6 +32,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         btn_transacciones = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
+        btn_multas = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
         btn_imprimirReporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         desk_Principal = new javax.swing.JDesktopPane();
@@ -126,6 +130,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_transacciones.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btn_transacciones);
         jToolBar1.add(jSeparator6);
+        jToolBar1.add(jSeparator9);
+
+        btn_multas.setText("Multas");
+        btn_multas.setFocusable(false);
+        btn_multas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_multas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_multas);
+        jToolBar1.add(jSeparator10);
 
         btn_imprimirReporte.setBackground(new java.awt.Color(0, 51, 102));
         btn_imprimirReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
@@ -222,6 +234,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menu_Multas.setText("Multa");
 
+        menuMulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuMulta.setText("Cobrar Multas");
         menu_Multas.add(menuMulta);
 
@@ -425,7 +438,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.menuPrincipal_rol = menuPrincipal_rol;
     }
 
-   
+    public JButton getBtn_multas() {
+        return btn_multas;
+    }
+
+    public void setBtn_multas(JButton btn_multas) {
+        this.btn_multas = btn_multas;
+    }
 
     public JMenuItem getMenu_privilegios() {
         return menu_privilegios;
@@ -467,7 +486,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.submenu_reunion = submenu_reunion;
     }
 
-   
+    public JMenu getMenu_Multas() {
+        return menu_Multas;
+    }
+
+    public void setMenu_Multas(JMenu menu_Multas) {
+        this.menu_Multas = menu_Multas;
+    }
 
     public JMenu getMenu_usuario() {
         return menu_usuario;
@@ -491,6 +516,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarSocio;
     private javax.swing.JButton btn_asistencia;
     private javax.swing.JButton btn_imprimirReporte;
+    private javax.swing.JButton btn_multas;
     private javax.swing.JButton btn_registrarReunion;
     private javax.swing.JButton btn_transacciones;
     private javax.swing.JDesktopPane desk_Principal;
@@ -500,12 +526,15 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem menuActas;
     private javax.swing.JMenuItem menuMulta;

@@ -106,22 +106,18 @@ public class Control_Privilegios {
                     mp.grabarPrivilegios();
                     c = c + 1;
                 }
-                //MULTAS
-                /*
-            if (vp.getRad_multa().isSelected()) {
-                mp.setCod_opcion(4);
-                mp.setEstado_rol("TRUE");
-                mp.grabarPrivilegios();
-                c = c + 1;          
-            }  
 
-            else {
-                mp.setCod_opcion(4);
-                mp.setEstado_rol("FALSE");
-                mp.grabarPrivilegios();
-                c = c + 1;
-            }
-                 */
+                if (vp.getRad_multa().isSelected()) {
+                    mp.setCod_opcion(4);
+                    mp.setEstado_rol("TRUE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                } else {
+                    mp.setCod_opcion(4);
+                    mp.setEstado_rol("FALSE");
+                    mp.grabarPrivilegios();
+                    c = c + 1;
+                }
 
                 if (vp.getRad_usuario().isSelected()) {
                     mp.setCod_opcion(5);

@@ -261,7 +261,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         BtnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/limpiar.png"))); // NOI18N
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 100, 40));
+        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 90, 40));
         getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 150, -1));
         getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 150, -1));
         getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 190, -1));
@@ -282,7 +282,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 490));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

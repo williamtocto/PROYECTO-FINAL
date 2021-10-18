@@ -8,7 +8,6 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 /**
  *
@@ -40,6 +39,7 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         rad_usuario = new javax.swing.JRadioButton();
         rad_rol = new javax.swing.JRadioButton();
         combo_box = new javax.swing.JComboBox<>();
+        rad_multa = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -129,9 +129,14 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         });
         getContentPane().add(combo_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 170, -1));
 
+        rad_multa.setBackground(new java.awt.Color(204, 204, 255));
+        rad_multa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        rad_multa.setText("Menu Multas");
+        getContentPane().add(rad_multa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 170, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 510, 460));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 520, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +198,14 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
         this.rad_rol = rad_rol;
     }
 
+    public JRadioButton getRad_multa() {
+        return rad_multa;
+    }
+
+    public void setRad_multa(JRadioButton rad_multa) {
+        this.rad_multa = rad_multa;
+    }
+
     public JRadioButton getRad_socio() {
         return rad_socio;
     }
@@ -235,6 +248,7 @@ public class Vista_Privilegios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlabel_nombre;
     private javax.swing.JLabel jlabel_opciones_menu;
+    private javax.swing.JRadioButton rad_multa;
     private javax.swing.JRadioButton rad_reunion;
     private javax.swing.JRadioButton rad_rol;
     private javax.swing.JRadioButton rad_socio;

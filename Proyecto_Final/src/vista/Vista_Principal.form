@@ -13,6 +13,8 @@
     </Container>
     <Component class="javax.swing.JSeparator" name="jSeparator5">
     </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator8">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -100,6 +102,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuMulta">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+M"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cobrar Multas"/>
               </Properties>
             </MenuItem>
@@ -298,6 +303,18 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JToolBar$Separator" name="jSeparator6">
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator9">
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_multas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Multas"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator10">
         </Component>
         <Component class="javax.swing.JButton" name="btn_imprimirReporte">
           <Properties>

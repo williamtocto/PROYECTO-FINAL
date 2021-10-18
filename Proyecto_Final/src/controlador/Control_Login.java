@@ -119,7 +119,7 @@ public class Control_Login {
                         vp.getMenu_reunion().setEnabled(true);
                         vp.getBtn_registrarReunion().setEnabled(true);
                         vp.getBtn_asistencia().setEnabled(true);
-                         vp.getBtn_actas().setEnabled(true);
+                        vp.getBtn_actas().setEnabled(true);
                     } else {
                         vp.getMenu_reunion().setEnabled(false);
                         vp.getBtn_registrarReunion().setEnabled(false);
@@ -128,15 +128,15 @@ public class Control_Login {
                     }
                 }
                 case 4 -> {
-                    /*
+
                     if (estado == true) {
-                        vp.getMenu_multas().setEnabled(true);
+                        vp.getMenu_Multas().setEnabled(true);
                         vp.getBtn_multas().setEnabled(true);
                     } else {
-                        vp.getMenu_multas().setEnabled(false);
+                        vp.getMenu_Multas().setEnabled(false);
                         vp.getBtn_multas().setEnabled(false);
                     }
-*/
+
                 }
                 case 5 -> {
                     if (estado == true) {

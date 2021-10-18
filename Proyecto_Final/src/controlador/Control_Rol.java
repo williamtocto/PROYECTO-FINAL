@@ -71,21 +71,7 @@ public class Control_Rol {
             }
         };
 
-        KeyListener k = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-            }
-        };
+  
 
         MouseListener ml = new MouseListener() {
             @Override

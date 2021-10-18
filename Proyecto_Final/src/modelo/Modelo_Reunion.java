@@ -7,10 +7,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Mateo
- */
 public class Modelo_Reunion extends Reunion {
 
     public Modelo_Reunion(int codigo_reunion, String fecha_reunion, String duracion_reunion, String topico_reunion) {
@@ -88,7 +84,6 @@ public class Modelo_Reunion extends Reunion {
             JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
             return fila;
         }
-        //MUCHO OJO
     }
 
     public int codigoReunion(String fecha) {

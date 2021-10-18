@@ -37,6 +37,7 @@ public class Control_VistaPrincipal {
 
         // LOS DIFERENTES BOTONES DE LA VENTANA PRINCIPAL 
         vista.getMenu_MantenimientoUser().addActionListener(l -> Usuario());
+        vista.getBtn_multas().addActionListener(l-> IniciarVentanaMultas());
         vista.getMenuRol().addActionListener(l -> IniciarVentanaRol());
         vista.getSubmenu_socio().addActionListener(l -> IniciarVentanaSocio());
         vista.getMenu_privilegios().addActionListener(l -> IniciarVentanaPrivilegios());

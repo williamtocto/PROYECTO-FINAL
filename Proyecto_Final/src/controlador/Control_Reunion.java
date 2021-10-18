@@ -274,7 +274,7 @@ public class Control_Reunion {
                     cargarLista("");
                     limpiar();
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar por que se tomo asistencia en esa reunion", "", 0);
+                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar, existe asistencias de la misma", "", 0);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "ACCION CANCELADA");
