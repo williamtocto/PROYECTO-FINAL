@@ -53,7 +53,7 @@ public class Control_Socio {
         vista.getTxtFechaIngreso().setText(FechaActual());
         vista.getTxtNumCuenta().setEditable(false);
         vista.getTxtCodigo().setEditable(false);
-        vista.getTxtCedula().setEditable(true);
+//        vista.getTxtCedula().setEditable(true);
     }
 
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
@@ -143,7 +143,6 @@ public class Control_Socio {
                 int edad = 0;
 
                     Date fecha;
-                    Date fecha2;
                     String formato = null;
                     
                     if (vista.getJdFechaNac().getDate() != null) {
@@ -162,8 +161,7 @@ public class Control_Socio {
                         String dir = vista.getTxtDireccion().getText();
                         String telf = vista.getTxtTelefono().getText();
 
-                        System.out.println(formato);
-//                        System.out.println(formato2);
+
                         Modelo_Socio socio = new Modelo_Socio();
 
                         socio.setCedula_socio(ced_socio);
@@ -343,9 +341,11 @@ public class Control_Socio {
         fila = vista.getJtDatosSocio().getSelectedRow();
         if (origen == 1) {
             n = 1;
+            limpiar();
             vista.getJDialogo().setTitle("Crear Socio");
             vista.getLblCodigo().setVisible(false);
             vista.getTxtCodigo().setVisible(false);
+            vista.getTxtCedula().setEditable(true);
         } else {
             n = 2;
             mostrarDatos();
@@ -383,14 +383,6 @@ public class Control_Socio {
         calendar.clear();
         calendar.set(fechanac.getYear(), fechanac.getMonthValue() - 1, fechanac.getDayOfMonth());
         vista.getJdFechaNac().setCalendar(calendar);
-
-//        fecha = socios.get(fila).getFecha_ingreso();
-//        String fechai[] = fecha.split("-");
-//        LocalDate fechain = LocalDate.of(Integer.parseInt(fechai[0]), Integer.parseInt(fechai[1]), Integer.parseInt(fechai[2]));
-//        calendar = Calendar.getInstance();
-//        calendar.clear();
-//        calendar.set(fechain.getYear(), fechain.getMonthValue() - 1, fechain.getDayOfMonth());
-//        vista.getJdFechaIng().setCalendar(calendar);
 
     }
 
