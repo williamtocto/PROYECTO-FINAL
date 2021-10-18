@@ -201,15 +201,15 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
 
         LblFecha.setForeground(new java.awt.Color(255, 255, 255));
         LblFecha.setText("Fecha de la Reunion:");
-        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
         LblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         LblDuracion.setText("Duración estimada:");
-        getContentPane().add(LblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        getContentPane().add(LblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
 
         LblTopico.setForeground(new java.awt.Color(255, 255, 255));
         LblTopico.setText("Tòpico de la Reunion:");
-        getContentPane().add(LblTopico, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, 20));
+        getContentPane().add(LblTopico, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, 20));
 
         JTdatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         JTdatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -236,7 +236,7 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
         JTdatos.setSelectionForeground(new java.awt.Color(0, 0, 51));
         jScrollPane1.setViewportView(JTdatos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 650, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 650, 190));
 
         BtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         BtnGuardar.setText("Guardar");
@@ -251,38 +251,38 @@ public class Vista_Reunion extends javax.swing.JInternalFrame {
                 BtnModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 100, 40));
+        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 100, 40));
 
         BtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/eliminar.png"))); // NOI18N
         BtnEliminar.setText("Eliminar");
         BtnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 100, 40));
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 100, 40));
 
         BtnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/limpiar.png"))); // NOI18N
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 90, 40));
-        getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 150, -1));
-        getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 150, -1));
-        getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 190, -1));
-        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 170, -1));
+        getContentPane().add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 90, 40));
+        getContentPane().add(JdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 150, -1));
+        getContentPane().add(TxtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 150, -1));
+        getContentPane().add(TxtTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 190, -1));
+        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 170, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Buscar:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 70, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 70, 20));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Codigo:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
 
         TxtCodReu.setEditable(false);
         TxtCodReu.setBackground(new java.awt.Color(153, 153, 153));
-        getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 150, -1));
+        getContentPane().add(TxtCodReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 150, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
