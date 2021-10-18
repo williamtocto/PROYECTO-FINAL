@@ -108,8 +108,7 @@ public class Modelo_Socio extends Socio {
         String sql = "UPDATE socio SET nombre_socio='" + getNombre_socio() + "',apellido_socio='"
                 + getApellido_socio() + "',correo_socio='" + getCorreo_socio() + "',fecha_nac_socio='"
                 + getFecha_nac_socio() + "',telefono_socio='" + getTelefono_socio() + "',direccion_socio='"
-                + getDireccion_socio()+ "',fecha_ingreso_socio='" + getFecha_ingreso()
-                + "'WHERE codigo_socio=" + id+ ";";
+                + getDireccion_socio()+ "'WHERE codigo_socio=" + id+ ";";
         return con.accion(sql);
     }
 

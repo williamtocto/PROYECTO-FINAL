@@ -50,6 +50,8 @@ public class Control_Socio {
         vista.setVisible(true);
         cargarDatos();
         desactivarBotones();
+        vista.getTxtFechaIngreso().setText(FechaActual());
+        vista.getTxtNumCuenta().setEditable(false);
         vista.getTxtCodigo().setEditable(false);
         vista.getTxtCedula().setEditable(true);
     }
@@ -139,18 +141,11 @@ public class Control_Socio {
             ced = modelo.validarCed();
             if (ced == 0) {
                 int edad = 0;
-                int fechaIngreso = 0;
-
-                if (fechaIngreso == +1) {
-                    JOptionPane.showMessageDialog(null, " La fecha de ingreso no puede ser posterior a la actual", null, 0);
-
-                } else if (fechaIngreso == 0) {
 
                     Date fecha;
                     Date fecha2;
                     String formato = null;
-                    String formato2 = null;
-                    // Tranformar la fecha a String
+                    
                     if (vista.getJdFechaNac().getDate() != null) {
                         fecha = vista.getJdFechaNac().getDate();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -158,12 +153,6 @@ public class Control_Socio {
                         edad = calcularEdad(formato);
                     }
                     if (edad >= 18) {
-
-                        if (vista.getJdFechaIng().getDate() != null) {
-                            fecha2 = vista.getJdFechaIng().getDate();
-                            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                            formato2 = sdf2.format(fecha2);
-                        }
 
                         String ced_socio = vista.getTxtCedula().getText();
                         String num_cuenta = vista.getTxtNumCuenta().getText();
@@ -174,7 +163,7 @@ public class Control_Socio {
                         String telf = vista.getTxtTelefono().getText();
 
                         System.out.println(formato);
-                        System.out.println(formato2);
+//                        System.out.println(formato2);
                         Modelo_Socio socio = new Modelo_Socio();
 
                         socio.setCedula_socio(ced_socio);
@@ -185,7 +174,7 @@ public class Control_Socio {
                         socio.setDireccion_socio(dir);
                         socio.setTelefono_socio(telf);
                         socio.setFecha_nac_socio(formato);
-                        socio.setFecha_ingreso(formato2);
+                        socio.setFecha_ingreso(FechaActual());
                         if (socio.CrearSocio()) {
                             JOptionPane.showMessageDialog(vista, "DATOS REGISTRADOS CORRECTAMENTE");
 
@@ -198,7 +187,7 @@ public class Control_Socio {
                     } else {
                         JOptionPane.showMessageDialog(null, "El socio no puede ser menor de edad", null, 2);
                     }
-                }
+//                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "Ya existe un socio con esta cédula");
@@ -230,19 +219,12 @@ public class Control_Socio {
                 String telf = vista.getTxtTelefono().getText();
 
                 Date fecha;
-                Date fecha2;
                 String formato = null;
-                String formato2 = null;
                 // Tranformar la fecha a String
                 if (vista.getJdFechaNac().getDate() != null) {
                     fecha = vista.getJdFechaNac().getDate();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     formato = sdf.format(fecha);
-                }
-                if (vista.getJdFechaIng().getDate() != null) {
-                    fecha2 = vista.getJdFechaIng().getDate();
-                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                    formato2 = sdf2.format(fecha2);
                 }
 
                 Modelo_Socio socio = new Modelo_Socio();
@@ -255,7 +237,6 @@ public class Control_Socio {
                 socio.setDireccion_socio(dir);
                 socio.setTelefono_socio(telf);
                 socio.setFecha_nac_socio(formato);
-                socio.setFecha_ingreso(formato2);
 
                 if (socio.editar_socio(cod_socio)) {
                     JOptionPane.showMessageDialog(vista, "SE HA MODIFICADO CORRECTAMENTE");
@@ -343,7 +324,7 @@ public class Control_Socio {
         vista.getTxtTelefono().setText("");
         vista.getTxtEmail().setText("");
         vista.getJdFechaNac().setDate(null);
-        vista.getJdFechaIng().setDate(null);
+        vista.getTxtFechaIngreso().setText("");
     }
 
     public void DefinirMetodo(int n) {
@@ -370,6 +351,7 @@ public class Control_Socio {
             mostrarDatos();
             vista.getJDialogo().setTitle("Editar Socio");
             vista.getTxtCedula().setEditable(false);
+            vista.getBtnNuevaCuenta().setVisible(false);
             vista.getLblCodigo().setVisible(true);
             vista.getTxtCodigo().setVisible(true);
         }
@@ -390,6 +372,7 @@ public class Control_Socio {
         vista.getTxtDireccion().setText(String.valueOf(socios.get(fila).getDireccion_socio()));
         vista.getTxtTelefono().setText(String.valueOf(socios.get(fila).getTelefono_socio()));
         vista.getTxtNumCuenta().setText(String.valueOf(socios.get(fila).getNumero_cuenta()));
+        vista.getTxtFechaIngreso().setText(String.valueOf(socios.get(fila).getFecha_ingreso()));
 
         //Transformar fecha
         String fecha = socios.get(fila).getFecha_nac_socio();
@@ -401,13 +384,13 @@ public class Control_Socio {
         calendar.set(fechanac.getYear(), fechanac.getMonthValue() - 1, fechanac.getDayOfMonth());
         vista.getJdFechaNac().setCalendar(calendar);
 
-        fecha = socios.get(fila).getFecha_ingreso();
-        String fechai[] = fecha.split("-");
-        LocalDate fechain = LocalDate.of(Integer.parseInt(fechai[0]), Integer.parseInt(fechai[1]), Integer.parseInt(fechai[2]));
-        calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(fechain.getYear(), fechain.getMonthValue() - 1, fechain.getDayOfMonth());
-        vista.getJdFechaIng().setCalendar(calendar);
+//        fecha = socios.get(fila).getFecha_ingreso();
+//        String fechai[] = fecha.split("-");
+//        LocalDate fechain = LocalDate.of(Integer.parseInt(fechai[0]), Integer.parseInt(fechai[1]), Integer.parseInt(fechai[2]));
+//        calendar = Calendar.getInstance();
+//        calendar.clear();
+//        calendar.set(fechain.getYear(), fechain.getMonthValue() - 1, fechain.getDayOfMonth());
+//        vista.getJdFechaIng().setCalendar(calendar);
 
     }
 
@@ -481,40 +464,12 @@ public class Control_Socio {
         }
     }
 
-    public int ValidarFechaIngreso() throws ParseException {
+    public String FechaActual() {
         Date fechaDispositivo = new Date();
-        int f = 0;
-        Date fecha;
-        String fechaIngreso = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaActual = sdf.format(fechaDispositivo);
-        // Tranformar la fecha a String
-        if (vista.getJdFechaIng().getDate() != null) {
-            fecha = vista.getJdFechaIng().getDate();
-            fechaIngreso = sdf.format(fecha);
-            fechaDispositivo = sdf.parse(fechaActual);
-            fecha = sdf.parse(fechaIngreso);
-            f = fechaDispositivo.compareTo(fecha);
-        }
-        return f;
+//        String fechaActual = sdf.format(fechaDispositivo);    
+        return sdf.format(fechaDispositivo);
     }
 
-    public int ValidarFechaNac() throws ParseException {
-        Date fechaDispositivo = new Date();
-        int f = 0;
-        Date fecha;
-        String fechaNac = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaActual = sdf.format(fechaDispositivo);
-        // Tranformar la fecha a String
-        if (vista.getJdFechaIng().getDate() != null) {
-            fecha = vista.getJdFechaNac().getDate();
-            fechaNac = sdf.format(fecha);
-            fechaDispositivo = sdf.parse(fechaActual);
-            fecha = sdf.parse(fechaNac);
-            f = fechaDispositivo.compareTo(fecha);
-        }
-        return f;
-    }
-//    
+
 }

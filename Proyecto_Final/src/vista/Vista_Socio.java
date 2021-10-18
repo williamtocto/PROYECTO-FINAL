@@ -163,12 +163,12 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
         this.btnNuevaCuenta = btnNuevaCuenta;
     }
 
-    public JDateChooser getJdFechaIng() {
-        return jdFechaIng;
+    public JTextField getTxtFechaIngreso() {
+        return txtFechaIngreso;
     }
 
-    public void setJdFechaIng(JDateChooser jdFechaIng) {
-        this.jdFechaIng = jdFechaIng;
+    public void setTxtFechaIngreso(JTextField txtFechaIngreso) {
+        this.txtFechaIngreso = txtFechaIngreso;
     }
 
     public JDateChooser getJdFechaNac() {
@@ -243,7 +243,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jdFechaIng = new com.toedter.calendar.JDateChooser();
         TxtNumCuenta = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         btnNuevaCuenta = new javax.swing.JButton();
@@ -255,6 +254,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
         txtNombre = new JTextField_Especial.JtxtSoloLetras();
         txtApellido = new JTextField_Especial.JtxtSoloLetras();
         txtTelefono = new JTextField_Especial.JtxtSoloNumeros();
+        txtFechaIngreso = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         LblNombre = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -316,7 +316,6 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Fecha Ingreso:");
         JDialogo.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 90, 20));
-        JDialogo.getContentPane().add(jdFechaIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 170, -1));
         JDialogo.getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 140, -1));
 
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -351,6 +350,7 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
 
         txtTelefono.setText("");
         JDialogo.getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 100, -1));
+        JDialogo.getContentPane().add(txtFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 120, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
@@ -490,13 +490,13 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JScrollPane jScrollPane1;
-    private com.toedter.calendar.JDateChooser jdFechaIng;
     private com.toedter.calendar.JDateChooser jdFechaNac;
     private javax.swing.JTable jtDatosSocio;
     private javax.swing.JLabel lblCodigo;
     private JTextField_Especial.JtxtSoloLetras txtApellido;
     private javax.swing.JTextField txtBuscar;
     private JTextField_Especial.JtxtSoloNumeros txtCedula;
+    private javax.swing.JTextField txtFechaIngreso;
     private JTextField_Especial.JtxtSoloLetras txtNombre;
     private JTextField_Especial.JtxtSoloNumeros txtTelefono;
     // End of variables declaration//GEN-END:variables
