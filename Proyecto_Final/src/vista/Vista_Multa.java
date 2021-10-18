@@ -187,7 +187,7 @@ public class Vista_Multa extends javax.swing.JInternalFrame {
         jDialog2.getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 130, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Cedula:");
+        jLabel10.setText("Cédula:");
         jDialog2.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
         txt_cedula.setEditable(false);
