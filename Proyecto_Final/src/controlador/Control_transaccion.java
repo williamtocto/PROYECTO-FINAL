@@ -211,7 +211,6 @@ public class Control_transaccion {
 
     private void imprimirTansaccion() {
         ConexionPG con = new ConexionPG();
-        System.out.println("hola");
         vistat.getjDialog1().dispose();
 
         String sql = null;
@@ -242,7 +241,6 @@ public class Control_transaccion {
             parametro.put("fecha_inicio", fc);
             parametro.put("fecha_fin", fc1);
             parametro.put("cedula", vistat.getTxtCedula_soc().getText());
-            parametro.put("Titulo", "Reporte transacciones");
             JasperPrint jp = JasperFillManager.fillReport(ruta, parametro, con.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);

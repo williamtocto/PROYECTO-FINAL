@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -32,10 +27,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.Vista_Socio;
 
-/**
- *
- * @author TUF Gaming
- */
+
 public class Control_Socio {
 
     private Modelo_Socio modelo;
@@ -51,9 +43,10 @@ public class Control_Socio {
         cargarDatos();
         desactivarBotones();
         vista.getTxtFechaIngreso().setText(FechaActual());
+        vista.getTxtFechaIngreso().setEditable(false);
         vista.getTxtNumCuenta().setEditable(false);
         vista.getTxtCodigo().setEditable(false);
-//        vista.getTxtCedula().setEditable(true);
+
     }
 
     //Metodo para habilitar los botones cuando le de clic a un dato de la tabla
@@ -322,7 +315,7 @@ public class Control_Socio {
         vista.getTxtTelefono().setText("");
         vista.getTxtEmail().setText("");
         vista.getJdFechaNac().setDate(null);
-        vista.getTxtFechaIngreso().setText("");
+
     }
 
     public void DefinirMetodo(int n) {
@@ -336,7 +329,7 @@ public class Control_Socio {
     }
 
     public void mostrarDialogo(int origen) {
-        vista.getJDialogo().setSize(745, 520);
+        vista.getJDialogo().setSize(711, 443);
         vista.getJDialogo().setLocationRelativeTo(vista);
         fila = vista.getJtDatosSocio().getSelectedRow();
         if (origen == 1) {

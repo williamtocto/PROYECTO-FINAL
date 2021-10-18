@@ -270,7 +270,7 @@ public class Control_Reunion {
             if (resp == 0) {
                 String codigoReu = String.valueOf(vista.getJTdatos().getValueAt(fila, 0));
                 if (modelo.eliminarReunion(codigoReu)) {
-                    JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 0);
+                    JOptionPane.showMessageDialog(null, "La reunion fue ELIMINADA con Exito", "", 1);
                     cargarLista("");
                     limpiar();
                 } else {

@@ -571,6 +571,8 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
         LblNume_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         LblNume_cuenta.setText("Nro. Cuenta:");
         getContentPane().add(LblNume_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
+
+        TxtValor_cuenta.setEditable(false);
         getContentPane().add(TxtValor_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 130, -1));
 
         TxtCodigo_socio.setEditable(false);

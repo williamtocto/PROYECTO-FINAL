@@ -43,12 +43,12 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_socio = new javax.swing.JMenu();
         submenu_socio = new javax.swing.JMenuItem();
-        menu_transaccion = new javax.swing.JMenu();
-        submenuTransaccion = new javax.swing.JMenuItem();
         menu_reunion = new javax.swing.JMenu();
         submenu_reunion = new javax.swing.JMenuItem();
         menuActas = new javax.swing.JMenuItem();
         menu_asistencia = new javax.swing.JMenuItem();
+        menu_transaccion = new javax.swing.JMenu();
+        submenuTransaccion = new javax.swing.JMenuItem();
         menu_Multas = new javax.swing.JMenu();
         menuMulta = new javax.swing.JMenuItem();
         menuPrincipal_rol = new javax.swing.JMenu();
@@ -193,14 +193,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_socio);
 
-        menu_transaccion.setText("Transacción");
-
-        submenuTransaccion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        submenuTransaccion.setText("Registrar Transaccion");
-        menu_transaccion.add(submenuTransaccion);
-
-        jMenuBar1.add(menu_transaccion);
-
         menu_reunion.setText("Reunión");
 
         submenu_reunion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -231,6 +223,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         menu_reunion.add(menu_asistencia);
 
         jMenuBar1.add(menu_reunion);
+
+        menu_transaccion.setText("Transacción");
+
+        submenuTransaccion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        submenuTransaccion.setText("Registrar Transaccion");
+        menu_transaccion.add(submenuTransaccion);
+
+        jMenuBar1.add(menu_transaccion);
 
         menu_Multas.setText("Multa");
 

@@ -2,8 +2,6 @@ package controlador;
 
 import java.awt.Desktop;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -359,7 +357,7 @@ public final class Control_Acta {
             if (model.AprobarActa()) {
                 desactivarBotones();
                 VisualizarTabla(vista.getTabla_acta(), "");
-                JOptionPane.showMessageDialog(null, "Aprobada con Exito", "", 0);
+                JOptionPane.showMessageDialog(null, "Aprobada con Exito", "", 1);
             }
         }
         
