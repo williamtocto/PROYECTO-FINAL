@@ -132,7 +132,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.add(jSeparator6);
         jToolBar1.add(jSeparator9);
 
-        btn_multas.setText("Multas");
+        btn_multas.setBackground(new java.awt.Color(0, 51, 102));
+        btn_multas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/multa.png"))); // NOI18N
+        btn_multas.setToolTipText("Multas");
         btn_multas.setFocusable(false);
         btn_multas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_multas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

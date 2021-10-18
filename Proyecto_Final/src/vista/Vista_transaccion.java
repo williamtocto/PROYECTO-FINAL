@@ -639,7 +639,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "              Fecha", "         Tipo Transacción", "                    Monto", "                    Saldo"
+                "                   Fecha", "         Tipo Transacción", "                    Monto", "                    Saldo"
             }
         ));
         jTabla_tran.setGridColor(new java.awt.Color(255, 153, 51));
@@ -682,7 +682,7 @@ public class Vista_transaccion extends javax.swing.JInternalFrame {
                 btn_imprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, -1, 30));
+        getContentPane().add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 90, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 450));

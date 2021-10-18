@@ -183,13 +183,13 @@ public class Vista_Asistencia extends javax.swing.JInternalFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         btn_cargarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/carga lista.png"))); // NOI18N
         btn_cargarLista.setText("Cargar Lista");
         btn_cargarLista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         getContentPane().add(btn_cargarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 110, 40));
-        getContentPane().add(date_chooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 112, 20));
+        getContentPane().add(date_chooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 70, 130, 20));
 
         btn_guardarFaltas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/guardar.png"))); // NOI18N
         btn_guardarFaltas.setText("Guardar ");
