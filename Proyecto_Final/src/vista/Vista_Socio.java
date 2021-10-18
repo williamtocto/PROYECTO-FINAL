@@ -277,85 +277,86 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
 
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Código:");
-        JDialogo.getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 50, 20));
+        JDialogo.getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 50, 20));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Nombre:");
-        JDialogo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 20));
+        JDialogo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Dirección:");
-        JDialogo.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 20));
+        JDialogo.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 60, 20));
 
         TxtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtDireccionActionPerformed(evt);
             }
         });
-        JDialogo.getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 190, -1));
+        JDialogo.getContentPane().add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 170, -1));
         TxtDireccion.getAccessibleContext().setAccessibleName("");
         TxtDireccion.getAccessibleContext().setAccessibleDescription("");
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("E-mail:");
-        JDialogo.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 70, 20));
-        JDialogo.getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 170, -1));
+        JDialogo.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 70, 20));
+        JDialogo.getContentPane().add(TxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 170, -1));
 
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Teléfono:");
-        JDialogo.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 60, 50));
+        JDialogo.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 60, 50));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Cédula:");
-        JDialogo.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
+        JDialogo.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 20));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Apellido:");
-        JDialogo.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
+        JDialogo.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 20));
 
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Fecha Ingreso:");
-        JDialogo.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 90, 20));
-        JDialogo.getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 140, -1));
+        JDialogo.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 90, 20));
+        JDialogo.getContentPane().add(TxtNumCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, -1));
 
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("No. Cuenta:");
         JDialogo.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 80, 30));
 
         btnNuevaCuenta.setText("+");
-        JDialogo.getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 50, 20));
+        JDialogo.getContentPane().add(btnNuevaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 40, 20));
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Fecha de Nac:");
-        JDialogo.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 90, 30));
-        JDialogo.getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 170, -1));
+        JDialogo.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 90, 30));
+        JDialogo.getContentPane().add(jdFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 170, -1));
 
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        JDialogo.getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 110, 30));
+        JDialogo.getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 110, 30));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/cancela.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        JDialogo.getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 100, 30));
+        JDialogo.getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 30));
 
         txtCedula.setText("");
-        JDialogo.getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 140, -1));
+        JDialogo.getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, -1));
 
         txtNombre.setText("");
-        JDialogo.getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 140, -1));
+        JDialogo.getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 170, -1));
 
         txtApellido.setText("");
-        JDialogo.getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 140, -1));
+        JDialogo.getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 170, -1));
 
         txtTelefono.setText("");
-        JDialogo.getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 100, -1));
-        JDialogo.getContentPane().add(txtFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 120, -1));
+        JDialogo.getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 170, -1));
+        JDialogo.getContentPane().add(txtFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 170, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        JDialogo.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
+        JDialogo.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 430));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -421,18 +422,22 @@ public class Vista_Socio extends javax.swing.JInternalFrame {
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/imprime.png"))); // NOI18N
         btnImprimir.setText("Imprimir Reporte");
         btnImprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 140, 40));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 140, 40));
 
+        btnActivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/activa.png"))); // NOI18N
         btnActivar.setText("Reactivar");
+        btnActivar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 51), 1, true));
         getContentPane().add(btnActivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, 110, 40));
 
+        btnRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_iconos/Refresca.png"))); // NOI18N
         btnRefrescar.setText("Refrescar");
+        btnRefrescar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 51), 1, true));
         btnRefrescar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefrescarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+        getContentPane().add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 110, 40));
 
         LblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/vista_imagenes/fondo_azul_oscuro.jpeg"))); // NOI18N
         LblFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
