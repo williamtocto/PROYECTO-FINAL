@@ -117,7 +117,6 @@ public class Control_user {
     }
 
     public void desactivarBotones() {
-        vu.getBtn_agregar().setEnabled(false);
         vu.getBtn_modificar().setEnabled(false);
         vu.getBtn_eliminar().setEnabled(false);
     }
@@ -258,7 +257,7 @@ public class Control_user {
             if (modelo.EliminarUsuario()) {
                 cargarLista("");
                 desactivarBotones();
-                JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito", "", 0);
+                JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito", "", 1);
             } else {
                 JOptionPane.showMessageDialog(null, "No se ha podido eliminar", "", 0);
             }
@@ -278,7 +277,7 @@ public class Control_user {
     }
 
     public void CargarDatos() {
-        codigo_usuario = Integer.parseInt(vu.getTxt_usuario().getText());   
+         
         cod_socio = codigoSocio();
         cod_rol = codigoRol();
         usuario = vu.getTxt_usuario().getText();

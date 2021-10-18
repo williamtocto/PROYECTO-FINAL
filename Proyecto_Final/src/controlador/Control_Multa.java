@@ -115,7 +115,7 @@ public class Control_Multa {
     }
 
     public void abrirDialogo() {
-        vista.getjDialog2().setSize(485, 410);
+        vista.getjDialog2().setSize(400,300);
         vista.getjDialog2().setVisible(true);
     }
 

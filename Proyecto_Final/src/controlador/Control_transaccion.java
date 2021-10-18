@@ -233,7 +233,7 @@ public class Control_transaccion {
         try {
           
            // String path = "src\\vista\\reportes\\historial_transaccion_1.jasper";
-            JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/historial_transaccion_1.jasper"));
+            JasperReport ruta = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/historial_transaccion_2.jasper"));
             //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             java.sql.Timestamp fc = java.sql.Timestamp.valueOf(formato);
             java.sql.Timestamp fc1 = java.sql.Timestamp.valueOf(formato1);
